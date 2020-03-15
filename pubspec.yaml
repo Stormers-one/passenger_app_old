@@ -24,6 +24,8 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
   font_awesome_flutter: ">6.0.0"
+  google_maps_flutter: ^0.5.11
+  flutter_map: any
 
 dev_dependencies:
   flutter_test:
@@ -35,6 +37,18 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
+  assets:
+    - assets/map.png
+    - assets/route.png
+    - assets/position.png
+    - assets/gps.png
+    - assets/logo.png
+    - assets/car.png
+    - assets/khjv.png
+    - assets/seatbus.png
+    - assets/map_m.png
+    - assets/question.png
+    - assets/report.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
