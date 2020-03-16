@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "209002783516",
+    "firebase_url": "https://odu-komban-ok.firebaseio.com",
+    "project_id": "odu-komban-ok",
+    "storage_bucket": "odu-komban-ok.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:209002783516:android:33fcaad9efe649f95810d9",
+        "android_client_info": {
+          "package_name": "com.stormers.o_k"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "209002783516-t9g1l13tlmlfae3n5627r2q9b5sdf2ge.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-Th_TJY5PCSAuJ1P6X1VDpJwARMlDL5E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "209002783516-t9g1l13tlmlfae3n5627r2q9b5sdf2ge.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
