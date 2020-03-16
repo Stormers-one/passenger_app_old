@@ -49,6 +49,7 @@ flutter:
     - assets/map_m.png
     - assets/question.png
     - assets/report.png
+    - assets/homepage.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
