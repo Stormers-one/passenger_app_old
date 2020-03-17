@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'seating.dart';
 
-class Booking extends StatelessWidget {
+class Booking extends StatefulWidget {
+  @override
+  _BookingState createState() => _BookingState();
+}
+class _BookingState extends State<Booking>{
+  
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

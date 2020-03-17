@@ -84,33 +84,56 @@ String error = "";
                                 error,
                                 style: TextStyle(color: Colors.red, fontSize:14.0),
                               ),
+                               new Padding(
+                                padding: const EdgeInsets.only(top: 10.0),
+                              ),
                               new TextFormField(
                                 validator: (val) =>val.isEmpty ?'Enter Full Name': null,
                                 style: new TextStyle(color: Colors.orange),
                                 decoration: new InputDecoration(
-                                    labelText: "Enter Full Name",
-                                    fillColor: Colors.red),
+                                    labelText: "Full Name:",
+                                    labelStyle: new TextStyle(fontSize:15, color: Colors.red),
+                                       
+                                    fillColor: Colors.grey[300],
+                                      filled: true,
+                                      ),
                                 keyboardType: TextInputType.emailAddress,
                                 onChanged: (val) {
                                   setState(()=> fname = val);
                                 }
                               ),
+                               new Padding(
+                                padding: const EdgeInsets.only(top: 10.0),
+                              ),
                               new TextFormField(
                                 validator: (val) =>val.isEmpty ?'Enter a valid Email': null,
                                 style: new TextStyle(color: Colors.orange),
                                 decoration: new InputDecoration(
-                                    labelText: "Enter Email",
-                                    fillColor: Colors.red),
+                                    labelText: "Email:",
+                                    labelStyle: new TextStyle(fontSize:15, color: Colors.red),
+                                      hintText: 'example@xyz.com',
+                                      hintStyle: new TextStyle(color: Colors.grey), 
+                                      fillColor: Colors.grey[300],
+                                      filled: true,
+                                    ),
                                 keyboardType: TextInputType.emailAddress,
                                 onChanged: (val) {
                                   setState(()=> email = val);
                                 }
                               ),
+                               new Padding(
+                                padding: const EdgeInsets.only(top: 10.0),
+                              ),
                               new TextFormField(
                                 validator: (val) =>val.length < 8 ?'Enter a password >8 Characters': null,
                                 style: new TextStyle(color: Colors.orange),
                                 decoration: new InputDecoration(
-                                  labelText: "Enter Password",
+                                  labelText: "Password:",
+                                  labelStyle: new TextStyle(fontSize:15, color: Colors.red),
+                                      hintText: 'At least 8 characters long',
+                                      hintStyle: new TextStyle(color: Colors.grey), 
+                                      fillColor: Colors.grey[300],
+                                      filled: true,
                                 ),
                                 obscureText: true,
                                 keyboardType: TextInputType.text,
