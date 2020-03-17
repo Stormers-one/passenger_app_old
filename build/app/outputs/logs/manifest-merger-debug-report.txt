@@ -6,12 +6,14 @@ INJECTED from C:\Users\ThunderBuzz\Documents\GitHub\o_k\android\app\src\main\And
 INJECTED from C:\Users\ThunderBuzz\Documents\GitHub\o_k\android\app\src\main\AndroidManifest.xml:1:1-31:12
 MERGED from C:\Users\ThunderBuzz\Documents\GitHub\o_k\android\app\src\main\AndroidManifest.xml:1:1-31:12
 MERGED from [:firebase_auth] C:\Users\ThunderBuzz\Documents\GitHub\o_k\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-15:12
+MERGED from [:firebase_auth_web] C:\Users\ThunderBuzz\Documents\GitHub\o_k\build\firebase_auth_web\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:cloud_firestore] C:\Users\ThunderBuzz\Documents\GitHub\o_k\build\cloud_firestore\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-15:12
+MERGED from [:cloud_firestore_web] C:\Users\ThunderBuzz\Documents\GitHub\o_k\build\cloud_firestore_web\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:firebase_core] C:\Users\ThunderBuzz\Documents\GitHub\o_k\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-15:12
 MERGED from [:firebase_core_web] C:\Users\ThunderBuzz\Documents\GitHub\o_k\build\firebase_core_web\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:sqflite] C:\Users\ThunderBuzz\Documents\GitHub\o_k\build\sqflite\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:google_maps_flutter] C:\Users\ThunderBuzz\Documents\GitHub\o_k\build\google_maps_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:flutter_plugin_android_lifecycle] C:\Users\ThunderBuzz\Documents\GitHub\o_k\build\flutter_plugin_android_lifecycle\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
-MERGED from [:sqflite] C:\Users\ThunderBuzz\Documents\GitHub\o_k\build\sqflite\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:path_provider] C:\Users\ThunderBuzz\Documents\GitHub\o_k\build\path_provider\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.firebase:firebase-analytics:17.2.2] C:\Users\ThunderBuzz\.gradle\caches\transforms-2\files-2.1\2a70ee504bd32b1bd949b6dd58d86852\firebase-analytics-17.2.2\AndroidManifest.xml:2:1-9:12
 MERGED from [com.firebaseui:firebase-ui-auth:6.2.0] C:\Users\ThunderBuzz\.gradle\caches\transforms-2\files-2.1\f9254b7cc69b9e078dc6570e1afdcdd2\jetified-firebase-ui-auth-6.2.0\AndroidManifest.xml:2:1-109:12
@@ -202,18 +204,22 @@ INJECTED from C:\Users\ThunderBuzz\Documents\GitHub\o_k\android\app\src\main\And
 INJECTED from C:\Users\ThunderBuzz\Documents\GitHub\o_k\android\app\src\main\AndroidManifest.xml
 MERGED from [:firebase_auth] C:\Users\ThunderBuzz\Documents\GitHub\o_k\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:firebase_auth] C:\Users\ThunderBuzz\Documents\GitHub\o_k\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:firebase_auth_web] C:\Users\ThunderBuzz\Documents\GitHub\o_k\build\firebase_auth_web\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:firebase_auth_web] C:\Users\ThunderBuzz\Documents\GitHub\o_k\build\firebase_auth_web\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:cloud_firestore] C:\Users\ThunderBuzz\Documents\GitHub\o_k\build\cloud_firestore\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:cloud_firestore] C:\Users\ThunderBuzz\Documents\GitHub\o_k\build\cloud_firestore\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:cloud_firestore_web] C:\Users\ThunderBuzz\Documents\GitHub\o_k\build\cloud_firestore_web\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:cloud_firestore_web] C:\Users\ThunderBuzz\Documents\GitHub\o_k\build\cloud_firestore_web\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:firebase_core] C:\Users\ThunderBuzz\Documents\GitHub\o_k\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:firebase_core] C:\Users\ThunderBuzz\Documents\GitHub\o_k\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:firebase_core_web] C:\Users\ThunderBuzz\Documents\GitHub\o_k\build\firebase_core_web\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:firebase_core_web] C:\Users\ThunderBuzz\Documents\GitHub\o_k\build\firebase_core_web\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:sqflite] C:\Users\ThunderBuzz\Documents\GitHub\o_k\build\sqflite\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:sqflite] C:\Users\ThunderBuzz\Documents\GitHub\o_k\build\sqflite\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:google_maps_flutter] C:\Users\ThunderBuzz\Documents\GitHub\o_k\build\google_maps_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:google_maps_flutter] C:\Users\ThunderBuzz\Documents\GitHub\o_k\build\google_maps_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:flutter_plugin_android_lifecycle] C:\Users\ThunderBuzz\Documents\GitHub\o_k\build\flutter_plugin_android_lifecycle\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:flutter_plugin_android_lifecycle] C:\Users\ThunderBuzz\Documents\GitHub\o_k\build\flutter_plugin_android_lifecycle\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:sqflite] C:\Users\ThunderBuzz\Documents\GitHub\o_k\build\sqflite\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:sqflite] C:\Users\ThunderBuzz\Documents\GitHub\o_k\build\sqflite\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:path_provider] C:\Users\ThunderBuzz\Documents\GitHub\o_k\build\path_provider\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:path_provider] C:\Users\ThunderBuzz\Documents\GitHub\o_k\build\path_provider\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-analytics:17.2.2] C:\Users\ThunderBuzz\.gradle\caches\transforms-2\files-2.1\2a70ee504bd32b1bd949b6dd58d86852\firebase-analytics-17.2.2\AndroidManifest.xml:5:5-44
