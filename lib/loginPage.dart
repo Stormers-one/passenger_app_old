@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'homepage.dart';
 import './services/auth.dart';
 import './register.dart';
+import './shared/loading.dart';
 
 class LoginPage extends StatefulWidget {
   final Function toggleView;
@@ -14,7 +15,7 @@ class LoginPage extends StatefulWidget {
 class _LoginState extends State<LoginPage> {
   final Authservice _auth = new Authservice();
   final _formkey = GlobalKey<FormState>();
-
+  bool loading = false;
 // text file state
   String email = "";
   String password = "";
@@ -38,7 +39,7 @@ class _LoginState extends State<LoginPage> {
               ));
     }
 
-    return WillPopScope(
+    return loading ? Loading() : WillPopScope(
       onWillPop: _onBackPressed,
       child: Scaffold(
         // backgroundColor: new LinearGradient(colors:[]),
@@ -189,12 +190,15 @@ class _LoginState extends State<LoginPage> {
                                 child: RaisedButton(
                                   onPressed: () async {
                                     if (_formkey.currentState.validate()) {
+                                      setState(()=> loading = true);
                                       dynamic result = await _auth
                                           .signInWithEmailAndPassword(
                                               email, password);
                                       if (result == null) {
-                                        setState(() => error =
-                                            'Incorrect Email or Password');
+                                        setState(() { 
+                                          error ='Incorrect Email or Password';
+                                          loading = false;
+                                          });
                                       }
                                     }
                                     // Navigator.push(
@@ -259,8 +263,10 @@ class _LoginState extends State<LoginPage> {
                             //
                             dynamic result = await _auth.signInAnon();
                             if (result == null) {
+                              setState(()=> loading = true);
                               print('Error Signing in');
                             } else {
+                              setState(()=> loading = false);
                               print('Signend  in success');
                               print(result.uid);
                             }
