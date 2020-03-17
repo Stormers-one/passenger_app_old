@@ -64,12 +64,13 @@ String error = "";
                               topRight: const Radius.circular(90.0),
                               bottomLeft: const Radius.circular(90.0),
                               bottomRight: const Radius.circular(90.0)),
-                            gradient: new LinearGradient(colors: [Colors.orange[300], Colors.red[100]],
-                              begin: const FractionalOffset(0.5, 0.0),
-                              end: const FractionalOffset(0.0, 0.5),
-                              stops: [0.0,1.0],
-                              tileMode: TileMode.clamp
-                          ),
+                          //   gradient: new LinearGradient(colors: [Colors.orange[300], Colors.red[100]],
+                          //     begin: const FractionalOffset(0.5, 0.0),
+                          //     end: const FractionalOffset(0.0, 0.5),
+                          //     stops: [0.0,1.0],
+                          //     tileMode: TileMode.clamp
+                          // ),
+                          color: Colors.orange[300],
                         ),
                         padding: const EdgeInsets.all(40.0),
                         child: new Form(
@@ -83,33 +84,56 @@ String error = "";
                                 error,
                                 style: TextStyle(color: Colors.red, fontSize:14.0),
                               ),
+                               new Padding(
+                                padding: const EdgeInsets.only(top: 10.0),
+                              ),
                               new TextFormField(
                                 validator: (val) =>val.isEmpty ?'Enter Full Name': null,
                                 style: new TextStyle(color: Colors.orange),
                                 decoration: new InputDecoration(
-                                    labelText: "Enter Full Name",
-                                    fillColor: Colors.red),
+                                    labelText: "Full Name:",
+                                    labelStyle: new TextStyle(fontSize:15, color: Colors.red),
+                                       
+                                    fillColor: Colors.grey[300],
+                                      filled: true,
+                                      ),
                                 keyboardType: TextInputType.emailAddress,
                                 onChanged: (val) {
                                   setState(()=> fname = val);
                                 }
                               ),
+                               new Padding(
+                                padding: const EdgeInsets.only(top: 10.0),
+                              ),
                               new TextFormField(
                                 validator: (val) =>val.isEmpty ?'Enter a valid Email': null,
                                 style: new TextStyle(color: Colors.orange),
                                 decoration: new InputDecoration(
-                                    labelText: "Enter Email",
-                                    fillColor: Colors.red),
+                                    labelText: "Email:",
+                                    labelStyle: new TextStyle(fontSize:15, color: Colors.red),
+                                      hintText: 'example@xyz.com',
+                                      hintStyle: new TextStyle(color: Colors.grey), 
+                                      fillColor: Colors.grey[300],
+                                      filled: true,
+                                    ),
                                 keyboardType: TextInputType.emailAddress,
                                 onChanged: (val) {
                                   setState(()=> email = val);
                                 }
                               ),
+                               new Padding(
+                                padding: const EdgeInsets.only(top: 10.0),
+                              ),
                               new TextFormField(
                                 validator: (val) =>val.length < 8 ?'Enter a password >8 Characters': null,
                                 style: new TextStyle(color: Colors.orange),
                                 decoration: new InputDecoration(
-                                  labelText: "Enter Password",
+                                  labelText: "Password:",
+                                  labelStyle: new TextStyle(fontSize:15, color: Colors.red),
+                                      hintText: 'At least 8 characters long',
+                                      hintStyle: new TextStyle(color: Colors.grey), 
+                                      fillColor: Colors.grey[300],
+                                      filled: true,
                                 ),
                                 obscureText: true,
                                 keyboardType: TextInputType.text,
@@ -137,7 +161,7 @@ String error = "";
                                 child: const Text('Register',
                                     style: TextStyle(fontSize: 20)),
                                 color: Colors.red,
-                                textColor: Colors.orange,
+                                textColor: Colors.white,
                                 splashColor: Colors.grey,
                                 padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
                                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
@@ -157,7 +181,7 @@ String error = "";
                                 child: const Text('Login',
                                     style: TextStyle(fontSize: 20)),
                                 color: Colors.red,
-                                textColor: Colors.orange,
+                                textColor: Colors.white,
                                 splashColor: Colors.grey,
                                 padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
                                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),

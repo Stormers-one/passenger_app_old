@@ -79,12 +79,13 @@ class _LoginState extends State<LoginPage> {
                               topRight: const Radius.circular(90.0),
                               bottomLeft: const Radius.circular(90.0),
                               bottomRight: const Radius.circular(90.0)),
-                            gradient: new LinearGradient(colors: [Colors.orange[300], Colors.red[100]],
-                              begin: const FractionalOffset(0.5, 0.0),
-                              end: const FractionalOffset(0.0, 0.5),
-                              stops: [0.0,1.0],
-                              tileMode: TileMode.clamp
-                          ),
+                          //   gradient: new LinearGradient(colors: [Colors.orange[300], Colors.red[100]],
+                          //     begin: const FractionalOffset(0.5, 0.0),
+                          //     end: const FractionalOffset(0.0, 0.5),
+                          //     stops: [0.0,1.0],
+                          //     tileMode: TileMode.clamp
+                          // ),
+                          color: Colors.orange[300],
                         ),
                         padding: const EdgeInsets.all(40.0),
                         child: new Form(
@@ -99,24 +100,57 @@ class _LoginState extends State<LoginPage> {
                                 style:
                                     TextStyle(color: Colors.red, fontSize: 14.0),
                                 ),
+                              new Padding(
+                                padding: const EdgeInsets.only(top: 10.0),
+                              ),
                               new TextFormField(
                                   validator: (val) =>
                                       val.isEmpty ? 'Enter an Email' : null,
                                   style: new TextStyle(color: Colors.orange),
                                   decoration: new InputDecoration(
-                                      labelText: "Enter Email",
-                                      fillColor: Colors.red),
+                                      labelText: "Email:",
+                                      labelStyle: new TextStyle(fontSize:15, color: Colors.red),
+                                      hintText: 'example@xyz.com',
+                                      hintStyle: new TextStyle(color: Colors.grey), 
+                                      fillColor: Colors.grey[300],
+                                      filled: true,
+                                      // enabledBorder: OutlineInputBorder(
+                                      //   borderSide: BorderSide(color: Colors.green[100]),
+                                      //   borderRadius: new BorderRadius.circular(50),
+                                      // ),
+                                      // focusedBorder: OutlineInputBorder(
+                                      //   borderSide: BorderSide(color: Colors.green[100]),
+                                      //   borderRadius: new BorderRadius.circular(50)
+                                      // )
+                                      ),
                                   keyboardType: TextInputType.emailAddress,
                                   onChanged: (val) {
                                     setState(() => email = val);
                                   }),
+                                  new Padding(
+                                padding: const EdgeInsets.only(top: 10.0),
+                              ),
                               new TextFormField(
                                   validator: (val) => val.length < 8
                                       ? 'Enter a password >8 Characters'
                                       : null,
                                   style: new TextStyle(color: Colors.orange),
                                   decoration: new InputDecoration(
-                                    labelText: "Enter Password",
+                                    labelText: "Password:",
+                                  labelStyle: new TextStyle(fontSize:15, color: Colors.red),
+                                      hintText: 'At least 8 characters long',
+                                      hintStyle: new TextStyle(color: Colors.grey), 
+                                      fillColor: Colors.grey[300],
+                                      filled: true,
+                                      // enabledBorder: OutlineInputBorder(
+                                      //   borderSide: BorderSide(color: Colors.green[100]),
+                                      //   // borderRadius: new BorderRadius.circular(50),
+                                      // ),
+                                      // focusedBorder: OutlineInputBorder(
+                                      //   borderSide: BorderSide(color: Colors.green[100]),
+                                      //   // borderRadius: new BorderRadius.circular(50),
+                                      // )
+                                    
                                   ),
                                   obscureText: true,
                                   keyboardType: TextInputType.text,

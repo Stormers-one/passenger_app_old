@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'seating.dart';
 
-class Booking extends StatelessWidget {
+class Booking extends StatefulWidget {
+  @override
+  _BookingState createState() => _BookingState();
+}
+class _BookingState extends State<Booking>{
+  
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -9,6 +15,7 @@ class Booking extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: Text('Booking'),
+          backgroundColor: Colors.green[100],
         ),
         body: ListView(
             shrinkWrap: true,
@@ -60,9 +67,10 @@ class Booking extends StatelessWidget {
                               child: const Text('Search',
                                   style: TextStyle(fontSize: 20)),
                               color: Colors.red,
-                              textColor: Colors.orange,
+                              textColor: Colors.white,
                               splashColor: Colors.grey,
                               padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                             ),
                           ],
                         ),

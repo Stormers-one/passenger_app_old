@@ -11,6 +11,7 @@ class Tracking extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: Text('Tracking'),
+          backgroundColor: Colors.green[100],
         ),
         body: ListView(
             shrinkWrap: true,
@@ -52,9 +53,10 @@ class Tracking extends StatelessWidget {
                             child: const Text('Search',
                                 style: TextStyle(fontSize: 20)),
                             color: Colors.red,
-                            textColor: Colors.orange,
+                            textColor: Colors.white,
                             splashColor: Colors.grey,
                             padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                           ),
                         ],
                       ),
