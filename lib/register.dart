@@ -23,21 +23,7 @@ String error = "";
 
   @override 
   Widget build(BuildContext context) {
-  Future<bool> _onBackPressed(){
-    return showDialog(
-      context: context,
-      builder: (context)=>AlertDialog(
-        title: Text("Do You Really want to Exit?"),
-        actions: <Widget>[
-          FlatButton(onPressed: ()=>Navigator.pop(context,false), child: Text("NO")),
-          FlatButton(onPressed: ()=>Navigator.pop(context,true), child: Text("YES")),
-        ],
-      )
-    );
-  }  
-     return WillPopScope(
-      onWillPop: _onBackPressed,
-          child: new Scaffold(
+     return Scaffold(
         backgroundColor: Colors.white,
         body: Container(
           child: ListView(
@@ -162,7 +148,6 @@ String error = "";
                 ),
               ]),
         ),
-      ),
-    );
+      );
   }
 }
