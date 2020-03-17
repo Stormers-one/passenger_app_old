@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'homepage.dart';
 import './services/auth.dart';
 import './register.dart';
-import './shared/loading.dart';
 
 class LoginPage extends StatefulWidget {
   final Function toggleView;
@@ -15,7 +14,6 @@ class LoginPage extends StatefulWidget {
 class _LoginState extends State<LoginPage> {
   final Authservice _auth = new Authservice();
   final _formkey = GlobalKey<FormState>();
-  bool loading= false;
 
 // text file state
   String email = "";
@@ -24,23 +22,25 @@ class _LoginState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    
-  Future<bool> _onBackPressed(){
-    return showDialog(
-      context: context,
-      builder: (context)=>AlertDialog(
-        title: Text("Do You Really want to Exit?"),
-        actions: <Widget>[
-          FlatButton(onPressed: ()=>Navigator.pop(context,false), child: Text("NO")),
-          FlatButton(onPressed: ()=>Navigator.pop(context,true), child: Text("YES")),
-        ],
-      )
-    );
-  }  
-    
-    return loading ? Loading() : WillPopScope(
+    Future<bool> _onBackPressed() {
+      return showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+                title: Text("Do You Really want to Exit?"),
+                actions: <Widget>[
+                  FlatButton(
+                      onPressed: () => Navigator.pop(context, false),
+                      child: Text("NO")),
+                  FlatButton(
+                      onPressed: () => Navigator.pop(context, true),
+                      child: Text("YES")),
+                ],
+              ));
+    }
+
+    return WillPopScope(
       onWillPop: _onBackPressed,
-          child: Scaffold(
+      child: Scaffold(
         // backgroundColor: new LinearGradient(colors:[]),
         body: Container(
           decoration: new BoxDecoration(
@@ -78,16 +78,17 @@ class _LoginState extends State<LoginPage> {
                       new Container(
                         decoration: new BoxDecoration(
                           borderRadius: new BorderRadius.only(
-                              topLeft: const Radius.circular(90.0),  //REMOVED CONTAINER BORDER RADIUS 
+                              topLeft: const Radius.circular(
+                                  90.0), //REMOVED CONTAINER BORDER RADIUS
                               topRight: const Radius.circular(90.0),
                               bottomLeft: const Radius.circular(90.0),
                               bottomRight: const Radius.circular(90.0)),
-                              gradient: new LinearGradient(colors: [Colors.orange[600], Colors.red[300]],
+                          gradient: new LinearGradient(
+                              colors: [Colors.orange[600], Colors.red[300]],
                               begin: const FractionalOffset(0.5, 0.0),
                               end: const FractionalOffset(0.0, 0.5),
-                              stops: [0.0,1.0],
-                              tileMode: TileMode.clamp
-                          ),
+                              stops: [0.0, 1.0],
+                              tileMode: TileMode.clamp),
                         ),
                         padding: const EdgeInsets.all(40.0),
                         child: new Form(
@@ -99,9 +100,9 @@ class _LoginState extends State<LoginPage> {
                               SizedBox(height: 10),
                               Text(
                                 error,
-                                style:
-                                    TextStyle(color: Colors.red, fontSize: 14.0),
-                                ),
+                                style: TextStyle(
+                                    color: Colors.red, fontSize: 14.0),
+                              ),
                               new Padding(
                                 padding: const EdgeInsets.only(top: 10.0),
                               ),
@@ -139,7 +140,7 @@ class _LoginState extends State<LoginPage> {
                                   onChanged: (val) {
                                     setState(() => email = val);
                                   }),
-                                  new Padding(
+                              new Padding(
                                 padding: const EdgeInsets.only(top: 10.0),
                               ),
                               new TextFormField(
@@ -183,21 +184,17 @@ class _LoginState extends State<LoginPage> {
                                 padding: const EdgeInsets.only(top: 20.0),
                               ),
                               SizedBox(
-                                 height: 50,
-                                 width: 200,
-                                 child: RaisedButton(
+                                height: 50,
+                                width: 200,
+                                child: RaisedButton(
                                   onPressed: () async {
                                     if (_formkey.currentState.validate()) {
-                                      setState(() => loading = true);
-                                      dynamic result =
-                                          await _auth.signInWithEmailAndPassword(
+                                      dynamic result = await _auth
+                                          .signInWithEmailAndPassword(
                                               email, password);
                                       if (result == null) {
-
-                                        setState(() {
-                                            error = 'Incorrect Email or Password';
-                                            loading = false;
-                                            });
+                                        setState(() => error =
+                                            'Incorrect Email or Password');
                                       }
                                     }
                                     // Navigator.push(
@@ -232,17 +229,17 @@ class _LoginState extends State<LoginPage> {
                                     );
                                     //widget.toggleView();
                                   },
-                                  child: const Text('Create an Account',
+                                  child: const Text('Register',
                                       style: TextStyle(fontSize: 20)),
                                   color: Colors.red,
                                   textColor: Colors.white,
                                   splashColor: Colors.grey,
-                                  shape: RoundedRectangleBorder(
                                   padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                          BorderRadius.circular(20.0)),
+                                  shape: RoundedRectangleBorder(
                                       borderRadius:
-                              ),
+                                          BorderRadius.circular(20.0)),
                                 ),
+                              ),
                             ],
                           ),
                         ),
