@@ -10,6 +10,7 @@ class Timing extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: Text('Bus Timing'),
+          backgroundColor: Colors.green[100],
         ),
         body: ListView(
             shrinkWrap: true,

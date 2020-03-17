@@ -10,6 +10,7 @@ class Maps extends StatelessWidget {
         resizeToAvoidBottomPadding: false,
         appBar: AppBar(
           title: Text('Maps'),
+          backgroundColor: Colors.green[100],
         ),
         body: ListView(
             shrinkWrap: true,

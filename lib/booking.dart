@@ -9,6 +9,7 @@ class Booking extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: Text('Booking'),
+          backgroundColor: Colors.green[100],
         ),
         body: ListView(
             shrinkWrap: true,

@@ -11,6 +11,7 @@ class Tracking extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: Text('Tracking'),
+          backgroundColor: Colors.green[100],
         ),
         body: ListView(
             shrinkWrap: true,
