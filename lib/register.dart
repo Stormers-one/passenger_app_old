@@ -93,6 +93,7 @@ class _RegisterState extends State<RegisterPage> {
                                     style: TextStyle(
                                         color: Colors.red, fontSize: 14.0),
                                   ),
+              //FULL NAME INPUT
                                   new Padding(
                                     padding: const EdgeInsets.only(top: 10.0),
                                   ),
@@ -122,6 +123,7 @@ class _RegisterState extends State<RegisterPage> {
                                       onChanged: (val) {
                                         setState(() => fname = val);
                                       }),
+                //EMAIL INPUT
                                   new Padding(
                                     padding: const EdgeInsets.only(top: 10.0),
                                   ),
@@ -151,12 +153,13 @@ class _RegisterState extends State<RegisterPage> {
                                       onChanged: (val) {
                                         setState(() => email = val);
                                       }),
+                // PASSWORD INPUT
                                   new Padding(
                                     padding: const EdgeInsets.only(top: 10.0),
                                   ),
                                   new TextFormField(
                                       validator: (val) => val.length < 8
-                                          ? 'Enter a password >8 Characters'
+                                          ? 'Password >8 Characters'
                                           : null,
                                       style:
                                           new TextStyle(color: Colors.orange),
@@ -179,8 +182,9 @@ class _RegisterState extends State<RegisterPage> {
                                       obscureText: true,
                                       keyboardType: TextInputType.text,
                                       onChanged: (val) {
-                                        setState(() => phno = val);
+                                        setState(() => password = val);
                                       }),
+                //PHONE NUMBER INPUT
                                       new Padding(
                                     padding: const EdgeInsets.only(top: 10.0),
                                   ),
@@ -206,8 +210,7 @@ class _RegisterState extends State<RegisterPage> {
                                               new BorderRadius.circular(25),
                                         ),
                                       ),
-                                      obscureText: false,
-                                      keyboardType: TextInputType.text,
+                                      keyboardType: TextInputType.number,
                                       onChanged: (val) {
                                         setState(() => phno = val);
                                       }),
