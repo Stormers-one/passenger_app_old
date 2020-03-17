@@ -70,7 +70,7 @@ String error = "";
                           //     stops: [0.0,1.0],
                           //     tileMode: TileMode.clamp
                           // ),
-                          color: Colors.grey[200],
+                          color: Colors.orange[300],
                         ),
                         padding: const EdgeInsets.all(40.0),
                         child: new Form(
@@ -138,7 +138,7 @@ String error = "";
                                 child: const Text('Register',
                                     style: TextStyle(fontSize: 20)),
                                 color: Colors.red,
-                                textColor: Colors.orange,
+                                textColor: Colors.white,
                                 splashColor: Colors.grey,
                                 padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
                                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
@@ -158,7 +158,7 @@ String error = "";
                                 child: const Text('Login',
                                     style: TextStyle(fontSize: 20)),
                                 color: Colors.red,
-                                textColor: Colors.orange,
+                                textColor: Colors.white,
                                 splashColor: Colors.grey,
                                 padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
                                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
