@@ -237,10 +237,11 @@ class _LoginState extends State<LoginPage> {
                                   color: Colors.red,
                                   textColor: Colors.white,
                                   splashColor: Colors.grey,
-                                  shape: RoundedRectangleBorder(
-                                  padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                          BorderRadius.circular(20.0)),
-                                      borderRadius:
+                                  //shape: RoundedRectangleBorder(
+                                  // padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                                  //         BorderRadius.circular(20.0)),
+                                  //     //borderRadius:
+                                
                               ),
                                 ),
                             ],
