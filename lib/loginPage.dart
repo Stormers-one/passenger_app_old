@@ -114,10 +114,10 @@ class _LoginState extends State<LoginPage> {
                                       hintStyle: new TextStyle(color: Colors.grey), 
                                       fillColor: Colors.grey[300],
                                       filled: true,
-                                      enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(color: Colors.green[100]),
-                                        borderRadius: new BorderRadius.circular(50),
-                                      ),
+                                      // enabledBorder: OutlineInputBorder(
+                                      //   borderSide: BorderSide(color: Colors.green[100]),
+                                      //   borderRadius: new BorderRadius.circular(50),
+                                      // ),
                                       // focusedBorder: OutlineInputBorder(
                                       //   borderSide: BorderSide(color: Colors.green[100]),
                                       //   borderRadius: new BorderRadius.circular(50)
