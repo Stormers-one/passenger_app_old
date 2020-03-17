@@ -22,23 +22,25 @@ class _LoginState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    
-  Future<bool> _onBackPressed(){
-    return showDialog(
-      context: context,
-      builder: (context)=>AlertDialog(
-        title: Text("Do You Really want to Exit?"),
-        actions: <Widget>[
-          FlatButton(onPressed: ()=>Navigator.pop(context,false), child: Text("NO")),
-          FlatButton(onPressed: ()=>Navigator.pop(context,true), child: Text("YES")),
-        ],
-      )
-    );
-  }  
-    
+    Future<bool> _onBackPressed() {
+      return showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+                title: Text("Do You Really want to Exit?"),
+                actions: <Widget>[
+                  FlatButton(
+                      onPressed: () => Navigator.pop(context, false),
+                      child: Text("NO")),
+                  FlatButton(
+                      onPressed: () => Navigator.pop(context, true),
+                      child: Text("YES")),
+                ],
+              ));
+    }
+
     return WillPopScope(
       onWillPop: _onBackPressed,
-          child: Scaffold(
+      child: Scaffold(
         // backgroundColor: new LinearGradient(colors:[]),
         body: Container(
           decoration: new BoxDecoration(
@@ -76,16 +78,17 @@ class _LoginState extends State<LoginPage> {
                       new Container(
                         decoration: new BoxDecoration(
                           borderRadius: new BorderRadius.only(
-                              topLeft: const Radius.circular(90.0),  //REMOVED CONTAINER BORDER RADIUS 
+                              topLeft: const Radius.circular(
+                                  90.0), //REMOVED CONTAINER BORDER RADIUS
                               topRight: const Radius.circular(90.0),
                               bottomLeft: const Radius.circular(90.0),
                               bottomRight: const Radius.circular(90.0)),
-                            gradient: new LinearGradient(colors: [Colors.orange[600], Colors.red[300]],
+                          gradient: new LinearGradient(
+                              colors: [Colors.orange[600], Colors.red[300]],
                               begin: const FractionalOffset(0.5, 0.0),
                               end: const FractionalOffset(0.0, 0.5),
-                              stops: [0.0,1.0],
-                              tileMode: TileMode.clamp
-                          ),
+                              stops: [0.0, 1.0],
+                              tileMode: TileMode.clamp),
                         ),
                         padding: const EdgeInsets.all(40.0),
                         child: new Form(
@@ -97,9 +100,9 @@ class _LoginState extends State<LoginPage> {
                               SizedBox(height: 10),
                               Text(
                                 error,
-                                style:
-                                    TextStyle(color: Colors.red, fontSize: 14.0),
-                                ),
+                                style: TextStyle(
+                                    color: Colors.red, fontSize: 14.0),
+                              ),
                               new Padding(
                                 padding: const EdgeInsets.only(top: 10.0),
                               ),
@@ -108,26 +111,29 @@ class _LoginState extends State<LoginPage> {
                                       val.isEmpty ? 'Enter an Email' : null,
                                   style: new TextStyle(color: Colors.orange),
                                   decoration: new InputDecoration(
-                                      labelText: "Email:",
-                                      labelStyle: new TextStyle(fontSize:15, color: Colors.red),
-                                      hintText: 'example@xyz.com',
-                                      hintStyle: new TextStyle(color: Colors.grey), 
+                                      //labelText: "Email:",
+                                      //labelStyle: new TextStyle(fontSize:15, color: Colors.red),
+                                      hintText: 'Email',
+                                      hintStyle:
+                                          new TextStyle(color: Colors.grey),
                                       fillColor: Colors.grey[300],
                                       filled: true,
-                                      // enabledBorder: OutlineInputBorder(
-                                      //   borderSide: BorderSide(color: Colors.green[100]),
-                                      //   borderRadius: new BorderRadius.circular(50),
-                                      // ),
-                                      // focusedBorder: OutlineInputBorder(
-                                      //   borderSide: BorderSide(color: Colors.green[100]),
-                                      //   borderRadius: new BorderRadius.circular(50)
-                                      // )
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.white),
+                                        borderRadius:
+                                            new BorderRadius.circular(25),
                                       ),
+                                      focusedBorder: OutlineInputBorder(
+                                          borderSide:
+                                              BorderSide(color: Colors.white),
+                                          borderRadius:
+                                              new BorderRadius.circular(25))),
                                   keyboardType: TextInputType.emailAddress,
                                   onChanged: (val) {
                                     setState(() => email = val);
                                   }),
-                                  new Padding(
+                              new Padding(
                                 padding: const EdgeInsets.only(top: 10.0),
                               ),
                               new TextFormField(
@@ -136,22 +142,25 @@ class _LoginState extends State<LoginPage> {
                                       : null,
                                   style: new TextStyle(color: Colors.orange),
                                   decoration: new InputDecoration(
-                                    labelText: "Password:",
-                                  labelStyle: new TextStyle(fontSize:15, color: Colors.red),
-                                      hintText: 'At least 8 characters long',
-                                      hintStyle: new TextStyle(color: Colors.grey), 
+                                      //labelText: "Password:",
+                                      //labelStyle: new TextStyle(fontSize: 15, color: Colors.red),
+                                      hintText: 'Password',
+                                      hintStyle:
+                                          new TextStyle(color: Colors.grey),
                                       fillColor: Colors.grey[300],
                                       filled: true,
-                                      // enabledBorder: OutlineInputBorder(
-                                      //   borderSide: BorderSide(color: Colors.green[100]),
-                                      //   // borderRadius: new BorderRadius.circular(50),
-                                      // ),
-                                      // focusedBorder: OutlineInputBorder(
-                                      //   borderSide: BorderSide(color: Colors.green[100]),
-                                      //   // borderRadius: new BorderRadius.circular(50),
-                                      // )
-                                    
-                                  ),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.white),
+                                        borderRadius:
+                                            new BorderRadius.circular(25),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.white),
+                                        borderRadius:
+                                            new BorderRadius.circular(25),
+                                      )),
                                   obscureText: true,
                                   keyboardType: TextInputType.text,
                                   onChanged: (val) {
@@ -167,8 +176,8 @@ class _LoginState extends State<LoginPage> {
                                         await _auth.signInWithEmailAndPassword(
                                             email, password);
                                     if (result == null) {
-                                      setState(() =>
-                                          error = 'Incorrect Email or Password');
+                                      setState(() => error =
+                                          'Incorrect Email or Password');
                                     }
                                   }
                                   // Navigator.push(
@@ -183,7 +192,8 @@ class _LoginState extends State<LoginPage> {
                                 textColor: Colors.white,
                                 splashColor: Colors.grey,
                                 padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20.0)),
                               ),
                               new Padding(
                                 padding: const EdgeInsets.only(top: 20.0),
@@ -203,15 +213,16 @@ class _LoginState extends State<LoginPage> {
                                 textColor: Colors.white,
                                 splashColor: Colors.grey,
                                 padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
-                              ),      
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20.0)),
+                              ),
                             ],
                           ),
                         ),
                       ),
                       new Padding(
-                                padding: const EdgeInsets.only(top: 20.0),
-                              ),
+                        padding: const EdgeInsets.only(top: 20.0),
+                      ),
                       RaisedButton(
                         onPressed: () {
                           Navigator.push(
@@ -219,13 +230,14 @@ class _LoginState extends State<LoginPage> {
                             MaterialPageRoute(builder: (context) => Homepage()),
                           );
                         },
-                        child:
-                            const Text('Direct', style: TextStyle(fontSize: 20)),
+                        child: const Text('Direct',
+                            style: TextStyle(fontSize: 20)),
                         color: Colors.red,
                         textColor: Colors.white,
                         splashColor: Colors.grey,
                         padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20.0)),
                       ),
                     ],
                   ),
