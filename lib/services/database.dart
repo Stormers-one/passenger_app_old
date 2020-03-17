@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:o_k/model/user.dart';
 
 import '../users_fetch.dart';
 
@@ -30,11 +31,28 @@ final CollectionReference userCollecation = Firestore.instance.collection('Users
     }).toList();
   }
 
+  //userdata from snapshot
+
+  UserData _userDataFromSnapshot(DocumentSnapshot snapshot){
+    return UserData(
+      uid : uid,
+      fname: snapshot.data['Full Name'],
+      email: snapshot.data['Email'],
+      phno: snapshot.data['Phone Number'],
+    );
+  }
+
   //get user stream
 
   Stream<List<Users>> get users {
     return userCollecation.snapshots()
     .map(_userListFromSnapshot);
+  }
+
+  // get user doc stream 
+  Stream<UserData> get userData {
+    return userCollecation.document(uid).snapshots()
+      .map(_userDataFromSnapshot);
   }
 
 }
