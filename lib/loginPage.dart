@@ -42,12 +42,13 @@ class _LoginState extends State<LoginPage> {
         // backgroundColor: new LinearGradient(colors:[]),
         body: Container(
           decoration: new BoxDecoration(
-            gradient: new LinearGradient(colors: [Colors.orange[300], Colors.green[100]],
-                begin: const FractionalOffset(0.5, 0.0),
-                end: const FractionalOffset(0.0, 0.5),
-                stops: [0.0,1.0],
-                tileMode: TileMode.clamp
-            ),
+            // gradient: new LinearGradient(colors: [Colors.orange[300], Colors.green[100]],
+            //     begin: const FractionalOffset(0.5, 0.0),
+            //     end: const FractionalOffset(0.0, 0.5),
+            //     stops: [0.0,1.0],
+            //     tileMode: TileMode.clamp
+            // ),
+            color: Colors.orange[300],
           ),
           child: ListView(
               shrinkWrap: true,
@@ -79,13 +80,12 @@ class _LoginState extends State<LoginPage> {
                               topRight: const Radius.circular(90.0),
                               bottomLeft: const Radius.circular(90.0),
                               bottomRight: const Radius.circular(90.0)),
-                          //   gradient: new LinearGradient(colors: [Colors.orange[300], Colors.red[100]],
-                          //     begin: const FractionalOffset(0.5, 0.0),
-                          //     end: const FractionalOffset(0.0, 0.5),
-                          //     stops: [0.0,1.0],
-                          //     tileMode: TileMode.clamp
-                          // ),
-                          color: Colors.orange[300],
+                            gradient: new LinearGradient(colors: [Colors.orange[600], Colors.red[200]],
+                              begin: const FractionalOffset(0.5, 0.0),
+                              end: const FractionalOffset(0.0, 0.5),
+                              stops: [0.0,1.0],
+                              tileMode: TileMode.clamp
+                          ),
                         ),
                         padding: const EdgeInsets.all(40.0),
                         child: new Form(
