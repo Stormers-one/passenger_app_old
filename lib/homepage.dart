@@ -6,47 +6,50 @@ import 'reports.dart';
 import 'timing.dart';
 import 'tracking.dart';
 import 'maps.dart';
-
+import 'profile.dart';
 
 class Homepage extends StatelessWidget {
   final Authservice _auth = new Authservice();
-  
+
   @override
   Widget build(BuildContext context) {
-      Future<bool> _onBackPressed(){
-    return showDialog(
-      context: context,
-      builder: (context)=>AlertDialog(
-        title: Text("Logout?"),
-        actions: <Widget>[
-          FlatButton(onPressed: ()=>Navigator.pop(context,false), child: Text("NO")),
-          FlatButton(onPressed: ()=>Navigator.pop(context,true), child: Text("YES")),
-        ],
-      )
-    );
-  } 
+    Future<bool> _onBackPressed() {
+      return showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+                title: Text("Logout?"),
+                actions: <Widget>[
+                  FlatButton(
+                      onPressed: () => Navigator.pop(context, false),
+                      child: Text("NO")),
+                  FlatButton(
+                      onPressed: () => Navigator.pop(context, true),
+                      child: Text("YES")),
+                ],
+              ));
+    }
+
     return WillPopScope(
       onWillPop: _onBackPressed,
-          child: MaterialApp(
+      child: MaterialApp(
         title: 'Homepage',
         home: Scaffold(
           appBar: AppBar(
-            //title: Text('MENU'),
-            backgroundColor: Colors.green[100],
-            actions: <Widget>[
-              FlatButton.icon(
-                icon: Icon(Icons.person),
-                label: Text('Logout'),
-                onPressed: () async {
-                  await _auth.signOut();
-                },
-              )
-            ]
-          ),
+              //title: Text('MENU'),
+              backgroundColor: Colors.green[100],
+              actions: <Widget>[
+                FlatButton.icon(
+                  icon: Icon(Icons.person),
+                  label: Text('Logout'),
+                  onPressed: () async {
+                    await _auth.signOut();
+                  },
+                )
+              ]),
           drawer: Drawer(
             child: ListView(
               padding: EdgeInsets.zero,
-              children: const <Widget>[
+              children: <Widget>[
                 DrawerHeader(
                   decoration: BoxDecoration(
                     color: Colors.green,
@@ -66,6 +69,12 @@ class Homepage extends StatelessWidget {
                 ListTile(
                   leading: Icon(Icons.account_circle),
                   title: Text('Profile'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Profile()),
+                    );
+                  },
                 ),
                 ListTile(
                   leading: Icon(Icons.settings),
@@ -92,11 +101,11 @@ class Homepage extends StatelessWidget {
                   children: <Widget>[
                     Container(
                       decoration: BoxDecoration(
-                        image: new DecorationImage(image: new ExactAssetImage(
-                        'assets/homepage.png',
-                      ),)
-                      
-                      ),
+                          image: new DecorationImage(
+                        image: new ExactAssetImage(
+                          'assets/homepage.png',
+                        ),
+                      )),
                       child: Image.asset(
                         'assets/homepage.png',
                       ),
@@ -107,7 +116,8 @@ class Homepage extends StatelessWidget {
                           color: Colors.orange[100],
                           shape: BoxShape.rectangle,
                           borderRadius: new BorderRadius.only(
-                              topLeft: const Radius.circular(20.0),  //REMOVED CONTAINER BORDER RADIUS 
+                              topLeft: const Radius.circular(
+                                  20.0), //REMOVED CONTAINER BORDER RADIUS
                               topRight: const Radius.circular(20.0))),
                       alignment: Alignment.bottomCenter,
                       padding: EdgeInsets.all(20.0),
@@ -119,10 +129,12 @@ class Homepage extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
                                 children: [
                                   RawMaterialButton(
-                                    padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                                    padding:
+                                        EdgeInsets.fromLTRB(20, 10, 20, 10),
                                     shape: new RoundedRectangleBorder(
                                         borderRadius:
                                             new BorderRadius.circular(18.0),
@@ -180,10 +192,12 @@ class Homepage extends StatelessWidget {
                                 ],
                               ),
                               Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
                                 children: [
                                   RawMaterialButton(
-                                    padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                                    padding:
+                                        EdgeInsets.fromLTRB(20, 10, 20, 10),
                                     shape: new RoundedRectangleBorder(
                                         borderRadius:
                                             new BorderRadius.circular(18.0),
@@ -246,10 +260,12 @@ class Homepage extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
                                 children: <Widget>[
                                   RawMaterialButton(
-                                    padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                                    padding:
+                                        EdgeInsets.fromLTRB(20, 10, 20, 10),
                                     shape: new RoundedRectangleBorder(
                                         borderRadius:
                                             new BorderRadius.circular(18.0),
@@ -308,10 +324,12 @@ class Homepage extends StatelessWidget {
                                 ],
                               ),
                               Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
                                 children: [
                                   RawMaterialButton(
-                                    padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                                    padding:
+                                        EdgeInsets.fromLTRB(20, 10, 20, 10),
                                     shape: new RoundedRectangleBorder(
                                         borderRadius:
                                             new BorderRadius.circular(18.0),
