@@ -169,7 +169,10 @@ class _LoginState extends State<LoginPage> {
                               new Padding(
                                 padding: const EdgeInsets.only(top: 20.0),
                               ),
-                              RaisedButton(
+                              SizedBox(
+                                 height: 50,
+                                 width: 200,
+                                 child: RaisedButton(
                                 onPressed: () async {
                                   if (_formkey.currentState.validate()) {
                                     dynamic result =
@@ -194,11 +197,15 @@ class _LoginState extends State<LoginPage> {
                                 padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20.0)),
+                                ),
                               ),
                               new Padding(
                                 padding: const EdgeInsets.only(top: 20.0),
                               ),
-                              RaisedButton(
+                              SizedBox(
+                                 height: 50,
+                                 width: 200,
+                                 child: RaisedButton(
                                 onPressed: () {
                                   Navigator.push(
                                     context,
@@ -216,28 +223,40 @@ class _LoginState extends State<LoginPage> {
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20.0)),
                               ),
+                              ),      
                             ],
                           ),
                         ),
                       ),
                       new Padding(
-                        padding: const EdgeInsets.only(top: 20.0),
-                      ),
-                      RaisedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => Homepage()),
-                          );
-                        },
-                        child: const Text('Direct',
-                            style: TextStyle(fontSize: 20)),
-                        color: Colors.red,
-                        textColor: Colors.white,
-                        splashColor: Colors.grey,
-                        padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20.0)),
+                                padding: const EdgeInsets.only(top: 20.0),
+                              ),
+                      SizedBox(
+                         height: 50,
+                         width: 200,
+                         child: RaisedButton(
+                          onPressed: ()  async {
+                            // Navigator.push(
+                            //   context,
+                            //   MaterialPageRoute(builder: (context) => Homepage()),
+                            // );
+                              dynamic result = await _auth.signInAnon();
+                              if(result == null){
+                                print('Error Signing in');
+                              }else{
+                                  print('Signend  in success');
+                                  print(result.uid);
+                              }
+                              
+                          },
+                          child:
+                              const Text('Annonymous', style: TextStyle(fontSize: 20)),
+                          color: Colors.red,
+                          textColor: Colors.white,
+                          splashColor: Colors.grey,
+                          padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                        ),
                       ),
                     ],
                   ),

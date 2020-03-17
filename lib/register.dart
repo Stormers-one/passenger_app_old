@@ -144,47 +144,55 @@ String error = "";
                               new Padding(
                                 padding: const EdgeInsets.only(top: 20.0),
                               ),
-                              RaisedButton(
-                                onPressed: () async {
-                                  if (_formkey.currentState.validate()){
-                                    dynamic result = await _auth.registerWithEmailAndPassword(email, password);
-                                    if(result == null){
-                                      setState(()=> error= 'Please enter a valid email and password');
+                              SizedBox(
+                                height: 50,
+                                width: 200,
+                                 child: RaisedButton(
+                                  onPressed: () async {
+                                    if (_formkey.currentState.validate()){
+                                      dynamic result = await _auth.registerWithEmailAndPassword(email, password);
+                                      if(result == null){
+                                        setState(()=> error= 'Please enter a valid email and password');
+                                      }
                                     }
-                                  }
-                                  // Navigator.push(
-                                  //   context,
-                                  //   MaterialPageRoute(
-                                  //       builder: (context) => Homepage()),
-                                  // );
-                                },
-                                child: const Text('Register',
-                                    style: TextStyle(fontSize: 20)),
-                                color: Colors.red,
-                                textColor: Colors.white,
-                                splashColor: Colors.grey,
-                                padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                                    // Navigator.push(
+                                    //   context,
+                                    //   MaterialPageRoute(
+                                    //       builder: (context) => Homepage()),
+                                    // );
+                                  },
+                                  child: const Text('Register',
+                                      style: TextStyle(fontSize: 20)),
+                                  color: Colors.red,
+                                  textColor: Colors.white,
+                                  splashColor: Colors.grey,
+                                  padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                                ),
                               ),
                               new Padding(
                                 padding: const EdgeInsets.only(top: 20.0),
                               ),
-                              RaisedButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => LoginPage()),
-                                  );
-                                  //widget.toggleView();
-                                },
-                                child: const Text('Login',
-                                    style: TextStyle(fontSize: 20)),
-                                color: Colors.red,
-                                textColor: Colors.white,
-                                splashColor: Colors.grey,
-                                padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                              SizedBox(
+                                height: 50,
+                                width: 200,
+                                 child: RaisedButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => LoginPage()),
+                                    );
+                                    //widget.toggleView();
+                                  },
+                                  child: const Text(' Already have an Account?',
+                                      style: TextStyle(fontSize: 15)),
+                                  color: Colors.red,
+                                  textColor: Colors.white,
+                                  splashColor: Colors.grey,
+                                  padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                                ),
                               ),
                             ],
                           ),
