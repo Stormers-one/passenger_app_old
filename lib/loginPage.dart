@@ -80,7 +80,7 @@ class _LoginState extends State<LoginPage> {
                               topRight: const Radius.circular(90.0),
                               bottomLeft: const Radius.circular(90.0),
                               bottomRight: const Radius.circular(90.0)),
-                            gradient: new LinearGradient(colors: [Colors.orange[600], Colors.red[200]],
+                            gradient: new LinearGradient(colors: [Colors.orange[600], Colors.red[300]],
                               begin: const FractionalOffset(0.5, 0.0),
                               end: const FractionalOffset(0.0, 0.5),
                               stops: [0.0,1.0],
