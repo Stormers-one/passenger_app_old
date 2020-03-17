@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:o_k/profile_settings.dart';
 import 'package:o_k/services/auth.dart';
 import 'package:o_k/services/database.dart';
 import 'package:o_k/user_list.dart';
@@ -10,6 +11,15 @@ class Profile extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
+    void _showSettengsPanel(){
+      showModalBottomSheet(context: context, builder: (context){
+        return Container(
+          padding: EdgeInsets.symmetric(vertical: 20.0 , horizontal: 60.0),
+          child: SettingsForm(),
+        );
+      });
+    }
+
     return StreamProvider<List<Users>>.value(
       value: DatabaseService().users,
           child: MaterialApp(
@@ -18,6 +28,9 @@ class Profile extends StatelessWidget {
           appBar: AppBar(
             title: Text('Users List'),
             backgroundColor: Colors.green[100],
+            actions: <Widget>[
+              FlatButton.icon(onPressed: ()=> _showSettengsPanel(), icon: Icon(Icons.settings), label: Text('Edit Profile'))
+            ]
           ),
           drawer: Drawer(
             child: ListView(

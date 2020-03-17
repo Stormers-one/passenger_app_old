@@ -13,11 +13,10 @@ class UsersTile extends StatelessWidget {
         margin: EdgeInsets.fromLTRB(20.0, 6.0, 20.0, 0.0),
         child: ListTile(
           leading: CircleAvatar(
-            radius: 50.0, 
+            radius: 50.0,
             backgroundColor: Colors.orange[300],
           ),
           title: Text(user.fname),
-          subtitle: Text(user.email),
         ),
       )
       );
