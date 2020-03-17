@@ -80,7 +80,7 @@ class _LoginState extends State<LoginPage> {
                               topRight: const Radius.circular(90.0),
                               bottomLeft: const Radius.circular(90.0),
                               bottomRight: const Radius.circular(90.0)),
-                            gradient: new LinearGradient(colors: [Colors.orange[600], Colors.red[300]],
+                              gradient: new LinearGradient(colors: [Colors.orange[600], Colors.red[300]],
                               begin: const FractionalOffset(0.5, 0.0),
                               end: const FractionalOffset(0.0, 0.5),
                               stops: [0.0,1.0],
@@ -160,50 +160,58 @@ class _LoginState extends State<LoginPage> {
                               new Padding(
                                 padding: const EdgeInsets.only(top: 20.0),
                               ),
-                              RaisedButton(
-                                onPressed: () async {
-                                  if (_formkey.currentState.validate()) {
-                                    dynamic result =
-                                        await _auth.signInWithEmailAndPassword(
-                                            email, password);
-                                    if (result == null) {
-                                      setState(() =>
-                                          error = 'Incorrect Email or Password');
+                              SizedBox(
+                                 height: 50,
+                                 width: 200,
+                                 child: RaisedButton(
+                                  onPressed: () async {
+                                    if (_formkey.currentState.validate()) {
+                                      dynamic result =
+                                          await _auth.signInWithEmailAndPassword(
+                                              email, password);
+                                      if (result == null) {
+                                        setState(() =>
+                                            error = 'Incorrect Email or Password');
+                                      }
                                     }
-                                  }
-                                  // Navigator.push(
-                                  //   context,
-                                  //   MaterialPageRoute(
-                                  //       builder: (context) => Homepage()),
-                                  // );
-                                },
-                                child: const Text('Login',
-                                    style: TextStyle(fontSize: 20)),
-                                color: Colors.red,
-                                textColor: Colors.white,
-                                splashColor: Colors.grey,
-                                padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                                    // Navigator.push(
+                                    //   context,
+                                    //   MaterialPageRoute(
+                                    //       builder: (context) => Homepage()),
+                                    // );
+                                  },
+                                  child: const Text('Login',
+                                      style: TextStyle(fontSize: 20)),
+                                  color: Colors.red,
+                                  textColor: Colors.white,
+                                  splashColor: Colors.grey,
+                                  padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                                ),
                               ),
                               new Padding(
                                 padding: const EdgeInsets.only(top: 20.0),
                               ),
-                              RaisedButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => RegisterPage()),
-                                  );
-                                  //widget.toggleView();
-                                },
-                                child: const Text('Register',
-                                    style: TextStyle(fontSize: 20)),
-                                color: Colors.red,
-                                textColor: Colors.white,
-                                splashColor: Colors.grey,
-                                padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                              SizedBox(
+                                 height: 50,
+                                 width: 200,
+                                 child: RaisedButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => RegisterPage()),
+                                    );
+                                    //widget.toggleView();
+                                  },
+                                  child: const Text('Create an Account',
+                                      style: TextStyle(fontSize: 17)),
+                                  color: Colors.red,
+                                  textColor: Colors.white,
+                                  splashColor: Colors.grey,
+                                  padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                                ),
                               ),      
                             ],
                           ),
@@ -212,20 +220,32 @@ class _LoginState extends State<LoginPage> {
                       new Padding(
                                 padding: const EdgeInsets.only(top: 20.0),
                               ),
-                      RaisedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => Homepage()),
-                          );
-                        },
-                        child:
-                            const Text('Direct', style: TextStyle(fontSize: 20)),
-                        color: Colors.red,
-                        textColor: Colors.white,
-                        splashColor: Colors.grey,
-                        padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                      SizedBox(
+                         height: 50,
+                         width: 200,
+                         child: RaisedButton(
+                          onPressed: ()  async {
+                            // Navigator.push(
+                            //   context,
+                            //   MaterialPageRoute(builder: (context) => Homepage()),
+                            // );
+                              dynamic result = await _auth.signInAnon();
+                              if(result == null){
+                                print('Error Signing in');
+                              }else{
+                                  print('Signend  in success');
+                                  print(result.uid);
+                              }
+                              
+                          },
+                          child:
+                              const Text('Annonymous', style: TextStyle(fontSize: 20)),
+                          color: Colors.red,
+                          textColor: Colors.white,
+                          splashColor: Colors.grey,
+                          padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                        ),
                       ),
                     ],
                   ),
