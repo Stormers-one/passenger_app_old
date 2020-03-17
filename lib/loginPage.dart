@@ -192,14 +192,20 @@ class _LoginState extends State<LoginPage> {
                                     if (_formkey.currentState.validate()) {
                                       setState(()=> loading = true);
                                       dynamic result = await _auth
-                                          .signInWithEmailAndPassword(
-                                              email, password);
+                                          .signInWithEmailAndPassword(email, password);
                                       if (result == null) {
                                         setState(() { 
                                           error ='Incorrect Email or Password';
                                           loading = false;
                                           });
                                       }
+                                      else {
+                                            Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => Wrapper()),
+                                        );
+                                        }
                                     }
                                     // Navigator.push(
                                     //   context,

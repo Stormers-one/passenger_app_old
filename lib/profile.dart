@@ -29,7 +29,7 @@ class Profile extends StatelessWidget {
           title: 'Homepage',
           home: Scaffold(
             appBar: AppBar(
-              //title: Text('MENU'),
+              title: Text('Profile'),
               backgroundColor: Colors.green[100],
               actions: <Widget>[
                 FlatButton.icon(

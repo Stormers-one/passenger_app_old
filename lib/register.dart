@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:o_k/Wrapper.dart';
 import 'homepage.dart';
 import './services/auth.dart';
 import 'loginPage.dart';
@@ -22,6 +23,7 @@ class _RegisterState extends State<RegisterPage> {
   String email = "";
   String password = "";
   String error = "";
+  String phno = null;
 
   @override
   Widget build(BuildContext context) {
@@ -177,6 +179,36 @@ class _RegisterState extends State<RegisterPage> {
                                       obscureText: true,
                                       keyboardType: TextInputType.text,
                                       onChanged: (val) {
+                                        setState(() => phno = val);
+                                      }),
+                                      new Padding(
+                                    padding: const EdgeInsets.only(top: 10.0),
+                                  ),
+                                  new TextFormField(
+                                      validator: (val) => val.length < 10
+                                          ? 'Enter a valid phone number'
+                                          : null,
+                                      style:
+                                          new TextStyle(color: Colors.orange),
+                                      decoration: new InputDecoration(
+                                        //labelText: "Password:",
+                                        //labelStyle: new TextStyle(
+                                        //    fontSize: 15, color: Colors.red),
+                                        hintText: 'Phone Number',
+                                        hintStyle:
+                                            new TextStyle(color: Colors.grey),
+                                        fillColor: Colors.grey[300],
+                                        filled: true,
+                                        border: OutlineInputBorder(
+                                          borderSide:
+                                              BorderSide(color: Colors.white),
+                                          borderRadius:
+                                              new BorderRadius.circular(25),
+                                        ),
+                                      ),
+                                      obscureText: false,
+                                      keyboardType: TextInputType.text,
+                                      onChanged: (val) {
                                         setState(() => password = val);
                                       }),
                                   new Padding(
@@ -190,15 +222,20 @@ class _RegisterState extends State<RegisterPage> {
                                         if (_formkey.currentState.validate()) {
                                           setState(() => loading = true);
                                           dynamic result = await _auth
-                                              .registerWithEmailAndPassword(
-                                                  email, password);
+                                              .registerWithEmailAndPassword(fname ,email, password,phno);
                                           if (result == null) {
                                             setState(() {
                                               error =
                                                   'Please enter a valid email and password';
                                               loading = false;
                                             });
-                                          }
+                                          }else {
+                                            Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => Wrapper()),
+                                        );
+                                        }
                                         }
                                         // Navigator.push(
                                         //   context,
