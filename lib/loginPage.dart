@@ -130,6 +130,7 @@ class _LoginState extends State<LoginPage> {
                                 textColor: Colors.white,
                                 splashColor: Colors.grey,
                                 padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                               ),
                               new Padding(
                                 padding: const EdgeInsets.only(top: 20.0),
@@ -149,6 +150,7 @@ class _LoginState extends State<LoginPage> {
                                 textColor: Colors.white,
                                 splashColor: Colors.grey,
                                 padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                               ),
                               SizedBox(height: 30),
                               Text(
@@ -173,6 +175,7 @@ class _LoginState extends State<LoginPage> {
                         textColor: Colors.white,
                         splashColor: Colors.grey,
                         padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                       ),
                     ],
                   ),
