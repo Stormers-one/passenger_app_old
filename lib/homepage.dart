@@ -107,8 +107,8 @@ class Homepage extends StatelessWidget {
                           color: Colors.orange[100],
                           shape: BoxShape.rectangle,
                           borderRadius: new BorderRadius.only(
-                              topLeft: const Radius.circular(0.0),  //REMOVED CONTAINER BORDER RADIUS 
-                              topRight: const Radius.circular(0.0))),
+                              topLeft: const Radius.circular(20.0),  //REMOVED CONTAINER BORDER RADIUS 
+                              topRight: const Radius.circular(20.0))),
                       alignment: Alignment.bottomCenter,
                       padding: EdgeInsets.all(20.0),
                       width: MediaQuery.of(context).size.width,
