@@ -256,6 +256,7 @@ class _LoginState extends State<LoginPage> {
                             //   context,
                             //   MaterialPageRoute(builder: (context) => Homepage()),
                             // );
+                            //
                             dynamic result = await _auth.signInAnon();
                             if (result == null) {
                               print('Error Signing in');
