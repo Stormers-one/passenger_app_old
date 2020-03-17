@@ -31,12 +31,13 @@ class _RegisterState extends State<RegisterPage> {
             backgroundColor: Colors.white,
             body: Container(
               decoration: new BoxDecoration(
-                gradient: new LinearGradient(
+                /*gradient: new LinearGradient(
                     colors: [Colors.orange[300], Colors.green[100]],
                     begin: const FractionalOffset(0.5, 0.0),
                     end: const FractionalOffset(0.0, 0.5),
                     stops: [0.0, 1.0],
-                    tileMode: TileMode.clamp),
+                    tileMode: TileMode.clamp), */
+                color: Colors.orange[300],
               ),
               child: ListView(
                   shrinkWrap: true,
