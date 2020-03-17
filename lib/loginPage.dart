@@ -137,8 +137,10 @@ class _LoginState extends State<LoginPage> {
                                   style: new TextStyle(color: Colors.orange),
                                   decoration: new InputDecoration(
                                     labelText: "Password:",
-                                    labelStyle: new TextStyle(fontSize:15, color: Colors.red),
-                                    fillColor: Colors.grey[300],
+                                  labelStyle: new TextStyle(fontSize:15, color: Colors.red),
+                                      hintText: 'At least 8 characters long',
+                                      hintStyle: new TextStyle(color: Colors.grey), 
+                                      fillColor: Colors.grey[300],
                                       filled: true,
                                       // enabledBorder: OutlineInputBorder(
                                       //   borderSide: BorderSide(color: Colors.green[100]),
