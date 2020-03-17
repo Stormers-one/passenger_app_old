@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'homepage.dart';
 import './services/auth.dart';
 import 'loginPage.dart';
+import './shared/loading.dart';
 
 class RegisterPage extends StatefulWidget {
 final Function toggleView;
@@ -14,6 +15,7 @@ class _RegisterState extends State<RegisterPage>{
 
 final Authservice _auth = new Authservice();
 final _formkey = GlobalKey<FormState>();
+bool loading= false;
 
 // text fiel state 
 String fname = "";
@@ -23,7 +25,7 @@ String error = "";
 
   @override 
   Widget build(BuildContext context) {
-     return Scaffold(
+     return loading ? Loading() : Scaffold(
         backgroundColor: Colors.white,
         body: Container(
           decoration: new BoxDecoration(
@@ -150,9 +152,13 @@ String error = "";
                                  child: RaisedButton(
                                   onPressed: () async {
                                     if (_formkey.currentState.validate()){
+                                      setState(() =>loading = true);
                                       dynamic result = await _auth.registerWithEmailAndPassword(email, password);
                                       if(result == null){
-                                        setState(()=> error= 'Please enter a valid email and password');
+                                        setState((){ 
+                                          error= 'Please enter a valid email and password';
+                                          loading =false;
+                                        });
                                       }
                                     }
                                     // Navigator.push(
