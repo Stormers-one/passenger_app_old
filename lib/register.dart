@@ -209,7 +209,7 @@ class _RegisterState extends State<RegisterPage> {
                                       obscureText: false,
                                       keyboardType: TextInputType.text,
                                       onChanged: (val) {
-                                        setState(() => password = val);
+                                        setState(() => phno = val);
                                       }),
                                   new Padding(
                                     padding: const EdgeInsets.only(top: 20.0),
