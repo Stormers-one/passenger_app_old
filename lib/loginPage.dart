@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:o_k/Wrapper.dart';
 import 'homepage.dart';
 import './services/auth.dart';
 import './register.dart';
@@ -199,13 +200,13 @@ class _LoginState extends State<LoginPage> {
                                           loading = false;
                                           });
                                       }
-                                      else {
-                                            Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) => Wrapper()),
-                                        );
-                                        }
+                                      // else {
+                                      //       Navigator.push(
+                                      //     context,
+                                      //     MaterialPageRoute(
+                                      //         builder: (context) => Wrapper()),
+                                      //   );
+                                      //   }
                                     }
                                     // Navigator.push(
                                     //   context,
