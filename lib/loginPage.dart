@@ -39,8 +39,16 @@ class _LoginState extends State<LoginPage> {
     return WillPopScope(
       onWillPop: _onBackPressed,
           child: Scaffold(
-        backgroundColor: Colors.white,
+        // backgroundColor: new LinearGradient(colors:[]),
         body: Container(
+          decoration: new BoxDecoration(
+            gradient: new LinearGradient(colors: [Colors.orange[300], Colors.green[100]],
+                begin: const FractionalOffset(0.5, 0.0),
+                end: const FractionalOffset(0.0, 0.5),
+                stops: [0.0,1.0],
+                tileMode: TileMode.clamp
+            ),
+          ),
           child: ListView(
               shrinkWrap: true,
               padding: const EdgeInsets.all(20.0),
