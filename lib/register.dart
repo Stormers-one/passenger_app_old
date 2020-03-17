@@ -58,6 +58,19 @@ String error = "";
                         width: 300,
                       ),
                       new Container(
+                        decoration: new BoxDecoration(
+                          borderRadius: new BorderRadius.only(
+                              topLeft: const Radius.circular(90.0),  //REMOVED CONTAINER BORDER RADIUS 
+                              topRight: const Radius.circular(90.0),
+                              bottomLeft: const Radius.circular(90.0),
+                              bottomRight: const Radius.circular(90.0)),
+                            gradient: new LinearGradient(colors: [Colors.orange[300], Colors.red[100]],
+                              begin: const FractionalOffset(0.5, 0.0),
+                              end: const FractionalOffset(0.0, 0.5),
+                              stops: [0.0,1.0],
+                              tileMode: TileMode.clamp
+                          ),
+                        ),
                         padding: const EdgeInsets.all(40.0),
                         child: new Form(
                           key: _formkey,
@@ -65,6 +78,11 @@ String error = "";
                           child: new Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: <Widget>[
+                              SizedBox(height: 10),
+                              Text(
+                                error,
+                                style: TextStyle(color: Colors.red, fontSize:14.0),
+                              ),
                               new TextFormField(
                                 validator: (val) =>val.isEmpty ?'Enter Full Name': null,
                                 style: new TextStyle(color: Colors.orange),
@@ -77,7 +95,7 @@ String error = "";
                                 }
                               ),
                               new TextFormField(
-                                validator: (val) =>val.isEmpty ?'Enter an Email': null,
+                                validator: (val) =>val.isEmpty ?'Enter a valid Email': null,
                                 style: new TextStyle(color: Colors.orange),
                                 decoration: new InputDecoration(
                                     labelText: "Enter Email",
@@ -100,7 +118,7 @@ String error = "";
                                 }
                               ),
                               new Padding(
-                                padding: const EdgeInsets.only(top: 60.0),
+                                padding: const EdgeInsets.only(top: 20.0),
                               ),
                               RaisedButton(
                                 onPressed: () async {
@@ -125,7 +143,7 @@ String error = "";
                                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                               ),
                               new Padding(
-                                padding: const EdgeInsets.only(top: 60.0),
+                                padding: const EdgeInsets.only(top: 20.0),
                               ),
                               RaisedButton(
                                 onPressed: () {
@@ -143,11 +161,6 @@ String error = "";
                                 splashColor: Colors.grey,
                                 padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
                                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
-                              ),
-                              SizedBox(height: 30),
-                              Text(
-                                error,
-                                style: TextStyle(color: Colors.red, fontSize:14.0),
                               ),
                             ],
                           ),
