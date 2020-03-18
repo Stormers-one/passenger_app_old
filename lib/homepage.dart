@@ -133,7 +133,7 @@ class Homepage extends StatelessWidget {
                       alignment: Alignment.bottomCenter,
                       padding: EdgeInsets.all(20.0),
                       width: MediaQuery.of(context).size.width,
-                      height: 
+                      //height: 
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
