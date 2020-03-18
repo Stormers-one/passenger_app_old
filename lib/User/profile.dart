@@ -10,56 +10,60 @@ import 'package:provider/provider.dart';
 
 class Profile extends StatelessWidget {
   final Authservice _auth = new Authservice();
-    
 
   @override
   Widget build(BuildContext context) {
-    void _showSettengsPanel(){
-      showModalBottomSheet(context: context, builder: (context){
-        return Container(
-          padding: EdgeInsets.symmetric(vertical: 20.0 , horizontal: 60.0),
-          child: SettingsForm(),
-        );
-      });
+    void _showSettengsPanel() {
+      showModalBottomSheet(
+          context: context,
+          builder: (context) {
+            return Container(
+              padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 60.0),
+              child: SettingsForm(),
+            );
+          });
     }
+
     final user = Provider.of<User>(context);
-    return  MaterialApp(
-          title: 'Homepage',
-          home: Scaffold(
-           backgroundColor: Colors.orange[300], 
-          appBar: AppBar(
+    return MaterialApp(
+      title: 'Homepage',
+      home: Scaffold(
+        backgroundColor: Colors.orange[300],
+        appBar: AppBar(
             title: Text('Profile'),
             backgroundColor: Colors.green[100],
             actions: <Widget>[
-              FlatButton.icon(onPressed: ()=> _showSettengsPanel(), icon: Icon(Icons.settings), label: Text('Edit Profile'))
-            ]
-          ),
-          body: Container(
-            child: ListView(
-              shrinkWrap: true,
-              padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-              children: <Widget>[
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Container(
-                      decoration: BoxDecoration(
+              FlatButton.icon(
+                  onPressed: () => _showSettengsPanel(),
+                  icon: Icon(Icons.settings),
+                  label: Text('Edit Profile'))
+            ]),
+        body: Container(
+          child: ListView(
+            shrinkWrap: true,
+            padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+            children: <Widget>[
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Container(
+                    decoration: BoxDecoration(
                         color: Colors.orange[300],
-                          image: new DecorationImage(
-                        image: new ExactAssetImage(
-                          'assets/profile-icon.png',
-                        ),
-                      )),
-                      child: Image.asset(
-                        'assets/profile-icon.png',
-                      ),
-                      height: 200,
-                      width: 200,
+                        image: new DecorationImage(
+                          image: new ExactAssetImage(
+                            'assets/profile-icon.png',
+                          ),
+                        )),
+                    child: Image.asset(
+                      'assets/profile-icon.png',
                     ),
-                    StreamBuilder<UserData>(
+                    height: 200,
+                    width: 200,
+                  ),
+                  StreamBuilder<UserData>(
                       stream: DatabaseService(uid: user.uid).userData,
                       builder: (context, snapshot) {
-                        if(snapshot.hasData){
+                        if (snapshot.hasData) {
                           UserData userData = snapshot.data;
                           return Form(
                             child: new Column(
@@ -70,10 +74,10 @@ class Profile extends StatelessWidget {
                                 ),
                                 new TextField(
                                   enabled: false,
-                                  
-                                  decoration: new InputDecoration (
-                                    labelText: userData.fname, 
-                                    labelStyle: TextStyle(fontSize: 15, color: Colors.black),
+                                  decoration: new InputDecoration(
+                                    labelText: userData.fname,
+                                    labelStyle: TextStyle(
+                                        fontSize: 15, color: Colors.black),
                                     icon: Icon(Icons.account_box),
                                     fillColor: Colors.grey[300],
                                     filled: true,
@@ -92,7 +96,8 @@ class Profile extends StatelessWidget {
                                   enabled: false,
                                   decoration: new InputDecoration(
                                     labelText: userData.email,
-                                    labelStyle: TextStyle(fontSize: 15, color: Colors.black),
+                                    labelStyle: TextStyle(
+                                        fontSize: 15, color: Colors.black),
                                     icon: Icon(Icons.email),
                                     fillColor: Colors.grey[300],
                                     filled: true,
@@ -109,10 +114,10 @@ class Profile extends StatelessWidget {
                                 ),
                                 new TextField(
                                   enabled: false,
-                                  
-                                  decoration: new InputDecoration  (
+                                  decoration: new InputDecoration(
                                     labelText: userData.phno,
-                                    labelStyle: TextStyle(fontSize: 15, color: Colors.black),
+                                    labelStyle: TextStyle(
+                                        fontSize: 15, color: Colors.black),
                                     icon: Icon(Icons.phone),
                                     fillColor: Colors.grey[300],
                                     filled: true,
@@ -122,24 +127,21 @@ class Profile extends StatelessWidget {
                                       borderRadius:
                                           new BorderRadius.circular(10),
                                     ),
-                                    
                                   ),
                                 ),
                               ],
                             ),
                           );
-                        }
-                        else{
+                        } else {
                           return Loading();
                         }
-                      }
-                    ),
-                  ],
-                ),
-              ],
-            ),
+                      }),
+                ],
+              ),
+            ],
           ),
-          ),
+        ),
+      ),
     );
   }
 }

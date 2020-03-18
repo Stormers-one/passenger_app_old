@@ -7,12 +7,10 @@ import 'package:o_k/model/user.dart';
 class Wrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     final user = Provider.of<User>(context);
-    if(user == null) {
+    if (user == null) {
       return LoginPage();
-    }
-    else{
+    } else {
       return Homepage();
     }
     //return Homepage();

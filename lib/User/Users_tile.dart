@@ -8,17 +8,16 @@ class UsersTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top:10.0),
-      child: Card(
-        margin: EdgeInsets.fromLTRB(20.0, 6.0, 20.0, 0.0),
-        child: ListTile(
-          leading: CircleAvatar(
-            radius: 50.0,
-            backgroundColor: Colors.orange[300],
+        padding: EdgeInsets.only(top: 10.0),
+        child: Card(
+          margin: EdgeInsets.fromLTRB(20.0, 6.0, 20.0, 0.0),
+          child: ListTile(
+            leading: CircleAvatar(
+              radius: 50.0,
+              backgroundColor: Colors.orange[300],
+            ),
+            title: Text(user.fname),
           ),
-          title: Text(user.fname),
-        ),
-      )
-      );
+        ));
   }
 }

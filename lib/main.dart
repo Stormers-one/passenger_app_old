@@ -11,15 +11,14 @@ import 'package:provider/provider.dart';
 // import 'timing.dart';
 // import 'maps.dart';
 
-void main() => runApp(new O_k());
+void main() => runApp(new Odukomban());
 
-
-class O_k extends StatelessWidget {
+class Odukomban extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamProvider<User>.value(
       value: Authservice().user,
-          child: new MaterialApp(
+      child: new MaterialApp(
         theme: new ThemeData(
             primarySwatch: Colors.red, accentColor: Colors.redAccent),
         home: Wrapper(),
