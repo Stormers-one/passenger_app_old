@@ -21,6 +21,7 @@ class _RegisterState extends State<RegisterPage> {
   String fname = "";
   String email = "";
   String password = "";
+  String cfpassword = "";
   String error = "";
   String phno = "";
 
@@ -183,12 +184,42 @@ class _RegisterState extends State<RegisterPage> {
                                       onChanged: (val) {
                                         setState(() => password = val);
                                       }),
+                                      new Padding(
+                                    padding: const EdgeInsets.only(top: 10.0),
+                                  ),
+                                  new TextFormField(
+                                      validator: (val) => val != password
+                                          ? 'Both Password should be same '
+                                          : null,
+                                      style:
+                                          new TextStyle(color: Colors.orange),
+                                      decoration: new InputDecoration(
+                                        //labelText: "Password:",
+                                        //labelStyle: new TextStyle(
+                                        //    fontSize: 15, color: Colors.red),
+                                        hintText: 'Confirm Password',
+                                        hintStyle:
+                                            new TextStyle(color: Colors.grey),
+                                        fillColor: Colors.grey[300],
+                                        filled: true,
+                                        border: OutlineInputBorder(
+                                          borderSide:
+                                              BorderSide(color: Colors.white),
+                                          borderRadius:
+                                              new BorderRadius.circular(25),
+                                        ),
+                                      ),
+                                      obscureText: true,
+                                      keyboardType: TextInputType.text,
+                                      onChanged: (val) {
+                                        setState(() => cfpassword = val);
+                                      }),
                 //PHONE NUMBER INPUT
                                       new Padding(
                                     padding: const EdgeInsets.only(top: 10.0),
                                   ),
                                   new TextFormField(
-                                      validator: (val) => val.length < 10
+                                      validator: (val) => val.length != 10
                                           ? 'Enter a valid phone number'
                                           : null,
                                       style:
