@@ -7,6 +7,7 @@ import 'package:o_k/Menu/timing.dart';
 import 'package:o_k/Menu/tracking.dart';
 import 'package:o_k/Menu/maps.dart';
 import 'package:o_k/User/profile.dart';
+import 'package:o_k/User/user_count.dart';
 
 class Homepage extends StatelessWidget {
   final Authservice _auth = new Authservice();
@@ -65,6 +66,16 @@ class Homepage extends StatelessWidget {
                 ListTile(
                   leading: Icon(Icons.message),
                   title: Text('Messages'),
+                ),
+                ListTile(
+                  leading: Icon(Icons.account_circle),
+                  title: Text('Users List'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Users_Count()),
+                    );
+                  },
                 ),
                 ListTile(
                   leading: Icon(Icons.account_circle),

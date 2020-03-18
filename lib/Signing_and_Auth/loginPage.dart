@@ -115,7 +115,7 @@ class _LoginState extends State<LoginPage> {
                                     //labelStyle: new TextStyle(fontSize:15, color: Colors.red),
                                     hintText: 'Email',
                                     hintStyle:
-                                        new TextStyle(color: Colors.grey),
+                                    new TextStyle(color: Colors.grey),
                                     fillColor: Colors.grey[300],
                                     filled: true,
                                     border: OutlineInputBorder(
@@ -124,17 +124,6 @@ class _LoginState extends State<LoginPage> {
                                       borderRadius:
                                           new BorderRadius.circular(25),
                                     ),
-                                    /*enabledBorder: OutlineInputBorder(
-                                        borderSide:
-                                            BorderSide(color: Colors.white),
-                                        borderRadius:
-                                            new BorderRadius.circular(25),
-                                      ),
-                                      focusedBorder: OutlineInputBorder(
-                                          borderSide:
-                                              BorderSide(color: Colors.white),
-                                          borderRadius:
-                                              new BorderRadius.circular(25))*/
                                   ),
                                   keyboardType: TextInputType.emailAddress,
                                   onChanged: (val) {
