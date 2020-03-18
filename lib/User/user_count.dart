@@ -32,45 +32,6 @@ class Users_Count extends StatelessWidget {
               FlatButton.icon(onPressed: ()=> _showSettengsPanel(), icon: Icon(Icons.settings), label: Text('Edit Profile'))
             ]
           ),
-          drawer: Drawer(
-            child: ListView(
-              padding: EdgeInsets.zero,
-              children: const <Widget>[
-                DrawerHeader(
-                  decoration: BoxDecoration(
-                    color: Colors.green,
-                  ),
-                  child: Text(
-                    'Users List',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 24,
-                    ),
-                  ),
-                ),
-                ListTile(
-                  leading: Icon(Icons.message),
-                  title: Text('Messages'),
-                ),
-                ListTile(
-                  leading: Icon(Icons.account_circle),
-                  title: Text('Profile'),
-                ),
-                ListTile(
-                  leading: Icon(Icons.settings),
-                  title: Text('Settings'),
-                ),
-                ListTile(
-                  leading: Icon(Icons.report),
-                  title: Text('Report'),
-                ),
-                ListTile(
-                  leading: Icon(Icons.help),
-                  title: Text('Help'),
-                ),
-              ],
-            ),
-          ),
           body: UserList(),
           ),
         ),
