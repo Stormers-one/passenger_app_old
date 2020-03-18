@@ -111,14 +111,15 @@ class Homepage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Container(
-                      decoration: BoxDecoration(
+                      /*decoration: BoxDecoration(
                           image: new DecorationImage(
                         image: new ExactAssetImage(
                           'assets/homepage.png',
                         ),
-                      )),
+                      )),*/
                       child: Image.asset(
                         'assets/homepage.png',
+                        fit: BoxFit.fitWidth,
                       ),
                       width: MediaQuery.of(context).size.width,
                     ),
@@ -127,12 +128,12 @@ class Homepage extends StatelessWidget {
                           color: Colors.orange[100],
                           shape: BoxShape.rectangle,
                           borderRadius: new BorderRadius.only(
-                              topLeft: const Radius.circular(
-                                  20.0), //REMOVED CONTAINER BORDER RADIUS
+                              topLeft: const Radius.circular(20.0),
                               topRight: const Radius.circular(20.0))),
                       alignment: Alignment.bottomCenter,
                       padding: EdgeInsets.all(20.0),
                       width: MediaQuery.of(context).size.width,
+                      height: 
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
