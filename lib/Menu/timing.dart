@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:o_k/times.dart';
-import 'times.dart';
+import 'package:o_k/Menu/times.dart';
+import 'package:o_k/Menu/times.dart';
 
 class Timing extends StatelessWidget {
   @override

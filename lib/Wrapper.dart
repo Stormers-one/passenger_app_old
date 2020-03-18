@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:o_k/Signing_and_Auth/loginPage.dart';
 import 'package:provider/provider.dart';
-
-import 'homepage.dart';
-import 'loginPage.dart';
-import 'model/user.dart';
+import 'package:o_k/homepage.dart';
+import 'package:o_k/model/user.dart';
 
 class Wrapper extends StatelessWidget {
   @override

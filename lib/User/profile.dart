@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:o_k/profile_settings.dart';
+import 'package:o_k/User/profile_settings.dart';
 import 'package:o_k/services/auth.dart';
 import 'package:o_k/services/database.dart';
-import 'package:o_k/user_list.dart';
-import 'package:o_k/users_fetch.dart';
+import 'package:o_k/User/user_list.dart';
+import 'package:o_k/User/users_fetch.dart';
 import 'package:provider/provider.dart';
 
 class Profile extends StatelessWidget {

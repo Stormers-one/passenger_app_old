@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:o_k/model/user.dart';
 
-import '../users_fetch.dart';
+import 'package:o_k/User/users_fetch.dart';
 
 class DatabaseService {
 

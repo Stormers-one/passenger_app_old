@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:o_k/times.dart';
-import 'package:o_k/track.dart';
-import 'times.dart';
+import 'package:o_k/Menu/times.dart';
+import 'package:o_k/Menu/track.dart';
 
 class Tracking extends StatelessWidget {
   @override

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'seating.dart';
+import 'package:o_k/Menu/seating.dart';
 
 class Booking extends StatefulWidget {
   @override

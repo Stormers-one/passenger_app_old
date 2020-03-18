@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:o_k/Wrapper.dart';
-import 'homepage.dart';
-import './services/auth.dart';
-import 'loginPage.dart';
-import './shared/loading.dart';
+import 'package:o_k/services/auth.dart';
+import 'package:o_k/Signing_and_Auth/loginPage.dart';
+import 'package:o_k/shared/loading.dart';
 
 class RegisterPage extends StatefulWidget {
   final Function toggleView;
@@ -23,7 +22,7 @@ class _RegisterState extends State<RegisterPage> {
   String email = "";
   String password = "";
   String error = "";
-  String phno = null;
+  String phno = "";
 
   @override
   Widget build(BuildContext context) {

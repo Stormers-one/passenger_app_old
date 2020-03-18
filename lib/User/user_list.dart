@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:o_k/Users_tile.dart';
-import 'package:o_k/users_fetch.dart';
+import 'package:o_k/User/Users_tile.dart';
+import 'package:o_k/User/users_fetch.dart';
 import 'package:provider/provider.dart';
 
 class UserList extends StatefulWidget {
