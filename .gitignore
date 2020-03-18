@@ -37,3 +37,5 @@ doc/api/
 build/firebase_auth/intermediates/compile_only_not_namespaced_r_class_jar/debug/R.jar
 build/google_maps_flutter/intermediates/compile_only_not_namespaced_r_class_jar/debug/R.jar
 build
+.flutter-plugins
+.packages
