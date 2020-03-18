@@ -71,6 +71,7 @@ class Homepage extends StatelessWidget {
                   leading: Icon(Icons.account_circle),
                   title: Text('Users List'),
                   onTap: () {
+                    Navigator.pop(context);
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => Users_Count()),
@@ -81,6 +82,7 @@ class Homepage extends StatelessWidget {
                   leading: Icon(Icons.account_circle),
                   title: Text('Profile'),
                   onTap: () {
+                    Navigator.pop(context);
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => Profile()),

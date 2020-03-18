@@ -5,6 +5,7 @@ import 'package:o_k/services/database.dart';
 import 'package:o_k/User/user_list.dart';
 import 'package:o_k/User/users_fetch.dart';
 import 'package:provider/provider.dart';
+import 'package:o_k/User/profile.dart';
 
 class Users_Count extends StatelessWidget {
   final Authservice _auth = new Authservice();
@@ -36,6 +37,63 @@ class Users_Count extends StatelessWidget {
                     icon: Icon(Icons.settings),
                     label: Text('Edit Profile'))
               ]),
+          drawer: Drawer(
+            child: ListView(
+              padding: EdgeInsets.zero,
+              children: <Widget>[
+                DrawerHeader(
+                  decoration: BoxDecoration(
+                    color: Colors.green,
+                  ),
+                  child: Text(
+                    'Odu Komban',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                    ),
+                  ),
+                ),
+                ListTile(
+                  leading: Icon(Icons.message),
+                  title: Text('Messages'),
+                ),
+                ListTile(
+                  leading: Icon(Icons.account_circle),
+                  title: Text('Users List'),
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Users_Count()),
+                    );
+                  },
+                ),
+                ListTile(
+                  leading: Icon(Icons.account_circle),
+                  title: Text('Profile'),
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Profile()),
+                    );
+                  },
+                ),
+                ListTile(
+                  leading: Icon(Icons.settings),
+                  title: Text('Settings'),
+                ),
+                ListTile(
+                  leading: Icon(Icons.report),
+                  title: Text('Report'),
+                ),
+                ListTile(
+                  leading: Icon(Icons.help),
+                  title: Text('Help'),
+                ),
+              ],
+            ),
+          ),
           body: UserList(),
         ),
       ),
