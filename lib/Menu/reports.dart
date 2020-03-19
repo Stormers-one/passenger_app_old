@@ -14,6 +14,7 @@ class Reports extends StatelessWidget {
         backgroundColor: Colors.orange[100],
         appBar: AppBar(
           title: Text('Reports'),
+          backgroundColor: Colors.red[500],
         ),
         drawer: DrawerBuild(),
         body: Column(
