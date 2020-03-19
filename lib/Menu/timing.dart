@@ -129,7 +129,7 @@ class Timing extends StatelessWidget {
                                   fillColor: Colors.white,
                                   filled: true,
                                   border: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Colors.white),
+                                    borderSide: BorderSide(color: Colors.transparent),
                                     borderRadius: new BorderRadius.circular(20),
                                   ),
                                 ),
@@ -145,7 +145,7 @@ class Timing extends StatelessWidget {
                                   fillColor: Colors.white,
                                   filled: true,
                                   border: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Colors.white),
+                                    borderSide: BorderSide(color: Colors.transparent),
                                     borderRadius: new BorderRadius.circular(20),
                                   ),
                                 ),
@@ -162,7 +162,7 @@ class Timing extends StatelessWidget {
                                   fillColor: Colors.white,
                                   filled: true,
                                   border: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Colors.white),
+                                    borderSide: BorderSide(color: Colors.transparent),
                                     borderRadius: new BorderRadius.circular(20),
                                   ),
                                 ),
