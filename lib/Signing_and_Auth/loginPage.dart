@@ -79,12 +79,9 @@ class _LoginState extends State<LoginPage> {
                             ),
                             new Container(
                               decoration: new BoxDecoration(
-                                borderRadius: new BorderRadius.only(
-                                    topLeft: const Radius.circular(
-                                        90.0), //REMOVED CONTAINER BORDER RADIUS
-                                    topRight: const Radius.circular(90.0),
-                                    bottomLeft: const Radius.circular(90.0),
-                                    bottomRight: const Radius.circular(90.0)),
+                                borderRadius: new BorderRadius.all(
+                                  Radius.circular(50.0),
+                                ),
                                 gradient: new LinearGradient(
                                     colors: [
                                       Colors.orange[600],
@@ -95,14 +92,14 @@ class _LoginState extends State<LoginPage> {
                                     stops: [0.0, 1.0],
                                     tileMode: TileMode.clamp),
                               ),
-                              padding: const EdgeInsets.all(40.0),
+                              padding: const EdgeInsets.all(20.0),
                               child: new Form(
                                 key: _formkey,
                                 autovalidate: true,
                                 child: new Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: <Widget>[
-                                    SizedBox(height: 10),
+                                    //SizedBox(height: 10),
                                     Text(
                                       error,
                                       style: TextStyle(
