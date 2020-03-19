@@ -140,26 +140,26 @@ class Homepage extends StatelessWidget {
           ),
           body: ListView(
             shrinkWrap: true,
-            padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+            padding: const EdgeInsets.all(10),
             children: <Widget>[
-              Flex(
-                direction: Axis.vertical,
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Container(
-                    child: Image.asset(
-                      'assets/homepage.png',
-                      fit: BoxFit.fill,
-                      height: 250,
-                    ),
-                    width: MediaQuery.of(context).size.width,
-                  ),
+                  new Container(
+                                child: Image.asset(
+                                  'assets/logo.png',
+                                ),
+                                height: 200,
+                                width: 200,
+                              ),
                   Container(
                     decoration: BoxDecoration(
-                        color: Colors.orange[200],
-                        shape: BoxShape.rectangle,
-                        /*borderRadius: new BorderRadius.only(
+                      color: Colors.orange[200],
+                      shape: BoxShape.rectangle,
+                      /*borderRadius: new BorderRadius.only(
                             topLeft: const Radius.circular(25.0),
-                            topRight: const Radius.circular(25.0))*/),
+                            topRight: const Radius.circular(25.0))*/
+                    ),
                     alignment: Alignment.bottomCenter,
                     padding: EdgeInsets.all(20.0),
                     width: MediaQuery.of(context).size.width,
@@ -175,12 +175,10 @@ class Homepage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Column(
-                              mainAxisAlignment:
-                                  MainAxisAlignment.spaceEvenly,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 RawMaterialButton(
-                                  padding:
-                                      EdgeInsets.fromLTRB(20, 10, 20, 10),
+                                  padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
                                   shape: new RoundedRectangleBorder(
                                       borderRadius:
                                           new BorderRadius.circular(18.0),
@@ -216,12 +214,10 @@ class Homepage extends StatelessWidget {
                               ],
                             ),
                             Column(
-                              mainAxisAlignment:
-                                  MainAxisAlignment.spaceEvenly,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 RawMaterialButton(
-                                  padding:
-                                      EdgeInsets.fromLTRB(20, 10, 20, 10),
+                                  padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
                                   shape: new RoundedRectangleBorder(
                                       borderRadius:
                                           new BorderRadius.circular(18.0),
@@ -262,12 +258,10 @@ class Homepage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Column(
-                              mainAxisAlignment:
-                                  MainAxisAlignment.spaceEvenly,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: <Widget>[
                                 RawMaterialButton(
-                                  padding:
-                                      EdgeInsets.fromLTRB(20, 10, 20, 10),
+                                  padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
                                   shape: new RoundedRectangleBorder(
                                       borderRadius:
                                           new BorderRadius.circular(18.0),
@@ -303,12 +297,10 @@ class Homepage extends StatelessWidget {
                               ],
                             ),
                             Column(
-                              mainAxisAlignment:
-                                  MainAxisAlignment.spaceEvenly,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 RawMaterialButton(
-                                  padding:
-                                      EdgeInsets.fromLTRB(20, 10, 20, 10),
+                                  padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
                                   shape: new RoundedRectangleBorder(
                                       borderRadius:
                                           new BorderRadius.circular(18.0),

@@ -113,12 +113,12 @@ class Maps extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Container(
+                  /*Container(
                     child: Image.asset(
                       'assets/map_m.png',
                       fit: BoxFit.fitWidth,
                     ),
-                  ),
+                  ), */
                   Container(
                     padding: const EdgeInsets.all(40.0),
                     child: new Form(
@@ -157,7 +157,7 @@ class Maps extends StatelessWidget {
                             keyboardType: TextInputType.text,
                           ),
                           new Padding(
-                            padding: const EdgeInsets.only(top: 60.0),
+                            padding: const EdgeInsets.only(top: 30.0),
                           ),
                           RaisedButton(
                             onPressed: () {
