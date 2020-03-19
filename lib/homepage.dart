@@ -24,8 +24,10 @@ class Homepage extends StatelessWidget {
                       onPressed: () => Navigator.pop(context, false),
                       child: Text("NO")),
                   FlatButton(
-                      onPressed: () => Navigator.pop(context, true),
-                      child: Text("YES")),
+                      onPressed: () => 
+                      Navigator.pop(context, true),
+                      child: Text("YES"),
+                    ),
                 ],
               ));
     }
