@@ -160,7 +160,7 @@ class Homepage extends StatelessWidget {
                     width: MediaQuery.of(context).size.width,
                   ),
                   Positioned(
-                    bottom: MediaQuery.of(context).size.height*0.15,
+                    bottom: MediaQuery.of(context).size.height*0.05,
                     child: Container(
                       decoration: BoxDecoration(
                           color: Colors.orange[200],
