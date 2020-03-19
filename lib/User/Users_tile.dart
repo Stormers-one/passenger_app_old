@@ -12,7 +12,9 @@ class UsersTile extends StatelessWidget {
         child: Card(
           margin: EdgeInsets.fromLTRB(20.0, 6.0, 20.0, 0.0),
           child: ListTile(
-             leading: Icon(Icons.account_circle), 
+             leading: Image.asset(
+                      'assets/profile-icon.png',
+                    ), 
             //  CircleAvatar(
             //    radius: 50.0,
             //    backgroundColor: Colors.red[300],
