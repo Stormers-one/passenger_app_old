@@ -39,7 +39,7 @@ class Homepage extends StatelessWidget {
           backgroundColor: Colors.orange[200],
           appBar: AppBar(
               //title: Text('MENU'),
-              backgroundColor: Colors.orange[300],
+              backgroundColor: Colors.red[500],
               actions: <Widget>[
                 FlatButton.icon(
                   icon: Icon(Icons.person),
