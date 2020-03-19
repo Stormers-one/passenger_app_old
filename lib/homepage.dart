@@ -144,6 +144,15 @@ class Homepage extends StatelessWidget {
               Stack(
                 children: <Widget>[
                   Container(
+                    constraints: BoxConstraints.expand(
+                      height: MediaQuery.of(context).size.height,
+                      width: MediaQuery.of(context).size.width,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.orange[200],
+                    ),
+                  ),
+                  Container(
                     child: Image.asset(
                       'assets/homepage.png',
                       fit: BoxFit.fitWidth,
@@ -151,7 +160,7 @@ class Homepage extends StatelessWidget {
                     width: MediaQuery.of(context).size.width,
                   ),
                   Positioned(
-                    bottom: -350,
+                    bottom: 115,
                     child: Container(
                       decoration: BoxDecoration(
                           color: Colors.orange[200],
@@ -165,7 +174,11 @@ class Homepage extends StatelessWidget {
                       //height:
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
+                          new Padding(
+                            padding: const EdgeInsets.only(top: 10.0),
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
@@ -345,7 +358,7 @@ class Homepage extends StatelessWidget {
                     ),
                   ),
                 ],
-                overflow: Overflow.visible,
+                //overflow: Overflow.clip,
               ),
             ],
           ),
