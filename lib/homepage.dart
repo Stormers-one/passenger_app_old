@@ -36,7 +36,7 @@ class Homepage extends StatelessWidget {
       child: MaterialApp(
         title: 'Homepage',
         home: Scaffold(
-          backgroundColor: Colors.orange[200],
+          backgroundColor: Colors.orange[100],
           appBar: AppBar(
               //title: Text('MENU'),
               backgroundColor: Colors.red[500],
@@ -158,7 +158,7 @@ class Homepage extends StatelessWidget {
                               ),
                   Container(
                     decoration: BoxDecoration(
-                      color: Colors.orange[200],
+                      color: Colors.orange[100],
                       shape: BoxShape.rectangle,
                       /*borderRadius: new BorderRadius.only(
                             topLeft: const Radius.circular(25.0),
