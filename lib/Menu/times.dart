@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:o_k/shared/drawer.dart';
 
 class Times extends StatelessWidget {
   @override
@@ -6,6 +7,7 @@ class Times extends StatelessWidget {
     return MaterialApp(
       title: 'Times',
       home: Scaffold(
+        drawer: DrawerBuild(),
         backgroundColor: Colors.orange[100],
         appBar: AppBar(
           title: Text('Times'),
