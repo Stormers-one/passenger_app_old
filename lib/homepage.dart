@@ -203,6 +203,9 @@ class Homepage extends StatelessWidget {
                                         height: 100,
                                         width: 100,
                                       ),
+                                      new Padding(
+                                        padding: const EdgeInsets.only(top: 2.0),
+                                      ),
                                       Text('Maps'),
                                     ],
                                   ),
@@ -241,6 +244,9 @@ class Homepage extends StatelessWidget {
                                         ),
                                         height: 100,
                                         width: 100,
+                                      ),
+                                      new Padding(
+                                        padding: const EdgeInsets.only(top: 2.0),
                                       ),
                                       Text('Timing'),
                                     ],
@@ -286,6 +292,9 @@ class Homepage extends StatelessWidget {
                                         height: 100,
                                         width: 100,
                                       ),
+                                      new Padding(
+                                        padding: const EdgeInsets.only(top: 2.0),
+                                      ),
                                       Text('Tracking'),
                                     ],
                                   ),
@@ -324,6 +333,9 @@ class Homepage extends StatelessWidget {
                                         ),
                                         height: 100,
                                         width: 100,
+                                      ),
+                                      new Padding(
+                                        padding: const EdgeInsets.only(top: 2.0),
                                       ),
                                       Text('Booking'),
                                     ],
