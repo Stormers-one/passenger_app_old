@@ -154,7 +154,8 @@ class Tracking extends StatelessWidget {
                                 splashColor: Colors.grey,
                                 padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
                                 shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(20.0)),
+                                    borderRadius: BorderRadius.circular(20.0),
+                                    side: BorderSide(color: Colors.transparent),),
                               ),
                             ),
                           ],
