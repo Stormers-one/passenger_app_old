@@ -182,7 +182,7 @@ class Homepage extends StatelessWidget {
                                   shape: new RoundedRectangleBorder(
                                       borderRadius:
                                           new BorderRadius.circular(18.0),
-                                      side: BorderSide(color: Colors.black)),
+                                      side: BorderSide(color: Colors.transparent)),
                                   fillColor: Colors.orange[500],
                                   splashColor: Colors.grey,
                                   textStyle: TextStyle(
@@ -221,7 +221,7 @@ class Homepage extends StatelessWidget {
                                   shape: new RoundedRectangleBorder(
                                       borderRadius:
                                           new BorderRadius.circular(18.0),
-                                      side: BorderSide(color: Colors.black)),
+                                      side: BorderSide(color: Colors.transparent)),
                                   fillColor: Colors.orange[500],
                                   splashColor: Colors.grey,
                                   textStyle: TextStyle(
@@ -265,7 +265,7 @@ class Homepage extends StatelessWidget {
                                   shape: new RoundedRectangleBorder(
                                       borderRadius:
                                           new BorderRadius.circular(18.0),
-                                      side: BorderSide(color: Colors.black)),
+                                      side: BorderSide(color: Colors.transparent)),
                                   fillColor: Colors.orange[500],
                                   splashColor: Colors.grey,
                                   textStyle: TextStyle(
@@ -304,7 +304,7 @@ class Homepage extends StatelessWidget {
                                   shape: new RoundedRectangleBorder(
                                       borderRadius:
                                           new BorderRadius.circular(18.0),
-                                      side: BorderSide(color: Colors.black)),
+                                      side: BorderSide(color: Colors.transparent)),
                                   fillColor: Colors.orange[500],
                                   splashColor: Colors.grey,
                                   textStyle: TextStyle(
