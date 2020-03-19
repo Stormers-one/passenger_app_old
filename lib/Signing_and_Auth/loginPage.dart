@@ -43,7 +43,7 @@ class _LoginState extends State<LoginPage> {
         : WillPopScope(
             onWillPop: _onBackPressed,
             child: Scaffold(
-              // backgroundColor: new LinearGradient(colors:[]),
+              backgroundColor: Colors.orange[300],
               body: Container(
                 decoration: new BoxDecoration(
                   // gradient: new LinearGradient(colors: [Colors.orange[300], Colors.green[100]],
