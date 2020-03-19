@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:double_back_to_close_app/double_back_to_close_app.dart';
 import 'package:flutter/material.dart';
 import 'package:o_k/Wrapper.dart';
 import 'package:o_k/services/auth.dart';
@@ -18,46 +19,46 @@ class Homepage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Future<bool> _onBackPressed() {
-      return showDialog(
-          context: context,
-          builder: (context) => AlertDialog(
-                title: Text("Exit: Are you sure?"),
-                actions: <Widget>[
-                  FlatButton(
-                      onPressed: () => Navigator.pop(context, false),
-                      child: Text("NO")),
-                  FlatButton(
-                    onPressed: () => Navigator.pop(context, exit(0)),
-                    child: Text("YES"),
-                  ),
-                ],
-              ));
-    }
-    return WillPopScope(
-      onWillPop: _onBackPressed,
-      child: MaterialApp(
-        title: 'Homepage',
-        home: Scaffold(
-          backgroundColor: Colors.orange[100],
-          appBar: AppBar(
-              //title: Text('MENU'),
-              backgroundColor: Colors.red[500],
-              actions: <Widget>[
-                FlatButton.icon(
-                  icon: Icon(Icons.person),
-                  label: Text('Logout'),
-                  onPressed: () async {
-                    await _auth.signOut();
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Wrapper()),
-                    );
-                  },
-                )
-              ]),
-          drawer: DrawerBuild(),
-          body: ListView(
+    // Future<bool> _onBackPressed() {
+    //   return showDialog(
+    //       context: context,
+    //       builder: (context) => AlertDialog(
+    //             title: Text("Exit: Are you sure?"),
+    //             actions: <Widget>[
+    //               FlatButton(
+    //                   onPressed: () => Navigator.pop(context, false),
+    //                   child: Text("NO")),
+    //               FlatButton(
+    //                 onPressed: () => Navigator.pop(context, exit(0)),
+    //                 child: Text("YES"),
+    //               ),
+    //             ],
+    //           ));
+    // }
+    return MaterialApp(
+      title: 'Homepage',
+      home: Scaffold(
+        backgroundColor: Colors.orange[100],
+        appBar: AppBar(
+            //title: Text('MENU'),
+            backgroundColor: Colors.red[500],
+            actions: <Widget>[
+              FlatButton.icon(
+                icon: Icon(Icons.person),
+                label: Text('Logout'),
+                onPressed: () async {
+                  await _auth.signOut();
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Wrapper()),
+                  );
+                },
+              )
+            ]),
+        drawer: DrawerBuild(),
+        body: DoubleBackToCloseApp(
+          snackBar: const SnackBar(content: Text('Press Back Again To Exit')),
+          child: ListView(
             shrinkWrap: true,
             padding: const EdgeInsets.all(10),
             children: <Widget>[
