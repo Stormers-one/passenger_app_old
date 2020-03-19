@@ -37,7 +37,7 @@ class Homepage extends StatelessWidget {
         home: Scaffold(
           appBar: AppBar(
               //title: Text('MENU'),
-              backgroundColor: Colors.green[100],
+              backgroundColor: Colors.orange[100],
               actions: <Widget>[
                 FlatButton.icon(
                   icon: Icon(Icons.person),
@@ -53,12 +53,12 @@ class Homepage extends StatelessWidget {
               children: <Widget>[
                 DrawerHeader(
                   decoration: BoxDecoration(
-                    color: Colors.green,
+                    color: Colors.white,
                   ),
                   child: Text(
                     'Odu Komban',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.orange,
                       fontSize: 24,
                     ),
                   ),
