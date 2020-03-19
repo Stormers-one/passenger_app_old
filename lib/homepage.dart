@@ -24,10 +24,9 @@ class Homepage extends StatelessWidget {
                       onPressed: () => Navigator.pop(context, false),
                       child: Text("NO")),
                   FlatButton(
-                      onPressed: () => 
-                      Navigator.pop(context, true),
-                      child: Text("YES"),
-                    ),
+                    onPressed: () => Navigator.pop(context, true),
+                    child: Text("YES"),
+                  ),
                 ],
               ));
     }
@@ -138,22 +137,22 @@ class Homepage extends StatelessWidget {
               ],
             ),
           ),
-          body: Container(
-            child: ListView(
-              shrinkWrap: true,
-              padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-              children: <Widget>[
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Container(
-                      child: Image.asset(
-                        'assets/homepage.png',
-                        fit: BoxFit.fitWidth,
-                      ),
-                      width: MediaQuery.of(context).size.width,
+          body: ListView(
+            shrinkWrap: true,
+            padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+            children: <Widget>[
+              Stack(
+                children: <Widget>[
+                  Container(
+                    child: Image.asset(
+                      'assets/homepage.png',
+                      fit: BoxFit.fitWidth,
                     ),
-                    Container(
+                    width: MediaQuery.of(context).size.width,
+                  ),
+                  Positioned(
+                    bottom: -350,
+                    child: Container(
                       decoration: BoxDecoration(
                           color: Colors.orange[200],
                           shape: BoxShape.rectangle,
@@ -344,10 +343,11 @@ class Homepage extends StatelessWidget {
                         ],
                       ),
                     ),
-                  ],
-                ),
-              ],
-            ),
+                  ),
+                ],
+                overflow: Overflow.visible,
+              ),
+            ],
           ),
         ),
       ),
