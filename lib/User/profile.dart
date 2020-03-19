@@ -35,7 +35,7 @@ class Profile extends StatelessWidget {
         backgroundColor: Colors.orange[300],
         appBar: AppBar(
             title: Text('Profile'),
-            backgroundColor: Colors.orange[200],
+            backgroundColor: Colors.red[500],
             actions: <Widget>[
               FlatButton.icon(
                   onPressed: () => _showSettengsPanel(),
@@ -48,12 +48,12 @@ class Profile extends StatelessWidget {
             children: <Widget>[
               DrawerHeader(
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Colors.red[500],
                 ),
                 child: Text(
                   'Odu Komban',
                   style: TextStyle(
-                    color: Colors.orange,
+                    color: Colors.white,
                     fontSize: 24,
                   ),
                 ),

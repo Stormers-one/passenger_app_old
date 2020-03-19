@@ -19,7 +19,7 @@ class _BookingState extends State<Booking> {
       home: Scaffold(
         appBar: AppBar(
           title: Text('Booking'),
-          backgroundColor: Colors.orange[300],
+          backgroundColor: Colors.red[500],
         ),
         drawer: Drawer(
           child: ListView(
@@ -27,12 +27,12 @@ class _BookingState extends State<Booking> {
             children: <Widget>[
               DrawerHeader(
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Colors.red[500],
                 ),
                 child: Text(
                   'Odu Komban',
                   style: TextStyle(
-                    color: Colors.orange,
+                    color: Colors.white,
                     fontSize: 24,
                   ),
                 ),

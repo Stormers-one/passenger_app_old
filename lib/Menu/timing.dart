@@ -14,7 +14,7 @@ class Timing extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: Text('Bus Timing'),
-          backgroundColor: Colors.orange[300],
+          backgroundColor: Colors.red[500],
         ),
         drawer: Drawer(
           child: ListView(
@@ -22,12 +22,12 @@ class Timing extends StatelessWidget {
             children: <Widget>[
               DrawerHeader(
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Colors.red[500],
                 ),
                 child: Text(
                   'Odu Komban',
                   style: TextStyle(
-                    color: Colors.orange,
+                    color: Colors.white,
                     fontSize: 24,
                   ),
                 ),
