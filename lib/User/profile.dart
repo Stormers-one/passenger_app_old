@@ -31,7 +31,7 @@ class Profile extends StatelessWidget {
 
     final user = Provider.of<User>(context);
     return MaterialApp(
-      title: 'Homepage',
+      title: 'Profile',
       home: Scaffold(
         backgroundColor: Colors.orange[100],
         appBar: AppBar(
