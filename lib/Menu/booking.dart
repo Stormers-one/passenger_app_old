@@ -47,7 +47,7 @@ class _BookingState extends State<Booking> {
                                   fillColor: Colors.white,
                                   filled: true,
                                   border: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Colors.white),
+                                    borderSide: BorderSide(color: Colors.transparent),
                                     borderRadius: new BorderRadius.circular(20),
                                   ),
                                 ),
@@ -63,7 +63,7 @@ class _BookingState extends State<Booking> {
                                   fillColor: Colors.white,
                                   filled: true,
                                   border: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Colors.white),
+                                    borderSide: BorderSide(color: Colors.transparent),
                                     borderRadius: new BorderRadius.circular(20),
                                   ),
                                 ),
@@ -80,7 +80,7 @@ class _BookingState extends State<Booking> {
                                   fillColor: Colors.white,
                                   filled: true,
                                   border: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Colors.white),
+                                    borderSide: BorderSide(color: Colors.transparent),
                                     borderRadius: new BorderRadius.circular(20),
                                   ),
                                 ),
