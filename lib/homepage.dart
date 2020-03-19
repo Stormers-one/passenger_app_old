@@ -59,12 +59,12 @@ class Homepage extends StatelessWidget {
               children: <Widget>[
                 DrawerHeader(
                   decoration: BoxDecoration(
-                    color: Colors.orange[300],
+                    color: Colors.red[500],
                   ),
                   child: Text(
                     'Odu Komban',
                     style: TextStyle(
-                      color: Colors.red[500],
+                      color: Colors.white,
                       fontSize: 24,
                     ),
                   ),
@@ -186,7 +186,7 @@ class Homepage extends StatelessWidget {
                                   shape: new RoundedRectangleBorder(
                                       borderRadius:
                                           new BorderRadius.circular(18.0),
-                                      side: BorderSide(color: Colors.black)),
+                                      side: BorderSide(color: Colors.transparent)),
                                   fillColor: Colors.orange[500],
                                   splashColor: Colors.grey,
                                   textStyle: TextStyle(
@@ -225,7 +225,7 @@ class Homepage extends StatelessWidget {
                                   shape: new RoundedRectangleBorder(
                                       borderRadius:
                                           new BorderRadius.circular(18.0),
-                                      side: BorderSide(color: Colors.black)),
+                                      side: BorderSide(color: Colors.transparent)),
                                   fillColor: Colors.orange[500],
                                   splashColor: Colors.grey,
                                   textStyle: TextStyle(
@@ -269,7 +269,7 @@ class Homepage extends StatelessWidget {
                                   shape: new RoundedRectangleBorder(
                                       borderRadius:
                                           new BorderRadius.circular(18.0),
-                                      side: BorderSide(color: Colors.black)),
+                                      side: BorderSide(color: Colors.transparent)),
                                   fillColor: Colors.orange[500],
                                   splashColor: Colors.grey,
                                   textStyle: TextStyle(
@@ -308,7 +308,7 @@ class Homepage extends StatelessWidget {
                                   shape: new RoundedRectangleBorder(
                                       borderRadius:
                                           new BorderRadius.circular(18.0),
-                                      side: BorderSide(color: Colors.black)),
+                                      side: BorderSide(color: Colors.transparent)),
                                   fillColor: Colors.orange[500],
                                   splashColor: Colors.grey,
                                   textStyle: TextStyle(
