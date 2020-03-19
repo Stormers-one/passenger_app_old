@@ -110,6 +110,7 @@ class _LoginState extends State<LoginPage> {
                                         padding: const EdgeInsets.only(top: 10.0),
                                       ),
                                       new TextFormField(
+                                          initialValue:email,
                                           style:
                                               new TextStyle(color: Colors.orange),
                                           decoration: new InputDecoration(
