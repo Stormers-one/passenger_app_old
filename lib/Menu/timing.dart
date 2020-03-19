@@ -183,7 +183,8 @@ class Timing extends StatelessWidget {
                                   padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
                                   shape: RoundedRectangleBorder(
                                       borderRadius:
-                                          BorderRadius.circular(20.0)),
+                                          BorderRadius.circular(20.0),
+                                          side: BorderSide(color: Colors.transparent),),
                                 ),
                               ),
                             ],

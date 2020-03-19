@@ -181,7 +181,7 @@ class Profile extends StatelessWidget {
                                       filled: true,
                                       border: OutlineInputBorder(
                                         borderSide:
-                                            BorderSide(color: Colors.white),
+                                            BorderSide(color: Colors.transparent),
                                         borderRadius:
                                             new BorderRadius.circular(10),
                                       ),
@@ -201,7 +201,7 @@ class Profile extends StatelessWidget {
                                       filled: true,
                                       border: OutlineInputBorder(
                                         borderSide:
-                                            BorderSide(color: Colors.white),
+                                            BorderSide(color: Colors.transparent),
                                         borderRadius:
                                             new BorderRadius.circular(10),
                                       ),
@@ -221,7 +221,7 @@ class Profile extends StatelessWidget {
                                       filled: true,
                                       border: OutlineInputBorder(
                                         borderSide:
-                                            BorderSide(color: Colors.white),
+                                            BorderSide(color: Colors.transparent),
                                         borderRadius:
                                             new BorderRadius.circular(10),
                                       ),

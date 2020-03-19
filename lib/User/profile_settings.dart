@@ -34,7 +34,7 @@ class _SettingsFormState extends State<SettingsForm> {
                     SizedBox(height: 20),
                     TextFormField(
                       initialValue: userData.fname,
-                      style: new TextStyle(color: Colors.orange),
+                      style: new TextStyle(color: Colors.grey),
                       decoration: new InputDecoration(
                         hintText: 'Full Name',
                         hintStyle: new TextStyle(color: Colors.grey),
@@ -58,7 +58,7 @@ class _SettingsFormState extends State<SettingsForm> {
                         validator: (val) => val.length != 10.0
                             ? 'Enter valid 10 Digit Phone Nmber'
                             : null,
-                        style: new TextStyle(color: Colors.orange),
+                        style: new TextStyle(color: Colors.grey),
                         decoration: new InputDecoration(
                           //labelText: "Password:",
                           //labelStyle: new TextStyle(
@@ -90,7 +90,8 @@ class _SettingsFormState extends State<SettingsForm> {
                           splashColor: Colors.red,
                           padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
                           shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20.0)),
+                              borderRadius: BorderRadius.circular(20.0),
+                              side: BorderSide(color: Colors.transparent),),
                           onPressed: () async {
                             if (_formkey.currentState.validate()) {
                               await DatabaseService(uid: user.uid)
