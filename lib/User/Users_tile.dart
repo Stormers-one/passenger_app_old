@@ -10,10 +10,15 @@ class UsersTile extends StatelessWidget {
     return Padding(
         padding: EdgeInsets.only(top: 10.0),
         child: Card(
+<<<<<<< HEAD
           color: Colors.orange[300],
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20.0),
           ),
+=======
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          color: Colors.orange[200],
+>>>>>>> d504d48628dc8b15eccbdb7da091d38d938dc0f8
           margin: EdgeInsets.fromLTRB(20.0, 6.0, 20.0, 0.0),
           child: ListTile(
              leading: Image.asset(
