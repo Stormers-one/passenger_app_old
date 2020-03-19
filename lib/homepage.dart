@@ -142,220 +142,210 @@ class Homepage extends StatelessWidget {
             shrinkWrap: true,
             padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
             children: <Widget>[
-              Stack(
+              Flex(
+                direction: Axis.vertical,
                 children: <Widget>[
-                  Container(
-                    constraints: BoxConstraints.expand(
-                      height: MediaQuery.of(context).size.height*0.85,
-                      width: MediaQuery.of(context).size.width,
-                    ),
-                    decoration: BoxDecoration(
-                      color: Colors.orange[200],
-                    ),
-                  ),
                   Container(
                     child: Image.asset(
                       'assets/homepage.png',
-                      fit: BoxFit.fitWidth,
+                      fit: BoxFit.fill,
+                      height: 250,
                     ),
                     width: MediaQuery.of(context).size.width,
                   ),
-                  Positioned(
-                    bottom: MediaQuery.of(context).size.height*0.05,
-                    child: Container(
-                      decoration: BoxDecoration(
-                          color: Colors.orange[200],
-                          shape: BoxShape.rectangle,
-                          borderRadius: new BorderRadius.only(
-                              topLeft: const Radius.circular(25.0),
-                              topRight: const Radius.circular(25.0))),
-                      alignment: Alignment.bottomCenter,
-                      padding: EdgeInsets.all(20.0),
-                      width: MediaQuery.of(context).size.width,
-                      //height:
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          new Padding(
-                            padding: const EdgeInsets.only(top: 10.0),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  RawMaterialButton(
-                                    padding:
-                                        EdgeInsets.fromLTRB(20, 10, 20, 10),
-                                    shape: new RoundedRectangleBorder(
-                                        borderRadius:
-                                            new BorderRadius.circular(18.0),
-                                        side: BorderSide(color: Colors.black)),
-                                    fillColor: Colors.orange[500],
-                                    splashColor: Colors.grey,
-                                    textStyle: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20.0),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: <Widget>[
-                                        Container(
-                                          child: Image.asset(
-                                            'assets/map.png',
-                                          ),
-                                          height: 100,
-                                          width: 100,
+                  Container(
+                    decoration: BoxDecoration(
+                        color: Colors.orange[200],
+                        shape: BoxShape.rectangle,
+                        /*borderRadius: new BorderRadius.only(
+                            topLeft: const Radius.circular(25.0),
+                            topRight: const Radius.circular(25.0))*/),
+                    alignment: Alignment.bottomCenter,
+                    padding: EdgeInsets.all(20.0),
+                    width: MediaQuery.of(context).size.width,
+                    //height:
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        new Padding(
+                          padding: const EdgeInsets.only(top: 10.0),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Column(
+                              mainAxisAlignment:
+                                  MainAxisAlignment.spaceEvenly,
+                              children: [
+                                RawMaterialButton(
+                                  padding:
+                                      EdgeInsets.fromLTRB(20, 10, 20, 10),
+                                  shape: new RoundedRectangleBorder(
+                                      borderRadius:
+                                          new BorderRadius.circular(18.0),
+                                      side: BorderSide(color: Colors.black)),
+                                  fillColor: Colors.orange[500],
+                                  splashColor: Colors.grey,
+                                  textStyle: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: <Widget>[
+                                      Container(
+                                        child: Image.asset(
+                                          'assets/map.png',
                                         ),
-                                        Text('Maps'),
-                                      ],
-                                    ),
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => Maps()),
-                                      );
-                                    },
+                                        height: 100,
+                                        width: 100,
+                                      ),
+                                      Text('Maps'),
+                                    ],
                                   ),
-                                  SizedBox(height: 30),
-                                ],
-                              ),
-                              Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  RawMaterialButton(
-                                    padding:
-                                        EdgeInsets.fromLTRB(20, 10, 20, 10),
-                                    shape: new RoundedRectangleBorder(
-                                        borderRadius:
-                                            new BorderRadius.circular(18.0),
-                                        side: BorderSide(color: Colors.black)),
-                                    fillColor: Colors.orange[500],
-                                    splashColor: Colors.grey,
-                                    textStyle: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20.0),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: <Widget>[
-                                        Container(
-                                          child: Image.asset(
-                                            'assets/route.png',
-                                          ),
-                                          height: 100,
-                                          width: 100,
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Maps()),
+                                    );
+                                  },
+                                ),
+                                SizedBox(height: 30),
+                              ],
+                            ),
+                            Column(
+                              mainAxisAlignment:
+                                  MainAxisAlignment.spaceEvenly,
+                              children: [
+                                RawMaterialButton(
+                                  padding:
+                                      EdgeInsets.fromLTRB(20, 10, 20, 10),
+                                  shape: new RoundedRectangleBorder(
+                                      borderRadius:
+                                          new BorderRadius.circular(18.0),
+                                      side: BorderSide(color: Colors.black)),
+                                  fillColor: Colors.orange[500],
+                                  splashColor: Colors.grey,
+                                  textStyle: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: <Widget>[
+                                      Container(
+                                        child: Image.asset(
+                                          'assets/route.png',
                                         ),
-                                        Text('Timing'),
-                                      ],
-                                    ),
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => Timing()),
-                                      );
-                                    },
+                                        height: 100,
+                                        width: 100,
+                                      ),
+                                      Text('Timing'),
+                                    ],
                                   ),
-                                  SizedBox(height: 30),
-                                ],
-                              ),
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: <Widget>[
-                                  RawMaterialButton(
-                                    padding:
-                                        EdgeInsets.fromLTRB(20, 10, 20, 10),
-                                    shape: new RoundedRectangleBorder(
-                                        borderRadius:
-                                            new BorderRadius.circular(18.0),
-                                        side: BorderSide(color: Colors.black)),
-                                    fillColor: Colors.orange[500],
-                                    splashColor: Colors.grey,
-                                    textStyle: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20.0),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: <Widget>[
-                                        Container(
-                                          child: Image.asset(
-                                            'assets/position.png',
-                                          ),
-                                          height: 100,
-                                          width: 100,
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Timing()),
+                                    );
+                                  },
+                                ),
+                                SizedBox(height: 30),
+                              ],
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Column(
+                              mainAxisAlignment:
+                                  MainAxisAlignment.spaceEvenly,
+                              children: <Widget>[
+                                RawMaterialButton(
+                                  padding:
+                                      EdgeInsets.fromLTRB(20, 10, 20, 10),
+                                  shape: new RoundedRectangleBorder(
+                                      borderRadius:
+                                          new BorderRadius.circular(18.0),
+                                      side: BorderSide(color: Colors.black)),
+                                  fillColor: Colors.orange[500],
+                                  splashColor: Colors.grey,
+                                  textStyle: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: <Widget>[
+                                      Container(
+                                        child: Image.asset(
+                                          'assets/position.png',
                                         ),
-                                        Text('Tracking'),
-                                      ],
-                                    ),
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => Tracking()),
-                                      );
-                                    },
+                                        height: 100,
+                                        width: 100,
+                                      ),
+                                      Text('Tracking'),
+                                    ],
                                   ),
-                                  SizedBox(height: 30),
-                                ],
-                              ),
-                              Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  RawMaterialButton(
-                                    padding:
-                                        EdgeInsets.fromLTRB(20, 10, 20, 10),
-                                    shape: new RoundedRectangleBorder(
-                                        borderRadius:
-                                            new BorderRadius.circular(18.0),
-                                        side: BorderSide(color: Colors.black)),
-                                    fillColor: Colors.orange[500],
-                                    splashColor: Colors.grey,
-                                    textStyle: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20.0),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: <Widget>[
-                                        Container(
-                                          child: Image.asset(
-                                            'assets/seatbus.png',
-                                          ),
-                                          height: 100,
-                                          width: 100,
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Tracking()),
+                                    );
+                                  },
+                                ),
+                                SizedBox(height: 30),
+                              ],
+                            ),
+                            Column(
+                              mainAxisAlignment:
+                                  MainAxisAlignment.spaceEvenly,
+                              children: [
+                                RawMaterialButton(
+                                  padding:
+                                      EdgeInsets.fromLTRB(20, 10, 20, 10),
+                                  shape: new RoundedRectangleBorder(
+                                      borderRadius:
+                                          new BorderRadius.circular(18.0),
+                                      side: BorderSide(color: Colors.black)),
+                                  fillColor: Colors.orange[500],
+                                  splashColor: Colors.grey,
+                                  textStyle: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: <Widget>[
+                                      Container(
+                                        child: Image.asset(
+                                          'assets/seatbus.png',
                                         ),
-                                        Text('Booking'),
-                                      ],
-                                    ),
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => Booking()),
-                                      );
-                                    },
+                                        height: 100,
+                                        width: 100,
+                                      ),
+                                      Text('Booking'),
+                                    ],
                                   ),
-                                  SizedBox(height: 30),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Booking()),
+                                    );
+                                  },
+                                ),
+                                SizedBox(height: 30),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                   ),
                 ],
