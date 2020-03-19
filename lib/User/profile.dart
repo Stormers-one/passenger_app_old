@@ -32,7 +32,7 @@ class Profile extends StatelessWidget {
     return MaterialApp(
       title: 'Homepage',
       home: Scaffold(
-        backgroundColor: Colors.orange[300],
+        backgroundColor: Colors.orange[100],
         appBar: AppBar(
             title: Text('Profile'),
             backgroundColor: Colors.red[500],
@@ -144,7 +144,7 @@ class Profile extends StatelessWidget {
                   ),
                   Container(
                     decoration: BoxDecoration(
-                        color: Colors.orange[300],
+                        color: Colors.orange[100],
                         image: new DecorationImage(
                           image: new ExactAssetImage(
                             'assets/profile-icon.png',
