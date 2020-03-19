@@ -118,8 +118,6 @@ class _LoginState extends State<LoginPage> {
                                         style:
                                             new TextStyle(color: Colors.orange),
                                         decoration: new InputDecoration(
-                                          //labelText: "Email:",
-                                          //labelStyle: new TextStyle(fontSize:15, color: Colors.red),
                                           hintText: 'Email',
                                           hintStyle:
                                               new TextStyle(color: Colors.grey),
@@ -147,8 +145,6 @@ class _LoginState extends State<LoginPage> {
                                         style:
                                             new TextStyle(color: Colors.orange),
                                         decoration: new InputDecoration(
-                                          //labelText: "Password:",
-                                          //labelStyle: new TextStyle(fontSize: 15, color: Colors.red),
                                           hintText: 'Password',
                                           hintStyle:
                                               new TextStyle(color: Colors.grey),
