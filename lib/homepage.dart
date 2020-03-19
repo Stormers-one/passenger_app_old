@@ -37,7 +37,7 @@ class Homepage extends StatelessWidget {
         home: Scaffold(
           appBar: AppBar(
               //title: Text('MENU'),
-              backgroundColor: Colors.orange[100],
+              backgroundColor: Colors.orange[200],
               actions: <Widget>[
                 FlatButton.icon(
                   icon: Icon(Icons.person),
@@ -62,6 +62,16 @@ class Homepage extends StatelessWidget {
                       fontSize: 24,
                     ),
                   ),
+                ),
+                ListTile(
+                  leading: Icon(Icons.home),
+                  title: Text('Home'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Homepage()),
+                    );
+                  },
                 ),
                 ListTile(
                   leading: Icon(Icons.message),
@@ -111,12 +121,6 @@ class Homepage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Container(
-                      /*decoration: BoxDecoration(
-                          image: new DecorationImage(
-                        image: new ExactAssetImage(
-                          'assets/homepage.png',
-                        ),
-                      )),*/
                       child: Image.asset(
                         'assets/homepage.png',
                         fit: BoxFit.fitWidth,
@@ -125,7 +129,7 @@ class Homepage extends StatelessWidget {
                     ),
                     Container(
                       decoration: BoxDecoration(
-                          color: Colors.orange[100],
+                          color: Colors.orange[200],
                           shape: BoxShape.rectangle,
                           borderRadius: new BorderRadius.only(
                               topLeft: const Radius.circular(20.0),
@@ -133,7 +137,7 @@ class Homepage extends StatelessWidget {
                       alignment: Alignment.bottomCenter,
                       padding: EdgeInsets.all(20.0),
                       width: MediaQuery.of(context).size.width,
-                      //height: 
+                      //height:
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -151,7 +155,7 @@ class Homepage extends StatelessWidget {
                                         borderRadius:
                                             new BorderRadius.circular(18.0),
                                         side: BorderSide(color: Colors.black)),
-                                    fillColor: Colors.orange[300],
+                                    fillColor: Colors.orange[500],
                                     splashColor: Colors.grey,
                                     textStyle: TextStyle(
                                         color: Colors.black,
@@ -179,28 +183,6 @@ class Homepage extends StatelessWidget {
                                     },
                                   ),
                                   SizedBox(height: 30),
-                                  /*Container(
-                                    child: Image.asset(
-                                      'assets/map.png',
-                                    ),
-                                    height: 100,
-                                    width: 100,
-                                  ),
-                                  RaisedButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(builder: (context) => Maps()),
-                                      );
-                                    },
-                                    child:
-                                        const Text('Map', style: TextStyle(fontSize: 20)),
-                                    color: Colors.red,
-                                    textColor: Colors.white,
-                                    splashColor: Colors.grey,
-                                    padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                  ),
-                                  */
                                 ],
                               ),
                               Column(
@@ -214,7 +196,7 @@ class Homepage extends StatelessWidget {
                                         borderRadius:
                                             new BorderRadius.circular(18.0),
                                         side: BorderSide(color: Colors.black)),
-                                    fillColor: Colors.orange[300],
+                                    fillColor: Colors.orange[500],
                                     splashColor: Colors.grey,
                                     textStyle: TextStyle(
                                         color: Colors.black,
@@ -242,28 +224,6 @@ class Homepage extends StatelessWidget {
                                     },
                                   ),
                                   SizedBox(height: 30),
-                                  /*Container(
-                                    child: Image.asset(
-                                      'assets/route.png',
-                                    ),
-                                    height: 100,
-                                    width: 100,
-                                  ),
-                                  RaisedButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(builder: (context) => Timing()),
-                                      );
-                                    },
-                                    child: const Text('Timing',
-                                        style: TextStyle(fontSize: 20)),
-                                    color: Colors.red,
-                                    textColor: Colors.white,
-                                    splashColor: Colors.grey,
-                                    padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                  ),
-                                  */
                                 ],
                               ),
                             ],
@@ -282,7 +242,7 @@ class Homepage extends StatelessWidget {
                                         borderRadius:
                                             new BorderRadius.circular(18.0),
                                         side: BorderSide(color: Colors.black)),
-                                    fillColor: Colors.orange[300],
+                                    fillColor: Colors.orange[500],
                                     splashColor: Colors.grey,
                                     textStyle: TextStyle(
                                         color: Colors.black,
@@ -310,29 +270,6 @@ class Homepage extends StatelessWidget {
                                     },
                                   ),
                                   SizedBox(height: 30),
-                                  /*Container(
-                                    child: Image.asset(
-                                      'assets/position.png',
-                                    ),
-                                    height: 100,
-                                    width: 100,
-                                  ),
-                                  RaisedButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => Tracking()),
-                                      );
-                                    },
-                                    child: const Text('Tracking',
-                                        style: TextStyle(fontSize: 20)),
-                                    color: Colors.red,
-                                    textColor: Colors.white,
-                                    splashColor: Colors.grey,
-                                    padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                  ),
-                                  */
                                 ],
                               ),
                               Column(
@@ -346,7 +283,7 @@ class Homepage extends StatelessWidget {
                                         borderRadius:
                                             new BorderRadius.circular(18.0),
                                         side: BorderSide(color: Colors.black)),
-                                    fillColor: Colors.orange[300],
+                                    fillColor: Colors.orange[500],
                                     splashColor: Colors.grey,
                                     textStyle: TextStyle(
                                         color: Colors.black,
@@ -374,213 +311,10 @@ class Homepage extends StatelessWidget {
                                     },
                                   ),
                                   SizedBox(height: 30),
-                                  /*Container(
-                                    child: Image.asset(
-                                      'assets/seatbus.png',
-                                    ),
-                                    height: 100,
-                                    width: 100,
-                                  ),
-                                  RaisedButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => Booking()),
-                                      );
-                                    },
-                                    child: const Text('Booking',
-                                        style: TextStyle(fontSize: 20)),
-                                    color: Colors.red,
-                                    textColor: Colors.white,
-                                    splashColor: Colors.grey,
-                                    padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                  ),*/
                                 ],
                               ),
                             ],
                           ),
-                          /*Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: <Widget>[
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  RawMaterialButton(
-                                    padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
-                                    shape: new RoundedRectangleBorder(
-                                        borderRadius:
-                                            new BorderRadius.circular(18.0),
-                                        side: BorderSide(color: Colors.black)),
-                                    fillColor: Colors.orange[300],
-                                    splashColor: Colors.grey,
-                                    textStyle: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20.0),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: <Widget>[
-                                        Container(
-                                          child: Image.asset(
-                                            'assets/question.png',
-                                          ),
-                                          height: 100,
-                                          width: 100,
-                                        ),
-                                        Text('Help'),
-                                      ],
-                                    ),
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => Help()),
-                                      );
-                                    },
-                                  ),
-                                  SizedBox(height: 30),
-                                  /*Container(
-                                    child: Image.asset(
-                                      'assets/question.png',
-                                    ),
-                                    height: 100,
-                                    width: 100,
-                                  ),
-                                  RaisedButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(builder: (context) => Help()),
-                                      );
-                                    },
-                                    child: const Text('Help',
-                                        style: TextStyle(fontSize: 20)),
-                                    color: Colors.red,
-                                    textColor: Colors.white,
-                                    splashColor: Colors.grey,
-                                    padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                  ),*/
-                                ],
-                              ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  RawMaterialButton(
-                                    padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
-                                    shape: new RoundedRectangleBorder(
-                                        borderRadius:
-                                            new BorderRadius.circular(18.0),
-                                        side: BorderSide(color: Colors.black)),
-                                    fillColor: Colors.orange[300],
-                                    splashColor: Colors.grey,
-                                    textStyle: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20.0),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: <Widget>[
-                                        Container(
-                                          child: Image.asset(
-                                            'assets/report.png',
-                                          ),
-                                          height: 100,
-                                          width: 100,
-                                        ),
-                                        Text('Report'),
-                                      ],
-                                    ),
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => Reports()),
-                                      );
-                                    },
-                                  ),
-                                  SizedBox(height: 30),
-                                  /*RaisedButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => Reports()),
-                                      );
-                                    },
-                                    child: const Text('Report',
-                                        style: TextStyle(fontSize: 20)),
-                                    color: Colors.red,
-                                    textColor: Colors.white,
-                                    splashColor: Colors.grey,
-                                    padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                  ),*/
-                                ],
-                              ),
-                            ],
-                          )
-                        */
-/*                Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: <Widget>[
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  SizedBox(height: 30),
-                                  Container(
-                                    child: Image.asset(
-                                      'assets/question.png',
-                                    ),
-                                    height: 100,
-                                    width: 100,
-                                  ),
-                                  RaisedButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(builder: (context) => Help()),
-                                      );
-                                    },
-                                    child: const Text('Help',
-                                        style: TextStyle(fontSize: 20)),
-                                    color: Colors.red,
-                                    textColor: Colors.white,
-                                    splashColor: Colors.grey,
-                                    padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                  ),
-                                ],
-                              ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  SizedBox(height: 30),
-                                  Container(
-                                    child: Image.asset(
-                                      'assets/report.png',
-                                    ),
-                                    height: 100,
-                                    width: 100,
-                                  ),
-                                  RaisedButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => Reports()),
-                                      );
-                                    },
-                                    child: const Text('Report',
-                                        style: TextStyle(fontSize: 20)),
-                                    color: Colors.red,
-                                    textColor: Colors.white,
-                                    splashColor: Colors.grey,
-                                    padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          )
-*/
                         ],
                       ),
                     ),

@@ -6,6 +6,7 @@ import 'package:o_k/User/user_list.dart';
 import 'package:o_k/User/users_fetch.dart';
 import 'package:provider/provider.dart';
 import 'package:o_k/User/profile.dart';
+import 'package:o_k/homepage.dart';
 
 class Users_Count extends StatelessWidget {
   final Authservice _auth = new Authservice();
@@ -30,7 +31,7 @@ class Users_Count extends StatelessWidget {
         home: Scaffold(
           appBar: AppBar(
               title: Text('Users List'),
-              backgroundColor: Colors.orange[100],
+              backgroundColor: Colors.orange[200],
               actions: <Widget>[
                 FlatButton.icon(
                     onPressed: () => _showSettengsPanel(),
@@ -52,6 +53,16 @@ class Users_Count extends StatelessWidget {
                       fontSize: 24,
                     ),
                   ),
+                ),
+                ListTile(
+                  leading: Icon(Icons.home),
+                  title: Text('Home'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Homepage()),
+                    );
+                  },
                 ),
                 ListTile(
                   leading: Icon(Icons.message),
