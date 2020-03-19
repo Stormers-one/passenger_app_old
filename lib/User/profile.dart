@@ -137,10 +137,10 @@ class Profile extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
             children: <Widget>[
               Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  new Padding(
-                    padding: const EdgeInsets.only(top: 10.0),
+                  SizedBox(
+                    height: 50
                   ),
                   Container(
                     decoration: BoxDecoration(
