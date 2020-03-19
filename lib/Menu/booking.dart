@@ -19,7 +19,7 @@ class _BookingState extends State<Booking> {
       home: Scaffold(
         appBar: AppBar(
           title: Text('Booking'),
-          backgroundColor: Colors.orange[200],
+          backgroundColor: Colors.orange[300],
         ),
         drawer: Drawer(
           child: ListView(

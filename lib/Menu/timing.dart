@@ -14,7 +14,7 @@ class Timing extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: Text('Bus Timing'),
-          backgroundColor: Colors.orange[200],
+          backgroundColor: Colors.orange[300],
         ),
         drawer: Drawer(
           child: ListView(

@@ -15,7 +15,7 @@ class Maps extends StatelessWidget {
         resizeToAvoidBottomPadding: false,
         appBar: AppBar(
           title: Text('Maps'),
-          backgroundColor: Colors.orange[200],
+          backgroundColor: Colors.orange[300],
         ),
         drawer: Drawer(
           child: ListView(

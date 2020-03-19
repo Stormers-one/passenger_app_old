@@ -14,7 +14,7 @@ class UsersTile extends StatelessWidget {
           child: ListTile(
             leading: CircleAvatar(
               radius: 50.0,
-              backgroundColor: Colors.orange[300],
+              backgroundColor: Colors.red[300],
             ),
             title: Text(user.fname),
           ),
