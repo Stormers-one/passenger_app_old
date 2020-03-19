@@ -134,30 +134,28 @@ class Tracking extends StatelessWidget {
                                 filled: true,
                                 border: OutlineInputBorder(
                                   borderSide: BorderSide(color: Colors.white),
-                                  borderRadius: new BorderRadius.circular(25),
+                                  borderRadius: new BorderRadius.circular(20),
                                 ),
                               ),
                               keyboardType: TextInputType.emailAddress,
                             ),
                             new Padding(
-                              padding: const EdgeInsets.only(top: 60.0),
+                              padding: const EdgeInsets.only(top: 30.0),
                             ),
-                            RaisedButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Track()),
-                                );
-                              },
-                              child: const Text('Search',
-                                  style: TextStyle(fontSize: 20)),
-                              color: Colors.red,
-                              textColor: Colors.white,
-                              splashColor: Colors.grey,
-                              padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20.0)),
+                            SizedBox(
+                              height: 50,
+                              width: 200,
+                              child: RaisedButton(
+                                onPressed: () {},
+                                child: const Text('Search',
+                                    style: TextStyle(fontSize: 20)),
+                                color: Colors.red,
+                                textColor: Colors.white,
+                                splashColor: Colors.grey,
+                                padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20.0)),
+                              ),
                             ),
                           ],
                         ),

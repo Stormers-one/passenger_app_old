@@ -122,7 +122,7 @@ class _LoginState extends State<LoginPage> {
                                               borderSide:
                                                   BorderSide(color: Colors.white),
                                               borderRadius:
-                                                  new BorderRadius.circular(25),
+                                                  new BorderRadius.circular(20),
                                             ),
                                           ),
                                           keyboardType:
@@ -151,7 +151,7 @@ class _LoginState extends State<LoginPage> {
                                               borderSide:
                                                   BorderSide(color: Colors.white),
                                               borderRadius:
-                                                  new BorderRadius.circular(25),
+                                                  new BorderRadius.circular(20),
                                             ),
                                             /*enabledBorder: OutlineInputBorder(
                                           borderSide:
