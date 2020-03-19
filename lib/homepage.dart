@@ -36,6 +36,7 @@ class Homepage extends StatelessWidget {
       child: MaterialApp(
         title: 'Homepage',
         home: Scaffold(
+          backgroundColor: Colors.orange[200],
           appBar: AppBar(
               //title: Text('MENU'),
               backgroundColor: Colors.orange[200],
@@ -145,7 +146,7 @@ class Homepage extends StatelessWidget {
                 children: <Widget>[
                   Container(
                     constraints: BoxConstraints.expand(
-                      height: MediaQuery.of(context).size.height,
+                      height: MediaQuery.of(context).size.height*0.85,
                       width: MediaQuery.of(context).size.width,
                     ),
                     decoration: BoxDecoration(
@@ -166,8 +167,8 @@ class Homepage extends StatelessWidget {
                           color: Colors.orange[200],
                           shape: BoxShape.rectangle,
                           borderRadius: new BorderRadius.only(
-                              topLeft: const Radius.circular(20.0),
-                              topRight: const Radius.circular(20.0))),
+                              topLeft: const Radius.circular(25.0),
+                              topRight: const Radius.circular(25.0))),
                       alignment: Alignment.bottomCenter,
                       padding: EdgeInsets.all(20.0),
                       width: MediaQuery.of(context).size.width,
