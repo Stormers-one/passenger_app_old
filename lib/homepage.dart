@@ -57,7 +57,7 @@ class Homepage extends StatelessWidget {
             ]),
         drawer: DrawerBuild(),
         body: DoubleBackToCloseApp(
-          snackBar: const SnackBar(content: Text('Press Back Again To Exit')),
+          snackBar: const SnackBar(content: Text('Press Back Again To Exit', textAlign: TextAlign.center,)),
           child: ListView(
             shrinkWrap: true,
             padding: const EdgeInsets.all(10),
