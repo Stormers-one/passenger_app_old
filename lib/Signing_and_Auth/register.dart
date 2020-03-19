@@ -61,8 +61,8 @@ class _RegisterState extends State<RegisterPage> {
                             child: Image.asset(
                               'assets/logo.png',
                             ),
-                            height: 300,
-                            width: 300,
+                            height: 150,
+                            width: 150,
                           ),
                           new Container(
                             decoration: new BoxDecoration(
