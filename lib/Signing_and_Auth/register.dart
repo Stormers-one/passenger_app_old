@@ -99,9 +99,7 @@ class _RegisterState extends State<RegisterPage> {
                                       padding: const EdgeInsets.only(top: 10.0),
                                     ),
                                     new TextFormField(
-                                        validator: (val) => val.isEmpty
-                                            ? 'Enter Full Name'
-                                            : null,
+                                       initialValue: fname,
                                         style:
                                             new TextStyle(color: Colors.orange),
                                         decoration: new InputDecoration(
@@ -123,12 +121,17 @@ class _RegisterState extends State<RegisterPage> {
                                         keyboardType: TextInputType.emailAddress,
                                         onChanged: (val) {
                                           setState(() => fname = val);
-                                        }),
+                                        },
+                                         validator: (val) => val.isEmpty
+                                            ? 'Enter Full Name'
+                                            : null,
+                                        ),
                                     //EMAIL INPUT
                                     new Padding(
                                       padding: const EdgeInsets.only(top: 10.0),
                                     ),
                                     new TextFormField(
+                                        initialValue: email,
                                         style:
                                             new TextStyle(color: Colors.orange),
                                         decoration: new InputDecoration(
@@ -225,6 +228,7 @@ class _RegisterState extends State<RegisterPage> {
                                       padding: const EdgeInsets.only(top: 10.0),
                                     ),
                                     new TextFormField(
+                                        initialValue: phno,
                                         style:
                                             new TextStyle(color: Colors.orange),
                                         decoration: new InputDecoration(
