@@ -7,139 +7,237 @@ import 'package:o_k/User/user_list.dart';
 import 'package:o_k/User/users_fetch.dart';
 import 'package:o_k/shared/loading.dart';
 import 'package:provider/provider.dart';
+import 'package:o_k/User/user_count.dart';
+import 'package:o_k/homepage.dart';
+import 'package:o_k/Menu/help.dart';
+import 'package:o_k/Menu/reports.dart';
 
 class Profile extends StatelessWidget {
   final Authservice _auth = new Authservice();
-    
 
   @override
   Widget build(BuildContext context) {
-    void _showSettengsPanel(){
-      showModalBottomSheet(context: context, builder: (context){
-        return Container(
-          padding: EdgeInsets.symmetric(vertical: 20.0 , horizontal: 60.0),
-          child: SettingsForm(),
-        );
-      });
+    void _showSettengsPanel() {
+      showModalBottomSheet(
+          context: context,
+          builder: (context) {
+            return Container(
+              padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 60.0),
+              child: SettingsForm(),
+            );
+          });
     }
+
     final user = Provider.of<User>(context);
-    return  MaterialApp(
-          title: 'Homepage',
-          home: Scaffold(
-           backgroundColor: Colors.orange[300], 
-          appBar: AppBar(
+    return MaterialApp(
+      title: 'Homepage',
+      home: Scaffold(
+        backgroundColor: Colors.orange[300],
+        appBar: AppBar(
             title: Text('Profile'),
-            backgroundColor: Colors.green[100],
+            backgroundColor: Colors.orange[200],
             actions: <Widget>[
-              FlatButton.icon(onPressed: ()=> _showSettengsPanel(), icon: Icon(Icons.settings), label: Text('Edit Profile'))
-            ]
-          ),
-          body: Container(
+              FlatButton.icon(
+                  onPressed: () => _showSettengsPanel(),
+                  icon: Icon(Icons.settings),
+                  label: Text('Edit Profile'))
+            ]),
+        drawer: Drawer(
             child: ListView(
-              shrinkWrap: true,
-              padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+              padding: EdgeInsets.zero,
               children: <Widget>[
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.orange[300],
-                          image: new DecorationImage(
-                        image: new ExactAssetImage(
-                          'assets/profile-icon.png',
-                        ),
-                      )),
-                      child: Image.asset(
-                        'assets/profile-icon.png',
-                      ),
-                      height: 200,
-                      width: 200,
+                DrawerHeader(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                  ),
+                  child: Text(
+                    'Odu Komban',
+                    style: TextStyle(
+                      color: Colors.orange,
+                      fontSize: 24,
                     ),
-                    StreamBuilder<UserData>(
-                      stream: DatabaseService(uid: user.uid).userData,
-                      builder: (context, snapshot) {
-                        if(snapshot.hasData){
-                          UserData userData = snapshot.data;
-                          return Form(
-                            child: new Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: <Widget>[
-                                new Padding(
-                                  padding: const EdgeInsets.only(top: 10.0),
-                                ),
-                                new TextField(
-                                  enabled: false,
-                                  
-                                  decoration: new InputDecoration (
-                                    labelText: userData.fname, 
-                                    labelStyle: TextStyle(fontSize: 15, color: Colors.black),
-                                    icon: Icon(Icons.account_box),
-                                    fillColor: Colors.grey[300],
-                                    filled: true,
-                                    border: OutlineInputBorder(
-                                      borderSide:
-                                          BorderSide(color: Colors.white),
-                                      borderRadius:
-                                          new BorderRadius.circular(10),
-                                    ),
-                                  ),
-                                ),
-                                new Padding(
-                                  padding: const EdgeInsets.only(top: 10.0),
-                                ),
-                                new TextField(
-                                  enabled: false,
-                                  decoration: new InputDecoration(
-                                    labelText: userData.email,
-                                    labelStyle: TextStyle(fontSize: 15, color: Colors.black),
-                                    icon: Icon(Icons.email),
-                                    fillColor: Colors.grey[300],
-                                    filled: true,
-                                    border: OutlineInputBorder(
-                                      borderSide:
-                                          BorderSide(color: Colors.white),
-                                      borderRadius:
-                                          new BorderRadius.circular(10),
-                                    ),
-                                  ),
-                                ),
-                                new Padding(
-                                  padding: const EdgeInsets.only(top: 10.0),
-                                ),
-                                new TextField(
-                                  enabled: false,
-                                  
-                                  decoration: new InputDecoration  (
-                                    labelText: userData.phno,
-                                    labelStyle: TextStyle(fontSize: 15, color: Colors.black),
-                                    icon: Icon(Icons.phone),
-                                    fillColor: Colors.grey[300],
-                                    filled: true,
-                                    border: OutlineInputBorder(
-                                      borderSide:
-                                          BorderSide(color: Colors.white),
-                                      borderRadius:
-                                          new BorderRadius.circular(10),
-                                    ),
-                                    
-                                  ),
-                                ),
-                              ],
-                            ),
-                          );
-                        }
-                        else{
-                          return Loading();
-                        }
-                      }
-                    ),
-                  ],
+                  ),
+                ),
+                ListTile(
+                  leading: Icon(Icons.home),
+                  title: Text('Home'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Homepage()),
+                    );
+                  },
+                ),
+                /*ListTile(
+                  leading: Icon(Icons.message),
+                  title: Text('Messages'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Messages()),
+                    );
+                  },
+                ),*/
+                ListTile(
+                  leading: Icon(Icons.account_circle),
+                  title: Text('Users List'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Users_Count()),
+                    );
+                  },
+                ),
+                ListTile(
+                  leading: Icon(Icons.account_circle),
+                  title: Text('Profile'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Profile()),
+                    );
+                  },
+                ),
+                /*ListTile(
+                  leading: Icon(Icons.settings),
+                  title: Text('Settings'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Settings()),
+                    );
+                  },
+                ),*/
+                ListTile(
+                  leading: Icon(Icons.report),
+                  title: Text('Report'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Reports()),
+                    );
+                  },
+                ),
+                ListTile(
+                  leading: Icon(Icons.help),
+                  title: Text('Help'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Help()),
+                    );
+                  },
                 ),
               ],
             ),
           ),
+        body: Container(
+          child: ListView(
+            shrinkWrap: true,
+            padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+            children: <Widget>[
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Container(
+                    decoration: BoxDecoration(
+                        color: Colors.orange[300],
+                        image: new DecorationImage(
+                          image: new ExactAssetImage(
+                            'assets/profile-icon.png',
+                          ),
+                        )),
+                    child: Image.asset(
+                      'assets/profile-icon.png',
+                    ),
+                    height: 200,
+                    width: 200,
+                  ),
+                  StreamBuilder<UserData>(
+                      stream: DatabaseService(uid: user.uid).userData,
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          UserData userData = snapshot.data;
+                          return Form(
+                            child: Container(
+                              padding: EdgeInsets.all(20.0),
+                              child: new Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: <Widget>[
+                                  new Padding(
+                                    padding: const EdgeInsets.only(top: 10.0),
+                                  ),
+                                  new TextField(
+                                    enabled: false,
+                                    decoration: new InputDecoration(
+                                      labelText: userData.fname,
+                                      labelStyle: TextStyle(
+                                          fontSize: 15, color: Colors.black),
+                                      icon: Icon(Icons.account_box),
+                                      fillColor: Colors.grey[300],
+                                      filled: true,
+                                      border: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.white),
+                                        borderRadius:
+                                            new BorderRadius.circular(10),
+                                      ),
+                                    ),
+                                  ),
+                                  new Padding(
+                                    padding: const EdgeInsets.only(top: 10.0),
+                                  ),
+                                  new TextField(
+                                    enabled: false,
+                                    decoration: new InputDecoration(
+                                      labelText: userData.email,
+                                      labelStyle: TextStyle(
+                                          fontSize: 15, color: Colors.black),
+                                      icon: Icon(Icons.email),
+                                      fillColor: Colors.grey[300],
+                                      filled: true,
+                                      border: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.white),
+                                        borderRadius:
+                                            new BorderRadius.circular(10),
+                                      ),
+                                    ),
+                                  ),
+                                  new Padding(
+                                    padding: const EdgeInsets.only(top: 10.0),
+                                  ),
+                                  new TextField(
+                                    enabled: false,
+                                    decoration: new InputDecoration(
+                                      labelText: userData.phno,
+                                      labelStyle: TextStyle(
+                                          fontSize: 15, color: Colors.black),
+                                      icon: Icon(Icons.phone),
+                                      fillColor: Colors.grey[300],
+                                      filled: true,
+                                      border: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.white),
+                                        borderRadius:
+                                            new BorderRadius.circular(10),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        } else {
+                          return Loading();
+                        }
+                      }),
+                ],
+              ),
+            ],
           ),
+        ),
+      ),
     );
   }
 }

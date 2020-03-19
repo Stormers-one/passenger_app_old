@@ -93,7 +93,7 @@ class _RegisterState extends State<RegisterPage> {
                                     style: TextStyle(
                                         color: Colors.red, fontSize: 14.0),
                                   ),
-              //FULL NAME INPUT
+                                  //FULL NAME INPUT
                                   new Padding(
                                     padding: const EdgeInsets.only(top: 10.0),
                                   ),
@@ -123,7 +123,7 @@ class _RegisterState extends State<RegisterPage> {
                                       onChanged: (val) {
                                         setState(() => fname = val);
                                       }),
-                //EMAIL INPUT
+                                  //EMAIL INPUT
                                   new Padding(
                                     padding: const EdgeInsets.only(top: 10.0),
                                   ),
@@ -153,7 +153,7 @@ class _RegisterState extends State<RegisterPage> {
                                       onChanged: (val) {
                                         setState(() => email = val);
                                       }),
-                // PASSWORD INPUT
+                                  // PASSWORD INPUT
                                   new Padding(
                                     padding: const EdgeInsets.only(top: 10.0),
                                   ),
@@ -184,7 +184,7 @@ class _RegisterState extends State<RegisterPage> {
                                       onChanged: (val) {
                                         setState(() => password = val);
                                       }),
-                                      new Padding(
+                                  new Padding(
                                     padding: const EdgeInsets.only(top: 10.0),
                                   ),
                                   new TextFormField(
@@ -214,8 +214,8 @@ class _RegisterState extends State<RegisterPage> {
                                       onChanged: (val) {
                                         setState(() => cfpassword = val);
                                       }),
-                //PHONE NUMBER INPUT
-                                      new Padding(
+                                  //PHONE NUMBER INPUT
+                                  new Padding(
                                     padding: const EdgeInsets.only(top: 10.0),
                                   ),
                                   new TextFormField(
@@ -255,20 +255,22 @@ class _RegisterState extends State<RegisterPage> {
                                         if (_formkey.currentState.validate()) {
                                           setState(() => loading = true);
                                           dynamic result = await _auth
-                                              .registerWithEmailAndPassword(fname ,email, password,phno);
+                                              .registerWithEmailAndPassword(
+                                                  fname, email, password, phno);
                                           if (result == null) {
                                             setState(() {
                                               error =
                                                   'Please enter a valid email and password';
                                               loading = false;
                                             });
-                                          }else {
+                                          } else {
                                             Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) => Wrapper()),
-                                        );
-                                        }
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      Wrapper()),
+                                            );
+                                          }
                                         }
                                         // Navigator.push(
                                         //   context,

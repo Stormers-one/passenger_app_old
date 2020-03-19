@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:o_k/services/auth.dart';
 import 'package:o_k/Menu/booking.dart';
-// import 'package:o_k/Menu/help.dart';
-// import 'package:o_k/Menu/reports.dart';
+import 'package:o_k/Menu/help.dart';
+import 'package:o_k/Menu/reports.dart';
 import 'package:o_k/Menu/timing.dart';
 import 'package:o_k/Menu/tracking.dart';
 import 'package:o_k/Menu/maps.dart';
@@ -37,7 +37,7 @@ class Homepage extends StatelessWidget {
         home: Scaffold(
           appBar: AppBar(
               //title: Text('MENU'),
-              backgroundColor: Colors.green[100],
+              backgroundColor: Colors.orange[200],
               actions: <Widget>[
                 FlatButton.icon(
                   icon: Icon(Icons.person),
@@ -53,20 +53,36 @@ class Homepage extends StatelessWidget {
               children: <Widget>[
                 DrawerHeader(
                   decoration: BoxDecoration(
-                    color: Colors.green,
+                    color: Colors.white,
                   ),
                   child: Text(
                     'Odu Komban',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.orange,
                       fontSize: 24,
                     ),
                   ),
                 ),
                 ListTile(
+                  leading: Icon(Icons.home),
+                  title: Text('Home'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Homepage()),
+                    );
+                  },
+                ),
+                /*ListTile(
                   leading: Icon(Icons.message),
                   title: Text('Messages'),
-                ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Messages()),
+                    );
+                  },
+                ),*/
                 ListTile(
                   leading: Icon(Icons.account_circle),
                   title: Text('Users List'),
@@ -87,17 +103,35 @@ class Homepage extends StatelessWidget {
                     );
                   },
                 ),
-                ListTile(
+                /*ListTile(
                   leading: Icon(Icons.settings),
                   title: Text('Settings'),
-                ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Settings()),
+                    );
+                  },
+                ),*/
                 ListTile(
                   leading: Icon(Icons.report),
                   title: Text('Report'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Reports()),
+                    );
+                  },
                 ),
                 ListTile(
                   leading: Icon(Icons.help),
                   title: Text('Help'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Help()),
+                    );
+                  },
                 ),
               ],
             ),
@@ -111,28 +145,23 @@ class Homepage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Container(
-                      decoration: BoxDecoration(
-                          image: new DecorationImage(
-                        image: new ExactAssetImage(
-                          'assets/homepage.png',
-                        ),
-                      )),
                       child: Image.asset(
                         'assets/homepage.png',
+                        fit: BoxFit.fitWidth,
                       ),
                       width: MediaQuery.of(context).size.width,
                     ),
                     Container(
                       decoration: BoxDecoration(
-                          color: Colors.orange[100],
+                          color: Colors.orange[200],
                           shape: BoxShape.rectangle,
                           borderRadius: new BorderRadius.only(
-                              topLeft: const Radius.circular(
-                                  20.0), //REMOVED CONTAINER BORDER RADIUS
+                              topLeft: const Radius.circular(20.0),
                               topRight: const Radius.circular(20.0))),
                       alignment: Alignment.bottomCenter,
                       padding: EdgeInsets.all(20.0),
                       width: MediaQuery.of(context).size.width,
+                      //height:
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -150,7 +179,7 @@ class Homepage extends StatelessWidget {
                                         borderRadius:
                                             new BorderRadius.circular(18.0),
                                         side: BorderSide(color: Colors.black)),
-                                    fillColor: Colors.orange[300],
+                                    fillColor: Colors.orange[500],
                                     splashColor: Colors.grey,
                                     textStyle: TextStyle(
                                         color: Colors.black,
@@ -178,28 +207,6 @@ class Homepage extends StatelessWidget {
                                     },
                                   ),
                                   SizedBox(height: 30),
-                                  /*Container(
-                                    child: Image.asset(
-                                      'assets/map.png',
-                                    ),
-                                    height: 100,
-                                    width: 100,
-                                  ),
-                                  RaisedButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(builder: (context) => Maps()),
-                                      );
-                                    },
-                                    child:
-                                        const Text('Map', style: TextStyle(fontSize: 20)),
-                                    color: Colors.red,
-                                    textColor: Colors.white,
-                                    splashColor: Colors.grey,
-                                    padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                  ),
-                                  */
                                 ],
                               ),
                               Column(
@@ -213,7 +220,7 @@ class Homepage extends StatelessWidget {
                                         borderRadius:
                                             new BorderRadius.circular(18.0),
                                         side: BorderSide(color: Colors.black)),
-                                    fillColor: Colors.orange[300],
+                                    fillColor: Colors.orange[500],
                                     splashColor: Colors.grey,
                                     textStyle: TextStyle(
                                         color: Colors.black,
@@ -241,28 +248,6 @@ class Homepage extends StatelessWidget {
                                     },
                                   ),
                                   SizedBox(height: 30),
-                                  /*Container(
-                                    child: Image.asset(
-                                      'assets/route.png',
-                                    ),
-                                    height: 100,
-                                    width: 100,
-                                  ),
-                                  RaisedButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(builder: (context) => Timing()),
-                                      );
-                                    },
-                                    child: const Text('Timing',
-                                        style: TextStyle(fontSize: 20)),
-                                    color: Colors.red,
-                                    textColor: Colors.white,
-                                    splashColor: Colors.grey,
-                                    padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                  ),
-                                  */
                                 ],
                               ),
                             ],
@@ -281,7 +266,7 @@ class Homepage extends StatelessWidget {
                                         borderRadius:
                                             new BorderRadius.circular(18.0),
                                         side: BorderSide(color: Colors.black)),
-                                    fillColor: Colors.orange[300],
+                                    fillColor: Colors.orange[500],
                                     splashColor: Colors.grey,
                                     textStyle: TextStyle(
                                         color: Colors.black,
@@ -309,29 +294,6 @@ class Homepage extends StatelessWidget {
                                     },
                                   ),
                                   SizedBox(height: 30),
-                                  /*Container(
-                                    child: Image.asset(
-                                      'assets/position.png',
-                                    ),
-                                    height: 100,
-                                    width: 100,
-                                  ),
-                                  RaisedButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => Tracking()),
-                                      );
-                                    },
-                                    child: const Text('Tracking',
-                                        style: TextStyle(fontSize: 20)),
-                                    color: Colors.red,
-                                    textColor: Colors.white,
-                                    splashColor: Colors.grey,
-                                    padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                  ),
-                                  */
                                 ],
                               ),
                               Column(
@@ -345,7 +307,7 @@ class Homepage extends StatelessWidget {
                                         borderRadius:
                                             new BorderRadius.circular(18.0),
                                         side: BorderSide(color: Colors.black)),
-                                    fillColor: Colors.orange[300],
+                                    fillColor: Colors.orange[500],
                                     splashColor: Colors.grey,
                                     textStyle: TextStyle(
                                         color: Colors.black,
@@ -373,213 +335,10 @@ class Homepage extends StatelessWidget {
                                     },
                                   ),
                                   SizedBox(height: 30),
-                                  /*Container(
-                                    child: Image.asset(
-                                      'assets/seatbus.png',
-                                    ),
-                                    height: 100,
-                                    width: 100,
-                                  ),
-                                  RaisedButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => Booking()),
-                                      );
-                                    },
-                                    child: const Text('Booking',
-                                        style: TextStyle(fontSize: 20)),
-                                    color: Colors.red,
-                                    textColor: Colors.white,
-                                    splashColor: Colors.grey,
-                                    padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                  ),*/
                                 ],
                               ),
                             ],
                           ),
-                          /*Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: <Widget>[
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  RawMaterialButton(
-                                    padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
-                                    shape: new RoundedRectangleBorder(
-                                        borderRadius:
-                                            new BorderRadius.circular(18.0),
-                                        side: BorderSide(color: Colors.black)),
-                                    fillColor: Colors.orange[300],
-                                    splashColor: Colors.grey,
-                                    textStyle: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20.0),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: <Widget>[
-                                        Container(
-                                          child: Image.asset(
-                                            'assets/question.png',
-                                          ),
-                                          height: 100,
-                                          width: 100,
-                                        ),
-                                        Text('Help'),
-                                      ],
-                                    ),
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => Help()),
-                                      );
-                                    },
-                                  ),
-                                  SizedBox(height: 30),
-                                  /*Container(
-                                    child: Image.asset(
-                                      'assets/question.png',
-                                    ),
-                                    height: 100,
-                                    width: 100,
-                                  ),
-                                  RaisedButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(builder: (context) => Help()),
-                                      );
-                                    },
-                                    child: const Text('Help',
-                                        style: TextStyle(fontSize: 20)),
-                                    color: Colors.red,
-                                    textColor: Colors.white,
-                                    splashColor: Colors.grey,
-                                    padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                  ),*/
-                                ],
-                              ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  RawMaterialButton(
-                                    padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
-                                    shape: new RoundedRectangleBorder(
-                                        borderRadius:
-                                            new BorderRadius.circular(18.0),
-                                        side: BorderSide(color: Colors.black)),
-                                    fillColor: Colors.orange[300],
-                                    splashColor: Colors.grey,
-                                    textStyle: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20.0),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: <Widget>[
-                                        Container(
-                                          child: Image.asset(
-                                            'assets/report.png',
-                                          ),
-                                          height: 100,
-                                          width: 100,
-                                        ),
-                                        Text('Report'),
-                                      ],
-                                    ),
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => Reports()),
-                                      );
-                                    },
-                                  ),
-                                  SizedBox(height: 30),
-                                  /*RaisedButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => Reports()),
-                                      );
-                                    },
-                                    child: const Text('Report',
-                                        style: TextStyle(fontSize: 20)),
-                                    color: Colors.red,
-                                    textColor: Colors.white,
-                                    splashColor: Colors.grey,
-                                    padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                  ),*/
-                                ],
-                              ),
-                            ],
-                          )
-                        */
-/*                Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: <Widget>[
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  SizedBox(height: 30),
-                                  Container(
-                                    child: Image.asset(
-                                      'assets/question.png',
-                                    ),
-                                    height: 100,
-                                    width: 100,
-                                  ),
-                                  RaisedButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(builder: (context) => Help()),
-                                      );
-                                    },
-                                    child: const Text('Help',
-                                        style: TextStyle(fontSize: 20)),
-                                    color: Colors.red,
-                                    textColor: Colors.white,
-                                    splashColor: Colors.grey,
-                                    padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                  ),
-                                ],
-                              ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  SizedBox(height: 30),
-                                  Container(
-                                    child: Image.asset(
-                                      'assets/report.png',
-                                    ),
-                                    height: 100,
-                                    width: 100,
-                                  ),
-                                  RaisedButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => Reports()),
-                                      );
-                                    },
-                                    child: const Text('Report',
-                                        style: TextStyle(fontSize: 20)),
-                                    color: Colors.red,
-                                    textColor: Colors.white,
-                                    splashColor: Colors.grey,
-                                    padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          )
-*/
                         ],
                       ),
                     ),
