@@ -6,6 +6,7 @@ class Search extends StatelessWidget {
     return MaterialApp(
       title: 'Search',
       home: Scaffold(
+        backgroundColor: Colors.orange[100],
         appBar: AppBar(
           title: Text('Search'),
         ),

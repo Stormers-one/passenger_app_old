@@ -10,6 +10,7 @@ class Help extends StatelessWidget {
     return MaterialApp(
       title: 'Help',
       home: Scaffold(
+        backgroundColor: Colors.orange[100],
         appBar: AppBar(
           title: Text('Help'),
         ),

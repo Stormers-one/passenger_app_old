@@ -11,6 +11,7 @@ class Seating extends StatelessWidget {
     return MaterialApp(
       title: 'Seating',
       home: Scaffold(
+        backgroundColor: Colors.orange[100],
         appBar: AppBar(
           title: Text('Seating'),
         ),

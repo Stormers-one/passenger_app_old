@@ -10,6 +10,7 @@ class Reports extends StatelessWidget {
     return MaterialApp(
       title: 'Reports',
       home: Scaffold(
+        backgroundColor: Colors.orange[100],
         appBar: AppBar(
           title: Text('Reports'),
         ),

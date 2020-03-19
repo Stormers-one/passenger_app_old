@@ -6,6 +6,7 @@ class Track extends StatelessWidget {
     return MaterialApp(
       title: 'Track',
       home: Scaffold(
+        backgroundColor: Colors.orange[100],
         appBar: AppBar(
           title: Text('Track'),
         ),

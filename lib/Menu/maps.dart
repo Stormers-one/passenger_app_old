@@ -12,6 +12,7 @@ class Maps extends StatelessWidget {
     return MaterialApp(
       title: 'Maps',
       home: Scaffold(
+        backgroundColor: Colors.orange[100],
         resizeToAvoidBottomPadding: false,
         appBar: AppBar(
           title: Text('Maps'),

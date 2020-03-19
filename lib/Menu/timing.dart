@@ -12,6 +12,7 @@ class Timing extends StatelessWidget {
     return MaterialApp(
       title: 'Bus Timing',
       home: Scaffold(
+        backgroundColor: Colors.orange[100],
         appBar: AppBar(
           title: Text('Bus Timing'),
           backgroundColor: Colors.red[500],

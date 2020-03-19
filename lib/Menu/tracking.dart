@@ -12,6 +12,7 @@ class Tracking extends StatelessWidget {
     return MaterialApp(
       title: 'Tracking',
       home: Scaffold(
+        backgroundColor: Colors.orange[100],
         appBar: AppBar(
           title: Text('Tracking'),
           backgroundColor: Colors.red[500],

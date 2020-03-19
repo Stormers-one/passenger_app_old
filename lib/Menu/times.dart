@@ -6,6 +6,7 @@ class Times extends StatelessWidget {
     return MaterialApp(
       title: 'Times',
       home: Scaffold(
+        backgroundColor: Colors.orange[100],
         appBar: AppBar(
           title: Text('Times'),
         ),
