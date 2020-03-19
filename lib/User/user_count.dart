@@ -31,6 +31,7 @@ class Users_Count extends StatelessWidget {
       child: MaterialApp(
         title: 'Homepage',
         home: Scaffold(
+          backgroundColor: Colors.orange[100],
           appBar: AppBar(
               title: Text('Users List'),
               backgroundColor: Colors.red[500],
