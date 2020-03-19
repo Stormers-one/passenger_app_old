@@ -55,12 +55,12 @@ class Homepage extends StatelessWidget {
               children: <Widget>[
                 DrawerHeader(
                   decoration: BoxDecoration(
-                    color: Colors.orange[300],
+                    color: Colors.red[500],
                   ),
                   child: Text(
                     'Odu Komban',
                     style: TextStyle(
-                      color: Colors.red[500],
+                      color: Colors.white,
                       fontSize: 24,
                     ),
                   ),
