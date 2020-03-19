@@ -43,32 +43,32 @@ class Profile extends StatelessWidget {
                   label: Text('Edit Profile'))
             ]),
         drawer: Drawer(
-            child: ListView(
-              padding: EdgeInsets.zero,
-              children: <Widget>[
-                DrawerHeader(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                  ),
-                  child: Text(
-                    'Odu Komban',
-                    style: TextStyle(
-                      color: Colors.orange,
-                      fontSize: 24,
-                    ),
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              DrawerHeader(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                ),
+                child: Text(
+                  'Odu Komban',
+                  style: TextStyle(
+                    color: Colors.orange,
+                    fontSize: 24,
                   ),
                 ),
-                ListTile(
-                  leading: Icon(Icons.home),
-                  title: Text('Home'),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Homepage()),
-                    );
-                  },
-                ),
-                /*ListTile(
+              ),
+              ListTile(
+                leading: Icon(Icons.home),
+                title: Text('Home'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Homepage()),
+                  );
+                },
+              ),
+              /*ListTile(
                   leading: Icon(Icons.message),
                   title: Text('Messages'),
                   onTap: () {
@@ -78,27 +78,27 @@ class Profile extends StatelessWidget {
                     );
                   },
                 ),*/
-                ListTile(
-                  leading: Icon(Icons.account_circle),
-                  title: Text('Users List'),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Users_Count()),
-                    );
-                  },
-                ),
-                ListTile(
-                  leading: Icon(Icons.account_circle),
-                  title: Text('Profile'),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Profile()),
-                    );
-                  },
-                ),
-                /*ListTile(
+              ListTile(
+                leading: Icon(Icons.account_circle),
+                title: Text('Users List'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Users_Count()),
+                  );
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.account_circle),
+                title: Text('Profile'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Profile()),
+                  );
+                },
+              ),
+              /*ListTile(
                   leading: Icon(Icons.settings),
                   title: Text('Settings'),
                   onTap: () {
@@ -108,29 +108,29 @@ class Profile extends StatelessWidget {
                     );
                   },
                 ),*/
-                ListTile(
-                  leading: Icon(Icons.report),
-                  title: Text('Report'),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Reports()),
-                    );
-                  },
-                ),
-                ListTile(
-                  leading: Icon(Icons.help),
-                  title: Text('Help'),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Help()),
-                    );
-                  },
-                ),
-              ],
-            ),
+              ListTile(
+                leading: Icon(Icons.report),
+                title: Text('Report'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Reports()),
+                  );
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.help),
+                title: Text('Help'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Help()),
+                  );
+                },
+              ),
+            ],
           ),
+        ),
         body: Container(
           child: ListView(
             shrinkWrap: true,
@@ -139,6 +139,9 @@ class Profile extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
+                  new Padding(
+                    padding: const EdgeInsets.only(top: 10.0),
+                  ),
                   Container(
                     decoration: BoxDecoration(
                         color: Colors.orange[300],

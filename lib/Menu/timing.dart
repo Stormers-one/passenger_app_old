@@ -105,95 +105,97 @@ class Timing extends StatelessWidget {
             ],
           ),
         ),
-        body: ListView(
-            shrinkWrap: true,
-            padding: const EdgeInsets.all(20.0),
-            children: <Widget>[
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Center(
-                    child: Container(
-                      padding: const EdgeInsets.all(40.0),
-                      child: new Form(
-                        autovalidate: true,
-                        child: new Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: <Widget>[
-                            new TextFormField(
-                              decoration: new InputDecoration(
-                                hintText: 'From',
-                                hintStyle: new TextStyle(color: Colors.grey),
-                                fillColor: Colors.white,
-                                filled: true,
-                                border: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.white),
-                                  borderRadius: new BorderRadius.circular(25),
+        body: Center(
+          child: ListView(
+              shrinkWrap: true,
+              padding: const EdgeInsets.all(20.0),
+              children: <Widget>[
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Center(
+                      child: Container(
+                        padding: const EdgeInsets.all(40.0),
+                        child: new Form(
+                          autovalidate: true,
+                          child: new Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: <Widget>[
+                              new TextFormField(
+                                decoration: new InputDecoration(
+                                  hintText: 'From',
+                                  hintStyle: new TextStyle(color: Colors.grey),
+                                  fillColor: Colors.white,
+                                  filled: true,
+                                  border: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Colors.white),
+                                    borderRadius: new BorderRadius.circular(25),
+                                  ),
                                 ),
+                                keyboardType: TextInputType.emailAddress,
                               ),
-                              keyboardType: TextInputType.emailAddress,
-                            ),
-                            new Padding(
-                              padding: const EdgeInsets.only(top: 10.0),
-                            ),
-                            new TextFormField(
-                              decoration: new InputDecoration(
-                                hintText: 'To',
-                                hintStyle: new TextStyle(color: Colors.grey),
-                                fillColor: Colors.white,
-                                filled: true,
-                                border: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.white),
-                                  borderRadius: new BorderRadius.circular(25),
+                              new Padding(
+                                padding: const EdgeInsets.only(top: 10.0),
+                              ),
+                              new TextFormField(
+                                decoration: new InputDecoration(
+                                  hintText: 'To',
+                                  hintStyle: new TextStyle(color: Colors.grey),
+                                  fillColor: Colors.white,
+                                  filled: true,
+                                  border: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Colors.white),
+                                    borderRadius: new BorderRadius.circular(25),
+                                  ),
                                 ),
+                                obscureText: false,
+                                keyboardType: TextInputType.text,
                               ),
-                              obscureText: false,
-                              keyboardType: TextInputType.text,
-                            ),
-                            new Padding(
-                              padding: const EdgeInsets.only(top: 60.0),
-                            ),
-                            new TextFormField(
-                              decoration: new InputDecoration(
-                                hintText: 'Bus Type',
-                                hintStyle: new TextStyle(color: Colors.grey),
-                                fillColor: Colors.white,
-                                filled: true,
-                                border: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.white),
-                                  borderRadius: new BorderRadius.circular(25),
+                              new Padding(
+                                padding: const EdgeInsets.only(top: 60.0),
+                              ),
+                              new TextFormField(
+                                decoration: new InputDecoration(
+                                  hintText: 'Bus Type',
+                                  hintStyle: new TextStyle(color: Colors.grey),
+                                  fillColor: Colors.white,
+                                  filled: true,
+                                  border: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Colors.white),
+                                    borderRadius: new BorderRadius.circular(25),
+                                  ),
                                 ),
+                                keyboardType: TextInputType.emailAddress,
                               ),
-                              keyboardType: TextInputType.emailAddress,
-                            ),
-                            new Padding(
-                              padding: const EdgeInsets.only(top: 60.0),
-                            ),
-                            RaisedButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Times()),
-                                );
-                              },
-                              child: const Text('Search',
-                                  style: TextStyle(fontSize: 20)),
-                              color: Colors.red,
-                              textColor: Colors.white,
-                              splashColor: Colors.grey,
-                              padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20.0)),
-                            ),
-                          ],
+                              new Padding(
+                                padding: const EdgeInsets.only(top: 60.0),
+                              ),
+                              RaisedButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Times()),
+                                  );
+                                },
+                                child: const Text('Search',
+                                    style: TextStyle(fontSize: 20)),
+                                color: Colors.red,
+                                textColor: Colors.white,
+                                splashColor: Colors.grey,
+                                padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20.0)),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-            ]),
+                  ],
+                ),
+              ]),
+        ),
       ),
     );
   }
