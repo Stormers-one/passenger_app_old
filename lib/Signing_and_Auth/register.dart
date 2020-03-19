@@ -129,9 +129,6 @@ class _RegisterState extends State<RegisterPage> {
                                       padding: const EdgeInsets.only(top: 10.0),
                                     ),
                                     new TextFormField(
-                                        validator: (val) => val.isEmpty
-                                            ? 'Enter a valid Email'
-                                            : null,
                                         style:
                                             new TextStyle(color: Colors.orange),
                                         decoration: new InputDecoration(
@@ -153,15 +150,16 @@ class _RegisterState extends State<RegisterPage> {
                                         keyboardType: TextInputType.emailAddress,
                                         onChanged: (val) {
                                           setState(() => email = val);
-                                        }),
+                                        },
+                                        validator: (val) => val.isEmpty
+                                            ? 'Enter a valid Email'
+                                            : null,
+                                        ),
                                     // PASSWORD INPUT
                                     new Padding(
                                       padding: const EdgeInsets.only(top: 10.0),
                                     ),
                                     new TextFormField(
-                                        validator: (val) => val.length < 8
-                                            ? 'Password >8 Characters'
-                                            : null,
                                         style:
                                             new TextStyle(color: Colors.orange),
                                         decoration: new InputDecoration(
@@ -184,14 +182,16 @@ class _RegisterState extends State<RegisterPage> {
                                         keyboardType: TextInputType.text,
                                         onChanged: (val) {
                                           setState(() => password = val);
-                                        }),
+                                        },
+                                         validator: (val) => val.length < 8
+                                            ? 'Password >8 Characters'
+                                            : null,
+                                        ),
+                                        
                                     new Padding(
                                       padding: const EdgeInsets.only(top: 10.0),
                                     ),
                                     new TextFormField(
-                                        validator: (val) => val != password
-                                            ? 'Both Password should be same '
-                                            : null,
                                         style:
                                             new TextStyle(color: Colors.orange),
                                         decoration: new InputDecoration(
@@ -214,15 +214,17 @@ class _RegisterState extends State<RegisterPage> {
                                         keyboardType: TextInputType.text,
                                         onChanged: (val) {
                                           setState(() => cfpassword = val);
-                                        }),
+                                        },
+                                        validator: (val) => val != password
+                                            ? 'Both Password should be same '
+                                            : null,
+                                        
+                                        ),
                                     //PHONE NUMBER INPUT
                                     new Padding(
                                       padding: const EdgeInsets.only(top: 10.0),
                                     ),
                                     new TextFormField(
-                                        validator: (val) => val.length != 10
-                                            ? 'Enter a valid phone number'
-                                            : null,
                                         style:
                                             new TextStyle(color: Colors.orange),
                                         decoration: new InputDecoration(
@@ -244,7 +246,12 @@ class _RegisterState extends State<RegisterPage> {
                                         keyboardType: TextInputType.number,
                                         onChanged: (val) {
                                           setState(() => phno = val);
-                                        }),
+                                        },
+                                        validator: (val) => val.length != 10
+                                            ? 'Enter a valid phone number'
+                                            : null,
+                                        
+                                        ),
                                     new Padding(
                                       padding: const EdgeInsets.only(top: 20.0),
                                     ),

@@ -110,9 +110,6 @@ class _LoginState extends State<LoginPage> {
                                         padding: const EdgeInsets.only(top: 10.0),
                                       ),
                                       new TextFormField(
-                                          validator: (val) => val.isEmpty
-                                              ? 'Enter an Email'
-                                              : null,
                                           style:
                                               new TextStyle(color: Colors.orange),
                                           decoration: new InputDecoration(
@@ -132,14 +129,16 @@ class _LoginState extends State<LoginPage> {
                                               TextInputType.emailAddress,
                                           onChanged: (val) {
                                             setState(() => email = val);
-                                          }),
+                                          },
+                                          validator: (val) => val.isEmpty
+                                              ? 'Enter an Email'
+                                              : null,
+                                          
+                                          ),
                                       new Padding(
                                         padding: const EdgeInsets.only(top: 10.0),
                                       ),
                                       new TextFormField(
-                                          validator: (val) => val.length < 8
-                                              ? 'Enter a password >8 Characters'
-                                              : null,
                                           style:
                                               new TextStyle(color: Colors.orange),
                                           decoration: new InputDecoration(
@@ -171,7 +170,12 @@ class _LoginState extends State<LoginPage> {
                                           keyboardType: TextInputType.text,
                                           onChanged: (val) {
                                             setState(() => password = val);
-                                          }),
+                                          },
+                                          validator: (val) => val.length < 8
+                                              ? 'Enter a password >8 Characters'
+                                              : null,
+                                          
+                                          ),
                                       new Padding(
                                         padding: const EdgeInsets.only(top: 20.0),
                                       ),
