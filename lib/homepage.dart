@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:o_k/Menu/help.dart';
+import 'package:o_k/Menu/reports.dart';
 import 'package:o_k/services/auth.dart';
 import 'package:o_k/Menu/booking.dart';
 // import 'package:o_k/Menu/help.dart';
@@ -73,10 +75,16 @@ class Homepage extends StatelessWidget {
                     );
                   },
                 ),
-                ListTile(
+                /*ListTile(
                   leading: Icon(Icons.message),
                   title: Text('Messages'),
-                ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Messages()),
+                    );
+                  },
+                ),*/
                 ListTile(
                   leading: Icon(Icons.account_circle),
                   title: Text('Users List'),
@@ -97,17 +105,35 @@ class Homepage extends StatelessWidget {
                     );
                   },
                 ),
-                ListTile(
+                /*ListTile(
                   leading: Icon(Icons.settings),
                   title: Text('Settings'),
-                ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Settings()),
+                    );
+                  },
+                ),*/
                 ListTile(
                   leading: Icon(Icons.report),
                   title: Text('Report'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Reports()),
+                    );
+                  },
                 ),
                 ListTile(
                   leading: Icon(Icons.help),
                   title: Text('Help'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Help()),
+                    );
+                  },
                 ),
               ],
             ),

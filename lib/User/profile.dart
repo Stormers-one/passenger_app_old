@@ -9,6 +9,8 @@ import 'package:o_k/shared/loading.dart';
 import 'package:provider/provider.dart';
 import 'package:o_k/User/user_count.dart';
 import 'package:o_k/homepage.dart';
+import 'package:o_k/Menu/help.dart';
+import 'package:o_k/Menu/reports.dart';
 
 class Profile extends StatelessWidget {
   final Authservice _auth = new Authservice();
@@ -41,23 +43,22 @@ class Profile extends StatelessWidget {
                   label: Text('Edit Profile'))
             ]),
         drawer: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: <Widget>[
-              DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                ),
-                child: Text(
-                  'Odu Komban',
-                  style: TextStyle(
+            child: ListView(
+              padding: EdgeInsets.zero,
+              children: <Widget>[
+                DrawerHeader(
+                  decoration: BoxDecoration(
                     color: Colors.white,
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
+                  ),
+                  child: Text(
+                    'Odu Komban',
+                    style: TextStyle(
+                      color: Colors.orange,
+                      fontSize: 24,
+                    ),
                   ),
                 ),
-              ),
-              ListTile(
+                ListTile(
                   leading: Icon(Icons.home),
                   title: Text('Home'),
                   onTap: () {
@@ -67,45 +68,69 @@ class Profile extends StatelessWidget {
                     );
                   },
                 ),
-              ListTile(
-                leading: Icon(Icons.message),
-                title: Text('Messages'),
-              ),
-              ListTile(
-                leading: Icon(Icons.account_circle),
-                title: Text('Users List'),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Users_Count()),
-                  );
-                },
-              ),
-              ListTile(
-                leading: Icon(Icons.account_circle),
-                title: Text('Profile'),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Profile()),
-                  );
-                },
-              ),
-              ListTile(
-                leading: Icon(Icons.settings),
-                title: Text('Settings'),
-              ),
-              ListTile(
-                leading: Icon(Icons.report),
-                title: Text('Report'),
-              ),
-              ListTile(
-                leading: Icon(Icons.help),
-                title: Text('Help'),
-              ),
-            ],
+                /*ListTile(
+                  leading: Icon(Icons.message),
+                  title: Text('Messages'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Messages()),
+                    );
+                  },
+                ),*/
+                ListTile(
+                  leading: Icon(Icons.account_circle),
+                  title: Text('Users List'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Users_Count()),
+                    );
+                  },
+                ),
+                ListTile(
+                  leading: Icon(Icons.account_circle),
+                  title: Text('Profile'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Profile()),
+                    );
+                  },
+                ),
+                /*ListTile(
+                  leading: Icon(Icons.settings),
+                  title: Text('Settings'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Settings()),
+                    );
+                  },
+                ),*/
+                ListTile(
+                  leading: Icon(Icons.report),
+                  title: Text('Report'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Reports()),
+                    );
+                  },
+                ),
+                ListTile(
+                  leading: Icon(Icons.help),
+                  title: Text('Help'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Help()),
+                    );
+                  },
+                ),
+              ],
+            ),
           ),
-        ),
         body: Container(
           child: ListView(
             shrinkWrap: true,

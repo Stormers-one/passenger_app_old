@@ -7,6 +7,8 @@ import 'package:o_k/User/users_fetch.dart';
 import 'package:provider/provider.dart';
 import 'package:o_k/User/profile.dart';
 import 'package:o_k/homepage.dart';
+import 'package:o_k/Menu/help.dart';
+import 'package:o_k/Menu/reports.dart';
 
 class Users_Count extends StatelessWidget {
   final Authservice _auth = new Authservice();
@@ -49,7 +51,7 @@ class Users_Count extends StatelessWidget {
                   child: Text(
                     'Odu Komban',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.orange,
                       fontSize: 24,
                     ),
                   ),
@@ -64,10 +66,16 @@ class Users_Count extends StatelessWidget {
                     );
                   },
                 ),
-                ListTile(
+                /*ListTile(
                   leading: Icon(Icons.message),
                   title: Text('Messages'),
-                ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Messages()),
+                    );
+                  },
+                ),*/
                 ListTile(
                   leading: Icon(Icons.account_circle),
                   title: Text('Users List'),
@@ -88,17 +96,35 @@ class Users_Count extends StatelessWidget {
                     );
                   },
                 ),
-                ListTile(
+                /*ListTile(
                   leading: Icon(Icons.settings),
                   title: Text('Settings'),
-                ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Settings()),
+                    );
+                  },
+                ),*/
                 ListTile(
                   leading: Icon(Icons.report),
                   title: Text('Report'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Reports()),
+                    );
+                  },
                 ),
                 ListTile(
                   leading: Icon(Icons.help),
                   title: Text('Help'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Help()),
+                    );
+                  },
                 ),
               ],
             ),
