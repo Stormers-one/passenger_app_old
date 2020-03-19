@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:o_k/Wrapper.dart';
 import 'package:o_k/services/auth.dart';
 import 'package:o_k/Menu/booking.dart';
 import 'package:o_k/Menu/help.dart';
@@ -30,7 +31,6 @@ class Homepage extends StatelessWidget {
                 ],
               ));
     }
-
     return WillPopScope(
       onWillPop: _onBackPressed,
       child: MaterialApp(
@@ -46,6 +46,10 @@ class Homepage extends StatelessWidget {
                   label: Text('Logout'),
                   onPressed: () async {
                     await _auth.signOut();
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Wrapper()),
+                    );
                   },
                 )
               ]),
