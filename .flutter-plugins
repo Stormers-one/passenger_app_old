@@ -1,5 +1,4 @@
 # This is a generated file; do not edit or check into version control.
-<<<<<<< Updated upstream
 cloud_firestore=C:\\src\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\cloud_firestore-0.13.4+2\\
 cloud_firestore_web=C:\\src\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\cloud_firestore_web-0.1.1+1\\
 firebase_auth=C:\\src\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_auth-0.15.5+2\\
@@ -10,15 +9,3 @@ flutter_plugin_android_lifecycle=C:\\src\\flutter\\.pub-cache\\hosted\\pub.dartl
 google_maps_flutter=C:\\src\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\google_maps_flutter-0.5.24+1\\
 path_provider=C:\\src\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider-1.6.1\\
 sqflite=C:\\src\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\sqflite-1.2.1\\
-=======
-cloud_firestore=/src/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-0.13.4+2/
-cloud_firestore_web=/src/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_web-0.1.1+1/
-firebase_auth=/src/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-0.15.5+2/
-firebase_auth_web=/src/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-0.1.2/
-firebase_core=/src/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-0.4.4+3/
-firebase_core_web=/src/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-0.1.1+2/
-flutter_plugin_android_lifecycle=/src/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-1.0.6/
-google_maps_flutter=/src/flutter/.pub-cache/hosted/pub.dartlang.org/google_maps_flutter-0.5.24+1/
-path_provider=/src/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-1.6.1/
-sqflite=/src/flutter/.pub-cache/hosted/pub.dartlang.org/sqflite-1.2.1/
->>>>>>> Stashed changes

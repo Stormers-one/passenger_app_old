@@ -7,7 +7,29 @@ import 'package:o_k/User/profile.dart';
 import 'package:o_k/User/user_count.dart';
 import 'package:o_k/shared/drawer.dart';
 
-class Timing extends StatelessWidget {
+class Timing extends StatefulWidget {
+  @override
+  _Timing createState() => _Timing();
+}
+class _Timing extends State<Timing> {
+
+  final List<String> bustype = [
+      'Ordinary',
+      'Limited_Stop_Ordinary',
+      'Town_to_Town Ordinary',
+      'Fast_Passenger',
+      'LS_Fast_Passenger',
+      'Point_to_Point_Fast_Passenger',
+      'Super_Fast',
+      'Super_Express',
+      'Super_Dulex',
+      'Garuda_King_Class_Volvo',
+      'Silver_Line_Jet',
+      'Low_Floor_Non-AC',
+      'Ananthapuri_Fast',
+      'Garuda_Maharaja_Scania',
+    ];
+String _currentBusType = "";
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -68,10 +90,17 @@ class Timing extends StatelessWidget {
                               new Padding(
                                 padding: const EdgeInsets.only(top: 60.0),
                               ),
-                              new TextFormField(
+                              new DropdownButtonFormField(
+                                value: _currentBusType ?? 'Select Bus Type',
+                                items:bustype.map((value) =>
+                                  
+                                   new DropdownMenuItem(
+                                    value:value,
+                                    child: Text('$value'),
+                                  )   
+                                ).toList(),
+                                onChanged: (val) => setState(() => _currentBusType = val),
                                 decoration: new InputDecoration(
-                                  hintText: 'Bus Type',
-                                  hintStyle: new TextStyle(color: Colors.grey),
                                   fillColor: Colors.white,
                                   filled: true,
                                   border: OutlineInputBorder(
@@ -79,7 +108,6 @@ class Timing extends StatelessWidget {
                                     borderRadius: new BorderRadius.circular(20),
                                   ),
                                 ),
-                                keyboardType: TextInputType.emailAddress,
                               ),
                               new Padding(
                                 padding: const EdgeInsets.only(top: 30.0),
