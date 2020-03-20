@@ -13,7 +13,7 @@ class Timing extends StatefulWidget {
 }
 class _Timing extends State<Timing> {
 
-  final List<String> bustype = [
+  final List<String> bustype = <String>[
       'Ordinary',
       'Limited_Stop_Ordinary',
       'Town_to_Town Ordinary',
@@ -91,9 +91,9 @@ String _currentBusType = "";
                                 padding: const EdgeInsets.only(top: 60.0),
                               ),
                               new DropdownButtonFormField(
-                                value: _currentBusType ?? 'Select Bus Type',
-                                items:bustype.map((value) =>
-                                  
+                                hint: Text('Select Bus Type'),
+                                value: _currentBusType.isNotEmpty ? _currentBusType : null, 
+                                items: bustype.map((value) =>
                                    new DropdownMenuItem(
                                     value:value,
                                     child: Text('$value'),
