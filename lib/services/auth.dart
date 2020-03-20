@@ -57,13 +57,6 @@ class Authservice {
       // create a new document for the user with the uid
 
       await DatabaseService(uid: user.uid).updateUserData(fname, email, phno);
-      // int count=0;
-      // for(int i = 0 ; i< 2277 ; i++){
-      //   await DatabaseService(uid: user.uid).updateBusStopData(stops[i]);      //CODE FOR BUS STOP ADDING TO DATABSE
-      //   count++;
-      //   print(count);
-      // }
-      
 
       return _userFromFirebaseUser(user);
     } catch (e) {
@@ -82,4 +75,30 @@ class Authservice {
       return null;
     }
   }
+  
+  // Bus details add
+  // Future addBusstops() async {
+  //   try{
+  //     int count=0;
+  //     for(int i = 0 ; i< 2277 ; i++){
+  //       List<String> tempList = [];
+  //       String temp = stops[i],temp2=temp[0];
+  //       for(int j = 1 ; j< temp.length +1; ++j){
+  //         tempList.add(temp2);
+  //         if(j!=temp.length){
+  //         temp2 += temp[j];
+  //         }
+  //       }
+  //       await DatabaseService(uid:null).updateBusStopData(stops[i],tempList);      //CODE FOR BUS STOP ADDING TO DATABSE
+  //       // print(stops[i]);
+  //       // print(tempList);
+  //       count++;
+  //       print(count);
+  //     }
+  //   }
+  //   catch(e){
+  //     print(e);
+  //   }
+  //   return 0;
+  // }
 }

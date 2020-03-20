@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:o_k/model/busStop.dart';
 import 'package:o_k/model/user.dart';
 
 import 'package:o_k/User/users_fetch.dart';
@@ -9,6 +10,7 @@ class DatabaseService {
 //collection reference
   final CollectionReference userCollecation =
       Firestore.instance.collection('Users');
+
 
   Future updateUserData(String fname, String email, String phno) async {
     return await userCollecation.document(uid).setData({
@@ -55,10 +57,35 @@ class DatabaseService {
 final CollectionReference busStopCollection =
       Firestore.instance.collection('Bus Stops');
 
-Future updateBusStopData(String stopName) async {
+Future updateBusStopData(String stopName, List<String> caseSearch) async {
     return await busStopCollection.document().setData({
       'Stop Name': stopName,
+      'Case Search': caseSearch,
       });
+  }
+Future getBusStopList(String query) async {
+  List<DocumentSnapshot> documentList = (await Firestore.instance
+        .collection("Bus Stop")
+        .document()
+        .collection("Case Search")
+        .where("Case Search", arrayContains: query)
+        .getDocuments())
+    .documents;
+    return  documentList;
+}
+
+// Bus Stop List from snapshot
+
+List<BusStopData> _busStopFromSnapshot(QuerySnapshot snapshot) {
+    return snapshot.documents.map((doc) {
+      return BusStopData(
+        stopName: doc.data['Stop Name'] ?? '',
+        caseSearch: doc.data['Case Search'] ?? '',
+      );
+    }).toList();
+  }
+Stream<List<BusStopData>> get bStop {
+    return busStopCollection.snapshots().map(_busStopFromSnapshot);
   }
 }
 
