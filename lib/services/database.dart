@@ -51,4 +51,14 @@ class DatabaseService {
   Stream<UserData> get userData {
     return userCollecation.document(uid).snapshots().map(_userDataFromSnapshot);
   }
+//Bus Stops Add
+final CollectionReference busStopCollection =
+      Firestore.instance.collection('Bus Stops');
+
+Future updateBusStopData(String stopName) async {
+    return await busStopCollection.document().setData({
+      'Stop Name': stopName,
+      });
+  }
 }
+

@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:o_k/model/user.dart';
-
+import 'package:o_k/shared/constants.dart';
 import 'package:o_k/services/database.dart';
 
 class Authservice {
@@ -57,6 +57,13 @@ class Authservice {
       // create a new document for the user with the uid
 
       await DatabaseService(uid: user.uid).updateUserData(fname, email, phno);
+      // int count=0;
+      // for(int i = 0 ; i< 2277 ; i++){
+      //   await DatabaseService(uid: user.uid).updateBusStopData(stops[i]);      //CODE FOR BUS STOP ADDING TO DATABSE
+      //   count++;
+      //   print(count);
+      // }
+      
 
       return _userFromFirebaseUser(user);
     } catch (e) {
