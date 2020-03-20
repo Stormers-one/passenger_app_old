@@ -14,22 +14,30 @@ class Timing extends StatefulWidget {
 class _Timing extends State<Timing> {
 
   final List<String> bustype = <String>[
-      'Ordinary',
-      'Limited Stop Ordinary',
-      'Town to Town Ordinary',
-      'Fast Passenger',
-      'LS Fast Passenger',
-      'Point to Point Fast Passenger',
-      'Super Fast',
-      'Super Express',
-      'Super Dulex',
-      'Garuda King Class Volvo',
-      'Silver Line Jet',
-      'Low Floor Non-AC',
-      'Ananthapuri Fast',
-      'Garuda Maharaja Scania',
+    'Bus Type',
+    'Ordinary',
+    'Limited Stop Ordinary',
+    'Town to Town Ordinary',
+    'Fast Passenger',
+    'LS Fast Passenger',
+    'Point to Point Fast Passenger',
+    'Super Fast',
+    'Super Express',
+    'Super Dulex',
+    'Garuda King Class Volvo',
+    'Silver Line Jet',
+    'Low Floor Non-AC',
+    'Ananthapuri Fast',
+    'Garuda Maharaja Scania',
     ];
+List<String> bustime = [
+  'Bus Time',
+  'Morning : 6AM to 12PM',
+  'Afternoon: 12PM to 6PM',
+  'Night: 6PM to 6AM',
+];
 String _currentBusType = "";
+String _currenttime = "";
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -88,10 +96,10 @@ String _currentBusType = "";
                                 keyboardType: TextInputType.text,
                               ),
                               new Padding(
-                                padding: const EdgeInsets.only(top: 60.0),
+                                padding: const EdgeInsets.only(top: 40.0),
                               ),
                               new DropdownButtonFormField(
-                                hint: Text('Select Bus Type'),
+                                hint: Text('Bus Type', style: TextStyle(color: Colors.grey),),
                                 value: _currentBusType.isNotEmpty ? _currentBusType : null, 
                                 items: bustype.map((value) =>
                                    new DropdownMenuItem(
@@ -99,7 +107,31 @@ String _currentBusType = "";
                                     child: Text('$value'),
                                   )   
                                 ).toList(),
+                                isExpanded: true,
                                 onChanged: (val) => setState(() => _currentBusType = val),
+                                decoration: new InputDecoration(
+                                  fillColor: Colors.white,
+                                  filled: true,
+                                  border: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Colors.transparent),
+                                    borderRadius: new BorderRadius.circular(20),
+                                  ),
+                                ),
+                              ),
+                              new Padding(
+                                padding: const EdgeInsets.only(top: 10.0),
+                              ),
+                              new DropdownButtonFormField(
+                                hint: Text('Bus Time', style: TextStyle(color: Colors.grey),),
+                                value: _currenttime.isNotEmpty ? _currenttime : null, 
+                                items: bustime.map((value) =>
+                                   new DropdownMenuItem(
+                                    value:value,
+                                    child: Text('$value'),
+                                  )   
+                                ).toList(),
+                                isExpanded: true,
+                                onChanged: (val) => setState(() => _currenttime = val),
                                 decoration: new InputDecoration(
                                   fillColor: Colors.white,
                                   filled: true,
