@@ -15,19 +15,19 @@ class _Timing extends State<Timing> {
 
   final List<String> bustype = <String>[
       'Ordinary',
-      'Limited_Stop_Ordinary',
-      'Town_to_Town Ordinary',
-      'Fast_Passenger',
-      'LS_Fast_Passenger',
-      'Point_to_Point_Fast_Passenger',
-      'Super_Fast',
-      'Super_Express',
-      'Super_Dulex',
-      'Garuda_King_Class_Volvo',
-      'Silver_Line_Jet',
-      'Low_Floor_Non-AC',
-      'Ananthapuri_Fast',
-      'Garuda_Maharaja_Scania',
+      'Limited Stop Ordinary',
+      'Town to Town Ordinary',
+      'Fast Passenger',
+      'LS Fast Passenger',
+      'Point to Point Fast Passenger',
+      'Super Fast',
+      'Super Express',
+      'Super Dulex',
+      'Garuda King Class Volvo',
+      'Silver Line Jet',
+      'Low Floor Non-AC',
+      'Ananthapuri Fast',
+      'Garuda Maharaja Scania',
     ];
 String _currentBusType = "";
   @override
