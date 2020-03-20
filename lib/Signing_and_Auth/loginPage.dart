@@ -71,12 +71,15 @@ class _LoginState extends State<LoginPage> {
                           child: new Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              new Container(
-                                child: Image.asset(
-                                  'assets/logo.png',
+                              Hero(
+                                tag: 'imageHero',
+                                child: new Container(
+                                  child: Image.asset(
+                                    'assets/logo.png',
+                                  ),
+                                  height: 200,
+                                  width: 200,
                                 ),
-                                height: 200,
-                                width: 200,
                               ),
                               new Container(
                                 decoration: new BoxDecoration(
@@ -107,54 +110,55 @@ class _LoginState extends State<LoginPage> {
                                             color: Colors.red, fontSize: 14.0),
                                       ),
                                       new Padding(
-                                        padding: const EdgeInsets.only(top: 10.0),
+                                        padding:
+                                            const EdgeInsets.only(top: 10.0),
                                       ),
                                       new TextFormField(
-                                          initialValue:email,
-                                          style:
-                                              new TextStyle(color: Colors.orange),
-                                          decoration: new InputDecoration(
-                                            hintText: 'Email',
-                                            hintStyle:
-                                                new TextStyle(color: Colors.grey),
-                                            fillColor: Colors.grey[300],
-                                            filled: true,
-                                            border: OutlineInputBorder(
-                                              borderSide:
-                                                  BorderSide(color: Colors.white),
-                                              borderRadius:
-                                                  new BorderRadius.circular(20),
-                                            ),
+                                        initialValue: email,
+                                        style:
+                                            new TextStyle(color: Colors.orange),
+                                        decoration: new InputDecoration(
+                                          hintText: 'Email',
+                                          hintStyle:
+                                              new TextStyle(color: Colors.grey),
+                                          fillColor: Colors.grey[300],
+                                          filled: true,
+                                          border: OutlineInputBorder(
+                                            borderSide:
+                                                BorderSide(color: Colors.white),
+                                            borderRadius:
+                                                new BorderRadius.circular(20),
                                           ),
-                                          keyboardType:
-                                              TextInputType.emailAddress,
-                                          onChanged: (val) {
-                                            setState(() => email = val);
-                                          },
-                                          validator: (val) => val.isEmpty
-                                              ? 'Enter an Email'
-                                              : null,
-                                          
-                                          ),
+                                        ),
+                                        keyboardType:
+                                            TextInputType.emailAddress,
+                                        onChanged: (val) {
+                                          setState(() => email = val);
+                                        },
+                                        validator: (val) => val.isEmpty
+                                            ? 'Enter an Email'
+                                            : null,
+                                      ),
                                       new Padding(
-                                        padding: const EdgeInsets.only(top: 10.0),
+                                        padding:
+                                            const EdgeInsets.only(top: 10.0),
                                       ),
                                       new TextFormField(
-                                          style:
-                                              new TextStyle(color: Colors.orange),
-                                          decoration: new InputDecoration(
-                                            hintText: 'Password',
-                                            hintStyle:
-                                                new TextStyle(color: Colors.grey),
-                                            fillColor: Colors.grey[300],
-                                            filled: true,
-                                            border: OutlineInputBorder(
-                                              borderSide:
-                                                  BorderSide(color: Colors.white),
-                                              borderRadius:
-                                                  new BorderRadius.circular(20),
-                                            ),
-                                            /*enabledBorder: OutlineInputBorder(
+                                        style:
+                                            new TextStyle(color: Colors.orange),
+                                        decoration: new InputDecoration(
+                                          hintText: 'Password',
+                                          hintStyle:
+                                              new TextStyle(color: Colors.grey),
+                                          fillColor: Colors.grey[300],
+                                          filled: true,
+                                          border: OutlineInputBorder(
+                                            borderSide:
+                                                BorderSide(color: Colors.white),
+                                            borderRadius:
+                                                new BorderRadius.circular(20),
+                                          ),
+                                          /*enabledBorder: OutlineInputBorder(
                                           borderSide:
                                               BorderSide(color: Colors.white),
                                           borderRadius:
@@ -166,19 +170,19 @@ class _LoginState extends State<LoginPage> {
                                           borderRadius:
                                               new BorderRadius.circular(25),
                                         )*/
-                                          ),
-                                          obscureText: true,
-                                          keyboardType: TextInputType.text,
-                                          onChanged: (val) {
-                                            setState(() => password = val);
-                                          },
-                                          validator: (val) => val.length < 8
-                                              ? 'Enter a password >8 Characters'
-                                              : null,
-                                          
-                                          ),
+                                        ),
+                                        obscureText: true,
+                                        keyboardType: TextInputType.text,
+                                        onChanged: (val) {
+                                          setState(() => password = val);
+                                        },
+                                        validator: (val) => val.length < 8
+                                            ? 'Enter a password >8 Characters'
+                                            : null,
+                                      ),
                                       new Padding(
-                                        padding: const EdgeInsets.only(top: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(top: 20.0),
                                       ),
                                       SizedBox(
                                         height: 50,
@@ -217,15 +221,16 @@ class _LoginState extends State<LoginPage> {
                                           color: Colors.red,
                                           textColor: Colors.white,
                                           splashColor: Colors.grey,
-                                          padding:
-                                              EdgeInsets.fromLTRB(10, 10, 10, 10),
+                                          padding: EdgeInsets.fromLTRB(
+                                              10, 10, 10, 10),
                                           shape: RoundedRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(20.0)),
                                         ),
                                       ),
                                       new Padding(
-                                        padding: const EdgeInsets.only(top: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(top: 20.0),
                                       ),
                                       SizedBox(
                                         height: 50,
@@ -245,8 +250,8 @@ class _LoginState extends State<LoginPage> {
                                           color: Colors.red,
                                           textColor: Colors.white,
                                           splashColor: Colors.grey,
-                                          padding:
-                                              EdgeInsets.fromLTRB(10, 10, 10, 10),
+                                          padding: EdgeInsets.fromLTRB(
+                                              10, 10, 10, 10),
                                           shape: RoundedRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(20.0)),
