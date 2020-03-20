@@ -57,7 +57,11 @@ class Homepage extends StatelessWidget {
             ]),
         drawer: DrawerBuild(),
         body: DoubleBackToCloseApp(
-          snackBar: const SnackBar(content: Text('Press Back Again To Exit', textAlign: TextAlign.center,)),
+          snackBar: const SnackBar(
+              content: Text(
+            'Press Back Again To Exit',
+            textAlign: TextAlign.center,
+          )),
           child: ListView(
             shrinkWrap: true,
             padding: const EdgeInsets.all(10),
@@ -65,13 +69,16 @@ class Homepage extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  new Container(
-                                child: Image.asset(
-                                  'assets/logo.png',
-                                ),
-                                height: 200,
-                                width: 200,
-                              ),
+                  Hero(
+                    tag: 'imageHero',
+                    child: new Container(
+                      child: Image.asset(
+                        'assets/logo.png',
+                      ),
+                      height: 200,
+                      width: 200,
+                    ),
+                  ),
                   Container(
                     decoration: BoxDecoration(
                       color: Colors.orange[100],
@@ -102,7 +109,8 @@ class Homepage extends StatelessWidget {
                                   shape: new RoundedRectangleBorder(
                                       borderRadius:
                                           new BorderRadius.circular(18.0),
-                                      side: BorderSide(color: Colors.transparent)),
+                                      side: BorderSide(
+                                          color: Colors.transparent)),
                                   fillColor: Colors.orange[500],
                                   splashColor: Colors.grey,
                                   textStyle: TextStyle(
@@ -120,7 +128,8 @@ class Homepage extends StatelessWidget {
                                         width: 100,
                                       ),
                                       new Padding(
-                                        padding: const EdgeInsets.only(top: 2.0),
+                                        padding:
+                                            const EdgeInsets.only(top: 2.0),
                                       ),
                                       Text('Maps'),
                                     ],
@@ -144,7 +153,8 @@ class Homepage extends StatelessWidget {
                                   shape: new RoundedRectangleBorder(
                                       borderRadius:
                                           new BorderRadius.circular(18.0),
-                                      side: BorderSide(color: Colors.transparent)),
+                                      side: BorderSide(
+                                          color: Colors.transparent)),
                                   fillColor: Colors.orange[500],
                                   splashColor: Colors.grey,
                                   textStyle: TextStyle(
@@ -162,7 +172,8 @@ class Homepage extends StatelessWidget {
                                         width: 100,
                                       ),
                                       new Padding(
-                                        padding: const EdgeInsets.only(top: 2.0),
+                                        padding:
+                                            const EdgeInsets.only(top: 2.0),
                                       ),
                                       Text('Timing'),
                                     ],
@@ -191,7 +202,8 @@ class Homepage extends StatelessWidget {
                                   shape: new RoundedRectangleBorder(
                                       borderRadius:
                                           new BorderRadius.circular(18.0),
-                                      side: BorderSide(color: Colors.transparent)),
+                                      side: BorderSide(
+                                          color: Colors.transparent)),
                                   fillColor: Colors.orange[500],
                                   splashColor: Colors.grey,
                                   textStyle: TextStyle(
@@ -209,7 +221,8 @@ class Homepage extends StatelessWidget {
                                         width: 100,
                                       ),
                                       new Padding(
-                                        padding: const EdgeInsets.only(top: 2.0),
+                                        padding:
+                                            const EdgeInsets.only(top: 2.0),
                                       ),
                                       Text('Tracking'),
                                     ],
@@ -233,7 +246,8 @@ class Homepage extends StatelessWidget {
                                   shape: new RoundedRectangleBorder(
                                       borderRadius:
                                           new BorderRadius.circular(18.0),
-                                      side: BorderSide(color: Colors.transparent)),
+                                      side: BorderSide(
+                                          color: Colors.transparent)),
                                   fillColor: Colors.orange[500],
                                   splashColor: Colors.grey,
                                   textStyle: TextStyle(
@@ -251,7 +265,8 @@ class Homepage extends StatelessWidget {
                                         width: 100,
                                       ),
                                       new Padding(
-                                        padding: const EdgeInsets.only(top: 2.0),
+                                        padding:
+                                            const EdgeInsets.only(top: 2.0),
                                       ),
                                       Text('Booking'),
                                     ],
