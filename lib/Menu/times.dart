@@ -9,31 +9,32 @@ import 'package:o_k/shared/drawer.dart';
 // }
 
 class Times extends StatelessWidget {
-  
-
   @override
   Widget build(BuildContext context) {
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'Timings',
-          home: Scaffold(
-            appBar: AppBar(title: Text('ListViews')),
-            body: BodyLayout(),
-            backgroundColor: Colors.red[500],
-          ),
-        );
-      }
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Timings',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Timings'),
+          backgroundColor: Colors.red[500],
+        ),
+        body: BodyLayout(),
+      ),
+    );
+  }
 }
-class BodyLayout extends StatelessWidget {
-      @override
-      Widget build(BuildContext context) {
-        return _myListView(context);
-      }
-    }
 
-    // replace this function with the code in the examples
-    Widget _myListView(BuildContext context) {
-      final List<String> busList = [
+class BodyLayout extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return _myListView(context);
+  }
+}
+
+// replace this function with the code in the examples
+Widget _myListView(BuildContext context) {
+  final List<String> busList = [
     'Pullikkanam - Kottayam (via Vagamon - Erattupetta)',
     'Chovoor - Alappuzha (via Pala - Changanassery)',
     'Erattupetta - Kottayam (via Pala)',
@@ -44,32 +45,28 @@ class BodyLayout extends StatelessWidget {
     'Kalathwa - Kottayam (via Erattupetta - Pala)',
     'Mundakkayam - Kottayam (via Poonjar - Pala)',
     'Poonjar - Kottayam (via Erattupetta - Pala)',
-    ];
-    final List<String> time = [
-      '8:15 am',
-      '8:30am',
-      '8:50 am',
-      '9:00 am',
-      '9:15 am',
-      '9:15 am',
-      '9:25 am',
-      '9:45 am',
-      '11:00 am',
-      '11:25 am',
-    ];
-      return ListView.builder(
-        itemCount: busList.length,
-        itemBuilder: (context, index){
-          return ListTile(
-            title: Text(busList[index]),
-            subtitle: Text(time[index]),
-          );
-        }
-
-      );
+  ];
+  final List<String> time = [
+    '8:15 am',
+    '8:30am',
+    '8:50 am',
+    '9:00 am',
+    '9:15 am',
+    '9:15 am',
+    '9:25 am',
+    '9:45 am',
+    '11:00 am',
+    '11:25 am',
+  ];
+  return ListView.builder(
+      itemCount: busList.length,
+      itemBuilder: (context, index) {
+        return ListTile(
+          title: Text(busList[index]),
+          subtitle: Text(time[index]),
+        );
+      });
 }
-
-
 
 //   @override
 //   Widget build(BuildContext context) {
@@ -82,9 +79,8 @@ class BodyLayout extends StatelessWidget {
 //     //         );
 //     //       });
 //     // }
-//     return 
-    
-    
+//     return
+
 //     <List<String>>.busList(
 //       value: buses,
 //       child: MaterialApp(
@@ -139,4 +135,3 @@ class BodyLayout extends StatelessWidget {
 //         ));
 //   }
 // }
-
