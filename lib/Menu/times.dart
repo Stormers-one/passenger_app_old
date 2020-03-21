@@ -59,9 +59,11 @@ Widget _myListView(BuildContext context) {
   return ListView.builder(
       itemCount: busList.length,
       itemBuilder: (context, index) {
-        return ListTile(
-          title: Text(busList[index]),
-          subtitle: Text(time[index]),
+        return Card(
+                  child: ListTile(
+            title: Text(busList[index]),
+            subtitle: Text(time[index]),
+          ),
         );
       });
 }
