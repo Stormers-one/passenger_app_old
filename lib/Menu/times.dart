@@ -16,12 +16,10 @@ class Times extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Timings',
-          theme: ThemeData(
-            primarySwatch: Colors.red[500],
-          ),
           home: Scaffold(
             appBar: AppBar(title: Text('ListViews')),
             body: BodyLayout(),
+            backgroundColor: Colors.red[500],
           ),
         );
       }
