@@ -31,7 +31,7 @@ class _Timing extends State<Timing> {
     'Garuda Maharaja Scania',
     ];
 List<String> bustime = [
-  'Bus Time',
+  'Time',
   'Morning : 6AM to 12PM',
   'Afternoon: 12PM to 6PM',
   'Night: 6PM to 6AM',
@@ -130,7 +130,7 @@ String _bus = "";
                               padding: const EdgeInsets.only(top: 10.0),
                             ),
                             new DropdownButtonFormField(
-                              hint: Text('Bus Time', style: TextStyle(color: Colors.grey),),
+                              hint: Text('Time', style: TextStyle(color: Colors.grey),),
                               value: _currenttime.isNotEmpty ? _currenttime : null, 
                               items: bustime.map((value) =>
                                  new DropdownMenuItem(
