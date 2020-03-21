@@ -64,10 +64,21 @@ Future updateBusStopData(String stopName, List<String> caseSearch) async {
       });
   }
 
-  
+
+  List<BusStopData> _busStopListFromSnapshot(QuerySnapshot snapshot) {
+    return snapshot.documents.map((doc) {
+      return BusStopData(
+        stopName: doc.data['Stop Name'] ?? '',
+      );
+    }).toList();
+  }
+Stream<List<BusStopData>> get busStopData {
+    return busStopCollection.snapshots().map(_busStopListFromSnapshot);
+}
 Future getBusStopList(String query) async {
-  List<DocumentSnapshot> documentList = (await Firestore.instance
-        .collection("Bus Stop")
+  List<DocumentSnapshot> documentList = 
+  (await Firestore.instance
+        .collection("Bus Stops")
         .document()
         .collection("Stop Name")
         .where("Case Search", arrayContains: query)
