@@ -24,12 +24,14 @@ class Times extends StatelessWidget {
     );
   }
 }
+
 class BodyLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return _myListView(context);
   }
 }
+
 // replace this function with the code in the examples
 Widget _myListView(BuildContext context) {
   final List<String> busList = [
@@ -60,7 +62,11 @@ Widget _myListView(BuildContext context) {
       itemCount: busList.length,
       itemBuilder: (context, index) {
         return Card(
-                  child: ListTile(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15.0),
+          ),
+          margin: EdgeInsets.all(6),
+          child: ListTile(
             title: Text(busList[index]),
             subtitle: Text(time[index]),
           ),
