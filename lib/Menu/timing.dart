@@ -158,8 +158,16 @@ String _bus = "";
                             height: 50,
                             width: 200,
                             child: RaisedButton(
-                              onPressed: () async {
+                              // onPressed: () async {
                                 
+                              // },
+                              onPressed: () {
+                                Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      Times()),
+                                );
                               },
                               child: const Text('Search',
                                   style: TextStyle(fontSize: 20)),
