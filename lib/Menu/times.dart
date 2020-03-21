@@ -35,12 +35,12 @@ List<String> time = [
           builder: (context) {
             return Container(
               padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 60.0),
-              child: SettingsForm(),
+              
             );
           });
     }
 
-    return StreamProvider<List<Users>>.value(
+    return <List<Buses>>.value(
       value: buses,
       child: MaterialApp(
         title: 'Homepage',
@@ -66,8 +66,9 @@ List<String> time = [
 class Buses {
   final String time;
   final String route;
-  Users({this.time, this.route});
+  Buses({this.time, this.route});
 }
+
 class BusList extends StatefulWidget {
   @override
   _BusListState createState() => _BusListState();
@@ -104,14 +105,8 @@ class BusesTile extends StatelessWidget {
           ),
           margin: EdgeInsets.fromLTRB(20.0, 6.0, 20.0, 0.0),
           child: ListTile(
-             leading: Image.asset(
-                      'assets/profile-icon.png',
-                    ), 
-            //  CircleAvatar(
-            //    radius: 50.0,
-            //    backgroundColor: Colors.red[300],
-            //  ),
-            title: Text(bus.time),
+            leading: Text(bus.time),
+            title: Text(bus.route),
           ),
         ));
   }
