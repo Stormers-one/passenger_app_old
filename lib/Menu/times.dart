@@ -11,20 +11,15 @@ class Times extends StatelessWidget {
         backgroundColor: Colors.orange[100],
         appBar: AppBar(
           title: Text('Times'),
+          leading: new IconButton(
+               icon: new Icon(Icons.arrow_back, color: Colors.black),
+               onPressed: () => Navigator.of(context).pop(),
+              ), 
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Container(
-              constraints: BoxConstraints.expand(
-                height:
-                    Theme.of(context).textTheme.display1.fontSize * 1.1 + 200.0,
-              ),
-              padding: const EdgeInsets.all(8.0),
-              color: Colors.blue[600],
-              alignment: Alignment.center,
-              
-            )
+            
           ],
         ),
       ),
