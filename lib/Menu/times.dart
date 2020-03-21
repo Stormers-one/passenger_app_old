@@ -24,14 +24,12 @@ class Times extends StatelessWidget {
     );
   }
 }
-
 class BodyLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return _myListView(context);
   }
 }
-
 // replace this function with the code in the examples
 Widget _myListView(BuildContext context) {
   final List<String> busList = [
@@ -80,7 +78,6 @@ Widget _myListView(BuildContext context) {
 //     //       });
 //     // }
 //     return
-
 //     <List<String>>.busList(
 //       value: buses,
 //       child: MaterialApp(
@@ -98,7 +95,6 @@ Widget _myListView(BuildContext context) {
 //     );
 //   }
 // }
-
 // class BusList extends StatefulWidget {
 //   @override
 //   _BusListState createState() => _BusListState();
