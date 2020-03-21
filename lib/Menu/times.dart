@@ -1,8 +1,31 @@
 import 'package:flutter/material.dart';
-// import 'package:o_k/shared/drawer.dart';
+import 'package:o_k/shared/drawer.dart';
 
-class Users_Count extends StatelessWidget {
-  final busList = new Authservice();
+class BusAvail extends StatelessWidget {
+  final List<String> busList = <String>[
+    'Pullikkanam - Kottayam (via Vagamon - Erattupetta)',
+    'Chovoor - Alappuzha (via Pala - Changanassery)',
+    'Erattupetta - Kottayam (via Pala)',
+    'Poonjar - Kottayam (via Erattupetta - Pala',
+    'Monkompu - Kottayam (via Erattupetta - Pala)',
+    'Mundakkayam - Kottayam (via Chennad - Pala)',
+    'Poonjar - Kottayam (via Erattupetta - Pala)',
+    'Kalathwa - Kottayam (via Erattupetta - Pala)',
+    'Mundakkayam - Kottayam (via Poonjar - Pala)',
+    'Poonjar - Kottayam (via Erattupetta - Pala)',
+    ];
+List<String> time = [
+  '8:15 am',
+  '8:30am',
+  '8:50 am',
+  '9:00 am',
+  '9:15 am',
+  '9:15 am',
+  '9:25 am',
+  '9:45 am',
+  '11:00 am',
+  '11:25 am',
+];
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +41,7 @@ class Users_Count extends StatelessWidget {
     }
 
     return StreamProvider<List<Users>>.value(
-      value: DatabaseService().users,
+      value: buses,
       child: MaterialApp(
         title: 'Homepage',
         home: Scaffold(
@@ -33,7 +56,7 @@ class Users_Count extends StatelessWidget {
                     label: Text('Edit Profile'))
               ]),
           drawer: DrawerBuild(),
-          body: UserList(),
+          body: BusList(),
         ),
       ),
     );
@@ -43,8 +66,7 @@ class Users_Count extends StatelessWidget {
 class Buses {
   final String time;
   final String route;
-  final String bustype;
-  Users({this.time, this.route, this.bustype});
+  Users({this.time, this.route});
 }
 class BusList extends StatefulWidget {
   @override
