@@ -4,6 +4,7 @@ import 'package:o_k/services/auth.dart';
 import 'package:o_k/services/database.dart';
 import 'package:o_k/shared/drawer.dart';
 import 'package:provider/provider.dart';
+import 'package:o_k/Menu/times.dart';
 
 class Timing extends StatefulWidget {
   @override
@@ -148,15 +149,14 @@ String _bus = "";
                                 ),
                               ),
                             ),
-                          ),
-                          new Padding(
-                            padding: const EdgeInsets.only(top: 30.0),
-                          ),
-                          SizedBox(
-                            height: 50,
-                            width: 200,
-                            child: RaisedButton(
-                              // onPressed: () async {
+                            new Padding(
+                              padding: const EdgeInsets.only(top: 30.0),
+                            ),
+                            SizedBox(
+                              height: 50,
+                              width: 200,
+                              child: RaisedButton(
+                                // onPressed: () async {
                                 
                               // },
                               onPressed: () {
@@ -167,24 +167,6 @@ String _bus = "";
                                                       Times()),
                                 );
                               },
-                              child: const Text('Search',
-                                  style: TextStyle(fontSize: 20)),
-                              color: Colors.red,
-                              textColor: Colors.white,
-                              splashColor: Colors.grey,
-                              padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                              shape: RoundedRectangleBorder(
-                                  borderRadius:
-                                      BorderRadius.circular(20.0),
-                                      side: BorderSide(color: Colors.transparent),),
-                            ),
-                            SizedBox(
-                              height: 50,
-                              width: 200,
-                              child: RaisedButton(
-                                onPressed: () async {
-                                  
-                                },
                                 child: const Text('Search',
                                     style: TextStyle(fontSize: 20)),
                                 color: Colors.red,
