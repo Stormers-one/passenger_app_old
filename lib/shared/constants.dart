@@ -1,13 +1,29 @@
 import 'package:flutter/material.dart';
 
-final textInputDecoration = InputDecoration(
-  fillColor: Colors.grey[300],
-  filled: true,
-  border: OutlineInputBorder(
-    borderSide: BorderSide(color: Colors.white),
-    borderRadius: BorderRadius.circular(25),
-  ),
-);
+
+textInputDecoration(String hintText){
+  return InputDecoration(
+    hintText: '$hintText',
+    hintStyle: new TextStyle(color: Colors.grey),
+    fillColor: Colors.white,
+    filled: true,
+    border: OutlineInputBorder(
+      borderSide: BorderSide(color: Colors.transparent),
+      borderRadius: new BorderRadius.circular(20),
+    ),
+  );
+}
+
+textInputDecorationNoHint(){
+  return InputDecoration(
+    fillColor: Colors.white,
+    filled: true,
+    border: OutlineInputBorder(
+      borderSide: BorderSide(color: Colors.transparent),
+      borderRadius: new BorderRadius.circular(20),
+    ),
+  );
+}
 
 const 
 List<String> stops = [

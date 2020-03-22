@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:o_k/shared/constants.dart';
 import 'package:searchable_dropdown/searchable_dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:o_k/model/busStop.dart';
@@ -42,7 +43,6 @@ String _currentBusType = "";
 String _currenttime = "";
 DatabaseService res = new DatabaseService();
 final TextEditingController _controller = new TextEditingController();
-var _bus = "";
 var queryResult = [];
 var busStopName = [];
 int count = 0;
@@ -110,16 +110,7 @@ initiateSearch(value){
                               onChanged:(value) {
                                   initiateSearch(value);
                               },
-                              decoration: new InputDecoration(
-                                hintText: 'From',
-                                hintStyle: new TextStyle(color: Colors.grey),
-                                fillColor: Colors.white,
-                                filled: true,
-                                border: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.transparent),
-                                  borderRadius: new BorderRadius.circular(20),
-                                ),
-                              ),
+                              decoration:textInputDecoration("From"),
                               keyboardType: TextInputType.emailAddress,
                             ),
                             new Padding(
@@ -127,16 +118,7 @@ initiateSearch(value){
                             ),
                             new TextFormField(
                               textCapitalization: TextCapitalization.characters,
-                              decoration: new InputDecoration(
-                                hintText: 'To',
-                                hintStyle: new TextStyle(color: Colors.grey),
-                                fillColor: Colors.white,
-                                filled: true,
-                                border: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.transparent),
-                                  borderRadius: new BorderRadius.circular(20),
-                                ),
-                              ),
+                              decoration: textInputDecoration("To"),
                               obscureText: false,
                               keyboardType: TextInputType.text,
                             ),
@@ -154,15 +136,8 @@ initiateSearch(value){
                               ).toList(),
                               isExpanded: true,
                               onChanged: (val) => setState(() => _currentBusType = val),
-                              decoration: new InputDecoration(
-                                fillColor: Colors.white,
-                                filled: true,
-                                border: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.transparent),
-                                  borderRadius: new BorderRadius.circular(20),
-                                ),
+                              decoration: textInputDecorationNoHint(),
                               ),
-                            ),
                             new Padding(
                               padding: const EdgeInsets.only(top: 10.0),
                             ),
@@ -177,14 +152,7 @@ initiateSearch(value){
                               ).toList(),
                               isExpanded: true,
                               onChanged: (val) => setState(() => _currenttime = val),
-                              decoration: new InputDecoration(
-                                fillColor: Colors.white,
-                                filled: true,
-                                border: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.transparent),
-                                  borderRadius: new BorderRadius.circular(20),
-                                ),
-                              ),
+                              decoration: textInputDecorationNoHint(),
                             ),
                             new Padding(
                               padding: const EdgeInsets.only(top: 30.0),
@@ -193,15 +161,13 @@ initiateSearch(value){
                               height: 50,
                               width: 200,
                               child: RaisedButton(
-                                // onPressed: () async {
-                                
-                              // },
                               onPressed: () {
                                 Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      Times()),
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                      Times()
+                                  ),
                                 );
                               },
                                 child: const Text('Search',

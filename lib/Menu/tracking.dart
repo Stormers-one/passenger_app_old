@@ -5,6 +5,7 @@ import 'package:o_k/Menu/reports.dart';
 import 'package:o_k/User/profile.dart';
 import 'package:o_k/User/user_count.dart';
 import 'package:o_k/homepage.dart';
+import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/drawer.dart';
 
 class Tracking extends StatelessWidget {
@@ -41,16 +42,7 @@ class Tracking extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: <Widget>[
                             new TextFormField(
-                              decoration: new InputDecoration(
-                                hintText: 'Fleet Number',
-                                hintStyle: new TextStyle(color: Colors.grey),
-                                fillColor: Colors.white,
-                                filled: true,
-                                border: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.transparent),
-                                  borderRadius: new BorderRadius.circular(20),
-                                ),
-                              ),
+                              decoration: textInputDecoration("Fleet Number"),
                               keyboardType: TextInputType.emailAddress,
                             ),
                             new Padding(

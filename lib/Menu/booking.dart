@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:o_k/Menu/seating.dart';
-import 'package:o_k/homepage.dart';
-import 'package:o_k/Menu/help.dart';
-import 'package:o_k/Menu/reports.dart';
-import 'package:o_k/User/profile.dart';
-import 'package:o_k/User/user_count.dart';
+import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/drawer.dart';
 
 class Booking extends StatefulWidget {
@@ -41,32 +36,14 @@ class _BookingState extends State<Booking> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: <Widget>[
                               new TextFormField(
-                                decoration: new InputDecoration(
-                                  hintText: 'From',
-                                  hintStyle: new TextStyle(color: Colors.grey),
-                                  fillColor: Colors.white,
-                                  filled: true,
-                                  border: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Colors.transparent),
-                                    borderRadius: new BorderRadius.circular(20),
-                                  ),
-                                ),
+                                decoration: textInputDecoration("From"),
                                 keyboardType: TextInputType.emailAddress,
                               ),
                               new Padding(
                                 padding: const EdgeInsets.only(top: 10.0),
                               ),
                               new TextFormField(
-                                decoration: new InputDecoration(
-                                  hintText: 'To',
-                                  hintStyle: new TextStyle(color: Colors.grey),
-                                  fillColor: Colors.white,
-                                  filled: true,
-                                  border: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Colors.transparent),
-                                    borderRadius: new BorderRadius.circular(20),
-                                  ),
-                                ),
+                                decoration: textInputDecoration("To"),
                                 obscureText: false,
                                 keyboardType: TextInputType.text,
                               ),
@@ -74,16 +51,7 @@ class _BookingState extends State<Booking> {
                                 padding: const EdgeInsets.only(top: 30.0),
                               ),
                               new TextFormField(
-                                decoration: new InputDecoration(
-                                  hintText: 'Date Of Departure',
-                                  hintStyle: new TextStyle(color: Colors.grey),
-                                  fillColor: Colors.white,
-                                  filled: true,
-                                  border: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Colors.transparent),
-                                    borderRadius: new BorderRadius.circular(20),
-                                  ),
-                                ),
+                                decoration: textInputDecoration("Date Of Departure"),
                                 keyboardType: TextInputType.emailAddress,
                               ),
                               new Padding(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:o_k/services/auth.dart';
 import 'package:o_k/Signing_and_Auth/register.dart';
+import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/loading.dart';
 
 class LoginPage extends StatefulWidget {
@@ -37,7 +38,6 @@ class _LoginState extends State<LoginPage> {
                 ],
               ));
     }
-
     return loading
         ? Loading()
         : WillPopScope(
@@ -46,15 +46,7 @@ class _LoginState extends State<LoginPage> {
               backgroundColor: Colors.orange[300],
               body: Center(
                 child: Container(
-                  decoration: new BoxDecoration(
-                    // gradient: new LinearGradient(colors: [Colors.orange[300], Colors.green[100]],
-                    //     begin: const FractionalOffset(0.5, 0.0),
-                    //     end: const FractionalOffset(0.0, 0.5),
-                    //     stops: [0.0,1.0],
-                    //     tileMode: TileMode.clamp
-                    // ),
-                    color: Colors.orange[300],
-                  ),
+                  decoration: new BoxDecoration(color: Colors.orange[300],),
                   child: ListView(
                       shrinkWrap: true,
                       padding: const EdgeInsets.all(20.0),
@@ -117,19 +109,7 @@ class _LoginState extends State<LoginPage> {
                                         initialValue: email,
                                         style:
                                             new TextStyle(color: Colors.orange),
-                                        decoration: new InputDecoration(
-                                          hintText: 'Email',
-                                          hintStyle:
-                                              new TextStyle(color: Colors.grey),
-                                          fillColor: Colors.grey[300],
-                                          filled: true,
-                                          border: OutlineInputBorder(
-                                            borderSide:
-                                                BorderSide(color: Colors.white),
-                                            borderRadius:
-                                                new BorderRadius.circular(20),
-                                          ),
-                                        ),
+                                        decoration: textInputDecoration("Email"),
                                         keyboardType:
                                             TextInputType.emailAddress,
                                         onChanged: (val) {
@@ -146,31 +126,7 @@ class _LoginState extends State<LoginPage> {
                                       new TextFormField(
                                         style:
                                             new TextStyle(color: Colors.orange),
-                                        decoration: new InputDecoration(
-                                          hintText: 'Password',
-                                          hintStyle:
-                                              new TextStyle(color: Colors.grey),
-                                          fillColor: Colors.grey[300],
-                                          filled: true,
-                                          border: OutlineInputBorder(
-                                            borderSide:
-                                                BorderSide(color: Colors.white),
-                                            borderRadius:
-                                                new BorderRadius.circular(20),
-                                          ),
-                                          /*enabledBorder: OutlineInputBorder(
-                                          borderSide:
-                                              BorderSide(color: Colors.white),
-                                          borderRadius:
-                                              new BorderRadius.circular(25),
-                                        ),
-                                        focusedBorder: OutlineInputBorder(
-                                          borderSide:
-                                              BorderSide(color: Colors.white),
-                                          borderRadius:
-                                              new BorderRadius.circular(25),
-                                        )*/
-                                        ),
+                                        decoration: textInputDecoration("Password"),
                                         obscureText: true,
                                         keyboardType: TextInputType.text,
                                         onChanged: (val) {
@@ -202,19 +158,7 @@ class _LoginState extends State<LoginPage> {
                                                   loading = false;
                                                 });
                                               }
-                                              // else {
-                                              //       Navigator.push(
-                                              //     context,
-                                              //     MaterialPageRoute(
-                                              //         builder: (context) => Wrapper()),
-                                              //   );
-                                              //   }
                                             }
-                                            // Navigator.push(
-                                            //   context,
-                                            //   MaterialPageRoute(
-                                            //       builder: (context) => Homepage()),
-                                            // );
                                           },
                                           child: const Text('Login',
                                               style: TextStyle(fontSize: 20)),

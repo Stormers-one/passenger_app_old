@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:o_k/Wrapper.dart';
 import 'package:o_k/services/auth.dart';
 import 'package:o_k/Signing_and_Auth/loginPage.dart';
+import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/loading.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -102,22 +103,7 @@ class _RegisterState extends State<RegisterPage> {
                                        initialValue: fname,
                                         style:
                                             new TextStyle(color: Colors.orange),
-                                        decoration: new InputDecoration(
-                                          //labelText: "Full Name:",
-                                          //labelStyle: new TextStyle(
-                                          //    fontSize: 15, color: Colors.red),
-                                          hintText: 'Full Name',
-                                          hintStyle:
-                                              new TextStyle(color: Colors.grey),
-                                          fillColor: Colors.grey[300],
-                                          filled: true,
-                                          border: OutlineInputBorder(
-                                            borderSide:
-                                                BorderSide(color: Colors.white),
-                                            borderRadius:
-                                                new BorderRadius.circular(25),
-                                          ),
-                                        ),
+                                        decoration:textInputDecoration("Full Name"),
                                         keyboardType: TextInputType.emailAddress,
                                         onChanged: (val) {
                                           setState(() => fname = val);
@@ -134,22 +120,7 @@ class _RegisterState extends State<RegisterPage> {
                                         initialValue: email,
                                         style:
                                             new TextStyle(color: Colors.orange),
-                                        decoration: new InputDecoration(
-                                          //labelText: "Email:",
-                                          //labelStyle: new TextStyle(
-                                          //    fontSize: 15, color: Colors.red),
-                                          hintText: 'Email',
-                                          hintStyle:
-                                              new TextStyle(color: Colors.grey),
-                                          fillColor: Colors.grey[300],
-                                          filled: true,
-                                          border: OutlineInputBorder(
-                                            borderSide:
-                                                BorderSide(color: Colors.white),
-                                            borderRadius:
-                                                new BorderRadius.circular(25),
-                                          ),
-                                        ),
+                                        decoration: textInputDecoration("Email"),
                                         keyboardType: TextInputType.emailAddress,
                                         onChanged: (val) {
                                           setState(() => email = val);
@@ -165,22 +136,7 @@ class _RegisterState extends State<RegisterPage> {
                                     new TextFormField(
                                         style:
                                             new TextStyle(color: Colors.orange),
-                                        decoration: new InputDecoration(
-                                          //labelText: "Password:",
-                                          //labelStyle: new TextStyle(
-                                          //    fontSize: 15, color: Colors.red),
-                                          hintText: 'Password',
-                                          hintStyle:
-                                              new TextStyle(color: Colors.grey),
-                                          fillColor: Colors.grey[300],
-                                          filled: true,
-                                          border: OutlineInputBorder(
-                                            borderSide:
-                                                BorderSide(color: Colors.white),
-                                            borderRadius:
-                                                new BorderRadius.circular(25),
-                                          ),
-                                        ),
+                                        decoration: textInputDecoration("Password"),
                                         obscureText: true,
                                         keyboardType: TextInputType.text,
                                         onChanged: (val) {
@@ -197,22 +153,7 @@ class _RegisterState extends State<RegisterPage> {
                                     new TextFormField(
                                         style:
                                             new TextStyle(color: Colors.orange),
-                                        decoration: new InputDecoration(
-                                          //labelText: "Password:",
-                                          //labelStyle: new TextStyle(
-                                          //    fontSize: 15, color: Colors.red),
-                                          hintText: 'Confirm Password',
-                                          hintStyle:
-                                              new TextStyle(color: Colors.grey),
-                                          fillColor: Colors.grey[300],
-                                          filled: true,
-                                          border: OutlineInputBorder(
-                                            borderSide:
-                                                BorderSide(color: Colors.white),
-                                            borderRadius:
-                                                new BorderRadius.circular(25),
-                                          ),
-                                        ),
+                                        decoration:textInputDecoration("Confirm Password"),
                                         obscureText: true,
                                         keyboardType: TextInputType.text,
                                         onChanged: (val) {
@@ -231,22 +172,7 @@ class _RegisterState extends State<RegisterPage> {
                                         initialValue: phno,
                                         style:
                                             new TextStyle(color: Colors.orange),
-                                        decoration: new InputDecoration(
-                                          //labelText: "Password:",
-                                          //labelStyle: new TextStyle(
-                                          //    fontSize: 15, color: Colors.red),
-                                          hintText: 'Phone Number',
-                                          hintStyle:
-                                              new TextStyle(color: Colors.grey),
-                                          fillColor: Colors.grey[300],
-                                          filled: true,
-                                          border: OutlineInputBorder(
-                                            borderSide:
-                                                BorderSide(color: Colors.white),
-                                            borderRadius:
-                                                new BorderRadius.circular(25),
-                                          ),
-                                        ),
+                                        decoration:textInputDecoration("Phone Number"),
                                         keyboardType: TextInputType.number,
                                         onChanged: (val) {
                                           setState(() => phno = val);
@@ -284,11 +210,6 @@ class _RegisterState extends State<RegisterPage> {
                                               );
                                             }
                                           }
-                                          // Navigator.push(
-                                          //   context,
-                                          //   MaterialPageRoute(
-                                          //       builder: (context) => Homepage()),
-                                          // );
                                         },
                                         child: const Text('Register',
                                             style: TextStyle(fontSize: 20)),

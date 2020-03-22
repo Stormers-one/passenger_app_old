@@ -19,6 +19,7 @@ class Times extends StatelessWidget {
           title: Text('Timings'),
           backgroundColor: Colors.red[500],
         ),
+        drawer: DrawerBuild(),
         body: BodyLayout(),
       ),
     );

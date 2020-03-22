@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:o_k/Menu/search.dart';
-import 'package:o_k/homepage.dart';
-import 'package:o_k/Menu/help.dart';
-import 'package:o_k/Menu/reports.dart';
-import 'package:o_k/User/profile.dart';
-import 'package:o_k/User/user_count.dart';
+import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/drawer.dart';
 
 class Maps extends StatelessWidget {
@@ -42,32 +37,14 @@ class Maps extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: <Widget>[
                             new TextFormField(
-                              decoration: new InputDecoration(
-                                hintText: 'From',
-                                hintStyle: new TextStyle(color: Colors.grey),
-                                fillColor: Colors.white,
-                                filled: true,
-                                border: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.transparent),
-                                  borderRadius: new BorderRadius.circular(20),
-                                ),
-                              ),
+                              decoration: textInputDecoration("From"),
                               keyboardType: TextInputType.emailAddress,
                             ),
                             new Padding(
                               padding: const EdgeInsets.only(top: 10.0),
                             ),
                             new TextFormField(
-                              decoration: new InputDecoration(
-                                hintText: 'To',
-                                hintStyle: new TextStyle(color: Colors.grey),
-                                fillColor: Colors.white,
-                                filled: true,
-                                border: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.transparent),
-                                  borderRadius: new BorderRadius.circular(20),
-                                ),
-                              ),
+                              decoration: textInputDecoration("To"),
                               obscureText: false,
                               keyboardType: TextInputType.text,
                             ),
