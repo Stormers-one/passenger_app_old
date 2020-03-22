@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:searchable_dropdown/searchable_dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:o_k/model/busStop.dart';
 import 'package:o_k/services/auth.dart';
@@ -39,7 +41,41 @@ List<String> bustime = [
 String _currentBusType = "";
 String _currenttime = "";
 DatabaseService res = new DatabaseService();
-String _bus = "";
+final TextEditingController _controller = new TextEditingController();
+var _bus = "";
+var queryResult = [];
+var busStopName = [];
+int count = 0;
+initiateSearch(value){
+  if(value.length == 0){
+    setState(() {
+      queryResult = [];
+      busStopName = [];
+    });
+  }
+    //if(queryResult.length == 0 && value.length == 1 ) {
+      res.getBusStopList(value).then((QuerySnapshot docs){
+        for (var i = 0; i < docs.documents.length; i++) {
+          queryResult.add(docs.documents[i].data);
+        }
+      });
+    //}
+    //else{
+      busStopName = [];
+      queryResult.forEach((element){
+        setState(() {
+          if(element['Stop Name'].contains(value)){
+            busStopName.add(element['Stop Name']);
+          }
+          
+        });
+      });
+      print(busStopName);
+      print("\n\n\n ");
+      count++;
+      print(count);
+  //}
+}
   @override
   Widget build(BuildContext context) {
     return StreamProvider<List<BusStopData>>.value(
@@ -70,9 +106,9 @@ String _bus = "";
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: <Widget>[
                             new TextFormField(
-                              onChanged:(String query) async {
-                                dynamic _bus = await res.getBusStopList(query);
-                                print(_bus);
+                              textCapitalization: TextCapitalization.characters,
+                              onChanged:(value) {
+                                  initiateSearch(value);
                               },
                               decoration: new InputDecoration(
                                 hintText: 'From',
@@ -90,6 +126,7 @@ String _bus = "";
                               padding: const EdgeInsets.only(top: 10.0),
                             ),
                             new TextFormField(
+                              textCapitalization: TextCapitalization.characters,
                               decoration: new InputDecoration(
                                 hintText: 'To',
                                 hintStyle: new TextStyle(color: Colors.grey),
