@@ -11,7 +11,6 @@ class LoginPage extends StatefulWidget {
   @override
   _LoginState createState() => _LoginState();
 }
-
 class _LoginState extends State<LoginPage> {
   final Authservice _auth = new Authservice();
   final _formkey = GlobalKey<FormState>();
@@ -115,7 +114,7 @@ class _LoginState extends State<LoginPage> {
                                         onChanged: (val) {
                                           setState(() => email = val);
                                         },
-                                        validator: (val) => val.isEmpty
+                                        validator: (val) => val.isEmpty && clickStatLogin
                                             ? 'Enter an Email'
                                             : null,
                                       ),
@@ -132,8 +131,8 @@ class _LoginState extends State<LoginPage> {
                                         onChanged: (val) {
                                           setState(() => password = val);
                                         },
-                                        validator: (val) => val.length < 8
-                                            ? 'Enter a password >8 Characters'
+                                        validator: (val) => val.isEmpty && clickStatLogin
+                                            ? 'Enter password'
                                             : null,
                                       ),
                                       new Padding(
@@ -145,9 +144,11 @@ class _LoginState extends State<LoginPage> {
                                         width: 200,
                                         child: RaisedButton(
                                           onPressed: () async {
+                                             clickStatLogin = true;
                                             if (_formkey.currentState
                                                 .validate()) {
                                               setState(() => loading = true);
+                                             
                                               dynamic result = await _auth
                                                   .signInWithEmailAndPassword(
                                                       email, password);

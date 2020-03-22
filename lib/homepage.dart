@@ -12,6 +12,7 @@ import 'package:o_k/Menu/tracking.dart';
 import 'package:o_k/Menu/maps.dart';
 import 'package:o_k/User/profile.dart';
 import 'package:o_k/User/user_count.dart';
+import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/drawer.dart';
 
 class Homepage extends StatelessWidget {
@@ -47,6 +48,8 @@ class Homepage extends StatelessWidget {
                 icon: Icon(Icons.person),
                 label: Text('Logout'),
                 onPressed: () async {
+                  clickStatLogin = false;
+                  clickStatRegister = false;
                   await _auth.signOut();
                   Navigator.push(
                     context,

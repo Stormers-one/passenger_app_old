@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-
+bool clickStatLogin = false;
+bool clickStatRegister = false;
 textInputDecoration(String hintText){
   return InputDecoration(
     hintText: '$hintText',
