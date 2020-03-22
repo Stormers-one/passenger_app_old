@@ -34,15 +34,7 @@ class _RegisterState extends State<RegisterPage> {
             backgroundColor: Colors.white,
             body: Center(
               child: Container(
-                decoration: new BoxDecoration(
-                  /*gradient: new LinearGradient(
-                      colors: [Colors.orange[300], Colors.green[100]],
-                      begin: const FractionalOffset(0.5, 0.0),
-                      end: const FractionalOffset(0.0, 0.5),
-                      stops: [0.0, 1.0],
-                      tileMode: TileMode.clamp), */
-                  color: Colors.orange[300],
-                ),
+                decoration: new BoxDecoration(color: Colors.orange[300],),
                 child: ListView(
                     shrinkWrap: true,
                     padding: const EdgeInsets.all(20.0),
@@ -51,7 +43,6 @@ class _RegisterState extends State<RegisterPage> {
                         data: new ThemeData(
                             brightness: Brightness.dark,
                             inputDecorationTheme: new InputDecorationTheme(
-                              // hintStyle: new TextStyle(color: Colors.blue, fontSize: 20.0),
                               labelStyle: new TextStyle(
                                   color: Colors.redAccent, fontSize: 25.0),
                             )),
