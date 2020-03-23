@@ -15,9 +15,15 @@ import 'package:o_k/User/user_count.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/drawer.dart';
 
-class Homepage extends StatelessWidget {
-  final Authservice _auth = new Authservice();
+class Homepage extends StatefulWidget{
+  // Homepage({Key key}) : super(key: key);
+  State<StatefulWidget> createState() {
+    return _HomepageState();
+  }
+}
 
+class _HomepageState extends State<Homepage> {
+  final Authservice _auth = new Authservice();
   @override
   Widget build(BuildContext context) {
     // Future<bool> _onBackPressed() {
