@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:o_k/shared/busSerch.dart';
 import 'package:o_k/shared/constants.dart';
-import 'package:searchable_dropdown/searchable_dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:o_k/model/busStop.dart';
 import 'package:o_k/services/auth.dart';
@@ -41,11 +41,11 @@ List<String> bustime = [
 ];
 String _currentBusType = "";
 String _currenttime = "";
-DatabaseService res = new DatabaseService();
-final TextEditingController _controller = new TextEditingController();
 var queryResult = [];
-var busStopName = [];
-int count = 0;
+  var busStopName = [];
+  int count = 0;
+  DatabaseService res = new DatabaseService();
+
 initiateSearch(value){
   if(value.length == 0){
     setState(() {
@@ -74,8 +74,8 @@ initiateSearch(value){
       print("\n\n\n ");
       count++;
       print(count);
-  //}
-}
+  }
+final TextEditingController _controller = new TextEditingController();
   @override
   Widget build(BuildContext context) {
     return StreamProvider<List<BusStopData>>.value(
@@ -106,21 +106,32 @@ initiateSearch(value){
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: <Widget>[
                             new TextFormField(
-                              textCapitalization: TextCapitalization.characters,
-                              onChanged:(value) {
-                                  initiateSearch(value);
+                              style: new TextStyle(color: Colors.black),
+                              // textCapitalization: TextCapitalization.characters,
+                              onTap:(){                                 
+                                showSearch(context: context, delegate: BusSearch());
+                                selectedTimingStringFrom = selectedString;
+                                print("$selectedTimingStringFrom TEXT HERE");
                               },
-                              decoration:textInputDecoration("From"),
+                              initialValue: selectedTimingStringFrom,
+                              decoration:textInputDecoration(selectedTimingStringFrom ??  "From"),
                               keyboardType: TextInputType.emailAddress,
                             ),
                             new Padding(
                               padding: const EdgeInsets.only(top: 10.0),
                             ),
                             new TextFormField(
+                              style: new TextStyle(color: Colors.black),
+                              onTap:(){ 
+                                showSearch(context: context, delegate: BusSearch());
+                                selectedTimingStringTo = selectedString;
+                                print("$selectedTimingStringTo TEXT HERE");
+                              },
                               textCapitalization: TextCapitalization.characters,
-                              decoration: textInputDecoration("To"),
+                              decoration: textInputDecoration(selectedTimingStringTo ?? "To"),
                               obscureText: false,
                               keyboardType: TextInputType.text,
+                              initialValue:selectedTimingStringTo,
                             ),
                             new Padding(
                               padding: const EdgeInsets.only(top: 40.0),

@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+String selectedString= "";
+
+  String selectedTimingStringFrom = null;
+  String selectedTimingStringTo = null;
+
 bool clickStatLogin = false;
 bool clickStatRegister = false;
 textInputDecoration(String hintText){
@@ -25,7 +30,7 @@ textInputDecorationNoHint(){
     ),
   );
 }
-
+final recentSearch = [];
 const 
 List<String> stops = [
 '16 th MILE (NEDUMANGAD)',
