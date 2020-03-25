@@ -2,17 +2,6 @@ import 'package:double_back_to_close_app/double_back_to_close_app.dart';
 import 'package:flutter/material.dart';
 import 'package:o_k/Wrapper.dart';
 import 'package:o_k/services/auth.dart';
-<<<<<<< HEAD
-=======
-import 'package:o_k/Menu/Booking/booking.dart';
-import 'package:o_k/Menu/help.dart';
-import 'package:o_k/Menu/reports.dart';
-import 'package:o_k/Menu/Timing/timing.dart';
-import 'package:o_k/Menu/Tracking/tracking.dart';
-import 'package:o_k/Menu/Maps/maps.dart';
-import 'package:o_k/User/profile.dart';
-import 'package:o_k/User/user_count.dart';
->>>>>>> 75f2771fbad32d4793c807903d9bcd1a7f93a899
 import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/drawer.dart';
 import 'homepageButtons/data.dart';
