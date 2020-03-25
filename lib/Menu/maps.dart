@@ -24,12 +24,6 @@ class Maps extends StatelessWidget {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    /*Container(
-                      child: Image.asset(
-                        'assets/map_m.png',
-                        fit: BoxFit.fitWidth,
-                      ),
-                    ), */
                     Container(
                       padding: const EdgeInsets.all(40.0),
                       child: new Form(
