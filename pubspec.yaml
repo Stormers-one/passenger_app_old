@@ -28,6 +28,8 @@ dependencies:
   font_awesome_flutter: ">6.0.0"
   google_maps_flutter: ^0.5.11
   flutter_map: any
+  user_location: any
+  mapbox_gl: ^0.0.3
 
   firebase_auth: ">= 0.15.5+2"
   cloud_firestore: ">=0.13.4+2"
