@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/drawer.dart';
+import 'map.dart';
 
 class Maps extends StatelessWidget {
   @override
@@ -55,7 +56,13 @@ class Maps extends StatelessWidget {
                               height: 50,
                               width: 200,
                               child: RaisedButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Map()),
+                                  );
+                                },
                                 child: const Text('Search',
                                     style: TextStyle(fontSize: 20)),
                                 color: Colors.red,
@@ -63,8 +70,9 @@ class Maps extends StatelessWidget {
                                 splashColor: Colors.grey,
                                 padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
                                 shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(20.0),
-                                    side: BorderSide(color: Colors.transparent),),
+                                  borderRadius: BorderRadius.circular(20.0),
+                                  side: BorderSide(color: Colors.transparent),
+                                ),
                               ),
                             ),
                           ],
