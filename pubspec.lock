@@ -232,7 +232,7 @@ packages:
       name: google_maps_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.5.25+1"
+    version: "0.5.24+1"
   http:
     dependency: transitive
     description:
@@ -269,7 +269,7 @@ packages:
     source: hosted
     version: "0.6.1+1"
   latlong:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: latlong
       url: "https://pub.dartlang.org"
@@ -282,13 +282,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.11.4"
-  mapbox_gl:
-    dependency: "direct main"
-    description:
-      name: mapbox_gl
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.5"
   matcher:
     dependency: transitive
     description:

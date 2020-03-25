@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/drawer.dart';
-import 'map.dart';
 
 class Maps extends StatelessWidget {
   @override
@@ -24,6 +23,12 @@ class Maps extends StatelessWidget {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
+                    /*Container(
+                      child: Image.asset(
+                        'assets/map_m.png',
+                        fit: BoxFit.fitWidth,
+                      ),
+                    ), */
                     Container(
                       padding: const EdgeInsets.all(40.0),
                       child: new Form(
@@ -50,13 +55,7 @@ class Maps extends StatelessWidget {
                               height: 50,
                               width: 200,
                               child: RaisedButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => Map()),
-                                  );
-                                },
+                                onPressed: () {},
                                 child: const Text('Search',
                                     style: TextStyle(fontSize: 20)),
                                 color: Colors.red,
@@ -64,9 +63,8 @@ class Maps extends StatelessWidget {
                                 splashColor: Colors.grey,
                                 padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20.0),
-                                  side: BorderSide(color: Colors.transparent),
-                                ),
+                                    borderRadius: BorderRadius.circular(20.0),
+                                    side: BorderSide(color: Colors.transparent),),
                               ),
                             ),
                           ],
