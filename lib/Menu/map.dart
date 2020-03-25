@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/drawer.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:flutter_map/plugin_api.dart';
+// import 'package:flutter_map/plugin_api.dart';
 // import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:mapbox_gl/mapbox_gl.dart';
 
 class Map extends StatelessWidget {
   @override
@@ -14,7 +15,7 @@ class Map extends StatelessWidget {
         Container(
           child: FlutterMap(
             options: new MapOptions(
-              center: LatLng(21.843,82.795), 
+              // center: LatLng(21.843,82.795), 
               zoom: 13.0,
             ),
             layers: [
@@ -26,7 +27,7 @@ class Map extends StatelessWidget {
                   new Marker(
                     width: 80.0,
                     height: 80.0,
-                    point: LatLng(21.843,82.795),
+                    // point: LatLng(21.843,82.795),
                     builder: (ctx) => new Container(
                       child: new FlutterLogo(),
                     ),
