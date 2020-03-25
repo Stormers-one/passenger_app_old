@@ -3,13 +3,8 @@ import 'package:o_k/Menu/Timing/timing.dart';
 import 'package:o_k/shared/constants.dart';
 
 class BusSearch extends SearchDelegate<String> {
-  // @override
-  // Widget build(BuildContext context) {
-  //   return Container(
-      
-  //   );
-  // }
-
+  String fromto;
+  
   @override
   List<Widget> buildActions(BuildContext context) {
     return [
@@ -49,8 +44,13 @@ class BusSearch extends SearchDelegate<String> {
           if(!recentSearch.contains(selectedString)){
             recentSearch.add(selectedString);
           }
-          Navigator.push(context, MaterialPageRoute(builder: (context) => Timing()));
-          // close(context, null);        
+          if(fromto == "From"){
+            selectedTimingStringFrom = selectedString; 
+          }
+          else if(fromto == "To"){
+            selectedTimingStringTo = selectedString;
+          }
+          close(context, null);        
         },
         leading: Icon(Icons.location_city),
         title: RichText(text: TextSpan(
@@ -70,4 +70,10 @@ class BusSearch extends SearchDelegate<String> {
       itemCount: suggestionList.length,
     );
   }
+
+  BusSearch(String fromTo){
+    this.fromto = fromTo;
+  }
+
+  
 }

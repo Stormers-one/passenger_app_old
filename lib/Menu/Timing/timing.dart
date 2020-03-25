@@ -45,6 +45,8 @@ var queryResult = [];
   var busStopName = [];
   int count = 0;
   DatabaseService res = new DatabaseService();
+ TextEditingController _controller ;
+ TextEditingController _controller1 ;
 
 initiateSearch(value){
   if(value.length == 0){
@@ -75,7 +77,19 @@ initiateSearch(value){
       count++;
       print(count);
   }
-final TextEditingController _controller = new TextEditingController();
+  @override
+   void initState() {
+      _controller = new TextEditingController();
+      _controller1 = new TextEditingController();
+      super.initState();
+    }
+
+ @override
+  void dispose(){
+   _controller?.dispose();
+    _controller1?.dispose();
+   super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return StreamProvider<List<BusStopData>>.value(
@@ -106,53 +120,44 @@ final TextEditingController _controller = new TextEditingController();
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: <Widget>[
                             new TextFormField(
+                              controller: _controller,
                               style: new TextStyle(color: Colors.black),
-                              // textCapitalization: TextCapitalization.characters,
                               onTap:(){                                 
-                                showSearch(context: context, delegate: BusSearch());
-                                selectedTimingStringFrom = selectedString;
+                                showSearch(context: context, delegate: BusSearch("From"));
+                                setState(() => _controller.text = selectedTimingStringFrom);
                               },
-                              initialValue: selectedTimingStringFrom,
-                              decoration:textInputDecoration(selectedTimingStringFrom ??  "From"),
+                              decoration:textInputDecoration("From"),
                               keyboardType: TextInputType.emailAddress,
+                                  
                             ),
                             new Padding(
                               padding: const EdgeInsets.only(top: 10.0),
                             ),
                             new TextFormField(
+                              controller: _controller1,
+                             // initialValue:selectedTimingStringTo,
                               style: new TextStyle(color: Colors.black),
                               onTap:(){ 
-                                showSearch(context: context, delegate: BusSearch());
-                                selectedTimingStringTo = selectedString;
+                                showSearch(context: context, delegate: BusSearch("To"));
+                                setState(() => _controller1.text = selectedTimingStringTo);
                               },
                               textCapitalization: TextCapitalization.characters,
-                              decoration: textInputDecoration(selectedTimingStringTo ?? "To"),
+                              decoration: textInputDecoration("To"),
                               obscureText: false,
                               keyboardType: TextInputType.text,
-                              initialValue:selectedTimingStringTo,
+                              onChanged: (val)=> setState(() => _controller1.text = selectedTimingStringTo),
                             ),
-
-                            // SizedBox(
-                            //   height: 60,
-                            //   width: 300,
-                            //   child: RaisedButton(
-                            //   onPressed: () {
-                            //     showSearch(context: context, delegate: BusSearch());
-                            //   },
-                            //     child: const Text('To',
-                            //         style: TextStyle(fontSize: 20,)),
-                            //     color: Colors.white,
-                            //     textColor: Colors.grey,
-                            //     splashColor: Colors.transparent,
-                            //     //padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                            //     shape: RoundedRectangleBorder(
-                            //         borderRadius:
-                            //             BorderRadius.circular(20.0),
-                            //             side: BorderSide(color: Colors.grey[600]),),
-                            //   ),
-                            // ),
+                             new Padding(
+                              padding: const EdgeInsets.only(top: 5.0),
+                            ),
+                            new IconButton
+                              (icon: Icon(Icons.add), 
+                              onPressed: (){
+                                setState(() => _controller1.text = selectedTimingStringTo);
+                                setState(() => _controller.text = selectedTimingStringFrom);
+                            }),
                             new Padding(
-                              padding: const EdgeInsets.only(top: 40.0),
+                              padding: const EdgeInsets.only(top: 10.0),
                             ),
                             new DropdownButtonFormField(
                               hint: Text('Bus Type', style: TextStyle(color: Colors.grey),),
