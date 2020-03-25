@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 String selectedString= "";
 
-  String selectedTimingStringFrom = null;
-  String selectedTimingStringTo = null;
-
+String selectedTimingStringFrom = null;
+String selectedTimingStringTo = null;
+String alphaNumberc = "ABCDEFGHJCLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz";
 bool clickStatLogin = false;
 bool clickStatRegister = false;
 

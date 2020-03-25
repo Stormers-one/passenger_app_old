@@ -7,7 +7,7 @@ import 'package:o_k/services/auth.dart';
 import 'package:o_k/services/database.dart';
 import 'package:o_k/shared/drawer.dart';
 import 'package:provider/provider.dart';
-import 'package:o_k/Menu/times.dart';
+import 'package:o_k/Menu/Timing/times.dart';
 
 class Timing extends StatefulWidget {
   @override
