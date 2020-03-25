@@ -7,6 +7,10 @@ String selectedString= "";
 
 bool clickStatLogin = false;
 bool clickStatRegister = false;
+
+giveInitial(){
+  return selectedString;
+}
 textInputDecoration(String hintText){
   return InputDecoration(
     hintText: '$hintText',

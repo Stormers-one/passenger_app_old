@@ -49,8 +49,8 @@ class BusSearch extends SearchDelegate<String> {
           if(!recentSearch.contains(selectedString)){
             recentSearch.add(selectedString);
           }
-          // Navigator.push(context, MaterialPageRoute(builder: (context) => Timing()));
-          close(context, null);        
+          Navigator.push(context, MaterialPageRoute(builder: (context) => Timing()));
+          // close(context, null);        
         },
         leading: Icon(Icons.location_city),
         title: RichText(text: TextSpan(

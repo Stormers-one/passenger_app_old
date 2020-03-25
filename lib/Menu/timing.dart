@@ -111,7 +111,6 @@ final TextEditingController _controller = new TextEditingController();
                               onTap:(){                                 
                                 showSearch(context: context, delegate: BusSearch());
                                 selectedTimingStringFrom = selectedString;
-                                print("$selectedTimingStringFrom TEXT HERE");
                               },
                               initialValue: selectedTimingStringFrom,
                               decoration:textInputDecoration(selectedTimingStringFrom ??  "From"),
@@ -125,7 +124,6 @@ final TextEditingController _controller = new TextEditingController();
                               onTap:(){ 
                                 showSearch(context: context, delegate: BusSearch());
                                 selectedTimingStringTo = selectedString;
-                                print("$selectedTimingStringTo TEXT HERE");
                               },
                               textCapitalization: TextCapitalization.characters,
                               decoration: textInputDecoration(selectedTimingStringTo ?? "To"),
@@ -133,6 +131,26 @@ final TextEditingController _controller = new TextEditingController();
                               keyboardType: TextInputType.text,
                               initialValue:selectedTimingStringTo,
                             ),
+
+                            // SizedBox(
+                            //   height: 60,
+                            //   width: 300,
+                            //   child: RaisedButton(
+                            //   onPressed: () {
+                            //     showSearch(context: context, delegate: BusSearch());
+                            //   },
+                            //     child: const Text('To',
+                            //         style: TextStyle(fontSize: 20,)),
+                            //     color: Colors.white,
+                            //     textColor: Colors.grey,
+                            //     splashColor: Colors.transparent,
+                            //     //padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                            //     shape: RoundedRectangleBorder(
+                            //         borderRadius:
+                            //             BorderRadius.circular(20.0),
+                            //             side: BorderSide(color: Colors.grey[600]),),
+                            //   ),
+                            // ),
                             new Padding(
                               padding: const EdgeInsets.only(top: 40.0),
                             ),
