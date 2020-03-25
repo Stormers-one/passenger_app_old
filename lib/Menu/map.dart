@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/drawer.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:livemap/livemap.dart';
 import 'package:latlong/latlong.dart';
 // import 'package:mapbox_gl/mapbox_gl.dart';
 
