@@ -14,6 +14,9 @@ import 'package:o_k/User/profile.dart';
 import 'package:o_k/User/user_count.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/drawer.dart';
+import 'homepageButtons/buttonClass.dart';
+import 'homepageButtons/data.dart';
+import 'homepageButtons/button.dart';
 
 class Homepage extends StatefulWidget{
   // Homepage({Key key}) : super(key: key);
@@ -24,6 +27,7 @@ class Homepage extends StatefulWidget{
 
 class _HomepageState extends State<Homepage> {
   final Authservice _auth = new Authservice();
+  final buttonHome = Buttons.fetchAll() ?? [];
   @override
   Widget build(BuildContext context) {
     // Future<bool> _onBackPressed() {
@@ -110,94 +114,7 @@ class _HomepageState extends State<Homepage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                RawMaterialButton(
-                                  padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
-                                  shape: new RoundedRectangleBorder(
-                                      borderRadius:
-                                          new BorderRadius.circular(18.0),
-                                      side: BorderSide(
-                                          color: Colors.transparent)),
-                                  fillColor: Colors.orange[500],
-                                  splashColor: Colors.grey,
-                                  textStyle: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: <Widget>[
-                                      Container(
-                                        child: Image.asset(
-                                          'assets/map.png',
-                                        ),
-                                        height: 100,
-                                        width: 100,
-                                      ),
-                                      new Padding(
-                                        padding:
-                                            const EdgeInsets.only(top: 2.0),
-                                      ),
-                                      Text('Maps'),
-                                    ],
-                                  ),
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => Maps()),
-                                    );
-                                  },
-                                ),
-                                SizedBox(height: 30),
-                              ],
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                RawMaterialButton(
-                                  padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
-                                  shape: new RoundedRectangleBorder(
-                                      borderRadius:
-                                          new BorderRadius.circular(18.0),
-                                      side: BorderSide(
-                                          color: Colors.transparent)),
-                                  fillColor: Colors.orange[500],
-                                  splashColor: Colors.grey,
-                                  textStyle: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: <Widget>[
-                                      Container(
-                                        child: Image.asset(
-                                          'assets/route.png',
-                                        ),
-                                        height: 100,
-                                        width: 100,
-                                      ),
-                                      new Padding(
-                                        padding:
-                                            const EdgeInsets.only(top: 2.0),
-                                      ),
-                                      Text('Timing'),
-                                    ],
-                                  ),
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => Timing()),
-                                    );
-                                  },
-                                ),
-                                SizedBox(height: 30),
-                              ],
-                            ),
+                            Button(image: buttonHome[0].image,text: buttonHome[0].text,route: buttonHome[0].route,context: context,)
                           ],
                         ),
                         Row(
