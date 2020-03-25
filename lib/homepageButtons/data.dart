@@ -4,22 +4,22 @@ class Buttons extends ButtonClass {
   static final List<ButtonClass> items = [
     ButtonClass(
       text: 'Maps',
-      route: 'Maps()',
+      route: 'Maps',
       image: 'assets/map.png',
     ),
     ButtonClass(
       text: 'Timing',
-      route: 'Timing()',
+      route: 'Timing',
       image: 'assets/route.png',
     ),
     ButtonClass(
       text: 'Tracking',
-      route: 'Tracking()',
+      route: 'Tracking',
       image: 'assets/position.png',
     ),
     ButtonClass(
       text: 'Booking',
-      route: 'Booking()',
+      route: 'Booking',
       image: 'assets/seatbus.png',
     ),
   ];

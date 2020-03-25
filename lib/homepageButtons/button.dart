@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:o_k/Menu/booking.dart';
+import 'package:o_k/Menu/maps.dart';
+import 'package:o_k/Menu/timing.dart';
+import 'package:o_k/Menu/tracking.dart';
 import '../homepageButtons/buttonClass.dart';
 import '../shared/colors.dart';
 import '../homepageButtons/data.dart';
@@ -8,8 +12,8 @@ class Button extends StatelessWidget {
   final String route;
   final String text;
   BuildContext context;
-  int index=0;
-  Button({this.image,this.route,this.text, this.context});
+  int index = 0;
+  Button({this.image, this.route, this.text, this.context});
   // @override
   Widget build(BuildContext context) {
     return Column(
@@ -40,7 +44,9 @@ class Button extends StatelessWidget {
               Text(text),
             ],
           ),
-          onPressed: (){_navigate(route);},
+          onPressed: () {
+            _navigate(route);
+          },
         ),
         SizedBox(
           height: 30,
@@ -48,10 +54,32 @@ class Button extends StatelessWidget {
       ],
     );
   }
-  void _navigate(String route){
-    Navigator.of(context).pushNamed('/$route');
+
+  void _navigate(String route) {
+    // Navigator.of(context).pushNamed('/$route');
+    if (route == 'Maps') {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => Maps()),
+      );
+    } else if (route == 'Timing') {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => Timing()),
+      );
+    } else if (route == 'Tracking') {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => Tracking()),
+      );
+    } else if (route == 'Booking') {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => Booking()),
+      );
+    }
   }
-  
+
 //   Widget _imageAvatar(PostClass post, BuildContext context) {
 //     return FloatingActionButton(
 //       child: Icon(Icons.person),
@@ -106,4 +134,5 @@ class Button extends StatelessWidget {
 //     ));
 //   }
 }
-typedef VoidNavigate = void  Function(String route);
+
+typedef VoidNavigate = void Function(String route);
