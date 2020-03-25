@@ -5,7 +5,7 @@ import '../homepageButtons/data.dart';
 
 class Button extends StatelessWidget {
   final String image;
-  final VoidCallback route;
+  final String route;
   final String text;
   BuildContext context;
   int index=0;
@@ -40,7 +40,7 @@ class Button extends StatelessWidget {
               Text(text),
             ],
           ),
-          onPressed: route,
+          onPressed: (){_navigate(route);},
         ),
         SizedBox(
           height: 30,

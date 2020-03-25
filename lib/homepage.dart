@@ -114,7 +114,8 @@ class _HomepageState extends State<Homepage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Button(image: buttonHome[0].image,text: buttonHome[0].text,route: buttonHome[0].route,context: context,)
+                            Button(image: buttonHome[0].image,text: buttonHome[0].text,route: buttonHome[0].route,context: context,),
+                            Button(image: buttonHome[1].image,text: buttonHome[1].text,route: buttonHome[1].route,context: context,)
                           ],
                         ),
                         Row(
