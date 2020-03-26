@@ -127,24 +127,19 @@ initiateSearch(value){
                               },
                               decoration:textInputDecoration("From"),
                               keyboardType: TextInputType.emailAddress,
-                                  
                             ),
                             new Padding(
                               padding: const EdgeInsets.only(top: 10.0),
                             ),
                             new TextFormField(
                               controller: _controller1,
-                             // initialValue:selectedTimingStringTo,
                               style: new TextStyle(color: Colors.black),
                               onTap:(){ 
                                 showSearch(context: context, delegate: BusSearch("To",_controller1));
                               },
                               textCapitalization: TextCapitalization.characters,
                               decoration: textInputDecoration("To"),
-                              obscureText: false,
                               keyboardType: TextInputType.text,
-                              autocorrect: true,
-                              onChanged: (val)=> setState(() => _controller1.text = selectedTimingStringTo),
                             ),
                             new Padding(
                               padding: const EdgeInsets.only(top: 30.0),

@@ -2,8 +2,14 @@ import 'package:flutter/material.dart';
 
 String selectedString= "";
 
-String selectedTimingStringFrom = "";
-String selectedTimingStringTo = "";
+String selectedTimingFrom = "";
+String selectedTimingTo = "";
+String selectedBookingFrom = "";
+String selectedBookingTo = "";
+String selectedMapsFrom = "";
+String selectedMapsTo = "";
+String selectedTrackingFrom = "";
+String selectedTrackingTo = "";
 String alphaNumberc = "ABCDEFGHJCLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz";
 bool clickStatLogin = false;
 bool clickStatRegister = false;
