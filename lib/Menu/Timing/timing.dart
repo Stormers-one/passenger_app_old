@@ -126,7 +126,8 @@ initiateSearch(value){
                             new TextFormField(
                               controller: _controller,
                               style: new TextStyle(color: Colors.black),
-                              onTap:(){                                 
+                              onTap:(){    
+                                FocusScope.of(context).requestFocus(FocusNode());                             
                                 showSearch(context: context, delegate:BusSearch("From",_controller));
                               },
                               decoration:textInputDecoration("From"),
@@ -138,7 +139,8 @@ initiateSearch(value){
                             new TextFormField(
                               controller: _controller1,
                               style: new TextStyle(color: Colors.black),
-                              onTap:(){ 
+                              onTap:(){
+                                FocusScope.of(context).requestFocus(FocusNode()); 
                                 showSearch(context: context, delegate: BusSearch("To",_controller1));
                               },
                               textCapitalization: TextCapitalization.characters,

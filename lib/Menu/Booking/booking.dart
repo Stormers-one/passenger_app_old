@@ -87,11 +87,13 @@ List<String> bustime = [
                               new TextFormField(
                                 controller: _controller,
                                 style: new TextStyle(color: Colors.black),
-                                onTap:(){                                 
+                                onTap:(){     
+                                FocusScope.of(context).requestFocus(FocusNode());                            
                                 showSearch(context: context, delegate:BusSearch("BFrom",_controller));
                               },
                                 decoration: textInputDecoration("From"),
                                 keyboardType: TextInputType.emailAddress,
+                                autofocus: false,
                               ),
                               new Padding(
                                 padding: const EdgeInsets.only(top: 10.0),
@@ -99,9 +101,11 @@ List<String> bustime = [
                               new TextFormField(
                                 controller: _controller1,
                                 style: new TextStyle(color: Colors.black),
-                                onTap:(){                                 
+                                onTap:(){              
+                                  FocusScope.of(context).requestFocus(FocusNode());                   
                                 showSearch(context: context, delegate:BusSearch("BTo",_controller1));
                               },
+                                autofocus: false,
                                 decoration: textInputDecoration("To"),
                                 obscureText: false,
                                 keyboardType: TextInputType.text,
