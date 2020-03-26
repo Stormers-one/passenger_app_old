@@ -12,6 +12,7 @@ class _MapView extends State<MapView> {
   GoogleMapController mapController;
   LatLng _center;
   Position currentLocation;
+  CameraPosition _position;
   @override
   void initState() {
     super.initState();
@@ -52,10 +53,18 @@ class _MapView extends State<MapView> {
       _markers["Current Location"] = marker;
     });
   }
-
+    void _updateCameraPosition(CameraPosition position) {
+    setState(() {
+      _position = position;
+    });
+  }
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        // appBar: AppBar(elevation: 0,
+        // backgroundColor: bgOrange,
+        // title: Text('Bus Routes'),
+        // ),
         body: Column(
           children: <Widget>[
             Flexible(
@@ -63,20 +72,18 @@ class _MapView extends State<MapView> {
               child: Stack(
                 children: <Widget>[
                   GoogleMap(
-                    onMapCreated: _onMapCreated,
+                    onMapCreated: _onMapCreated,  
+                    myLocationEnabled: true,
+                    mapType: MapType.normal,
                     initialCameraPosition: CameraPosition(
                       target: _center,
                       zoom: 11.0,
                     ),
-                    markers: _markers.values.toSet(),
+                    compassEnabled: true,
+                    onCameraMove: _updateCameraPosition,
                   ),
                   Container(
-                    alignment: Alignment(0.8, 0.8),
-                    child: FloatingActionButton(
-                      onPressed: _getLocation,
-                      tooltip: 'Get Location',
-                      child: Icon(Icons.flag),
-                    ),
+                    
                   ),
                 ],
               ),
