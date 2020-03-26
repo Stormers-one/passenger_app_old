@@ -1,9 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:o_k/shared/busSearch.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/drawer.dart';
 import 'map.dart';
 
-class Maps extends StatelessWidget {
+class Maps extends StatefulWidget {
+  @override
+  _Maps createState() => _Maps();
+}
+class _Maps extends State<Maps> {
+  
+  TextEditingController _controller ;
+  TextEditingController _controller1 ;
+
+   @override
+   void initState() {
+      _controller = new TextEditingController();
+      _controller1 = new TextEditingController();
+      super.initState();
+    }
+
+ @override
+  void dispose(){
+   _controller?.dispose();
+    _controller1?.dispose();
+   super.dispose();
+  }
+
+  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -32,6 +56,11 @@ class Maps extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: <Widget>[
                             new TextFormField(
+                              controller: _controller,
+                              style: new TextStyle(color: Colors.black),
+                              onTap:(){                                 
+                                showSearch(context: context, delegate:BusSearch("MFrom",_controller));
+                              },
                               decoration: textInputDecoration("From"),
                               keyboardType: TextInputType.emailAddress,
                             ),
@@ -39,6 +68,11 @@ class Maps extends StatelessWidget {
                               padding: const EdgeInsets.only(top: 10.0),
                             ),
                             new TextFormField(
+                              controller: _controller1,
+                              style: new TextStyle(color: Colors.black),
+                              onTap:(){                                 
+                                showSearch(context: context, delegate:BusSearch("MTo",_controller1));
+                              },
                               decoration: textInputDecoration("To"),
                               obscureText: false,
                               keyboardType: TextInputType.text,
