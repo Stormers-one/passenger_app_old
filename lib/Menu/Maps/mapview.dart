@@ -60,7 +60,7 @@ class _MapView extends State<MapView> {
             GoogleMap(
               onMapCreated: _onMapCreated,
               initialCameraPosition: CameraPosition(
-                target: _center,
+                target: _center==null?LatLng(0,0):_center,
                 zoom: 11.0,
               ),
               markers: _markers.values.toSet(),
