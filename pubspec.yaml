@@ -34,8 +34,8 @@ dependencies:
   flutter_spinkit: ">=4.1.2"
   double_back_to_close_app: ^0.1.2
   qr_flutter: ^3.1.0
-# Geolocator plugin
-  geolocator: ^5.3.0
+# mapbox 
+  mapbox_gl: ^0.0.5
 
 dev_dependencies:
   flutter_test:
