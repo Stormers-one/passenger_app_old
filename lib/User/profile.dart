@@ -3,16 +3,9 @@ import 'package:o_k/User/profile_settings.dart';
 import 'package:o_k/model/user.dart';
 import 'package:o_k/services/auth.dart';
 import 'package:o_k/services/database.dart';
-import 'package:o_k/User/user_list.dart';
-import 'package:o_k/User/users_fetch.dart';
 import 'package:o_k/shared/drawer.dart';
 import 'package:o_k/shared/loading.dart';
 import 'package:provider/provider.dart';
-import 'package:o_k/User/user_count.dart';
-import 'package:o_k/homepage.dart';
-import 'package:o_k/Menu/help.dart';
-import 'package:o_k/Menu/reports.dart';
-
 class Profile extends StatelessWidget {
   final Authservice _auth = new Authservice();
 

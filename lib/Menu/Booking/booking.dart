@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:o_k/Menu/Booking/Ticket.dart';
 import 'package:o_k/shared/busSearch.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/drawer.dart';
@@ -105,13 +106,13 @@ List<String> bustime = [
                                 obscureText: false,
                                 keyboardType: TextInputType.text,
                               ),
-                              // new Padding(
-                              //   padding: const EdgeInsets.only(top: 30.0),
-                              // ),
-                              // new TextFormField(
-                              //   decoration: textInputDecoration("Date Of Departure"),
-                              //   keyboardType: TextInputType.emailAddress,
-                              // ),
+                              new Padding(
+                                padding: const EdgeInsets.only(top: 30.0),
+                              ),
+                              new TextFormField(
+                                decoration: textInputDecoration("Date Of Departure"),
+                                keyboardType: TextInputType.emailAddress,
+                              ),
                               new Padding(
                               padding: const EdgeInsets.only(top: 30.0),
                             ),
@@ -135,7 +136,11 @@ List<String> bustime = [
                                 height: 50,
                                 width: 200,
                                 child: RaisedButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.push(context, MaterialPageRoute(
+                                      builder: (context) => Ticket()
+                                    ));
+                                  },
                                   child: const Text('Proceed To Payment',
                                       style: TextStyle(fontSize: 18)),
                                   color: Colors.red,
