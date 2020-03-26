@@ -134,7 +134,7 @@ initiateSearch(value){
                             ),
                             new TextFormField(
                               controller: _controller1,
-                             // initialValue:selectedTimingStringTo,
+                             // initialValue:selectedTimingTo,
                               style: new TextStyle(color: Colors.black),
                               onTap:(){ 
                                 showSearch(context: context, delegate: BusSearch("To",_controller1));
@@ -144,7 +144,7 @@ initiateSearch(value){
                               obscureText: false,
                               keyboardType: TextInputType.text,
                               autocorrect: true,
-                              onChanged: (val)=> setState(() => _controller1.text = selectedTimingStringTo),
+                              onChanged: (val)=> setState(() => _controller1.text = selectedTimingTo),
                             ),
                             new Padding(
                               padding: const EdgeInsets.only(top: 30.0),

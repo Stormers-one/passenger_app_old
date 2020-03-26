@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:o_k/Menu/Timing/timing.dart';
 import 'package:o_k/shared/constants.dart';
 
 class BusSearch extends SearchDelegate<String> {
@@ -45,10 +44,22 @@ class BusSearch extends SearchDelegate<String> {
             recentSearch.add(selectedString);
           }
           if(fromto == "From"){
-            selectedTimingStringFrom = selectedString; 
+            selectedTimingFrom = selectedString; 
           }
           else if(fromto == "To"){
-            selectedTimingStringTo = selectedString;
+            selectedTimingTo = selectedString;
+          }
+          else if(fromto == "MFrom"){
+            selectedMapsTo = selectedString;
+          }
+          else if(fromto == "MTo"){
+            selectedMapsTo = selectedString;
+          }
+          else if(fromto == "BFrom"){
+            selectedBookingTo = selectedString;
+          }
+          else if(fromto == "BTo"){
+            selectedBookingTo = selectedString;
           }
           close(context, null);
           controller.text = selectedString;
