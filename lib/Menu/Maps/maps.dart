@@ -8,26 +8,25 @@ class Maps extends StatefulWidget {
   @override
   _Maps createState() => _Maps();
 }
+
 class _Maps extends State<Maps> {
-  
-  TextEditingController _controller ;
-  TextEditingController _controller1 ;
+  TextEditingController _controller;
+  TextEditingController _controller1;
 
-   @override
-   void initState() {
-      _controller = new TextEditingController();
-      _controller1 = new TextEditingController();
-      super.initState();
-    }
-
- @override
-  void dispose(){
-   _controller?.dispose();
-    _controller1?.dispose();
-   super.dispose();
+  @override
+  void initState() {
+    _controller = new TextEditingController();
+    _controller1 = new TextEditingController();
+    super.initState();
   }
 
-  
+  @override
+  void dispose() {
+    _controller?.dispose();
+    _controller1?.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -58,8 +57,10 @@ class _Maps extends State<Maps> {
                             new TextFormField(
                               controller: _controller,
                               style: new TextStyle(color: Colors.black),
-                              onTap:(){                                 
-                                showSearch(context: context, delegate:BusSearch("MFrom",_controller));
+                              onTap: () {
+                                showSearch(
+                                    context: context,
+                                    delegate: BusSearch("MFrom", _controller));
                               },
                               decoration: textInputDecoration("From"),
                               keyboardType: TextInputType.emailAddress,
@@ -70,8 +71,10 @@ class _Maps extends State<Maps> {
                             new TextFormField(
                               controller: _controller1,
                               style: new TextStyle(color: Colors.black),
-                              onTap:(){                                 
-                                showSearch(context: context, delegate:BusSearch("MTo",_controller1));
+                              onTap: () {
+                                showSearch(
+                                    context: context,
+                                    delegate: BusSearch("MTo", _controller1));
                               },
                               decoration: textInputDecoration("To"),
                               obscureText: false,
