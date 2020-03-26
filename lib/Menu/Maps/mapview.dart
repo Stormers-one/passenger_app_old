@@ -52,7 +52,11 @@ class _MapView extends State<MapView> {
       _markers["Current Location"] = marker;
     });
   }
-
+    void _updateCameraPosition(CameraPosition position) {
+    setState(() {
+      _position = position;
+    });
+  }
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
@@ -63,11 +67,15 @@ class _MapView extends State<MapView> {
               child: Stack(
                 children: <Widget>[
                   GoogleMap(
-                    onMapCreated: _onMapCreated,
+                    onMapCreated: _onMapCreated,  
+                    myLocationEnabled: true,
+                    mapType: MapType.normal,
                     initialCameraPosition: CameraPosition(
                       target: _center,
                       zoom: 11.0,
                     ),
+                    compassEnabled: true,
+                    onCameraMove: _updateCameraPosition,
                     markers: _markers.values.toSet(),
                   ),
                   Container(
