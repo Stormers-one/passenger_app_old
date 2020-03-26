@@ -12,6 +12,8 @@
         
         <meta-data android:name="com.google.android.geo.API_KEY"
                android:value="AIzaSyBh3duUfAh2_WIwX0f3Wtm6rE0V_d4J_KA"/>
+        <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+        <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
         <activity
             android:name=".MainActivity"

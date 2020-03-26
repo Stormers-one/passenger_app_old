@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/drawer.dart';
-import 'map.dart';
+import 'mapview.dart';
 
 class Maps extends StatelessWidget {
   @override
@@ -54,7 +54,7 @@ class Maps extends StatelessWidget {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => Map()),
+                                        builder: (context) => MapView()),
                                   );
                                 },
                                 child: const Text('Search',
