@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:o_k/Menu/Booking/Ticket.dart';
 import 'package:o_k/shared/busSearch.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/drawer.dart';
@@ -86,11 +87,13 @@ List<String> bustime = [
                               new TextFormField(
                                 controller: _controller,
                                 style: new TextStyle(color: Colors.black),
-                                onTap:(){                                 
+                                onTap:(){     
+                                FocusScope.of(context).requestFocus(FocusNode());                            
                                 showSearch(context: context, delegate:BusSearch("BFrom",_controller));
                               },
                                 decoration: textInputDecoration("From"),
                                 keyboardType: TextInputType.emailAddress,
+                                autofocus: false,
                               ),
                               new Padding(
                                 padding: const EdgeInsets.only(top: 10.0),
@@ -98,20 +101,22 @@ List<String> bustime = [
                               new TextFormField(
                                 controller: _controller1,
                                 style: new TextStyle(color: Colors.black),
-                                onTap:(){                                 
+                                onTap:(){              
+                                  FocusScope.of(context).requestFocus(FocusNode());                   
                                 showSearch(context: context, delegate:BusSearch("BTo",_controller1));
                               },
+                                autofocus: false,
                                 decoration: textInputDecoration("To"),
                                 obscureText: false,
                                 keyboardType: TextInputType.text,
                               ),
-                              // new Padding(
-                              //   padding: const EdgeInsets.only(top: 30.0),
-                              // ),
-                              // new TextFormField(
-                              //   decoration: textInputDecoration("Date Of Departure"),
-                              //   keyboardType: TextInputType.emailAddress,
-                              // ),
+                              new Padding(
+                                padding: const EdgeInsets.only(top: 30.0),
+                              ),
+                              new TextFormField(
+                                decoration: textInputDecoration("Date Of Departure"),
+                                keyboardType: TextInputType.emailAddress,
+                              ),
                               new Padding(
                               padding: const EdgeInsets.only(top: 30.0),
                             ),
@@ -135,7 +140,11 @@ List<String> bustime = [
                                 height: 50,
                                 width: 200,
                                 child: RaisedButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.push(context, MaterialPageRoute(
+                                      builder: (context) => Ticket()
+                                    ));
+                                  },
                                   child: const Text('Proceed To Payment',
                                       style: TextStyle(fontSize: 18)),
                                   color: Colors.red,

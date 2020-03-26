@@ -58,6 +58,7 @@ class _Maps extends State<Maps> {
                               controller: _controller,
                               style: new TextStyle(color: Colors.black),
                               onTap: () {
+                                FocusScope.of(context).requestFocus(FocusNode());
                                 showSearch(
                                     context: context,
                                     delegate: BusSearch("MFrom", _controller));
@@ -72,6 +73,7 @@ class _Maps extends State<Maps> {
                               controller: _controller1,
                               style: new TextStyle(color: Colors.black),
                               onTap: () {
+                                FocusScope.of(context).requestFocus(FocusNode());
                                 showSearch(
                                     context: context,
                                     delegate: BusSearch("MTo", _controller1));

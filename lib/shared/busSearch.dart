@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:o_k/Menu/Booking/Ticket.dart';
 import 'package:o_k/shared/constants.dart';
-
+Ticket qrd = new Ticket();
 class BusSearch extends SearchDelegate<String> {
   String fromto;
   TextEditingController controller = new TextEditingController();
@@ -56,7 +57,7 @@ class BusSearch extends SearchDelegate<String> {
             selectedMapsTo = selectedString;
           }
           else if(fromto == "BFrom"){
-            selectedBookingTo = selectedString;
+            selectedBookingFrom = selectedString;
           }
           else if(fromto == "BTo"){
             selectedBookingTo = selectedString;
