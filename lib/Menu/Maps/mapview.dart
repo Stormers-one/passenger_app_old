@@ -55,24 +55,33 @@ class _MapView extends State<MapView> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: Stack(
+        body: Column(
           children: <Widget>[
-            GoogleMap(
-              onMapCreated: _onMapCreated,
-              initialCameraPosition: CameraPosition(
-                target: _center,
-                zoom: 11.0,
+            Flexible(
+              flex: 3,
+              child: Stack(
+                children: <Widget>[
+                  GoogleMap(
+                    onMapCreated: _onMapCreated,
+                    initialCameraPosition: CameraPosition(
+                      target: _center,
+                      zoom: 11.0,
+                    ),
+                    markers: _markers.values.toSet(),
+                  ),
+                  Container(
+                    alignment: Alignment(0.8, 0.8),
+                    child: FloatingActionButton(
+                      onPressed: _getLocation,
+                      tooltip: 'Get Location',
+                      child: Icon(Icons.flag),
+                    ),
+                  ),
+                ],
               ),
-              markers: _markers.values.toSet(),
             ),
-            Container(
-              alignment: Alignment(0, 0.5),
-              child: FloatingActionButton(
-                onPressed: _getLocation,
-                tooltip: 'Get Location',
-                child: Icon(Icons.flag),
-              ),
-            ),
+            Flexible(flex: 2,
+            child: Container()),
           ],
         ),
       ),
