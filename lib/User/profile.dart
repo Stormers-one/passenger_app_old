@@ -35,6 +35,7 @@ class Profile extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.orange[100],
         appBar: AppBar(
+            elevation: 0,
             title: Text('Profile'),
             backgroundColor: Colors.red[500],
             actions: <Widget>[
@@ -52,9 +53,7 @@ class Profile extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  SizedBox(
-                    height: 50
-                  ),
+                  SizedBox(height: 50),
                   Container(
                     decoration: BoxDecoration(
                         color: Colors.orange[100],
@@ -93,8 +92,8 @@ class Profile extends StatelessWidget {
                                       fillColor: Colors.grey[300],
                                       filled: true,
                                       border: OutlineInputBorder(
-                                        borderSide:
-                                            BorderSide(color: Colors.transparent),
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
                                         borderRadius:
                                             new BorderRadius.circular(10),
                                       ),
@@ -113,8 +112,8 @@ class Profile extends StatelessWidget {
                                       fillColor: Colors.grey[300],
                                       filled: true,
                                       border: OutlineInputBorder(
-                                        borderSide:
-                                            BorderSide(color: Colors.transparent),
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
                                         borderRadius:
                                             new BorderRadius.circular(10),
                                       ),
@@ -133,8 +132,8 @@ class Profile extends StatelessWidget {
                                       fillColor: Colors.grey[300],
                                       filled: true,
                                       border: OutlineInputBorder(
-                                        borderSide:
-                                            BorderSide(color: Colors.transparent),
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
                                         borderRadius:
                                             new BorderRadius.circular(10),
                                       ),

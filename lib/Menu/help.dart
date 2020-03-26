@@ -9,6 +9,7 @@ class Help extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.orange[100],
         appBar: AppBar(
+          elevation: 0,
           backgroundColor: Colors.red[500],
           title: Text('Help'),
         ),

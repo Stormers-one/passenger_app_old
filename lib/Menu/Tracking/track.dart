@@ -10,6 +10,7 @@ class Track extends StatelessWidget {
         drawer: DrawerBuild(),
         backgroundColor: Colors.orange[100],
         appBar: AppBar(
+          elevation: 0,
           title: Text('Track'),
         ),
         body: Column(

@@ -16,6 +16,7 @@ class Times extends StatelessWidget {
       title: 'Timings',
       home: Scaffold(
         appBar: AppBar(
+          elevation: 0,
           title: Text('Timings'),
           backgroundColor: Colors.red[500],
         ),

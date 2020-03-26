@@ -99,6 +99,7 @@ initiateSearch(value){
           home: Scaffold(
       backgroundColor: Colors.orange[100],
       appBar: AppBar(
+        elevation: 0,
         title: Text('Bus Timing'),
         backgroundColor: Colors.red[500],
       ),

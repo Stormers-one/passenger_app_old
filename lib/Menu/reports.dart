@@ -9,6 +9,7 @@ class Reports extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.orange[100],
         appBar: AppBar(
+          elevation: 0,
           title: Text('Reports'),
           backgroundColor: Colors.red[500],
         ),

@@ -40,6 +40,7 @@ class _HomepageState extends State<Homepage> {
       home: Scaffold(
         backgroundColor: Colors.orange[100],
         appBar: AppBar(
+            elevation: 0,
             //title: Text('MENU'),
             backgroundColor: Colors.red[500],
             actions: <Widget>[

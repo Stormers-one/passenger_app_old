@@ -10,6 +10,7 @@ class Search extends StatelessWidget {
         drawer: DrawerBuild(),
         backgroundColor: Colors.orange[100],
         appBar: AppBar(
+          elevation: 0,
           title: Text('Search'),
         ),
         body: Column(

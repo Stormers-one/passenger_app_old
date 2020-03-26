@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:o_k/shared/colors.dart';
 
 class MapView extends StatefulWidget {
   @override
@@ -80,8 +81,13 @@ class _MapView extends State<MapView> {
                 ],
               ),
             ),
-            Flexible(flex: 2,
-            child: Container()),
+            Flexible(
+                flex: 2,
+                child: Container(
+                  decoration: new BoxDecoration(
+                    color: bgOrange ,
+                  ),
+                )),
           ],
         ),
       ),

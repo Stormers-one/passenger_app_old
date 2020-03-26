@@ -10,6 +10,7 @@ class Tracking extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.orange[100],
         appBar: AppBar(
+          elevation: 0,
           title: Text('Tracking'),
           backgroundColor: Colors.red[500],
         ),
