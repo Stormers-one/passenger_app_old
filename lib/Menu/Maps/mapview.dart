@@ -9,8 +9,29 @@ class MapView extends StatefulWidget {
 
 class _MapView extends State<MapView> {
   GoogleMapController mapController;
+  LatLng _center;
+  Position currentLocation;
+  @override
+  void initState() {
+    super.initState();
+    getUserLocation();
+  }
 
-  final LatLng _center = const LatLng(45.521563, -122.677433);
+  Future<Position> locateUser() async {
+    return Geolocator()
+        .getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+  }
+
+  getUserLocation() async {
+    currentLocation = await locateUser();
+    setState(() {
+      _center = LatLng(currentLocation.latitude, currentLocation.longitude);
+    });
+    print('center $_center');
+  }
+
+  // final LatLng _center = const LatLng(45, 0);
+  // LatLng pos;
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
   }
@@ -31,14 +52,9 @@ class _MapView extends State<MapView> {
     });
   }
 
-  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        // appBar: AppBar(
-        //   title: Text('Maps Sample App'),
-        //   backgroundColor: Colors.green[700],
-        // ),
         body: Stack(
           children: <Widget>[
             GoogleMap(
