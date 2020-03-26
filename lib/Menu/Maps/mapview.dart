@@ -61,8 +61,10 @@ class _MapView extends State<MapView> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(elevation: 0,),
-        backgroundColor: bgOrange,
+        // appBar: AppBar(elevation: 0,
+        // backgroundColor: bgOrange,
+        // title: Text('Bus Routes'),
+        // ),
         body: Column(
           children: <Widget>[
             Flexible(
@@ -79,15 +81,9 @@ class _MapView extends State<MapView> {
                     ),
                     compassEnabled: true,
                     onCameraMove: _updateCameraPosition,
-                    markers: _markers.values.toSet(), 
                   ),
                   Container(
-                    alignment: Alignment(0.9, 0.9),
-                    child: FloatingActionButton(
-                      onPressed: _getLocation,
-                      tooltip: 'Get Location',
-                      child: Icon(Icons.flag),
-                    ),
+                    
                   ),
                 ],
               ),
