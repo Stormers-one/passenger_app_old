@@ -12,6 +12,7 @@ class _MapView extends State<MapView> {
   GoogleMapController mapController;
   LatLng _center;
   Position currentLocation;
+  CameraPosition _position;
   @override
   void initState() {
     super.initState();
@@ -60,6 +61,8 @@ class _MapView extends State<MapView> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        appBar: AppBar(elevation: 0,),
+        backgroundColor: bgOrange,
         body: Column(
           children: <Widget>[
             Flexible(
@@ -76,10 +79,10 @@ class _MapView extends State<MapView> {
                     ),
                     compassEnabled: true,
                     onCameraMove: _updateCameraPosition,
-                    markers: _markers.values.toSet(),
+                    markers: _markers.values.toSet(), 
                   ),
                   Container(
-                    alignment: Alignment(0.8, 0.8),
+                    alignment: Alignment(0.9, 0.9),
                     child: FloatingActionButton(
                       onPressed: _getLocation,
                       tooltip: 'Get Location',
