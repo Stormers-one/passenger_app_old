@@ -123,8 +123,7 @@ initiateSearch(value){
                               controller: _controller,
                               style: new TextStyle(color: Colors.black),
                               onTap:(){                                 
-                                showSearch(context: context, delegate: BusSearch("From"));
-                                setState(() => _controller.text = selectedTimingStringFrom);
+                                showSearch(context: context, delegate:BusSearch("From",_controller));
                               },
                               decoration:textInputDecoration("From"),
                               keyboardType: TextInputType.emailAddress,
@@ -138,26 +137,17 @@ initiateSearch(value){
                              // initialValue:selectedTimingStringTo,
                               style: new TextStyle(color: Colors.black),
                               onTap:(){ 
-                                showSearch(context: context, delegate: BusSearch("To"));
-                                setState(() => _controller1.text = selectedTimingStringTo);
+                                showSearch(context: context, delegate: BusSearch("To",_controller1));
                               },
                               textCapitalization: TextCapitalization.characters,
                               decoration: textInputDecoration("To"),
                               obscureText: false,
                               keyboardType: TextInputType.text,
+                              autocorrect: true,
                               onChanged: (val)=> setState(() => _controller1.text = selectedTimingStringTo),
                             ),
-                             new Padding(
-                              padding: const EdgeInsets.only(top: 5.0),
-                            ),
-                            new IconButton
-                              (icon: Icon(Icons.add), 
-                              onPressed: (){
-                                setState(() => _controller1.text = selectedTimingStringTo);
-                                setState(() => _controller.text = selectedTimingStringFrom);
-                            }),
                             new Padding(
-                              padding: const EdgeInsets.only(top: 10.0),
+                              padding: const EdgeInsets.only(top: 30.0),
                             ),
                             new DropdownButtonFormField(
                               hint: Text('Bus Type', style: TextStyle(color: Colors.grey),),

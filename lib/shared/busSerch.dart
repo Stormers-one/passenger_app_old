@@ -4,7 +4,7 @@ import 'package:o_k/shared/constants.dart';
 
 class BusSearch extends SearchDelegate<String> {
   String fromto;
-  
+  TextEditingController controller = new TextEditingController();
   @override
   List<Widget> buildActions(BuildContext context) {
     return [
@@ -50,7 +50,9 @@ class BusSearch extends SearchDelegate<String> {
           else if(fromto == "To"){
             selectedTimingStringTo = selectedString;
           }
-          close(context, null);        
+          close(context, null);
+          controller.text = selectedString;
+          return controller;       
         },
         leading: Icon(Icons.location_city),
         title: RichText(text: TextSpan(
@@ -71,8 +73,9 @@ class BusSearch extends SearchDelegate<String> {
     );
   }
 
-  BusSearch(String fromTo){
+  BusSearch(String fromTo, TextEditingController controller){
     this.fromto = fromTo;
+    this. controller = controller;
   }
 
   
