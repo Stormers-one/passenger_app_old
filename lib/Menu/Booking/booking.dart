@@ -9,9 +9,37 @@ class Booking extends StatefulWidget {
 }
 
 class _BookingState extends State<Booking> {
-  
+
+  String _currentBusType = "";
+  String _currenttime = "";
   TextEditingController _controller ;
   TextEditingController _controller1 ;
+
+  final List<String> bustype = <String>[
+    'Bus Type',
+    'Ordinary',
+    'Limited Stop Ordinary',
+    'Town to Town Ordinary',
+    'Fast Passenger',
+    'LS Fast Passenger',
+    'Point to Point Fast Passenger',
+    'Super Fast',
+    'Super Express',
+    'Super Dulex',
+    'Garuda King Class Volvo',
+    'Silver Line Jet',
+    'Low Floor Non-AC',
+    'Ananthapuri Fast',
+    'Garuda Maharaja Scania',
+  ];
+
+  
+List<String> bustime = [
+  'Time',
+  'Morning : 6AM to 12PM',
+  'Afternoon: 12PM to 6PM',
+  'Night: 6PM to 6AM',
+];
 
    @override
    void initState() {
@@ -77,12 +105,28 @@ class _BookingState extends State<Booking> {
                                 obscureText: false,
                                 keyboardType: TextInputType.text,
                               ),
+                              // new Padding(
+                              //   padding: const EdgeInsets.only(top: 30.0),
+                              // ),
+                              // new TextFormField(
+                              //   decoration: textInputDecoration("Date Of Departure"),
+                              //   keyboardType: TextInputType.emailAddress,
+                              // ),
                               new Padding(
-                                padding: const EdgeInsets.only(top: 30.0),
-                              ),
-                              new TextFormField(
-                                decoration: textInputDecoration("Date Of Departure"),
-                                keyboardType: TextInputType.emailAddress,
+                              padding: const EdgeInsets.only(top: 30.0),
+                            ),
+                            new DropdownButtonFormField(
+                              hint: Text('Bus Type', style: TextStyle(color: Colors.grey),),
+                              value: _currentBusType.isNotEmpty ? _currentBusType : null, 
+                              items: bustype.map((value) =>
+                                 new DropdownMenuItem(
+                                  value:value,
+                                  child: Text('$value'),
+                                )   
+                              ).toList(),
+                              isExpanded: true,
+                              onChanged: (val) => setState(() => _currentBusType = val),
+                              decoration: textInputDecorationNoHint(),
                               ),
                               new Padding(
                                 padding: const EdgeInsets.only(top: 30.0),
@@ -92,8 +136,8 @@ class _BookingState extends State<Booking> {
                                 width: 200,
                                 child: RaisedButton(
                                   onPressed: () {},
-                                  child: const Text('Search',
-                                      style: TextStyle(fontSize: 20)),
+                                  child: const Text('Proceed To Payment',
+                                      style: TextStyle(fontSize: 18)),
                                   color: Colors.red,
                                   textColor: Colors.white,
                                   splashColor: Colors.grey,

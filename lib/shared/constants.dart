@@ -39,31 +39,6 @@ textInputDecorationNoHint(){
   );
 }
 
-final List<String> bustype = <String>[
-    'Bus Type',
-    'Ordinary',
-    'Limited Stop Ordinary',
-    'Town to Town Ordinary',
-    'Fast Passenger',
-    'LS Fast Passenger',
-    'Point to Point Fast Passenger',
-    'Super Fast',
-    'Super Express',
-    'Super Dulex',
-    'Garuda King Class Volvo',
-    'Silver Line Jet',
-    'Low Floor Non-AC',
-    'Ananthapuri Fast',
-    'Garuda Maharaja Scania',
-  ];
-
-  
-List<String> bustime = [
-  'Time',
-  'Morning : 6AM to 12PM',
-  'Afternoon: 12PM to 6PM',
-  'Night: 6PM to 6AM',
-];
 
 final recentSearch = [];
 const 
