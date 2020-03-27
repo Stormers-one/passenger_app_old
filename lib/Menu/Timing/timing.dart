@@ -3,7 +3,6 @@ import 'package:o_k/shared/busSearch.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:o_k/model/busStop.dart';
-import 'package:o_k/services/auth.dart';
 import 'package:o_k/services/database.dart';
 import 'package:o_k/shared/drawer.dart';
 import 'package:provider/provider.dart';
@@ -14,8 +13,6 @@ class Timing extends StatefulWidget {
   _Timing createState() => _Timing();
 }
 class _Timing extends State<Timing> {
-  final Authservice _auth = new Authservice();
-  final DatabaseService _service = new DatabaseService();
 String _currentBusType = "";
 String _currenttime = "";
 var queryResult = [];

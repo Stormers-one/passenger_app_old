@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:o_k/User/profile_settings.dart';
 import 'package:o_k/model/user.dart';
-import 'package:o_k/services/auth.dart';
 import 'package:o_k/services/database.dart';
 import 'package:o_k/shared/drawer.dart';
 import 'package:o_k/shared/loading.dart';
 import 'package:provider/provider.dart';
 class Profile extends StatelessWidget {
-  final Authservice _auth = new Authservice();
+
 
   @override
   Widget build(BuildContext context) {

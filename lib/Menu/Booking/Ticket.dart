@@ -2,9 +2,7 @@ import 'dart:convert';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:o_k/User/profile_settings.dart';
 import 'package:o_k/model/user.dart';
-import 'package:o_k/services/auth.dart';
 import 'package:o_k/services/database.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/drawer.dart';
@@ -12,14 +10,10 @@ import 'package:o_k/shared/loading.dart';
 import 'package:provider/provider.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 class Ticket extends StatelessWidget {
-  final Authservice _auth = new Authservice();
-  List<String> qrdata;
-  static var bookid = Random.secure();
-  var values = List<int>.generate(10, (i) => bookid.nextInt(256));
-  //var values = "ss";
+  static final Random bookid = Random.secure();
+  final List<int> values = List<int>.generate(10, (i) => bookid.nextInt(256));
   @override
   Widget build(BuildContext context) {
-    String bid = "18fasfsa5fs1fs4f3safs1";
     final user = Provider.of<User>(context);
     return MaterialApp(
       title: 'Your Ticket',

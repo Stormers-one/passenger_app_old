@@ -12,7 +12,6 @@ class Booking extends StatefulWidget {
 class _BookingState extends State<Booking> {
 
   String _currentBusType = "";
-  String _currenttime = "";
   TextEditingController _controller ;
   TextEditingController _controller1 ;
 

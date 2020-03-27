@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:o_k/model/busStop.dart';
 import 'package:o_k/model/user.dart';
-import 'package:provider/provider.dart';
 import 'package:o_k/User/users_fetch.dart';
 
 class DatabaseService {

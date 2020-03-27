@@ -11,8 +11,8 @@ class Button extends StatelessWidget {
   final String image;
   final String route;
   final String text;
-  BuildContext context;
-  int index = 0;
+  final BuildContext context;
+  final int index = 0;
   Button({this.image, this.route, this.text, this.context});
   // @override
   Widget build(BuildContext context) {
