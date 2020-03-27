@@ -13,6 +13,7 @@ class _Maps extends State<Maps> {
   TextEditingController _controller;
   TextEditingController _controller1;
   final _formkey = GlobalKey<FormState>();
+  bool clickStatMaps = false;
 
   @override
   void initState() {
@@ -67,7 +68,7 @@ class _Maps extends State<Maps> {
                               },
                               decoration: textInputDecoration("From"),
                               keyboardType: TextInputType.emailAddress,
-                              validator: (val) => val.isEmpty && clickStatBooking
+                              validator: (val) => val.isEmpty && clickStatMaps
                                             ? 'This is required'
                                             : null,
                             ),
@@ -87,7 +88,7 @@ class _Maps extends State<Maps> {
                               obscureText: false,
                               keyboardType: TextInputType.text,
                               validator: (val) { 
-                                  if (val.isEmpty && clickStatBooking){
+                                  if (val.isEmpty && clickStatMaps){
                                     return 'This is requied';
                                   }
                                   else if (_controller.text == _controller1.text && _controller.text.isNotEmpty){
@@ -106,6 +107,7 @@ class _Maps extends State<Maps> {
                               width: 200,
                               child: RaisedButton(
                                 onPressed: () async{
+                                  clickStatMaps = true;
                                    if(_formkey.currentState.validate()){
                                   Navigator.push(
                                     context,

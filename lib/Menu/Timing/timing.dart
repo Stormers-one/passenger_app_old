@@ -22,6 +22,7 @@ var queryResult = [];
  TextEditingController _controller ;
  TextEditingController _controller1 ;
   final _formkey = GlobalKey<FormState>();
+  bool clickStatTiming = false;
 
 final List<String> bustype = <String>[
     'Bus Type',
@@ -131,7 +132,7 @@ initiateSearch(value){
                               },
                               decoration:textInputDecoration("From"),
                               keyboardType: TextInputType.emailAddress,
-                              validator: (val) => val.isEmpty && clickStatBooking
+                              validator: (val) => val.isEmpty && clickStatTiming
                                             ? 'This is required'
                                             : null,
                             ),
@@ -149,7 +150,7 @@ initiateSearch(value){
                               decoration: textInputDecoration("To"),
                               keyboardType: TextInputType.text,
                                validator: (val) { 
-                                  if (val.isEmpty && clickStatBooking){
+                                  if (val.isEmpty && clickStatTiming){
                                     return 'This is requied';
                                   }
                                   else if (_controller.text == _controller1.text && _controller.text.isNotEmpty){
@@ -201,6 +202,7 @@ initiateSearch(value){
                               width: 200,
                               child: RaisedButton(
                               onPressed: () async{
+                                clickStatTiming = true;
                                if(_formkey.currentState.validate()){
                                 Navigator.push(
                                   context,
