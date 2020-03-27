@@ -58,3 +58,5 @@ build/
 # End of https://www.gitignore.io/api/flutter
 .packages
 .flutter-plugins
+.flutter-plugins
+.packages
