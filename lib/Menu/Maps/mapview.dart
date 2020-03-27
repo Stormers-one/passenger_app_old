@@ -108,10 +108,6 @@ class _MapView extends State<MapView> {
   }
 }
 
-// // part 'src/controller.dart';
-// // part 'src/flutter_mapbox_view.dart';
-// // part 'src/camera.dart';
-// part 'src/models.dart';
 
 // class MapView extends StatefulWidget {
 //   @override
