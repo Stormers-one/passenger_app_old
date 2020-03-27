@@ -71,12 +71,7 @@ flutter:
     - assets/images/report.png
     - assets/images/homepage.png
     - assets/images/profile-icon.png
-    - assets/images/bus_fleet.png
-<<<<<<< HEAD
-    #- assets/cache.db
-=======
-    # - assets/cache.db
->>>>>>> b6c669296b37ccaffc32d2bb37ef631b14ff4451
+    - assets/bus_fleet.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
