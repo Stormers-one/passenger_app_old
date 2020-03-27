@@ -76,7 +76,7 @@ class _HomepageState extends State<Homepage> {
                     tag: 'imageHero',
                     child: new Container(
                       child: Image.asset(
-                        'assets/logo.png',
+                        'assets/images/logo.png',
                       ),
                       height: 200,
                       width: 200,

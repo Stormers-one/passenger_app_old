@@ -5,22 +5,22 @@ class Buttons extends ButtonClass {
     ButtonClass(
       text: 'Maps',
       route: 'Maps',
-      image: 'assets/map.png',
+      image: 'assets/images/map.png',
     ),
     ButtonClass(
       text: 'Timing',
       route: 'Timing',
-      image: 'assets/route.png',
+      image: 'assets/images/route.png',
     ),
     ButtonClass(
       text: 'Tracking',
       route: 'Tracking',
-      image: 'assets/position.png',
+      image: 'assets/images/position.png',
     ),
     ButtonClass(
       text: 'Booking',
       route: 'Booking',
-      image: 'assets/seatbus.png',
+      image: 'assets/images/seatbus.png',
     ),
   ];
   static ButtonClass fetchAny() {
