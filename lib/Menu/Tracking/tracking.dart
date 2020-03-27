@@ -25,7 +25,7 @@ class Tracking extends StatelessWidget {
                   children: [
                     Container(
                       child: Image.asset(
-                        'assets/bus_fleet.png',
+                        'assets/images/bus_fleet.png',
                         fit: BoxFit.fitWidth,
                       ),
                     ),

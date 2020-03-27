@@ -51,11 +51,11 @@ class Profile extends StatelessWidget {
                         color: Colors.orange[100],
                         image: new DecorationImage(
                           image: new ExactAssetImage(
-                            'assets/profile-icon.png',
+                            'assets/images/profile-icon.png',
                           ),
                         )),
                     child: Image.asset(
-                      'assets/profile-icon.png',
+                      'assets/images/profile-icon.png',
                     ),
                     height: 200,
                     width: 200,
