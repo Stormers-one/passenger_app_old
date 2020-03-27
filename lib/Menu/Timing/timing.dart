@@ -21,6 +21,7 @@ var queryResult = [];
   DatabaseService res = new DatabaseService();
  TextEditingController _controller ;
  TextEditingController _controller1 ;
+  final _formkey = GlobalKey<FormState>();
 
 final List<String> bustype = <String>[
     'Bus Type',
@@ -116,6 +117,7 @@ initiateSearch(value){
                     child: Container(
                       padding: const EdgeInsets.all(40.0),
                       child: new Form(
+                        key: _formkey,
                         autovalidate: true,
                         child: new Column(
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -129,6 +131,9 @@ initiateSearch(value){
                               },
                               decoration:textInputDecoration("From"),
                               keyboardType: TextInputType.emailAddress,
+                              validator: (val) => val.isEmpty && clickStatBooking
+                                            ? 'This is required'
+                                            : null,
                             ),
                             new Padding(
                               padding: const EdgeInsets.only(top: 10.0),
@@ -143,6 +148,17 @@ initiateSearch(value){
                               textCapitalization: TextCapitalization.characters,
                               decoration: textInputDecoration("To"),
                               keyboardType: TextInputType.text,
+                               validator: (val) { 
+                                  if (val.isEmpty && clickStatBooking){
+                                    return 'This is requied';
+                                  }
+                                  else if (_controller.text == _controller1.text && _controller.text.isNotEmpty){
+                                    return 'Both location should not be same';
+                                  }
+                                  else{
+                                    return null;
+                                  }
+                                }
                             ),
                             new Padding(
                               padding: const EdgeInsets.only(top: 30.0),
@@ -159,6 +175,7 @@ initiateSearch(value){
                               isExpanded: true,
                               onChanged: (val) => setState(() => _currentBusType = val),
                               decoration: textInputDecorationNoHint(),
+                              
                               ),
                             new Padding(
                               padding: const EdgeInsets.only(top: 10.0),
@@ -183,7 +200,8 @@ initiateSearch(value){
                               height: 50,
                               width: 200,
                               child: RaisedButton(
-                              onPressed: () {
+                              onPressed: () async{
+                               if(_formkey.currentState.validate()){
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -191,6 +209,7 @@ initiateSearch(value){
                                       Times()
                                   ),
                                 );
+                               }
                               },
                                 child: const Text('Search',
                                     style: TextStyle(fontSize: 20)),

@@ -12,6 +12,7 @@ class Maps extends StatefulWidget {
 class _Maps extends State<Maps> {
   TextEditingController _controller;
   TextEditingController _controller1;
+  final _formkey = GlobalKey<FormState>();
 
   @override
   void initState() {
@@ -50,6 +51,7 @@ class _Maps extends State<Maps> {
                     Container(
                       padding: const EdgeInsets.all(40.0),
                       child: new Form(
+                        key: _formkey,
                         autovalidate: true,
                         child: new Column(
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -65,6 +67,9 @@ class _Maps extends State<Maps> {
                               },
                               decoration: textInputDecoration("From"),
                               keyboardType: TextInputType.emailAddress,
+                              validator: (val) => val.isEmpty && clickStatBooking
+                                            ? 'This is required'
+                                            : null,
                             ),
                             new Padding(
                               padding: const EdgeInsets.only(top: 10.0),
@@ -81,6 +86,17 @@ class _Maps extends State<Maps> {
                               decoration: textInputDecoration("To"),
                               obscureText: false,
                               keyboardType: TextInputType.text,
+                              validator: (val) { 
+                                  if (val.isEmpty && clickStatBooking){
+                                    return 'This is requied';
+                                  }
+                                  else if (_controller.text == _controller1.text && _controller.text.isNotEmpty){
+                                    return 'Both location should not be same';
+                                  }
+                                  else{
+                                    return null;
+                                  }
+                                }
                             ),
                             new Padding(
                               padding: const EdgeInsets.only(top: 30.0),
@@ -89,12 +105,14 @@ class _Maps extends State<Maps> {
                               height: 50,
                               width: 200,
                               child: RaisedButton(
-                                onPressed: () {
+                                onPressed: () async{
+                                   if(_formkey.currentState.validate()){
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) => MapView()),
                                   );
+                                   }
                                 },
                                 child: const Text('Search',
                                     style: TextStyle(fontSize: 20)),

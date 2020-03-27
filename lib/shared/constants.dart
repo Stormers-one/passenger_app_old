@@ -11,7 +11,7 @@ String selectedMapsTo = "";
 String alphaNumberc = "ABCDEFGHJCLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz";
 bool clickStatLogin = false;
 bool clickStatRegister = false;
-
+bool clickStatBooking = false;
 giveInitial(){
   return selectedString;
 }

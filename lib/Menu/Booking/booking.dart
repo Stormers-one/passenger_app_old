@@ -14,6 +14,7 @@ class _BookingState extends State<Booking> {
   String _currentBusType = "";
   TextEditingController _controller ;
   TextEditingController _controller1 ;
+  final _formkey = GlobalKey<FormState>();
 
   final List<String> bustype = <String>[
     'Bus Type',
@@ -54,7 +55,7 @@ List<String> bustime = [
     _controller1?.dispose();
    super.dispose();
   }
-
+  bool clickStatBooking = false;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -79,6 +80,7 @@ List<String> bustime = [
                       child: Container(
                         padding: const EdgeInsets.all(40.0),
                         child: new Form(
+                          key: _formkey,
                           autovalidate: true,
                           child: new Column(
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -93,6 +95,9 @@ List<String> bustime = [
                                 decoration: textInputDecoration("From"),
                                 keyboardType: TextInputType.emailAddress,
                                 autofocus: false,
+                                validator: (val) => val.isEmpty && clickStatBooking
+                                            ? 'This is required'
+                                            : null,
                               ),
                               new Padding(
                                 padding: const EdgeInsets.only(top: 10.0),
@@ -108,7 +113,19 @@ List<String> bustime = [
                                 decoration: textInputDecoration("To"),
                                 obscureText: false,
                                 keyboardType: TextInputType.text,
+                                validator: (val) { 
+                                  if (val.isEmpty && clickStatBooking){
+                                    return 'This is requied';
+                                  }
+                                  else if (_controller.text == _controller1.text && _controller.text.isNotEmpty){
+                                    return 'Both location should not be same';
+                                  }
+                                  else{
+                                    return null;
+                                  }
+                                }
                               ),
+                              
                               new Padding(
                                 padding: const EdgeInsets.only(top: 30.0),
                               ),
@@ -139,10 +156,13 @@ List<String> bustime = [
                                 height: 50,
                                 width: 200,
                                 child: RaisedButton(
-                                  onPressed: () {
-                                    Navigator.push(context, MaterialPageRoute(
+                                  onPressed: () async {
+                                    clickStatBooking = true;
+                                    if(_formkey.currentState.validate()){
+                                      Navigator.push(context, MaterialPageRoute(
                                       builder: (context) => Ticket()
                                     ));
+                                    }
                                   },
                                   child: const Text('Proceed To Payment',
                                       style: TextStyle(fontSize: 18)),
