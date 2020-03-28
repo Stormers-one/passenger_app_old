@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:o_k/Menu/Booking/Ticket.dart';
+import 'package:o_k/Menu/Booking/confirmation.dart';
 import 'package:o_k/shared/busSearch.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/drawer.dart';
@@ -28,7 +28,6 @@ class _BookingState extends State<Booking> {
     'Super Express',
     'Super Dulex',
     'Garuda King Class Volvo',
-    'Silver Line Jet',
     'Low Floor Non-AC',
     'Ananthapuri Fast',
     'Garuda Maharaja Scania',
@@ -56,6 +55,16 @@ List<String> bustime = [
    super.dispose();
   }
   bool clickStatBooking = false;
+
+  getFare(String busT){
+    if(km <= 5 ){
+      return (minFare[busT]).ceil(); 
+    }
+    else{
+      return (minFare[busT] + (km - 5)*perKmFare[busT]).ceil();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -109,7 +118,6 @@ List<String> bustime = [
                                   FocusScope.of(context).requestFocus(FocusNode());                   
                                 showSearch(context: context, delegate:BusSearch("BTo",_controller1));
                               },
-                                autofocus: false,
                                 decoration: textInputDecoration("To"),
                                 obscureText: false,
                                 keyboardType: TextInputType.text,
@@ -146,7 +154,7 @@ List<String> bustime = [
                                 )   
                               ).toList(),
                               isExpanded: true,
-                              onChanged: (val) => setState(() => _currentBusType = val),
+                              onChanged: (val) => setState(() { _currentBusType = val;}),
                               decoration: textInputDecorationNoHint(),
                               ),
                               new Padding(
@@ -156,16 +164,17 @@ List<String> bustime = [
                                 height: 50,
                                 width: 200,
                                 child: RaisedButton(
-                                  onPressed: () async {
+                                  onPressed: () {
+                                    fare = getFare(_currentBusType);
                                     clickStatBooking = true;
                                     if(_formkey.currentState.validate()){
                                       Navigator.push(context, MaterialPageRoute(
-                                      builder: (context) => Ticket()
+                                      builder: (context) => BookingConfirm()
                                     ));
                                     }
                                   },
-                                  child: const Text('Proceed To Payment',
-                                      style: TextStyle(fontSize: 18)),
+                                  child: const Text('Proceed',
+                                      style: TextStyle(fontSize: 20)),
                                   color: Colors.red,
                                   textColor: Colors.white,
                                   splashColor: Colors.grey,

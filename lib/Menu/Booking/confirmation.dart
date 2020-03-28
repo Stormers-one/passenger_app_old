@@ -1,23 +1,22 @@
-
 import 'package:flutter/material.dart';
+import 'package:o_k/Menu/Booking/Ticket.dart';
 import 'package:o_k/model/user.dart';
 import 'package:o_k/services/database.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/drawer.dart';
 import 'package:o_k/shared/loading.dart';
 import 'package:provider/provider.dart';
-import 'package:qr_flutter/qr_flutter.dart';
-class Ticket extends StatelessWidget {
+class BookingConfirm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<User>(context);
     return MaterialApp(
-      title: 'Your Ticket',
+      title: 'Confirm Details',
       home: Scaffold(
         backgroundColor: Colors.orange[100],
         appBar: AppBar(
             elevation: 0,
-            title: Text('Your Ticket'),
+            title: Text('Confirm Details'),
             backgroundColor: Colors.red[500],
             actions: <Widget>[
             ]),
@@ -41,26 +40,6 @@ class Ticket extends StatelessWidget {
                               child: new Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: <Widget>[
-                                  new Padding(
-                                    padding: const EdgeInsets.only(top: 10.0),
-                                  ),
-                                  new TextField(
-                                    enabled: false,
-                                    decoration: new InputDecoration(
-                                      labelText: bid,
-                                      labelStyle: TextStyle(
-                                          fontSize: 15, color: Colors.black),
-                                      icon: Icon(Icons.vpn_key),
-                                      fillColor: Colors.grey[300],
-                                      filled: true,
-                                      border: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: Colors.transparent),
-                                        borderRadius:
-                                            new BorderRadius.circular(10),
-                                      ),
-                                    ),
-                                  ),
                                   new Padding(
                                     padding: const EdgeInsets.only(top: 10.0),
                                   ),
@@ -121,13 +100,50 @@ class Ticket extends StatelessWidget {
                                       ),
                                     ),
                                   ),
-                                   SizedBox(height: 30),
-                                  QrImage(
-                                    //data: "From: \"$selectedBookingFrom\" \nTo: \"$selectedBookingTo\" \nBooking ID: \"" + bid + "\" \nName: \"" + userData.fname + "\" \nEmail: \"" + userData.email + "\"Fare: ",
-                                    data: qrdata.toString(),
-                                    version: QrVersions.auto,
-                                    size: 200.0,
+                                  new Padding(
+                                    padding: const EdgeInsets.only(top: 10.0),
                                   ),
+                                  new TextField(
+                                    enabled: false,
+                                    decoration: new InputDecoration(
+                                      labelText: "₹" + fare.toString(),
+                                      labelStyle: TextStyle(
+                                          fontSize: 15, color: Colors.black),
+                                      icon: Icon(Icons.play_circle_outline),
+                                      fillColor: Colors.grey[300],
+                                      filled: true,
+                                      border: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                        borderRadius:
+                                            new BorderRadius.circular(10),
+                                      ),
+                                    ),
+                                  ),
+                                  new Padding(
+                                padding: const EdgeInsets.only(top: 30.0),
+                              ),
+                              SizedBox(
+                                height: 50,
+                                width: 200,
+                                child: RaisedButton(
+                                  onPressed: ()  {
+                                      Navigator.push(context, MaterialPageRoute(
+                                      builder: (context) => Ticket()
+                                    ));
+                                  },
+                                  child: const Text('Proceed To Payment',
+                                      style: TextStyle(fontSize: 18)),
+                                  color: Colors.red,
+                                  textColor: Colors.white,
+                                  splashColor: Colors.grey,
+                                  padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(20.0),
+                                          side: BorderSide(color: Colors.transparent),),
+                                ),
+                              ),
                                 ],
                               ),
                             ),

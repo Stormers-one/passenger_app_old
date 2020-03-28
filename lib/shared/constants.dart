@@ -1,4 +1,11 @@
+import 'dart:convert';
+import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:o_k/model/user.dart';
+
+  final Random bookid = Random.secure();
+  final List<int> values = List<int>.generate(10, (i) => bookid.nextInt(256));
+  String bid = base64.encode(values).substring(0,5);
 
 String selectedString= "";
 
@@ -12,9 +19,50 @@ String alphaNumberc = "ABCDEFGHJCLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuv
 bool clickStatLogin = false;
 bool clickStatRegister = false;
 bool clickStatBooking = false;
-giveInitial(){
-  return selectedString;
-}
+String username = UserData().fname;
+String useremail = UserData().email;
+String userphno = UserData().phno;
+var fare;
+double km = 35;
+var minFare = {
+  'Ordinary' : 8.00,
+  'Limited Stop Ordinary' : 8.00,
+  'Town to Town Ordinary' : 8.00,
+  'Fast Passenger' : 11.00,
+  'LS Fast Passenger' : 11.00,
+  'Point to Point Fast Passenger' : 11.00,
+  'Super Fast' : 15.00,
+  'Super Express' : 22.00,
+  'Super Dulex' : 30.00,
+  'Garuda King Class Volvo' : 44.00,
+  'Low Floor Non-AC' : 10.00,
+  'Ananthapuri Fast' : 11.00,
+  'Garuda Maharaja Scania' : 80.00,
+};
+var perKmFare = {
+  'Ordinary' : 0.70,
+  'Limited Stop Ordinary' : 0.75,
+  'Town to Town Ordinary' : 0.70,
+  'Fast Passenger' : 0.75,
+  'LS Fast Passenger' : 0.75,
+  'Point to Point Fast Passenger' : 0.75,
+  'Super Fast' : 0.78,
+  'Super Express' : 0.85,
+  'Super Dulex' : 1.00,
+  'Garuda King Class Volvo' : 1.45,
+  'Low Floor Non-AC' : 0.80,
+  'Ananthapuri Fast' : 0.78,
+  'Garuda Maharaja Scania' : 1.45,
+};
+var qrdata = {
+  'From' : selectedBookingFrom,
+  'To' : selectedBookingTo,
+  'BookingID' : bid,
+  'Name' : username,
+  'Email' : useremail,
+  'PhoneNumber' : userphno,
+  'Fare' : fare,
+};
 textInputDecoration(String hintText){
   return InputDecoration(
     hintText: '$hintText',

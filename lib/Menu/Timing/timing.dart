@@ -36,7 +36,6 @@ final List<String> bustype = <String>[
     'Super Express',
     'Super Dulex',
     'Garuda King Class Volvo',
-    'Silver Line Jet',
     'Low Floor Non-AC',
     'Ananthapuri Fast',
     'Garuda Maharaja Scania',
