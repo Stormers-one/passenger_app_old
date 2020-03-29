@@ -3,6 +3,8 @@ import 'package:o_k/Menu/Booking/confirmation.dart';
 import 'package:o_k/shared/busSearch.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/drawer.dart';
+import 'package:intl/intl.dart';
+import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 
 class Booking extends StatefulWidget {
   @override
@@ -14,6 +16,22 @@ class _BookingState extends State<Booking> {
   TextEditingController _controller;
   TextEditingController _controller1;
   final _formkey = GlobalKey<FormState>();
+
+  final format = DateFormat("yyyy-MM-dd");
+  DateTime selectedDate = DateTime.now();
+  TextEditingController _date = new TextEditingController();
+  Future<Null> _selectDate(BuildContext context) async {
+    final DateTime picked = await showDatePicker(
+        context: context,
+        initialDate: selectedDate,
+        firstDate: DateTime(1901, 1),
+        lastDate: DateTime(2100));
+    if (picked != null && picked != selectedDate)
+      setState(() {
+        selectedDate = picked;
+        _date.value = TextEditingValue(text: picked.toString());
+      });
+  }
 
   final List<String> bustype = <String>[
     'Bus Type',
@@ -146,10 +164,22 @@ class _BookingState extends State<Booking> {
                                 new Padding(
                                   padding: const EdgeInsets.only(top: 30.0),
                                 ),
-                                new TextFormField(
-                                  decoration:
-                                      textInputDecoration("Date Of Departure"),
-                                  keyboardType: TextInputType.emailAddress,
+                                // new TextFormField(
+                                //   decoration:
+                                //       textInputDecoration("Date Of Departure"),
+                                //   keyboardType: TextInputType.emailAddress,
+                                // ),
+                                GestureDetector(
+                                  onTap: () => _selectDate(context),
+                                  child: AbsorbPointer(
+                                    child: TextFormField(
+                                      controller: _date,
+                                      keyboardType: TextInputType.datetime,
+                                      decoration: InputDecoration(
+                                        hintText: 'Date of Departure',
+                                      ),
+                                    ),
+                                  ),
                                 ),
                                 new Padding(
                                   padding: const EdgeInsets.only(top: 30.0),
