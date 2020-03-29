@@ -7,6 +7,7 @@ import 'package:o_k/shared/colors.dart';
 // import 'package:mapbox_gl/mapbox_gl.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
+
 class MapView extends StatefulWidget {
   @override
   _MapView createState() => _MapView();
@@ -78,7 +79,7 @@ class _MapView extends State<MapView> {
               child: Stack(
                 children: <Widget>[
                   GoogleMap(
-                    onMapCreated: _onMapCreated,  
+                    onMapCreated: _onMapCreated,
                     myLocationEnabled: true,
                     mapType: MapType.normal,
                     initialCameraPosition: CameraPosition(
@@ -88,7 +89,6 @@ class _MapView extends State<MapView> {
                     compassEnabled: true,
                     onCameraMove: _updateCameraPosition,
                   ),
-
                   Container(),
                 ],
               ),
@@ -99,6 +99,10 @@ class _MapView extends State<MapView> {
                   decoration: new BoxDecoration(
                     color: bgOrange,
                   ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[],
+                  ),
                 )),
           ],
         ),
@@ -107,115 +111,3 @@ class _MapView extends State<MapView> {
   }
 }
 
-
-// class MapView extends StatefulWidget {
-//   @override
-//   _MapView createState() => _MapView();
-// }
-
-// class _MapView extends State<MapView> {
-//   final CameraPosition _kInitialPosition;
-//   final CameraTargetBounds _cameraTargetBounds;
-//   static double defaultZoom = 10.0;
-  
-//   LatLng _center;
-//   Position currentLocation;
-
-//   CameraPosition _position;
-//   MapboxMapController mapController;
-//   bool _isMoving = false;
-//   bool _compassEnabled = true;
-//   MinMaxZoomPreference _minMaxZoomPreference =
-//       const MinMaxZoomPreference(8.0, 18.0);
-//   String _styleString = "mapbox://styles/mapbox/streets-v8";
-//   bool _rotateGesturesEnabled = true;
-//   bool _scrollGesturesEnabled = true;
-//   bool _tiltGesturesEnabled = false;
-//   bool _zoomGesturesEnabled = true;
-//   bool _myLocationEnabled = false;
-//   MyLocationTrackingMode _myLocationTrackingMode = MyLocationTrackingMode.None;
-
-//   _MapView._(
-//       this._kInitialPosition, this._position, this._cameraTargetBounds);
-
-//   factory _MapView() {
-//     CameraPosition cameraPosition = _getCameraPosition();
-
-//     final cityBounds = LatLngBounds(
-//       southwest: LatLng(7.962818, 74.949406),
-//       northeast: LatLng(11.879561, 77.688881),
-//     );
-
-//     return _MapView._(
-//         cameraPosition, cameraPosition, CameraTargetBounds(cityBounds));
-//   }
-
-//   void _onMapChanged() {
-//     setState(() {
-//       _extractMapInfo();
-//     });
-//   }
-
-//   @override
-//   void dispose() {
-//     if (mapController != null) {
-//       mapController.removeListener(_onMapChanged);
-//     }
-//     super.dispose();
-//   }
-
-//   void _extractMapInfo() {
-//     _position = mapController.cameraPosition;
-//     _isMoving = mapController.isCameraMoving;
-//   }
-//   Future<Position> locateUser() async {
-//     return Geolocator()
-//         .getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
-//   }
-//    getUserLocation() async {
-//     currentLocation = await locateUser();
-//     setState(() {
-//       _center = LatLng(currentLocation.latitude, currentLocation.longitude);
-//     });
-//     print('center $_center');
-//     return _center;
-//   }
-//   static CameraPosition _getCameraPosition() {
-//     final latLng = LatLng(9.959624, 76.335317);
-//     return CameraPosition(
-//       target: latLng,
-//       zoom: defaultZoom,
-//     );
-//   }
-
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return MapboxMap(
-//         onMapCreated: onMapCreated,
-//         initialCameraPosition: this._kInitialPosition,
-//         trackCameraPosition: true,
-//         compassEnabled: _compassEnabled,
-//         cameraTargetBounds: _cameraTargetBounds,
-//         minMaxZoomPreference: _minMaxZoomPreference,
-//         styleString: _styleString,
-//         rotateGesturesEnabled: _rotateGesturesEnabled,
-//         scrollGesturesEnabled: _scrollGesturesEnabled,
-//         tiltGesturesEnabled: _tiltGesturesEnabled,
-//         zoomGesturesEnabled: _zoomGesturesEnabled,
-//         myLocationEnabled: _myLocationEnabled,
-//         myLocationTrackingMode: _myLocationTrackingMode,
-//         onCameraTrackingDismissed: () {
-//           this.setState(() {
-//             _myLocationTrackingMode = MyLocationTrackingMode.None;
-//           });
-//         });
-//   }
-
-//   void onMapCreated(MapboxMapController controller) {
-//     mapController = controller;
-//     mapController.addListener(_onMapChanged);
-//     _extractMapInfo();
-//     setState(() {});
-//   }
-// }
