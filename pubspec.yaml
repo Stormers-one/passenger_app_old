@@ -32,6 +32,8 @@ dependencies:
   double_back_to_close_app: ^0.1.2
   qr_flutter: ^3.2.0
   razorpay_flutter: ^1.1.0
+  datetime_picker_formfield: ^1.0.0
+
 
 # Google Maps 
   google_maps_flutter: ^0.5.25+1
