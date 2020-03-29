@@ -2,12 +2,17 @@ import 'dart:convert';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:o_k/model/user.dart';
+import 'package:intl/intl.dart';
 
   final Random bookid = Random.secure();
   final List<int> values = List<int>.generate(10, (i) => bookid.nextInt(256));
   String bid = base64.encode(values).substring(0,5);
 
 String selectedString= "";
+
+DateTime selectedDate = DateTime.now();
+final formatter = DateFormat('yyyy-MM-dd');
+
 
 String selectedTimingFrom = "";
 String selectedTimingTo = "";

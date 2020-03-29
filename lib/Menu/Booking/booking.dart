@@ -19,10 +19,6 @@ class _BookingState extends State<Booking> {
   TextEditingController _controller2;
   final _formkey = GlobalKey<FormState>();
 
-  final formatter = DateFormat('yyyy-MM-dd');
-
-  DateTime selectedDate = DateTime.now();
-
   Future<Null> _selectDate(BuildContext context) async {
     final DateTime picked = await showDatePicker(
         context: context,
