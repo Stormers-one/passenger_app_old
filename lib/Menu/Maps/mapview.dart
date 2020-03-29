@@ -103,13 +103,13 @@ class _MapView extends State<MapView> {
                   child: Container(
                     padding: const EdgeInsets.all(20),
                     decoration: new BoxDecoration(
-                      color: bgOrange,
+                      color: coralColor,
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
                         Container(
-                          padding: const EdgeInsets.all(15),
+                          padding: const EdgeInsets.all(20),
                           decoration: BoxDecoration(
                             color: salmonColor,
                             borderRadius: BorderRadius.all(
@@ -126,7 +126,7 @@ class _MapView extends State<MapView> {
                           ),
                         ),
                         Container(
-                          padding: const EdgeInsets.all(15),
+                          padding: const EdgeInsets.all(20),
                           decoration: BoxDecoration(
                             color: salmonColor,
                             borderRadius: BorderRadius.all(
@@ -143,7 +143,8 @@ class _MapView extends State<MapView> {
                           ),
                         ),
                         Container(
-                          padding: const EdgeInsets.all(15),
+                          padding: const EdgeInsets.all(20),
+                          margin: const EdgeInsets.only(left: 35,right: 35),
                           decoration: BoxDecoration(
                             color: salmonColor,
                             borderRadius: BorderRadius.all(
