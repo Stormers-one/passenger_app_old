@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:o_k/Menu/Booking/confirmation.dart';
 import 'package:o_k/shared/busSearch.dart';
+import 'package:o_k/shared/colors.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/drawer.dart';
 import 'package:intl/intl.dart';
@@ -154,20 +155,32 @@ class _BookingState extends State<Booking> {
                                 //       textInputDecoration("Date Of Departure"),
                                 //   keyboardType: TextInputType.emailAddress,
                                 // ),
-                                Column(children: <Widget>[
-                                  Text('Date Of Departure'),
-                                  DateTimeField(
-                                    format: format,
-                                    onShowPicker: (context, currentValue) {
-                                      return showDatePicker(
-                                          context: context,
-                                          firstDate: DateTime(1900),
-                                          initialDate:
-                                              currentValue ?? DateTime.now(),
-                                          lastDate: DateTime(2100));
-                                    },
+                                // Column(children: <Widget>[
+                                //   Text('Date Of Departure'),
+                                //   DateTimeField(
+                                //     format: format,
+                                //     onShowPicker: (context, currentValue) {
+                                //       return showDatePicker(
+                                //           context: context,
+                                //           firstDate: DateTime(1900),
+                                //           initialDate:
+                                //               currentValue ?? DateTime.now(),
+                                //           lastDate: DateTime(2100));
+                                //     },
+                                //   ),
+                                // ]),
+                                FloatingActionButton(
+                                  child: new Icon(Icons.date_range, color: salmonColor,),
+                                  backgroundColor: red,
+                                  onPressed: () => showDatePicker(
+                                    context: context,
+                                    initialDate: new DateTime.now(),
+                                    firstDate: new DateTime.now()
+                                        .subtract(new Duration(days: 1)),
+                                    lastDate: new DateTime.now()
+                                        .add(new Duration(days: 90)),
                                   ),
-                                ]),
+                                ),
                                 new Padding(
                                   padding: const EdgeInsets.only(top: 30.0),
                                 ),
