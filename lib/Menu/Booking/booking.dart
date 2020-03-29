@@ -15,9 +15,9 @@ class _BookingState extends State<Booking> {
   TextEditingController _controller ;
   TextEditingController _controller1 ;
   final _formkey = GlobalKey<FormState>();
+  bool clickStatbooking = false;
 
   final List<String> bustype = <String>[
-    'Bus Type',
     'Ordinary',
     'Limited Stop Ordinary',
     'Town to Town Ordinary',
@@ -55,15 +55,6 @@ List<String> bustime = [
    super.dispose();
   }
   bool clickStatBooking = false;
-
-  getFare(String busT){
-    if(km <= 5 ){
-      return (minFare[busT]).ceil(); 
-    }
-    else{
-      return (minFare[busT] + (km - 5)*perKmFare[busT]).ceil();
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -134,13 +125,13 @@ List<String> bustime = [
                                 }
                               ),
                               
-                              new Padding(
-                                padding: const EdgeInsets.only(top: 30.0),
-                              ),
-                              new TextFormField(
-                                decoration: textInputDecoration("Date Of Departure"),
-                                keyboardType: TextInputType.emailAddress,
-                              ),
+                              // new Padding(
+                              //   padding: const EdgeInsets.only(top: 30.0),
+                              // ),
+                              // new TextFormField(
+                              //   decoration: textInputDecoration("Date Of Departure"),
+                              //   keyboardType: TextInputType.emailAddress,
+                              // ),
                               new Padding(
                               padding: const EdgeInsets.only(top: 30.0),
                             ),
@@ -156,6 +147,9 @@ List<String> bustime = [
                               isExpanded: true,
                               onChanged: (val) => setState(() { _currentBusType = val;}),
                               decoration: textInputDecorationNoHint(),
+                              validator: (val) => val ==null && clickStatBooking
+                                            ? 'This is required'
+                                            : null,
                               ),
                               new Padding(
                                 padding: const EdgeInsets.only(top: 30.0),
@@ -165,6 +159,7 @@ List<String> bustime = [
                                 width: 200,
                                 child: RaisedButton(
                                   onPressed: () {
+                                    clickStatBooking = true; 
                                     fare = getFare(_currentBusType);
                                     clickStatBooking = true;
                                     if(_formkey.currentState.validate()){

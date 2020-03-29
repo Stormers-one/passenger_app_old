@@ -61,3 +61,4 @@ build/
 .flutter-plugins
 .packages
 android/local.properties
+.packages

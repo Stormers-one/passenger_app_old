@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:o_k/Menu/Booking/Ticket.dart';
 import 'package:o_k/model/user.dart';
 import 'package:o_k/services/database.dart';
@@ -106,10 +107,10 @@ class BookingConfirm extends StatelessWidget {
                                   new TextField(
                                     enabled: false,
                                     decoration: new InputDecoration(
-                                      labelText: "₹" + fare.toString(),
+                                      labelText: fare.toString(),
                                       labelStyle: TextStyle(
                                           fontSize: 15, color: Colors.black),
-                                      icon: Icon(Icons.play_circle_outline),
+                                      icon: Icon(MdiIcons.currencyInr),
                                       fillColor: Colors.grey[300],
                                       filled: true,
                                       border: OutlineInputBorder(

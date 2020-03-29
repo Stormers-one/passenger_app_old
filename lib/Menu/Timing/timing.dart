@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:o_k/Menu/Timing/avtimes.dart';
 import 'package:o_k/shared/busSearch.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:flutter/material.dart';
@@ -207,7 +208,8 @@ initiateSearch(value){
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) =>
-                                      Times()
+                                      //Times()
+                                      Aanavandi()
                                   ),
                                 );
                                }

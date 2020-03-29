@@ -35,6 +35,10 @@ class Ticket extends StatelessWidget {
                       builder: (context, snapshot) {
                         if (snapshot.hasData) {
                           UserData userData = snapshot.data;
+                          username = userData.fname;
+                          useremail = userData.email;
+                          userphno = userData.phno;
+                          bidn = getBookingId();
                           return Form(
                             child: Container(
                               padding: EdgeInsets.all(20.0),
@@ -47,7 +51,7 @@ class Ticket extends StatelessWidget {
                                   new TextField(
                                     enabled: false,
                                     decoration: new InputDecoration(
-                                      labelText: bid,
+                                      labelText: bidn,
                                       labelStyle: TextStyle(
                                           fontSize: 15, color: Colors.black),
                                       icon: Icon(Icons.vpn_key),
