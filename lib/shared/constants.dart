@@ -31,7 +31,7 @@ String selectedString= "";
 DateTime selectedDate = DateTime.now();
 final formatter = DateFormat('yyyy-MM-dd');
 
-
+int distanceBetween = 0;
 String selectedTimingFrom = "";
 String selectedTimingTo = "";
 String selectedBookingFrom = "";

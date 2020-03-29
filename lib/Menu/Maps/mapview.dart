@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:o_k/shared/colors.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
+import '../../shared/constants.dart';
 
 class MapView extends StatefulWidget {
   @override
@@ -100,14 +101,64 @@ class _MapView extends State<MapView> {
               Flexible(
                   flex: 2,
                   child: Container(
+                    padding: const EdgeInsets.all(20),
                     decoration: new BoxDecoration(
                       color: bgOrange,
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Container(),
+                        Container(
+                          padding: const EdgeInsets.all(15),
+                          decoration: BoxDecoration(
+                            color: salmonColor,
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(20.0),
+                            ),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: <Widget>[
+                              Container(
+                                child: Text('From:' + selectedMapsFrom),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(15),
+                          decoration: BoxDecoration(
+                            color: salmonColor,
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(20.0),
+                            ),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: <Widget>[
+                              Container(
+                                child: Text('To: ' + selectedMapsTo),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(15),
+                          decoration: BoxDecoration(
+                            color: salmonColor,
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(20.0),
+                            ),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: <Widget>[
+                              Container(
+                                child: Text('Distance Between: ' +distanceBetween.toString()),
+                              ),
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   )),
