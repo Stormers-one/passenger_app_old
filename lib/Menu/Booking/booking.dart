@@ -191,6 +191,7 @@ class _BookingState extends State<Booking> {
                                 Container(
                                   child: TextFormField(
                                     controller: _controller2,
+                                    textAlign: TextAlign.center,
                                     style: new TextStyle(color: Colors.black),
                                     onTap: () => _selectDate(context),
                                     decoration:
