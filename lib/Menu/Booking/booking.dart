@@ -153,71 +153,28 @@ class _BookingState extends State<Booking> {
                               new Padding(
                               padding: const EdgeInsets.only(top: 30.0),
                             ),
-                            new DropdownButtonFormField(
-                              hint: Text('Bus Type', style: TextStyle(color: Colors.grey),),
-                              value: _currentBusType.isNotEmpty ? _currentBusType : null, 
-                              items: bustype.map((value) =>
-                                 new DropdownMenuItem(
-                                  value:value,
-                                  child: Text('$value'),
-                                )   
-                              ).toList(),
-                              isExpanded: true,
-                              onChanged: (val) => setState(() { _currentBusType = val;}),
-                              decoration: textInputDecorationNoHint(),
-                              validator: (val) => val ==null && clickStatBooking
-                                            ? 'This is required'
-                                            : null,
-                              ),
-                              new Padding(
-                                padding: const EdgeInsets.only(top: 30.0),
-                              ),
-                              SizedBox(
-                                height: 50,
-                                width: 200,
-                                child: RaisedButton(
-                                  onPressed: () {
-                                    clickStatBooking = true; 
-                                    fare = getFare(_currentBusType);
-                                    clickStatBooking = true;
-                                    if(_formkey.currentState.validate()){
-                                      Navigator.push(context, MaterialPageRoute(
-                                      builder: (context) => BookingConfirm()
-                                    ));
-                                    }
-                                  },
+                                new Padding(
+                                  padding: const EdgeInsets.only(top: 30.0),
                                 ),
-                              ),
-                                // new TextFormField(
-                                //   decoration:
-                                //       textInputDecoration("Date Of Departure"),
-                                //   keyboardType: TextInputType.emailAddress,
-                                // ),
-                                // Column(children: <Widget>[
-                                //   Text('Date Of Departure'),
-                                //   DateTimeField(
-                                //     format: format,
-                                //     onShowPicker: (context, currentValue) {
-                                //       return showDatePicker(
-                                //           context: context,
-                                //           firstDate: DateTime(1900),
-                                //           initialDate:
-                                //               currentValue ?? DateTime.now(),
-                                //           lastDate: DateTime(2100));
-                                //     },
-                                //   ),
-                                // ]),
-                                Container(
-                                  child: TextFormField(
-                                    controller: _controller2,
-                                    textAlign: TextAlign.center,
-                                    style: new TextStyle(color: Colors.black),
-                                    onTap: () => _selectDate(context),
-                                    decoration:
-                                        textInputDecoration("Date Of Departure"),
-                                    obscureText: false,
-                                    keyboardType: TextInputType.text,
+                                new DropdownButtonFormField(
+                                  hint: Text(
+                                    'Bus Type',
+                                    style: TextStyle(color: Colors.grey),
                                   ),
+                                  value: _currentBusType.isNotEmpty
+                                      ? _currentBusType
+                                      : null,
+                                  items: bustype
+                                      .map((value) => new DropdownMenuItem(
+                                            value: value,
+                                            child: Text('$value'),
+                                          ))
+                                      .toList(),
+                                  isExpanded: true,
+                                  onChanged: (val) => setState(() {
+                                    _currentBusType = val;
+                                  }),
+                                  decoration: textInputDecorationNoHint(),
                                 ),
                                 new Padding(
                                   padding: const EdgeInsets.only(top: 30.0),
