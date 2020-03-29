@@ -222,29 +222,6 @@ class _BookingState extends State<Booking> {
                                 new Padding(
                                   padding: const EdgeInsets.only(top: 30.0),
                                 ),
-                                new DropdownButtonFormField(
-                                  hint: Text(
-                                    'Bus Type',
-                                    style: TextStyle(color: Colors.grey),
-                                  ),
-                                  value: _currentBusType.isNotEmpty
-                                      ? _currentBusType
-                                      : null,
-                                  items: bustype
-                                      .map((value) => new DropdownMenuItem(
-                                            value: value,
-                                            child: Text('$value'),
-                                          ))
-                                      .toList(),
-                                  isExpanded: true,
-                                  onChanged: (val) => setState(() {
-                                    _currentBusType = val;
-                                  }),
-                                  decoration: textInputDecorationNoHint(),
-                                ),
-                                new Padding(
-                                  padding: const EdgeInsets.only(top: 30.0),
-                                ),
                                 SizedBox(
                                   height: 50,
                                   width: 200,
