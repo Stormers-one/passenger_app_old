@@ -18,21 +18,6 @@ class _BookingState extends State<Booking> {
   final _formkey = GlobalKey<FormState>();
 
   final format = DateFormat("yyyy-MM-dd");
-  DateTime selectedDate = DateTime.now();
-  TextEditingController _date = new TextEditingController();
-  Future<Null> _selectDate(BuildContext context) async {
-    final DateTime picked = await showDatePicker(
-        context: context,
-        initialDate: selectedDate,
-        firstDate: DateTime(1901, 1),
-        lastDate: DateTime(2100));
-    if (picked != null && picked != selectedDate)
-      setState(() {
-        selectedDate = picked;
-        _date.value = TextEditingValue(text: picked.toString());
-      });
-  }
-
   final List<String> bustype = <String>[
     'Bus Type',
     'Ordinary',
@@ -169,18 +154,20 @@ class _BookingState extends State<Booking> {
                                 //       textInputDecoration("Date Of Departure"),
                                 //   keyboardType: TextInputType.emailAddress,
                                 // ),
-                                GestureDetector(
-                                  onTap: () => _selectDate(context),
-                                  child: AbsorbPointer(
-                                    child: TextFormField(
-                                      controller: _date,
-                                      keyboardType: TextInputType.datetime,
-                                      decoration: InputDecoration(
-                                        hintText: 'Date of Departure',
-                                      ),
-                                    ),
+                                Column(children: <Widget>[
+                                  Text('Date Of Departure'),
+                                  DateTimeField(
+                                    format: format,
+                                    onShowPicker: (context, currentValue) {
+                                      return showDatePicker(
+                                          context: context,
+                                          firstDate: DateTime(1900),
+                                          initialDate:
+                                              currentValue ?? DateTime.now(),
+                                          lastDate: DateTime(2100));
+                                    },
                                   ),
-                                ),
+                                ]),
                                 new Padding(
                                   padding: const EdgeInsets.only(top: 30.0),
                                 ),
