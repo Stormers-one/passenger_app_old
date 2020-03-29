@@ -161,7 +161,7 @@ class _Timing extends State<Timing> {
                               keyboardType: TextInputType.text,
                                validator: (val) { 
                                   if (val.isEmpty && clickStatTiming){
-                                    return 'This is requied';
+                                    return 'This is required';
                                   }
                                   else if (_controller.text == _controller1.text && _controller.text.isNotEmpty){
                                     return 'Both location should not be same';
