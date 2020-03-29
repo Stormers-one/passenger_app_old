@@ -1,13 +1,17 @@
 import 'dart:convert';
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:o_k/model/user.dart';
 import 'package:intl/intl.dart';
-
+getBookingId(){
   final Random bookid = Random.secure();
   final List<int> values = List<int>.generate(10, (i) => bookid.nextInt(256));
-  String bid = base64.encode(values).substring(0,5);
+  var bid = base64.encode(values).substring(0,5);
+  return bid;
+}
 
+
+
+String bidn;
 String selectedString= "";
 
 DateTime selectedDate = DateTime.now();
@@ -21,14 +25,19 @@ String selectedBookingTo = "";
 String selectedMapsFrom = "";
 String selectedMapsTo = "";
 String alphaNumberc = "ABCDEFGHJCLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz";
+
+//Click Status
 bool clickStatLogin = false;
 bool clickStatRegister = false;
 bool clickStatBooking = false;
-String username = UserData().fname;
-String useremail = UserData().email;
-String userphno = UserData().phno;
+
+String username;
+String useremail;
+String userphno;
+
 var fare;
-double km = 35;
+var km = 35;
+
 var minFare = {
   'Ordinary' : 8.00,
   'Limited Stop Ordinary' : 8.00,
@@ -59,15 +68,26 @@ var perKmFare = {
   'Ananthapuri Fast' : 0.78,
   'Garuda Maharaja Scania' : 1.45,
 };
+getFare(String busT){
+    if(km <= 5 ){
+      return (minFare[busT]).ceil(); 
+    }
+    else{
+      return (minFare[busT] + perKmFare[busT]*(km - 5)).ceil();
+    }
+  }
+//QRCODE DATA
 var qrdata = {
   'From' : selectedBookingFrom,
   'To' : selectedBookingTo,
-  'BookingID' : bid,
+  'BookingID' : bidn,
   'Name' : username,
   'Email' : useremail,
   'PhoneNumber' : userphno,
   'Fare' : fare,
 };
+
+
 textInputDecoration(String hintText){
   return InputDecoration(
     hintText: '$hintText',
@@ -105,7 +125,8 @@ List<String> stops = [
 'AANAKKAYAM',
 'AANAPPARA',
 'AANAPPARA (ANGAMALY)',
-'AAROOR',
+'AAROOR (MVPA)',
+'AAZHIMALA',
 'ABHAYAGIRI',
 'ACHANKOVIL',
 'ADICHANALLUR',
@@ -118,7 +139,7 @@ List<String> stops = [
 'ADIVAARAM',
 'ADIVAD',
 'ADIVARAM (Erattupetta)',
-'ADOOR',
+'ADOOR BS (ADR)',
 'ADUKKAM',
 'ADUVAPURAM',
 'AGALY',
@@ -131,19 +152,19 @@ List<String> stops = [
 'ALAMCODE',
 'ALAMPARA',
 'ALANALLUR',
-'ALAPPUZHA',
+'ALAPPUZHA BS (ALP)',
 'ALAPPUZHA RAILWAY STATION',
 'ALATHUR',
 'ALIPARAMBA',
 'ALIYADU',
 'ALIYATTUKUNNU',
-'ALL SAINTS COLLEGE',
+'ALL SAINTS COLLEGE TVM',
 'ALLATTUCHIRA',
 'ALOOR',
 'ALTHARA',
 'ALUMKADAVU',
 'ALUMKUZHI',
-'ALUVA',
+'ALUVA (ALV)',
 'AMALA HOSPITAL',
 'AMARA',
 'AMAYIDA',
@@ -152,7 +173,7 @@ List<String> stops = [
 'AMBALAMUKKU',
 'AMBALANIRAPPU',
 'AMBALAPPADU',
-'AMBALAPPUZHA',
+'AMBALAPPUZHA BS',
 'AMBALASSERY KADAVU',
 'AMBALATHARA',
 'AMBALAVAYAL',
@@ -196,7 +217,7 @@ List<String> stops = [
 'ANGAMOOZHY',
 'ANGEL VALLEY',
 'ANJARAKANDY',
-'ANKAMALY',
+'ANKAMALY (ANK)',
 'ANNAMMANADA',
 'ANNIYAR THOZHU',
 'ANTHYANPARA',
@@ -225,15 +246,16 @@ List<String> stops = [
 'ARUVIPPURAM',
 'ARUVIPURAM',
 'ARUVIYODE',
-'ARYANAD',
+'ARYANAD (ARD)',
 'ARYANCODE',
-'ARYANKAVU',
+'ARYANKAVU (ARK)',
 'ASHTAMICHIRA',
 'ASHTAMUDI',
 'ASMABI',
 'ASRAMAM (KOLLAM)',
 'ASRAMAM (MOOLAMATTOM)',
-'ATHANI (ERNAKULAM)',
+'ASRAMAM ESI',
+'ATHANI',
 'ATHIKKATTUKULANGARA',
 'ATHIKKAYAM',
 'ATHIPOTTA',
@@ -241,10 +263,10 @@ List<String> stops = [
 'ATHOLI',
 'ATTAKKUNDU',
 'ATTAMALA',
-'ATTAPPADI',
+'ATTAPPADY',
 'ATTAPPILLY',
 'ATTARAMOOLA',
-'ATTINGAL',
+'ATTINGAL (ATL)',
 'ATTINPURAM',
 'ATTUKAL (NEDUMANGAD)',
 'ATTUKAL TEMPLE',
@@ -266,9 +288,8 @@ List<String> stops = [
 'AZHANGADU',
 'AZHEEKKAL',
 'AZHIKKAL',
-'AZHIKODE (KANNUR)',
+'AZHIKODE',
 'AZHIKODE (KODUNGALLUR)',
-'AZHIMALA',
 'AZHITHALA',
 'BADANIPURAM',
 'BADIYADKA',
@@ -300,7 +321,7 @@ List<String> stops = [
 'BHARANANGANAM',
 'BHARANIKKAVU',
 'BHARATHANOOR',
-'BHASKAR NAGAR (THIRUVANANTHAPURAM)',
+'BHASKAR NAGAR',
 'BHEEMANADY',
 'BHOOTHAKULAM',
 'BHOOTHAMADAKKI',
@@ -316,8 +337,9 @@ List<String> stops = [
 'BRAHMAMANGALAM',
 'BRIMORE',
 'C M MAKHAM',
+'CALICUT',
 'CENTRAL POLYTECHNIC',
-'CHADAYAMANGALAM',
+'CHADAYAMANGALAM (CDM)',
 'CHAIPANKUZHY',
 'CHAKKA',
 'CHAKKARAKAL',
@@ -329,8 +351,8 @@ List<String> stops = [
 'CHALA',
 'CHALA (KANNUR)',
 'CHALAKKA',
-'CHALAKKARA (THIRUVANANTHAPURAM)',
-'CHALAKUDY',
+'CHALAKKARA',
+'CHALAKUDY BS (CLD)',
 'CHALAPPALLY',
 'CHALAVA',
 'CHALINGADU',
@@ -344,7 +366,7 @@ List<String> stops = [
 'CHAMRAVATTOM',
 'CHANDANAKAMPARA',
 'CHANDRAGIRI',
-'CHANGANASSERY',
+'CHANGANASSERY BS (CHR)',
 'CHANGANKARY',
 'CHANGARAMKULAM',
 'CHANGUVETTY',
@@ -362,7 +384,7 @@ List<String> stops = [
 'CHATHAMMA',
 'CHATHANAD',
 'CHATHANCODE',
-'CHATHANNOOR',
+'CHATHANNOOR BS (CHT)',
 'CHATHANTHARA',
 'CHATHURTHYAKARI',
 'CHATTANCHAL',
@@ -377,14 +399,15 @@ List<String> stops = [
 'CHEERKKAYAM',
 'CHEKADI',
 'CHEKKIKULAM',
+'CHELAARI',
 'CHELACHUVADU',
 'CHELAKKARA',
 'CHELARI',
 'CHELAYAM',
 'CHELLANAM',
 'CHELLANCHY',
+'CHEMBAKAPPARA',
 'CHEMBAKAPPARA (KATTAPPANA)',
-'CHEMBAKAPPARA (THIRUVANANTHAPURAM)',
 'CHEMBANCODE',
 'CHEMBILODE',
 'CHEMBIRIKA',
@@ -405,7 +428,7 @@ List<String> stops = [
 'CHENDAMANGALAM',
 'CHENGALLOOR',
 'CHENGALPATTU',
-'CHENGANNUR',
+'CHENGANNUR BS (CGR)', //MARKER
 'CHENGANNUR RAILWAY STATION',
 'CHENGARA (PATHANAMTHITTA)',
 'CHENKAL',
@@ -1027,7 +1050,7 @@ List<String> stops = [
 'KOTTATHARA',
 'KOTTAVATTOM',
 'KOTTAVILA',
-'KOTTAYAM',
+'KOTTAYAM BS (KTM)',
 'KOTTAYAM MEDICAL COLLEGE',
 'KOTTAYI (PALAKKAD)',
 'KOTTAYIL KOVILAKAM',
@@ -1565,7 +1588,7 @@ List<String> stops = [
 'PAITHALMALA',
 'PAKALKURI',
 'PAKKOM',
-'PALA',
+'PALA (PLA)',
 'PALAKKAD',
 'PALAKKAYAM',
 'PALAKUNNU',

@@ -19,130 +19,132 @@ class Ticket extends StatelessWidget {
             elevation: 0,
             title: Text('Your Ticket'),
             backgroundColor: Colors.red[500],
-            actions: <Widget>[]),
+            actions: <Widget>[]
+          ),
         drawer: DrawerBuild(),
-        body: new GestureDetector(
-          onTap: () {
-            FocusScope.of(context).requestFocus(new FocusNode());
-          },
-          child: Container(
-            child: ListView(
-              shrinkWrap: true,
-              padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-              children: <Widget>[
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    StreamBuilder<UserData>(
-                        stream: DatabaseService(uid: user.uid).userData,
-                        builder: (context, snapshot) {
-                          if (snapshot.hasData) {
-                            UserData userData = snapshot.data;
-                            return Form(
-                              child: Container(
-                                padding: EdgeInsets.all(20.0),
-                                child: new Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: <Widget>[
-                                    new Padding(
-                                      padding: const EdgeInsets.only(top: 10.0),
-                                    ),
-                                    new TextField(
-                                      enabled: false,
-                                      decoration: new InputDecoration(
-                                        labelText: bid,
-                                        labelStyle: TextStyle(
-                                            fontSize: 15, color: Colors.black),
-                                        icon: Icon(Icons.vpn_key),
-                                        fillColor: Colors.grey[300],
-                                        filled: true,
-                                        border: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                              color: Colors.transparent),
-                                          borderRadius:
-                                              new BorderRadius.circular(10),
-                                        ),
-                                      ),
-                                    ),
-                                    new Padding(
-                                      padding: const EdgeInsets.only(top: 10.0),
-                                    ),
-                                    new TextField(
-                                      enabled: false,
-                                      decoration: new InputDecoration(
-                                        labelText: userData.fname,
-                                        labelStyle: TextStyle(
-                                            fontSize: 15, color: Colors.black),
-                                        icon: Icon(Icons.account_box),
-                                        fillColor: Colors.grey[300],
-                                        filled: true,
-                                        border: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                              color: Colors.transparent),
-                                          borderRadius:
-                                              new BorderRadius.circular(10),
-                                        ),
-                                      ),
-                                    ),
-                                    new Padding(
-                                      padding: const EdgeInsets.only(top: 10.0),
-                                    ),
-                                    new TextField(
-                                      enabled: false,
-                                      decoration: new InputDecoration(
-                                        labelText: selectedBookingFrom,
-                                        labelStyle: TextStyle(
-                                            fontSize: 15, color: Colors.black),
-                                        icon: Icon(Icons.play_circle_outline),
-                                        fillColor: Colors.grey[300],
-                                        filled: true,
-                                        border: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                              color: Colors.transparent),
-                                          borderRadius:
-                                              new BorderRadius.circular(10),
-                                        ),
-                                      ),
-                                    ),
-                                    new Padding(
-                                      padding: const EdgeInsets.only(top: 10.0),
-                                    ),
-                                    new TextField(
-                                      enabled: false,
-                                      decoration: new InputDecoration(
-                                        labelText: selectedBookingTo,
-                                        labelStyle: TextStyle(
-                                            fontSize: 15, color: Colors.black),
-                                        icon: Icon(Icons.stop),
-                                        fillColor: Colors.grey[300],
-                                        filled: true,
-                                        border: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                              color: Colors.transparent),
-                                          borderRadius:
-                                              new BorderRadius.circular(10),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(height: 30),
-                                    QrImage(
-                                      //data: "From: \"$selectedBookingFrom\" \nTo: \"$selectedBookingTo\" \nBooking ID: \"" + bid + "\" \nName: \"" + userData.fname + "\" \nEmail: \"" + userData.email + "\"Fare: ",
-                                      data: qrdata.toString(),
-                                      version: QrVersions.auto,
-                                      size: 200.0,
-                                    ),
-                                  ],
+        body: Container(
+          child: ListView(
+            shrinkWrap: true,
+            padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+            children: <Widget>[
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  StreamBuilder<UserData>(
+                    stream: DatabaseService(uid: user.uid).userData,
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        UserData userData = snapshot.data;
+                        username = userData.fname;
+                        useremail = userData.email;
+                        userphno = userData.phno;
+                        bidn = getBookingId();
+                        return Form(
+                          child: Container(
+                            padding: EdgeInsets.all(20.0),
+                            child: new Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                new Padding(
+                                  padding: const EdgeInsets.only(top: 10.0),
                                 ),
+                                new TextField(
+                                  enabled: false,
+                                  decoration: new InputDecoration(
+                                    labelText: bidn,
+                                    labelStyle: TextStyle(
+                                        fontSize: 15, color: Colors.black),
+                                    icon: Icon(Icons.vpn_key),
+                                    fillColor: Colors.grey[300],
+                                    filled: true,
+                                    border: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                          color: Colors.transparent),
+                                      borderRadius:
+                                          new BorderRadius.circular(10),
+                                      ),
+                                    ),
+                                  ),
+                                  new Padding(
+                                    padding: const EdgeInsets.only(top: 10.0),
+                                  ),
+                                  new TextField(
+                                    enabled: false,
+                                    decoration: new InputDecoration(
+                                      labelText: userData.fname,
+                                      labelStyle: TextStyle(
+                                          fontSize: 15, color: Colors.black),
+                                      icon: Icon(Icons.account_box),
+                                      fillColor: Colors.grey[300],
+                                      filled: true,
+                                      border: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                        borderRadius:
+                                            new BorderRadius.circular(10),
+                                      ),
+                                    ),
+                                  ),
+                                  new Padding(
+                                    padding: const EdgeInsets.only(top: 10.0),
+                                  ),
+                                  new TextField(
+                                    enabled: false,
+                                    decoration: new InputDecoration(
+                                      labelText: selectedBookingFrom,
+                                      labelStyle: TextStyle(
+                                          fontSize: 15, color: Colors.black),
+                                      icon: Icon(Icons.play_circle_outline),
+                                      fillColor: Colors.grey[300],
+                                      filled: true,
+                                      border: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                        borderRadius:
+                                            new BorderRadius.circular(10),
+                                      ),
+                                    ),
+                                  ),
+                                  new Padding(
+                                    padding: const EdgeInsets.only(top: 10.0),
+                                  ),
+                                  new TextField(
+                                    enabled: false,
+                                    decoration: new InputDecoration(
+                                      labelText: selectedBookingTo,
+                                      labelStyle: TextStyle(
+                                          fontSize: 15, color: Colors.black),
+                                      icon: Icon(Icons.stop),
+                                      fillColor: Colors.grey[300],
+                                      filled: true,
+                                      border: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                        borderRadius:
+                                            new BorderRadius.circular(10),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: 30),
+                                  QrImage(
+                                    //data: "From: \"$selectedBookingFrom\" \nTo: \"$selectedBookingTo\" \nBooking ID: \"" + bid + "\" \nName: \"" + userData.fname + "\" \nEmail: \"" + userData.email + "\"Fare: ",
+                                    data: qrdata.toString(),
+                                    version: QrVersions.auto,
+                                    size: 200.0,
+                                  ),
+                                ],
                               ),
-                            );
-                          } else {
-                            return Loading();
-                          }
-                        }),
-                  ],
-                ),
-              ],
-            ),
+                            ),
+                          );
+                        } 
+                        else {
+                          return Loading();
+                      }
+                    }
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
       ),

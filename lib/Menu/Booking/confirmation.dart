@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:o_k/Menu/Booking/Ticket.dart';
 import 'package:o_k/model/user.dart';
 import 'package:o_k/services/database.dart';
@@ -104,26 +105,26 @@ class BookingConfirm extends StatelessWidget {
                                         ),
                                       ),
                                     ),
-                                    new Padding(
-                                      padding: const EdgeInsets.only(top: 10.0),
-                                    ),
-                                    new TextField(
-                                      enabled: false,
-                                      decoration: new InputDecoration(
-                                        labelText: "₹" + fare.toString(),
-                                        labelStyle: TextStyle(
-                                            fontSize: 15, color: Colors.black),
-                                        icon: Icon(Icons.play_circle_outline),
-                                        fillColor: Colors.grey[300],
-                                        filled: true,
-                                        border: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                              color: Colors.transparent),
-                                          borderRadius:
-                                              new BorderRadius.circular(10),
-                                        ),
+                                  new Padding(
+                                    padding: const EdgeInsets.only(top: 10.0),
+                                  ),
+                                  new TextField(
+                                    enabled: false,
+                                    decoration: new InputDecoration(
+                                      labelText: fare.toString(),
+                                      labelStyle: TextStyle(
+                                          fontSize: 15, color: Colors.black),
+                                      icon: Icon(MdiIcons.currencyInr),
+                                      fillColor: Colors.grey[300],
+                                      filled: true,
+                                      border: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                        borderRadius:
+                                            new BorderRadius.circular(10),
                                       ),
                                     ),
+                                  ),
                                     new Padding(
                                       padding: const EdgeInsets.only(top: 30.0),
                                     ),
@@ -160,7 +161,7 @@ class BookingConfirm extends StatelessWidget {
                           } else {
                             return Loading();
                           }
-                        }),
+                      }),
                   ],
                 ),
               ],

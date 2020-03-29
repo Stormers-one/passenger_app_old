@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:o_k/Menu/Timing/avtimes.dart';
 import 'package:o_k/shared/busSearch.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:flutter/material.dart';
@@ -144,113 +145,98 @@ class _Timing extends State<Timing> {
                                         val.isEmpty && clickStatTiming
                                             ? 'This is required'
                                             : null,
-                                  ),
-                                  new Padding(
-                                    padding: const EdgeInsets.only(top: 10.0),
-                                  ),
-                                  new TextFormField(
-                                      controller: _controller1,
-                                      style: new TextStyle(color: Colors.black),
-                                      onTap: () {
-                                        FocusScope.of(context)
-                                            .requestFocus(FocusNode());
-                                        showSearch(
-                                            context: context,
-                                            delegate:
-                                                BusSearch("To", _controller1));
-                                      },
-                                      textCapitalization:
-                                          TextCapitalization.characters,
-                                      decoration: textInputDecoration("To"),
-                                      keyboardType: TextInputType.text,
-                                      validator: (val) {
-                                        if (val.isEmpty && clickStatTiming) {
-                                          return 'This is requied';
-                                        } else if (_controller.text ==
-                                                _controller1.text &&
-                                            _controller.text.isNotEmpty) {
-                                          return 'Both location should not be same';
-                                        } else {
-                                          return null;
-                                        }
-                                      }),
-                                  new Padding(
-                                    padding: const EdgeInsets.only(top: 30.0),
-                                  ),
-                                  new DropdownButtonFormField(
-                                    hint: Text(
-                                      'Bus Type',
-                                      style: TextStyle(color: Colors.grey),
-                                    ),
-                                    value: _currentBusType.isNotEmpty
-                                        ? _currentBusType
-                                        : null,
-                                    items: bustype
-                                        .map((value) => new DropdownMenuItem(
-                                              value: value,
-                                              child: Text('$value'),
-                                            ))
-                                        .toList(),
-                                    isExpanded: true,
-                                    onChanged: (val) =>
-                                        setState(() => _currentBusType = val),
-                                    decoration: textInputDecorationNoHint(),
-                                  ),
-                                  new Padding(
-                                    padding: const EdgeInsets.only(top: 10.0),
-                                  ),
-                                  new DropdownButtonFormField(
-                                    hint: Text(
-                                      'Time',
-                                      style: TextStyle(color: Colors.grey),
-                                    ),
-                                    value: _currenttime.isNotEmpty
-                                        ? _currenttime
-                                        : null,
-                                    items: bustime
-                                        .map((value) => new DropdownMenuItem(
-                                              value: value,
-                                              child: Text('$value'),
-                                            ))
-                                        .toList(),
-                                    isExpanded: true,
-                                    onChanged: (val) =>
-                                        setState(() => _currenttime = val),
-                                    decoration: textInputDecorationNoHint(),
-                                  ),
-                                  new Padding(
-                                    padding: const EdgeInsets.only(top: 30.0),
-                                  ),
-                                  SizedBox(
-                                    height: 50,
-                                    width: 200,
-                                    child: RaisedButton(
-                                      onPressed: () async {
-                                        clickStatTiming = true;
-                                        if (_formkey.currentState.validate()) {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) => Times()),
-                                          );
-                                        }
-                                      },
-                                      child: const Text('Search',
-                                          style: TextStyle(fontSize: 20)),
-                                      color: Colors.red,
-                                      textColor: Colors.white,
-                                      splashColor: Colors.grey,
-                                      padding:
-                                          EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(20.0),
-                                        side: BorderSide(
-                                            color: Colors.transparent),
-                                      ),
+                            ),
+                            new Padding(
+                              padding: const EdgeInsets.only(top: 10.0),
+                            ),
+                            new TextFormField(
+                              controller: _controller1,
+                              style: new TextStyle(color: Colors.black),
+                              onTap:(){
+                                FocusScope.of(context).requestFocus(FocusNode()); 
+                                showSearch(context: context, delegate: BusSearch("To",_controller1));
+                              },
+                              textCapitalization: TextCapitalization.characters,
+                              decoration: textInputDecoration("To"),
+                              keyboardType: TextInputType.text,
+                               validator: (val) { 
+                                  if (val.isEmpty && clickStatTiming){
+                                    return 'This is requied';
+                                  }
+                                  else if (_controller.text == _controller1.text && _controller.text.isNotEmpty){
+                                    return 'Both location should not be same';
+                                  }
+                                  else{
+                                    return null;
+                                  }
+                                }
+                            ),
+                            new Padding(
+                              padding: const EdgeInsets.only(top: 30.0),
+                            ),
+                            new DropdownButtonFormField(
+                              hint: Text('Bus Type', style: TextStyle(color: Colors.grey),),
+                              value: _currentBusType.isNotEmpty ? _currentBusType : null, 
+                              items: bustype.map((value) =>
+                                 new DropdownMenuItem(
+                                  value:value,
+                                  child: Text('$value'),
+                                )   
+                              ).toList(),
+                              isExpanded: true,
+                              onChanged: (val) => setState(() => _currentBusType = val),
+                              decoration: textInputDecorationNoHint(),
+                              
+                              ),
+                            new Padding(
+                              padding: const EdgeInsets.only(top: 10.0),
+                            ),
+                            new DropdownButtonFormField(
+                              hint: Text('Time', style: TextStyle(color: Colors.grey),),
+                              value: _currenttime.isNotEmpty ? _currenttime : null, 
+                              items: bustime.map((value) =>
+                                 new DropdownMenuItem(
+                                  value:value,
+                                  child: Text('$value'),
+                                )   
+                              ).toList(),
+                              isExpanded: true,
+                              onChanged: (val) => setState(() => _currenttime = val),
+                              decoration: textInputDecorationNoHint(),
+                            ),
+                            new Padding(
+                              padding: const EdgeInsets.only(top: 30.0),
+                            ),
+                                SizedBox(
+                                  height: 50,
+                                  width: 200,
+                                  child: RaisedButton(
+                                    onPressed: () async {
+                                      clickStatTiming = true;
+                                      if (_formkey.currentState.validate()) {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => Aanavandi()),
+                                        );
+                                      }
+                                    },
+                                    child: const Text('Search',
+                                        style: TextStyle(fontSize: 20)),
+                                    color: Colors.red,
+                                    textColor: Colors.white,
+                                    splashColor: Colors.grey,
+                                    padding:
+                                        EdgeInsets.fromLTRB(10, 10, 10, 10),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(20.0),
+                                      side: BorderSide(
+                                          color: Colors.transparent),
                                     ),
                                   ),
-                                ],
+                                ),
+                               ],
                               ),
                             ),
                           ),
