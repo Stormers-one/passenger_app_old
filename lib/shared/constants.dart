@@ -8,7 +8,21 @@ getBookingId(){
   var bid = base64.encode(values).substring(0,5);
   return bid;
 }
-
+String time1;
+setTime(String time){
+  if(time.contains('Morning')){
+      time1 = 'morning';
+    }
+    else if (time.contains('Afternoon')){
+      time1 = 'afternoon';
+    }
+    else if(time.contains('Night')){
+      time1 = 'night';
+    }
+    else {
+      time1 = 'all';
+    }
+}
 
 
 String bidn;

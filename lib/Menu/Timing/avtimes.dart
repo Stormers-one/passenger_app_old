@@ -7,12 +7,14 @@ import 'package:o_k/shared/constants.dart';
 class Aanavandi extends StatefulWidget {
   @override
   _AanavandiState createState() => _AanavandiState();
+  
 }
 
 class _AanavandiState extends State<Aanavandi> {
   final Completer<WebViewController> _controller = Completer<WebViewController>();
   String from = selectedTimingFrom.replaceAll(' ', '-').toLowerCase();
   String to = selectedTimingTo.replaceAll(' ', '-').toLowerCase();
+  String time;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -23,8 +25,9 @@ class _AanavandiState extends State<Aanavandi> {
               title: Text('Bus Timing'),
               backgroundColor: Colors.red[500],
             ),
+            drawer: Drawer(),
             body :WebView(
-            initialUrl: 'https://www.aanavandi.com//search/results/source/$from/destination/$to/timing/all',
+            initialUrl: 'https://www.aanavandi.com//search/results/source/$from/destination/$to/timing/$time1',
             javascriptMode: JavascriptMode.unrestricted,
             onWebViewCreated: (WebViewController webViewController){
               _controller.complete(webViewController);

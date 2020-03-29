@@ -201,7 +201,10 @@ class _Timing extends State<Timing> {
                                 )   
                               ).toList(),
                               isExpanded: true,
-                              onChanged: (val) => setState(() => _currenttime = val),
+                              onChanged: (val) => setState((){
+                                 _currenttime = val;
+                                 setTime(_currenttime);
+                                }),
                               decoration: textInputDecorationNoHint(),
                             ),
                             new Padding(
