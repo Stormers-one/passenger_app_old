@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:o_k/Menu/Booking/confirmation.dart';
 import 'package:o_k/shared/busSearch.dart';
-import 'package:o_k/shared/colors.dart';
+import '../../shared/colors.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/drawer.dart';
 import 'package:intl/intl.dart';
@@ -16,10 +16,23 @@ class _BookingState extends State<Booking> {
   String _currentBusType = "";
   TextEditingController _controller;
   TextEditingController _controller1;
+  TextEditingController _controller2;
   final _formkey = GlobalKey<FormState>();
   bool clickStatbooking = false;
 
-  final format = DateFormat("yyyy-MM-dd");
+  Future<Null> _selectDate(BuildContext context) async {
+    final DateTime picked = await showDatePicker(
+        context: context,
+        initialDate: selectedDate,
+        firstDate: DateTime(2020, 2),
+        lastDate: DateTime(2020, 6));
+    if (picked != null && picked != selectedDate)
+      setState(() {
+        selectedDate = picked;
+        _controller2.text = formatter.format(selectedDate);
+      });
+  }
+
   final List<String> bustype = <String>[
     'Ordinary',
     'Limited Stop Ordinary',
@@ -47,6 +60,7 @@ class _BookingState extends State<Booking> {
   void initState() {
     _controller = new TextEditingController();
     _controller1 = new TextEditingController();
+    _controller2 = new TextEditingController();
     super.initState();
   }
 
@@ -54,6 +68,7 @@ class _BookingState extends State<Booking> {
   void dispose() {
     _controller?.dispose();
     _controller1?.dispose();
+    _controller2?.dispose();
     super.dispose();
   }
 
@@ -173,16 +188,35 @@ class _BookingState extends State<Booking> {
                                   },
                                 ),
                               ),
-                                FloatingActionButton(
-                                  child: new Icon(Icons.date_range, color: salmonColor,),
-                                  backgroundColor: red,
-                                  onPressed: () => showDatePicker(
-                                    context: context,
-                                    initialDate: new DateTime.now(),
-                                    firstDate: new DateTime.now()
-                                        .subtract(new Duration(days: 1)),
-                                    lastDate: new DateTime.now()
-                                        .add(new Duration(days: 90)),
+                                // new TextFormField(
+                                //   decoration:
+                                //       textInputDecoration("Date Of Departure"),
+                                //   keyboardType: TextInputType.emailAddress,
+                                // ),
+                                // Column(children: <Widget>[
+                                //   Text('Date Of Departure'),
+                                //   DateTimeField(
+                                //     format: format,
+                                //     onShowPicker: (context, currentValue) {
+                                //       return showDatePicker(
+                                //           context: context,
+                                //           firstDate: DateTime(1900),
+                                //           initialDate:
+                                //               currentValue ?? DateTime.now(),
+                                //           lastDate: DateTime(2100));
+                                //     },
+                                //   ),
+                                // ]),
+                                Container(
+                                  child: TextFormField(
+                                    controller: _controller2,
+                                    textAlign: TextAlign.center,
+                                    style: new TextStyle(color: Colors.black),
+                                    onTap: () => _selectDate(context),
+                                    decoration:
+                                        textInputDecoration("Date Of Departure"),
+                                    obscureText: false,
+                                    keyboardType: TextInputType.text,
                                   ),
                                 ),
                                 new Padding(

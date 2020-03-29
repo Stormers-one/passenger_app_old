@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 getBookingId(){
   final Random bookid = Random.secure();
   final List<int> values = List<int>.generate(10, (i) => bookid.nextInt(256));
@@ -12,6 +13,10 @@ getBookingId(){
 
 String bidn;
 String selectedString= "";
+
+DateTime selectedDate = DateTime.now();
+final formatter = DateFormat('yyyy-MM-dd');
+
 
 String selectedTimingFrom = "";
 String selectedTimingTo = "";
