@@ -7,7 +7,7 @@ import 'package:o_k/shared/drawer.dart';
 import 'homepageButtons/data.dart';
 import 'homepageButtons/button.dart';
 
-class Homepage extends StatefulWidget{
+class Homepage extends StatefulWidget {
   // Homepage({Key key}) : super(key: key);
   State<StatefulWidget> createState() {
     return _HomepageState();
@@ -59,69 +59,94 @@ class _HomepageState extends State<Homepage> {
               )
             ]),
         drawer: DrawerBuild(),
-        body: DoubleBackToCloseApp(
-          snackBar: const SnackBar(
-              content: Text(
-            'Press Back Again To Exit',
-            textAlign: TextAlign.center,
-          )),
-          child: ListView(
-            shrinkWrap: true,
-            padding: const EdgeInsets.all(10),
-            children: <Widget>[
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Hero(
-                    tag: 'imageHero',
-                    child: new Container(
-                      child: Image.asset(
-                        'assets/images/logo.png',
+        body: GestureDetector(
+          onTap: () {
+            FocusScope.of(context).requestFocus(new FocusNode());
+          },
+          child: DoubleBackToCloseApp(
+            snackBar: const SnackBar(
+                content: Text(
+              'Press Back Again To Exit',
+              textAlign: TextAlign.center,
+            )),
+            child: ListView(
+              shrinkWrap: true,
+              padding: const EdgeInsets.all(10),
+              children: <Widget>[
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Hero(
+                      tag: 'imageHero',
+                      child: new Container(
+                        child: Image.asset(
+                          'assets/images/logo.png',
+                        ),
+                        height: 200,
+                        width: 200,
                       ),
-                      height: 200,
-                      width: 200,
                     ),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.orange[100],
-                      shape: BoxShape.rectangle,
-                      /*borderRadius: new BorderRadius.only(
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.orange[100],
+                        shape: BoxShape.rectangle,
+                        /*borderRadius: new BorderRadius.only(
                             topLeft: const Radius.circular(25.0),
                             topRight: const Radius.circular(25.0))*/
+                      ),
+                      alignment: Alignment.bottomCenter,
+                      padding: EdgeInsets.all(20.0),
+                      width: MediaQuery.of(context).size.width,
+                      //height:
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          new Padding(
+                            padding: const EdgeInsets.only(top: 10.0),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Button(
+                                image: buttonHome[0].image,
+                                text: buttonHome[0].text,
+                                route: buttonHome[0].route,
+                                context: context,
+                              ),
+                              Button(
+                                image: buttonHome[1].image,
+                                text: buttonHome[1].text,
+                                route: buttonHome[1].route,
+                                context: context,
+                              )
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Button(
+                                image: buttonHome[2].image,
+                                text: buttonHome[2].text,
+                                route: buttonHome[2].route,
+                                context: context,
+                              ),
+                              Button(
+                                image: buttonHome[3].image,
+                                text: buttonHome[3].text,
+                                route: buttonHome[3].route,
+                                context: context,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
-                    alignment: Alignment.bottomCenter,
-                    padding: EdgeInsets.all(20.0),
-                    width: MediaQuery.of(context).size.width,
-                    //height:
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        new Padding(
-                          padding: const EdgeInsets.only(top: 10.0),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Button(image: buttonHome[0].image,text: buttonHome[0].text,route: buttonHome[0].route,context: context,),
-                            Button(image: buttonHome[1].image,text: buttonHome[1].text,route: buttonHome[1].route,context: context,)
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Button(image: buttonHome[2].image,text: buttonHome[2].text,route: buttonHome[2].route,context: context,),
-                            Button(image: buttonHome[3].image,text: buttonHome[3].text,route: buttonHome[3].route,context: context,),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-                //overflow: Overflow.clip,
-              ),
-            ],
+                  ],
+                  //overflow: Overflow.clip,
+                ),
+              ],
+            ),
           ),
         ),
       ),

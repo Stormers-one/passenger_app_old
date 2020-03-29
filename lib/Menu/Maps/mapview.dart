@@ -4,7 +4,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:o_k/shared/colors.dart';
-// import 'package:mapbox_gl/mapbox_gl.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 
@@ -68,46 +67,54 @@ class _MapView extends State<MapView> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        // appBar: AppBar(elevation: 0,
-        // backgroundColor: bgOrange,
-        // title: Text('Bus Routes'),
-        // ),
-        body: Column(
-          children: <Widget>[
-            Flexible(
-              flex: 3,
-              child: Stack(
-                children: <Widget>[
-                  GoogleMap(
-                    onMapCreated: _onMapCreated,
-                    myLocationEnabled: true,
-                    mapType: MapType.normal,
-                    initialCameraPosition: CameraPosition(
-                      target: _center,
-                      zoom: 11.0,
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: red,
+          title: Text('Bus Routes'),
+        ),
+        body: GestureDetector(
+          onTap: () {
+            FocusScope.of(context).requestFocus(new FocusNode());
+          },
+          child: Column(
+            children: <Widget>[
+              Flexible(
+                flex: 3,
+                child: Stack(
+                  children: <Widget>[
+                    GoogleMap(
+                      onMapCreated: _onMapCreated,
+                      myLocationEnabled: true,
+                      mapType: MapType.normal,
+                      initialCameraPosition: CameraPosition(
+                        target: _center,
+                        zoom: 11.0,
+                      ),
+                      compassEnabled: true,
+                      onCameraMove: _updateCameraPosition,
                     ),
-                    compassEnabled: true,
-                    onCameraMove: _updateCameraPosition,
-                  ),
-                  Container(),
-                ],
+                    Container(),
+                  ],
+                ),
               ),
-            ),
-            Flexible(
-                flex: 2,
-                child: Container(
-                  decoration: new BoxDecoration(
-                    color: bgOrange,
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[],
-                  ),
-                )),
-          ],
+              Flexible(
+                  flex: 2,
+                  child: Container(
+                    decoration: new BoxDecoration(
+                      color: bgOrange,
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Container(),
+                      ],
+                    ),
+                  )),
+            ],
+          ),
         ),
       ),
     );
   }
 }
-
