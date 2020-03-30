@@ -19,6 +19,7 @@ class Odukomban extends StatelessWidget {
     return StreamProvider<User>.value(
       value: Authservice().user,
       child: new MaterialApp(
+        debugShowCheckedModeBanner: false,
         theme: new ThemeData(
             primarySwatch: Colors.red, accentColor: Colors.redAccent),
         home: Wrapper(),

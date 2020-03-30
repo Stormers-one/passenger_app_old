@@ -37,6 +37,7 @@ class _HomepageState extends State<Homepage> {
     //           ));
     // }
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Homepage',
       home: Scaffold(
         backgroundColor: bgOrange,

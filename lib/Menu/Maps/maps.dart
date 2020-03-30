@@ -122,6 +122,8 @@ class _Maps extends State<Maps> {
                                     if (_formkey.currentState.validate()) {
                                       Navigator.push(
                                         context,
+                                        sendRequest(selectedMapsFrom,selectedBookingTo),
+                      
                                         MaterialPageRoute(
                                             builder: (context) => MapView()),
                                       );
