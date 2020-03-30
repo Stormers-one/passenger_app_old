@@ -125,7 +125,7 @@ class _MapView extends State<MapView> {
                             color: coralColor,
                           ),
                           child: Container(
-                            margin: const EdgeInsets.only(left: 35, right: 35),
+                            margin: const EdgeInsets.only(left: 25, right: 25),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: <Widget>[
@@ -151,12 +151,15 @@ class _MapView extends State<MapView> {
                                         ),
                                         child: Text(
                                           'From: ',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold),
                                         ),
                                       ),
-                                      SizedBox(width: 20),
+                                      SizedBox(width: 8),
                                       Container(
                                         child: Text(
                                           selectedMapsFrom,
+                                          overflow: TextOverflow.ellipsis,
                                         ),
                                       ),
                                     ],
@@ -184,12 +187,15 @@ class _MapView extends State<MapView> {
                                         ),
                                         child: Text(
                                           'To: ',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold),
                                         ),
                                       ),
-                                      SizedBox(width: 20),
+                                      SizedBox(width: 8),
                                       Container(
                                         child: Text(
                                           selectedMapsTo,
+                                          overflow: TextOverflow.ellipsis,
                                         ),
                                       ),
                                     ],
@@ -217,12 +223,17 @@ class _MapView extends State<MapView> {
                                         ),
                                         child: Text(
                                           'Distance: ',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold),
                                         ),
                                       ),
-                                      SizedBox(width: 20),
+                                      SizedBox(width: 8),
                                       Container(
-                                          child:
-                                              Text(distanceBetween.toString()))
+                                        child: Text(
+                                          distanceBetween.toString(),
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                      )
                                     ],
                                   ),
                                 ),

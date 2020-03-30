@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="Flutter Plugins" type="FlutterPluginsLibraryType">
+  <library name="Flutter Plugins">
     <CLASSES>
       <root url="file://$PROJECT_DIR$/../../flutter/.pub-cache/hosted/pub.dartlang.org/google_maps_flutter-0.5.24+1" />
       <root url="file://$PROJECT_DIR$/../../flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-0.4.4+3" />
