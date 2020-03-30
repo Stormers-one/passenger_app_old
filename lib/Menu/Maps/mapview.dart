@@ -32,6 +32,7 @@ class _MapView extends State<MapView> {
     super.initState();
     getUserLocation();
   }
+
   @override
   void dispose() {
     _controllerFrom?.dispose();
@@ -55,8 +56,8 @@ class _MapView extends State<MapView> {
 
   // final LatLng _center = const LatLng(45, 0);
   // LatLng pos;
-  void _onMapCreated(GoogleMapController controller) {
-    mapController = controller;
+  void _onMapCreated(GoogleMapController mapController) {
+    this.mapController = mapController;
   }
 
   final Map<String, Marker> _markers = {};
@@ -65,7 +66,7 @@ class _MapView extends State<MapView> {
         .getCurrentPosition(desiredAccuracy: LocationAccuracy.best);
 
     setState(() {
-      _markers.clear(); 
+      _markers.clear();
       final marker = Marker(
         markerId: MarkerId("curr_loc"),
         position: LatLng(currentLocation.latitude, currentLocation.longitude),
@@ -84,107 +85,155 @@ class _MapView extends State<MapView> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: loading
-        ? Loading()
-        : Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: red,
-          title: Text('Bus Routes'),
-        ),
-        body: GestureDetector(
-          onTap: () {
-            FocusScope.of(context).requestFocus(new FocusNode());
-          },
-          child: Column(
-            children: <Widget>[
-              Flexible(
-                flex: 3,
-                child: Stack(
+          ? Loading()
+          : Scaffold(
+              appBar: AppBar(
+                elevation: 0,
+                backgroundColor: red,
+                title: Text('Bus Routes'),
+              ),
+              body: GestureDetector(
+                onTap: () {
+                  FocusScope.of(context).requestFocus(new FocusNode());
+                },
+                child: Column(
                   children: <Widget>[
-                    GoogleMap(
-                      onMapCreated: _onMapCreated,
-                      myLocationEnabled: true,
-                      mapType: MapType.normal,
-                      initialCameraPosition: CameraPosition(
-                        target: _center,
-                        zoom: 11.0,
+                    Flexible(
+                      flex: 3,
+                      child: Stack(
+                        children: <Widget>[
+                          GoogleMap(
+                            onMapCreated: _onMapCreated,
+                            myLocationEnabled: true,
+                            mapType: MapType.normal,
+                            initialCameraPosition: CameraPosition(
+                              target: _center,
+                              zoom: 11.0,
+                            ),
+                            compassEnabled: true,
+                            onCameraMove: _updateCameraPosition,
+                          ),
+                          Container(),
+                        ],
                       ),
-                      compassEnabled: true,
-                      onCameraMove: _updateCameraPosition,
                     ),
-                    Container(),
+                    Flexible(
+                        flex: 2,
+                        child: Container(
+                          padding: const EdgeInsets.all(20),
+                          decoration: new BoxDecoration(
+                            color: coralColor,
+                          ),
+                          child: Container(
+                            margin: const EdgeInsets.only(left: 35, right: 35),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: <Widget>[
+                                Container(
+                                  // padding: const EdgeInsets.all(20),
+                                  decoration: BoxDecoration(
+                                    color: salmonColor,
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(20.0),
+                                    ),
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: <Widget>[
+                                      Container(
+                                        padding: const EdgeInsets.all(20),
+                                        width: 100,
+                                        decoration: BoxDecoration(
+                                          color: red,
+                                          borderRadius: BorderRadius.all(
+                                            Radius.circular(20.0),
+                                          ),
+                                        ),
+                                        child: Text(
+                                          'From: ',
+                                        ),
+                                      ),
+                                      SizedBox(width: 20),
+                                      Container(
+                                        child: Text(
+                                          selectedMapsFrom,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  // padding: const EdgeInsets.all(20),
+                                  decoration: BoxDecoration(
+                                    color: salmonColor,
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(20.0),
+                                    ),
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: <Widget>[
+                                      Container(
+                                        width: 100,
+                                        padding: const EdgeInsets.all(20),
+                                        decoration: BoxDecoration(
+                                          color: red,
+                                          borderRadius: BorderRadius.all(
+                                            Radius.circular(20.0),
+                                          ),
+                                        ),
+                                        child: Text(
+                                          'To: ',
+                                        ),
+                                      ),
+                                      SizedBox(width: 20),
+                                      Container(
+                                        child: Text(
+                                          selectedMapsTo,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  // padding: const EdgeInsets.all(20),
+                                  decoration: BoxDecoration(
+                                    color: salmonColor,
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(20.0),
+                                    ),
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: <Widget>[
+                                      Container(
+                                        padding: const EdgeInsets.all(20),
+                                        width: 100,
+                                        decoration: BoxDecoration(
+                                          color: red,
+                                          borderRadius: BorderRadius.all(
+                                            Radius.circular(20.0),
+                                          ),
+                                        ),
+                                        child: Text(
+                                          'Distance: ',
+                                        ),
+                                      ),
+                                      SizedBox(width: 20),
+                                      Container(
+                                          child:
+                                              Text(distanceBetween.toString()))
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        )),
                   ],
                 ),
               ),
-              Flexible(
-                  flex: 2,
-                  child: Container(
-                    padding: const EdgeInsets.all(20),
-                    decoration: new BoxDecoration(
-                      color: coralColor,
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: <Widget>[
-                        Container(
-                          padding: const EdgeInsets.all(20),
-                          decoration: BoxDecoration(
-                            color: salmonColor,
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(20.0),
-                            ),
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: <Widget>[
-                              Container(
-                                child: Text('From:' + selectedMapsFrom),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Container(
-                          padding: const EdgeInsets.all(20),
-                          decoration: BoxDecoration(
-                            color: salmonColor,
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(20.0),
-                            ),
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: <Widget>[
-                              Container(
-                                child: Text('To: ' + selectedMapsTo),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Container(
-                          padding: const EdgeInsets.all(20),
-                          margin: const EdgeInsets.only(left: 35,right: 35),
-                          decoration: BoxDecoration(
-                            color: salmonColor,
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(20.0),
-                            ),
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: <Widget>[
-                              Container(
-                                child: Text('Distance Between: ' +distanceBetween.toString()),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  )),
-            ],
-          ),
-        ),
-      ),
+            ),
     );
   }
 }
