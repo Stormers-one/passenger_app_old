@@ -125,7 +125,7 @@ class _MapView extends State<MapView> {
                             color: coralColor,
                           ),
                           child: Container(
-                            margin: const EdgeInsets.only(left: 20, right: 20),
+                            margin: const EdgeInsets.only(left: 30, right: 30),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: <Widget>[
@@ -156,10 +156,12 @@ class _MapView extends State<MapView> {
                                         ),
                                       ),
                                       SizedBox(width: 8),
-                                      Container(
-                                        child: Text(
-                                          selectedMapsFrom,
-                                          overflow: TextOverflow.clip,
+                                      Expanded(
+                                        child: Container(
+                                          child: Text(
+                                            selectedMapsFrom,
+                                            overflow: TextOverflow.clip,
+                                          ),
                                         ),
                                       ),
                                     ],
@@ -192,10 +194,12 @@ class _MapView extends State<MapView> {
                                         ),
                                       ),
                                       SizedBox(width: 8),
-                                      Container(
-                                        child: Text(
-                                          selectedMapsTo,
-                                          overflow: TextOverflow.clip,
+                                      Expanded(
+                                        child: Container(
+                                          child: Text(
+                                            selectedMapsTo,
+                                            overflow: TextOverflow.clip,
+                                          ),
                                         ),
                                       ),
                                     ],
@@ -228,10 +232,12 @@ class _MapView extends State<MapView> {
                                         ),
                                       ),
                                       SizedBox(width: 8),
-                                      Container(
-                                        child: Text(
-                                          distanceBetween.toString(),
-                                          overflow: TextOverflow.clip,
+                                      Expanded(
+                                        child: Container(
+                                          child: Text(
+                                            distanceBetween.toString(),
+                                            overflow: TextOverflow.clip,
+                                          ),
                                         ),
                                       )
                                     ],
