@@ -141,6 +141,7 @@ class _Timing extends State<Timing> {
                                     },
                                     decoration: textInputDecoration("From"),
                                     keyboardType: TextInputType.emailAddress,
+                                    cursorWidth: 0,
                                     validator: (val) =>
                                         val.isEmpty && clickStatTiming
                                             ? 'This is required'
@@ -159,6 +160,7 @@ class _Timing extends State<Timing> {
                               textCapitalization: TextCapitalization.characters,
                               decoration: textInputDecoration("To"),
                               keyboardType: TextInputType.text,
+                              cursorWidth: 0,
                                validator: (val) { 
                                   if (val.isEmpty && clickStatTiming){
                                     return 'This is required';

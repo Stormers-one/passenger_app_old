@@ -112,6 +112,7 @@ class _BookingState extends State<Booking> {
                               },
                                 decoration: textInputDecoration("From"),
                                 keyboardType: TextInputType.emailAddress,
+                                cursorWidth: 0,
                                 autofocus: false,
                                 validator: (val) => val.isEmpty && clickStatBooking
                                             ? 'This is required'
@@ -130,6 +131,7 @@ class _BookingState extends State<Booking> {
                                 decoration: textInputDecoration("To"),
                                 obscureText: false,
                                 keyboardType: TextInputType.text,
+                                cursorWidth: 0,
                                 validator: (val) { 
                                   if (val.isEmpty && clickStatBooking){
                                     return 'This is requied';

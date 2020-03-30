@@ -74,6 +74,7 @@ class _Maps extends State<Maps> {
                                 },
                                 decoration: textInputDecoration("From"),
                                 keyboardType: TextInputType.emailAddress,
+                                cursorWidth: 0,
                                 validator: (val) => val.isEmpty && clickStatMaps
                                     ? 'This is required'
                                     : null,
@@ -95,6 +96,7 @@ class _Maps extends State<Maps> {
                                   decoration: textInputDecoration("To"),
                                   obscureText: false,
                                   keyboardType: TextInputType.text,
+                                  cursorWidth: 0,
                                   validator: (val) {
                                     if (val.isEmpty && clickStatMaps) {
                                       return 'This is requied';
