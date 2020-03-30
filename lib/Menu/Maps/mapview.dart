@@ -125,7 +125,7 @@ class _MapView extends State<MapView> {
                             color: coralColor,
                           ),
                           child: Container(
-                            margin: const EdgeInsets.only(left: 25, right: 25),
+                            margin: const EdgeInsets.only(left: 20, right: 20),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: <Widget>[
