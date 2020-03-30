@@ -40,8 +40,10 @@ class _MapView extends State<MapView> {
     toLocation = toLocation + ', Kerala';
     List<Placemark> placemark1 =
         await Geolocator().placemarkFromAddress(fromLocation);
+        print(placemark1);
     List<Placemark> placemark2 =
         await Geolocator().placemarkFromAddress(toLocation);
+        print(placemark2);
     double latitude1 = placemark1[0].position.latitude;
     double longitude1 = placemark1[0].position.longitude;
     double latitude2 = placemark2[0].position.latitude;
