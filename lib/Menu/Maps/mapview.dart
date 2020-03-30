@@ -36,6 +36,8 @@ class _MapView extends State<MapView> {
   GoogleMapsServices get googleMapsServices => _googleMapsServices;
 
   void sendRequest(String fromLocation, String toLocation) async {
+    fromLocation = fromLocation + ', Kerala';
+    toLocation = toLocation + ', Kerala';
     List<Placemark> placemark1 =
         await Geolocator().placemarkFromAddress(fromLocation);
     List<Placemark> placemark2 =
@@ -71,6 +73,7 @@ class _MapView extends State<MapView> {
         color: Colors.black));
     // notifyListeners();
   }
+
   // ! CREATE LAGLNG LIST
   List<LatLng> _convertToLatLng(List points) {
     List<LatLng> result = <LatLng>[];
@@ -133,15 +136,12 @@ class _MapView extends State<MapView> {
     super.dispose();
   }
 
-  Future<Position> locateUser() async {
-    return Geolocator()
-        .getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
-  }
-
   getUserLocation() async {
-    currentLocation = await locateUser();
+    currentLocation = await Geolocator()
+        .getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
     setState(() {
       _center = LatLng(currentLocation.latitude, currentLocation.longitude);
+      sendRequest(selectedMapsFrom, selectedBookingTo);
       loading = false;
     });
     print('center $_center');
