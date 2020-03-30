@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:o_k/shared/colors.dart';
 import '../Maps/googlemapservice.dart';
 
 class AppState with ChangeNotifier {
@@ -64,9 +65,9 @@ class AppState with ChangeNotifier {
   void createRoute(String encondedPoly) {
     _polyLines.add(Polyline(
         polylineId: PolylineId(_initialPosition.toString()),
-        width: 10,
+        width: 7,
         points: _convertToLatLng(_decodePoly(encondedPoly)),
-        color: Colors.black));
+        color: red));
     // notifyListeners();
   }
 
