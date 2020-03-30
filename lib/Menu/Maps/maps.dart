@@ -113,7 +113,9 @@ class _Maps extends State<Maps> {
                                 height: 50,
                                 width: 200,
                                 child: RaisedButton(
-                                  onPressed: () async {
+                                  onPressed: () {
+                                    selectedMapsFrom = _controller.text;
+                                    selectedMapsTo = _controller1.text;
                                     clickStatMaps = true;
                                     if (_formkey.currentState.validate()) {
                                       Navigator.push(
