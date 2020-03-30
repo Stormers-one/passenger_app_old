@@ -125,7 +125,7 @@ class _Maps extends State<Maps> {
                                     clickStatMaps = true;
                                     if (_formkey.currentState.validate()) {
                                       appState.sendRequest(
-                                          selectedMapsFrom, selectedBookingTo);
+                                          selectedMapsFrom, selectedMapsTo);
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
