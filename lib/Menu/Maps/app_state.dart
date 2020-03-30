@@ -25,19 +25,7 @@ class AppState with ChangeNotifier {
     // _getUserLocation();
     _loadingInitialPosition();
   }
-// ! TO GET THE USERS LOCATION
-  //  void _getUserLocation() async {
-  //   print("GET USER METHOD RUNNING =========");
-  //   Position position = await Geolocator()
-  //       .getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
-  //   List<Placemark> placemark = await Geolocator()
-  //       .placemarkFromCoordinates(position.latitude, position.longitude);
-  //   _initialPosition = LatLng(position.latitude, position.longitude);
-  //   print("the latitude is: ${position.longitude} and th longitude is: ${position.longitude} ");
-  //   print("initial position is : ${_initialPosition.toString()}");
-  //   locationController.text = placemark[0].name;
-  //   notifyListeners();
-  // }
+
   // ! TO CREATE ROUTE
   void sendRequest(String fromLocation, String toLocation) async {
     fromLocation = fromLocation + ', Kerala';
