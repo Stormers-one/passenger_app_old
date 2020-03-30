@@ -7,6 +7,7 @@ import 'package:o_k/shared/colors.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 import '../../shared/constants.dart';
+import '../../shared/loading.dart';
 
 class MapView extends StatefulWidget {
   @override
@@ -18,10 +19,24 @@ class _MapView extends State<MapView> {
   LatLng _center;
   Position currentLocation;
   CameraPosition _position;
+
+  bool loading = true;
+
+  TextEditingController _controllerFrom;
+  TextEditingController _controllerTo;
+
   @override
   void initState() {
+    _controllerFrom = new TextEditingController();
+    _controllerTo = new TextEditingController();
     super.initState();
     getUserLocation();
+  }
+  @override
+  void dispose() {
+    _controllerFrom?.dispose();
+    _controllerTo?.dispose();
+    super.dispose();
   }
 
   Future<Position> locateUser() async {
@@ -33,6 +48,7 @@ class _MapView extends State<MapView> {
     currentLocation = await locateUser();
     setState(() {
       _center = LatLng(currentLocation.latitude, currentLocation.longitude);
+      loading = false;
     });
     print('center $_center');
   }
@@ -49,7 +65,7 @@ class _MapView extends State<MapView> {
         .getCurrentPosition(desiredAccuracy: LocationAccuracy.best);
 
     setState(() {
-      _markers.clear();
+      _markers.clear(); 
       final marker = Marker(
         markerId: MarkerId("curr_loc"),
         position: LatLng(currentLocation.latitude, currentLocation.longitude),
@@ -67,7 +83,9 @@ class _MapView extends State<MapView> {
 
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
+      home: loading
+        ? Loading()
+        : Scaffold(
         appBar: AppBar(
           elevation: 0,
           backgroundColor: red,
