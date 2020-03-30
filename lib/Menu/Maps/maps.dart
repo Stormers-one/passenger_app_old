@@ -121,7 +121,7 @@ class _Maps extends State<Maps> {
                                     clickStatMaps = true;
                                     if (_formkey.currentState.validate()) {
                                       Navigator.push(
-                                        context,
+                                        context,                     
                                         MaterialPageRoute(
                                             builder: (context) => MapView()),
                                       );
