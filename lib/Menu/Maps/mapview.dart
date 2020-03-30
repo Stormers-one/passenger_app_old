@@ -8,9 +8,27 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 import '../../shared/constants.dart';
 import '../../shared/loading.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 // import '../Maps/distance.java';
 import 'googlemapservice.dart';
+import 'app_state.dart';
+
+class MapHome extends StatefulWidget {
+  MapHome({Key key, this.title}) : super(key: key);
+
+  final String title;
+
+  @override
+  _MapHome createState() => _MapHome();
+}
+
+class _MapHome extends State<MapHome> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(body: MapView());
+  }
+}
 
 class MapView extends StatefulWidget {
   @override
@@ -29,99 +47,98 @@ class _MapView extends State<MapView> {
   TextEditingController _controllerTo;
 
 // Distance Matrix with Polylines START *******************************************************************************
-  bool locationServiceActive = true;
-  final Set<Marker> _markers = {};
-  final Set<Polyline> _polyLines = {};
-  GoogleMapsServices _googleMapsServices = GoogleMapsServices();
-  GoogleMapsServices get googleMapsServices => _googleMapsServices;
+//   bool locationServiceActive = true;
+//   final Set<Marker> _markers = {};
+//   final Set<Polyline> _polyLines = {};
+//   GoogleMapsServices _googleMapsServices = GoogleMapsServices();
+//   GoogleMapsServices get googleMapsServices => _googleMapsServices;
 
-  void sendRequest(String fromLocation, String toLocation) async {
-    fromLocation = fromLocation + ', Kerala';
-    toLocation = toLocation + ', Kerala';
-    List<Placemark> placemark1 =
-        await Geolocator().placemarkFromAddress(fromLocation);
-        print(placemark1);
-    List<Placemark> placemark2 =
-        await Geolocator().placemarkFromAddress(toLocation);
-        print(placemark2);
-    double latitude1 = placemark1[0].position.latitude;
-    double longitude1 = placemark1[0].position.longitude;
-    double latitude2 = placemark2[0].position.latitude;
-    double longitude2 = placemark2[0].position.longitude;
-    LatLng start = LatLng(latitude1, longitude1);
-    LatLng destination = LatLng(latitude2, longitude2);
-    _addMarker(start, fromLocation);
-    _addMarker(destination, toLocation);
-    String route =
-        await _googleMapsServices.getRouteCoordinates(start, destination);
-    createRoute(route);
-    // notifyListeners();
-  }
+//   void sendRequest(String fromLocation, String toLocation) async {
+//     fromLocation = fromLocation + ', Kerala';
+//     toLocation = toLocation + ', Kerala';
+//     List<Placemark> placemark1 =
+//         await Geolocator().placemarkFromAddress(fromLocation);
+//         print(placemark1);
+//     List<Placemark> placemark2 =
+//         await Geolocator().placemarkFromAddress(toLocation);
+//         print(placemark2);
+//     double latitude1 = placemark1[0].position.latitude;
+//     double longitude1 = placemark1[0].position.longitude;
+//     double latitude2 = placemark2[0].position.latitude;
+//     double longitude2 = placemark2[0].position.longitude;
+//     LatLng start = LatLng(latitude1, longitude1);
+//     LatLng destination = LatLng(latitude2, longitude2);
+//     _addMarker(start, fromLocation);
+//     _addMarker(destination, toLocation);
+//     String route =
+//         await _googleMapsServices.getRouteCoordinates(start, destination);
+//     createRoute(route);
+//     // notifyListeners();
+//   }
 
-  void _addMarker(LatLng location, String address) {
-    _markers.add(Marker(
-        markerId: MarkerId(address.toString()),
-        position: location,
-        infoWindow: InfoWindow(title: address, snippet: "go here"),
-        icon: BitmapDescriptor.defaultMarker));
-    // notifyListeners();
-  }
+//   void _addMarker(LatLng location, String address) {
+//     _markers.add(Marker(
+//         markerId: MarkerId(address.toString()),
+//         position: location,
+//         infoWindow: InfoWindow(title: address, snippet: "go here"),
+//         icon: BitmapDescriptor.defaultMarker));
+//     // notifyListeners();
+//   }
 
-  void createRoute(String encondedPoly) {
-    _polyLines.add(Polyline(
-        polylineId: PolylineId(_center.toString()),
-        width: 10,
-        points: _convertToLatLng(_decodePoly(encondedPoly)),
-        color: Colors.black));
-    // notifyListeners();
-  }
+//   void createRoute(String encondedPoly) {
+//     _polyLines.add(Polyline(
+//         polylineId: PolylineId(_center.toString()),
+//         width: 10,
+//         points: _convertToLatLng(_decodePoly(encondedPoly)),
+//         color: Colors.black));
+//     // notifyListeners();
+//   }
 
-  // ! CREATE LAGLNG LIST
-  List<LatLng> _convertToLatLng(List points) {
-    List<LatLng> result = <LatLng>[];
-    for (int i = 0; i < points.length; i++) {
-      if (i % 2 != 0) {
-        result.add(LatLng(points[i - 1], points[i]));
-      }
-    }
-    return result;
-  }
+//   // ! CREATE LAGLNG LIST
+//   List<LatLng> _convertToLatLng(List points) {
+//     List<LatLng> result = <LatLng>[];
+//     for (int i = 0; i < points.length; i++) {
+//       if (i % 2 != 0) {
+//         result.add(LatLng(points[i - 1], points[i]));
+//       }
+//     }
+//     return result;
+//   }
 
-  // !DECODE POLY
-  List _decodePoly(String poly) {
-    var list = poly.codeUnits;
-    var lList = new List();
-    int index = 0;
-    int len = poly.length;
-    int c = 0;
-// repeating until all attributes are decoded
-    do {
-      var shift = 0;
-      int result = 0;
+//   // !DECODE POLY
+//   List _decodePoly(String poly) {
+//     var list = poly.codeUnits;
+//     var lList = new List();
+//     int index = 0;
+//     int len = poly.length;
+//     int c = 0;
+// // repeating until all attributes are decoded
+//     do {
+//       var shift = 0;
+//       int result = 0;
 
-      // for decoding value of one attribute
-      do {
-        c = list[index] - 63;
-        result |= (c & 0x1F) << (shift * 5);
-        index++;
-        shift++;
-      } while (c >= 32);
-      /* if value is negetive then bitwise not the value */
-      if (result & 1 == 1) {
-        result = ~result;
-      }
-      var result1 = (result >> 1) * 0.00001;
-      lList.add(result1);
-    } while (index < len);
+//       // for decoding value of one attribute
+//       do {
+//         c = list[index] - 63;
+//         result |= (c & 0x1F) << (shift * 5);
+//         index++;
+//         shift++;
+//       } while (c >= 32);
+//       /* if value is negetive then bitwise not the value */
+//       if (result & 1 == 1) {
+//         result = ~result;
+//       }
+//       var result1 = (result >> 1) * 0.00001;
+//       lList.add(result1);
+//     } while (index < len);
 
-/*adding to previous value as done in encoding */
-    for (var i = 2; i < lList.length; i++) lList[i] += lList[i - 2];
+// /*adding to previous value as done in encoding */
+//     for (var i = 2; i < lList.length; i++) lList[i] += lList[i - 2];
 
-    print(lList.toString());
+//     print(lList.toString());
 
-    return lList;
-  }
-
+//     return lList;
+//   }
 // Distance MAtrix with Polylines END ****************************************************************************
   @override
   void initState() {
@@ -143,7 +160,7 @@ class _MapView extends State<MapView> {
         .getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
     setState(() {
       _center = LatLng(currentLocation.latitude, currentLocation.longitude);
-      sendRequest(selectedMapsFrom, selectedBookingTo);
+
       loading = false;
     });
     print('center $_center');
@@ -158,15 +175,15 @@ class _MapView extends State<MapView> {
     var currentLocation = await Geolocator()
         .getCurrentPosition(desiredAccuracy: LocationAccuracy.best);
 
-    setState(() {
-      _marker.clear();
-      final marker = Marker(
-        markerId: MarkerId("curr_loc"),
-        position: LatLng(currentLocation.latitude, currentLocation.longitude),
-        infoWindow: InfoWindow(title: 'Your Location'),
-      );
-      _marker["Current Location"] = marker;
-    });
+    // setState(() {
+    //   _marker.clear();
+    //   final marker = Marker(
+    //     markerId: MarkerId("curr_loc"),
+    //     position: LatLng(currentLocation.latitude, currentLocation.longitude),
+    //     infoWindow: InfoWindow(title: 'Your Location'),
+    //   );
+    //   _marker["Current Location"] = marker;
+    // });
   }
 
   void _updateCameraPosition(CameraPosition position) {
@@ -177,8 +194,10 @@ class _MapView extends State<MapView> {
   //PolyLines
 
   Widget build(BuildContext context) {
+    final appState = Provider.of<AppState>(context);
+
     return MaterialApp(
-      home: loading
+      home: appState.initialPosition==null
           ? Loading()
           : Scaffold(
               appBar: AppBar(
@@ -197,15 +216,24 @@ class _MapView extends State<MapView> {
                       child: Stack(
                         children: <Widget>[
                           GoogleMap(
-                            onMapCreated: _onMapCreated,
+                            // onMapCreated: _onMapCreated,
+                            // myLocationEnabled: true,
+                            // mapType: MapType.normal,
+                            // initialCameraPosition: CameraPosition(
+                            //   target: _center,
+                            //   zoom: 11.0,
+                            // ),
+                            // compassEnabled: true,
+                            // onCameraMove: _updateCameraPosition,
+                            initialCameraPosition: CameraPosition(
+                                target: appState.initialPosition, zoom: 10.0),
+                            onMapCreated: appState.onCreated,
                             myLocationEnabled: true,
                             mapType: MapType.normal,
-                            initialCameraPosition: CameraPosition(
-                              target: _center,
-                              zoom: 11.0,
-                            ),
                             compassEnabled: true,
-                            onCameraMove: _updateCameraPosition,
+                            markers: appState.markers,
+                            onCameraMove: appState.onCameraMove,
+                            polylines: appState.polyLines,
                           ),
                           Container(),
                         ],
@@ -308,7 +336,8 @@ class _MapView extends State<MapView> {
                                     ),
                                   ),
                                   child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.start,
                                     children: <Widget>[
                                       Container(
                                         padding: const EdgeInsets.all(20),

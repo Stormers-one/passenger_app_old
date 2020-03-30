@@ -3,6 +3,8 @@ import 'package:o_k/shared/busSearch.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/drawer.dart';
 import 'mapview.dart';
+import 'package:provider/provider.dart';
+import 'app_state.dart';
 
 class Maps extends StatefulWidget {
   @override
@@ -31,6 +33,8 @@ class _Maps extends State<Maps> {
 
   @override
   Widget build(BuildContext context) {
+    final appState = Provider.of<AppState>(context);
+
     return MaterialApp(
       title: 'Maps',
       home: Scaffold(
@@ -120,8 +124,10 @@ class _Maps extends State<Maps> {
                                     selectedMapsTo = _controller1.text;
                                     clickStatMaps = true;
                                     if (_formkey.currentState.validate()) {
+                                      appState.sendRequest(
+                                          selectedMapsFrom, selectedBookingTo);
                                       Navigator.push(
-                                        context,                     
+                                        context,
                                         MaterialPageRoute(
                                             builder: (context) => MapView()),
                                       );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:o_k/Menu/Maps/app_state.dart';
 import 'package:o_k/model/user.dart';
 import 'package:o_k/services/auth.dart';
 import 'Wrapper.dart';
@@ -10,8 +11,13 @@ import 'package:provider/provider.dart';
 // import 'tracking.dart';
 // import 'timing.dart';
 // import 'maps.dart';
+import 'Menu/Maps/app_state.dart';
 
-void main() => runApp(new Odukomban());
+void main() => runApp(MultiProvider(providers: [
+      ChangeNotifierProvider.value(
+        value: AppState(),
+      )
+    ], child: Odukomban()));
 
 class Odukomban extends StatelessWidget {
   @override
