@@ -159,7 +159,7 @@ class _MapView extends State<MapView> {
                                       Container(
                                         child: Text(
                                           selectedMapsFrom,
-                                          overflow: TextOverflow.ellipsis,
+                                          overflow: TextOverflow.clip,
                                         ),
                                       ),
                                     ],
@@ -195,7 +195,7 @@ class _MapView extends State<MapView> {
                                       Container(
                                         child: Text(
                                           selectedMapsTo,
-                                          overflow: TextOverflow.ellipsis,
+                                          overflow: TextOverflow.clip,
                                         ),
                                       ),
                                     ],
@@ -231,7 +231,7 @@ class _MapView extends State<MapView> {
                                       Container(
                                         child: Text(
                                           distanceBetween.toString(),
-                                          overflow: TextOverflow.ellipsis,
+                                          overflow: TextOverflow.clip,
                                         ),
                                       )
                                     ],
