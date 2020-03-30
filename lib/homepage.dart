@@ -2,6 +2,7 @@ import 'package:double_back_to_close_app/double_back_to_close_app.dart';
 import 'package:flutter/material.dart';
 import 'package:o_k/Wrapper.dart';
 import 'package:o_k/services/auth.dart';
+import 'package:o_k/shared/colors.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/drawer.dart';
 import 'homepageButtons/data.dart';
@@ -38,7 +39,7 @@ class _HomepageState extends State<Homepage> {
     return MaterialApp(
       title: 'Homepage',
       home: Scaffold(
-        backgroundColor: Colors.orange[100],
+        backgroundColor: bgOrange,
         appBar: AppBar(
             elevation: 0,
             //title: Text('MENU'),
@@ -88,11 +89,11 @@ class _HomepageState extends State<Homepage> {
                     ),
                     Container(
                       decoration: BoxDecoration(
-                        color: Colors.orange[100],
+                        color: bgOrange,
                         shape: BoxShape.rectangle,
-                        /*borderRadius: new BorderRadius.only(
-                            topLeft: const Radius.circular(25.0),
-                            topRight: const Radius.circular(25.0))*/
+                        borderRadius: new BorderRadius.all(
+                           const Radius.circular(25.0),
+                            ),
                       ),
                       alignment: Alignment.bottomCenter,
                       padding: EdgeInsets.all(20.0),
