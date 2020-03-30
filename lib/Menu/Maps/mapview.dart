@@ -105,157 +105,147 @@ class _MapView extends State<MapView> {
                 onTap: () {
                   FocusScope.of(context).requestFocus(new FocusNode());
                 },
-                child: Column(
+                child: Stack(
                   children: <Widget>[
-                    Flexible(
-                      flex: 3,
-                      child: Stack(
-                        children: <Widget>[
-                          GoogleMap(
-                            initialCameraPosition: CameraPosition(
-                                target: appState.initialPosition, zoom: 10.0),
-                            onMapCreated: appState.onCreated,
-                            myLocationEnabled: true,
-                            mapType: MapType.normal,
-                            compassEnabled: true,
-                            markers: appState.markers,
-                            onCameraMove: appState.onCameraMove,
-                            polylines: appState.polyLines,
-                          ),
-                          Container(),
-                        ],
+                    GoogleMap(
+                      initialCameraPosition: CameraPosition(
+                          target: appState.initialPosition, zoom: 10.0),
+                      onMapCreated: appState.onCreated,
+                      myLocationEnabled: true,
+                      mapType: MapType.normal,
+                      compassEnabled: true,
+                      markers: appState.markers,
+                      onCameraMove: appState.onCameraMove,
+                      polylines: appState.polyLines,
+                    ),
+                    Container(
+                      alignment: Alignment(0, -0.5),
+                      padding: const EdgeInsets.all(20),
+                      child: Container(
+                        margin: const EdgeInsets.only(left: 30, right: 30),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: <Widget>[
+                            Container(
+                              // padding: const EdgeInsets.all(20),
+                              decoration: BoxDecoration(
+                                color: salmonColor,
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(20.0),
+                                ),
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: <Widget>[
+                                  Container(
+                                    padding: const EdgeInsets.all(20),
+                                    width: 100,
+                                    decoration: BoxDecoration(
+                                      color: red,
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(20.0),
+                                      ),
+                                    ),
+                                    child: Text(
+                                      'From: ',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                  SizedBox(width: 8),
+                                  Expanded(
+                                    child: Container(
+                                      child: Text(
+                                        selectedMapsFrom,
+                                        overflow: TextOverflow.clip,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(height: 8),
+                            Container(
+                              // padding: const EdgeInsets.all(20),
+                              decoration: BoxDecoration(
+                                color: salmonColor,
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(20.0),
+                                ),
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: <Widget>[
+                                  Container(
+                                    width: 100,
+                                    padding: const EdgeInsets.all(20),
+                                    decoration: BoxDecoration(
+                                      color: red,
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(20.0),
+                                      ),
+                                    ),
+                                    child: Text(
+                                      'To: ',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                  SizedBox(width: 8),
+                                  Expanded(
+                                    child: Container(
+                                      child: Text(
+                                        selectedMapsTo,
+                                        overflow: TextOverflow.clip,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(height: 8),
+                            Container(
+                              // padding: const EdgeInsets.all(20),
+                              decoration: BoxDecoration(
+                                color: salmonColor,
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(20.0),
+                                ),
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: <Widget>[
+                                  Container(
+                                    padding: const EdgeInsets.all(20),
+                                    width: 100,
+                                    decoration: BoxDecoration(
+                                      color: red,
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(20.0),
+                                      ),
+                                    ),
+                                    child: Text(
+                                      'Distance: ',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                  SizedBox(width: 8),
+                                  Expanded(
+                                    child: Container(
+                                      child: Text(
+                                        distanceBetween.toString(),
+                                        overflow: TextOverflow.clip,
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                    Flexible(
-                        flex: 2,
-                        child: Container(
-                          padding: const EdgeInsets.all(20),
-                          decoration: new BoxDecoration(
-                            color: coralColor,
-                          ),
-                          child: Container(
-                            margin: const EdgeInsets.only(left: 30, right: 30),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: <Widget>[
-                                Container(
-                                  // padding: const EdgeInsets.all(20),
-                                  decoration: BoxDecoration(
-                                    color: salmonColor,
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(20.0),
-                                    ),
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: <Widget>[
-                                      Container(
-                                        padding: const EdgeInsets.all(20),
-                                        width: 100,
-                                        decoration: BoxDecoration(
-                                          color: red,
-                                          borderRadius: BorderRadius.all(
-                                            Radius.circular(20.0),
-                                          ),
-                                        ),
-                                        child: Text(
-                                          'From: ',
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                      ),
-                                      SizedBox(width: 8),
-                                      Expanded(
-                                        child: Container(
-                                          child: Text(
-                                            selectedMapsFrom,
-                                            overflow: TextOverflow.clip,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  // padding: const EdgeInsets.all(20),
-                                  decoration: BoxDecoration(
-                                    color: salmonColor,
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(20.0),
-                                    ),
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: <Widget>[
-                                      Container(
-                                        width: 100,
-                                        padding: const EdgeInsets.all(20),
-                                        decoration: BoxDecoration(
-                                          color: red,
-                                          borderRadius: BorderRadius.all(
-                                            Radius.circular(20.0),
-                                          ),
-                                        ),
-                                        child: Text(
-                                          'To: ',
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                      ),
-                                      SizedBox(width: 8),
-                                      Expanded(
-                                        child: Container(
-                                          child: Text(
-                                            selectedMapsTo,
-                                            overflow: TextOverflow.clip,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  // padding: const EdgeInsets.all(20),
-                                  decoration: BoxDecoration(
-                                    color: salmonColor,
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(20.0),
-                                    ),
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: <Widget>[
-                                      Container(
-                                        padding: const EdgeInsets.all(20),
-                                        width: 100,
-                                        decoration: BoxDecoration(
-                                          color: red,
-                                          borderRadius: BorderRadius.all(
-                                            Radius.circular(20.0),
-                                          ),
-                                        ),
-                                        child: Text(
-                                          'Distance: ',
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                      ),
-                                      SizedBox(width: 8),
-                                      Expanded(
-                                        child: Container(
-                                          child: Text(
-                                            distanceBetween.toString(),
-                                            overflow: TextOverflow.clip,
-                                          ),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        )),
                   ],
                 ),
               ),
