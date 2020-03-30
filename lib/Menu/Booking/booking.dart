@@ -125,7 +125,7 @@ class _BookingState extends State<Booking> {
                                 controller: _controller1,
                                 style: new TextStyle(color: Colors.black),
                                 onTap:(){              
-                                  FocusScope.of(context).requestFocus(FocusNode());                   
+                                FocusScope.of(context).requestFocus(FocusNode());                   
                                 showSearch(context: context, delegate:BusSearch("BTo",_controller1));
                               },
                                 decoration: textInputDecoration("To"),

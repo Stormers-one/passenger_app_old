@@ -142,6 +142,7 @@ class _Timing extends State<Timing> {
                                     decoration: textInputDecoration("From"),
                                     keyboardType: TextInputType.emailAddress,
                                     cursorWidth: 0,
+                                    autofocus: false,
                                     validator: (val) =>
                                         val.isEmpty && clickStatTiming
                                             ? 'This is required'
