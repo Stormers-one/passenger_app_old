@@ -151,6 +151,8 @@ class _MapView extends State<MapView> {
                                         ),
                                         child: Text(
                                           'From: ',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold),
                                         ),
                                       ),
                                       SizedBox(width: 20),
@@ -184,6 +186,8 @@ class _MapView extends State<MapView> {
                                         ),
                                         child: Text(
                                           'To: ',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold),
                                         ),
                                       ),
                                       SizedBox(width: 20),
@@ -217,6 +221,8 @@ class _MapView extends State<MapView> {
                                         ),
                                         child: Text(
                                           'Distance: ',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold),
                                         ),
                                       ),
                                       SizedBox(width: 20),
