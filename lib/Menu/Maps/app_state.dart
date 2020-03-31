@@ -13,12 +13,20 @@ class AppState with ChangeNotifier {
   final Set<Polyline> _polyLines = {};
   GoogleMapController _mapController;
   GoogleMapsServices _googleMapsServices = GoogleMapsServices();
+
+// Map access Split START 
+  // bool get tracking => _tracking;
+  // set tracking(bool track) => _tracking;
+  // static bool _tracking;
+// Map access Split END 
+
 // Distance START
   static String _distance;
   static String _duration;
   String get distance => _distance;
   String get duration => _duration;
 // Distance END
+
   TextEditingController locationController = TextEditingController();
   TextEditingController destinationController = TextEditingController();
   LatLng get initialPosition => _initialPosition;

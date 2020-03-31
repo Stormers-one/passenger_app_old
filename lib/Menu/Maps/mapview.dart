@@ -14,22 +14,6 @@ import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'googlemapservice.dart';
 import 'app_state.dart';
 
-class MapHome extends StatefulWidget {
-  MapHome({Key key, this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  _MapHome createState() => _MapHome();
-}
-
-class _MapHome extends State<MapHome> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(body: MapView());
-  }
-}
-
 class MapView extends StatefulWidget {
   @override
   _MapView createState() => _MapView();
