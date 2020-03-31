@@ -195,7 +195,7 @@ class _BookingState extends State<Booking> {
 
                                     // new Padding(
                                     //   padding: const EdgeInsets.only(top: 30.0),
-                                    // ),
+                                    // ), 
                                     // new TextFormField(
                                     //   decoration: textInputDecoration("Date Of Departure"),
                                     //   keyboardType: TextInputType.emailAddress,
