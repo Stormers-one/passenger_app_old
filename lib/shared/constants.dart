@@ -54,6 +54,9 @@ String userphno;
 
 var fare;
 var km = 0.0;
+distancing(double dist){
+    km = dist;
+  }
 var duration;
 
 var minFare = {
@@ -86,11 +89,13 @@ var perKmFare = {
   'Ananthapuri Fast': 0.78,
   'Garuda Maharaja Scania': 1.45,
 };
-getFare(String busT, double dist) {
-  if (dist <= 5) {
-    return (minFare[busT]).ceil();
+getFare(String busT,double km) {
+  if (km <= 5) {
+    fare=(minFare[busT]).ceil();
+    return fare;
   } else {
-    return (minFare[busT] + perKmFare[busT] * (dist - 5)).ceil();
+    fare=(minFare[busT] + perKmFare[busT] * (km - 5)).ceil();
+    return fare;
   }
 }
 

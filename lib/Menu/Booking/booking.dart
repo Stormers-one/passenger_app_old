@@ -9,6 +9,8 @@ import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import '../Maps/googlemapservice.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import '../../shared/loading.dart';
+
 
 class Booking extends StatefulWidget {
   @override
@@ -22,14 +24,14 @@ class _BookingState extends State<Booking> {
   TextEditingController _controller2;
   final _formkey = GlobalKey<FormState>();
   bool clickStatbooking = false;
-  
+
   GoogleMapsServices _googleMapsServices = GoogleMapsServices();
   GoogleMapsServices get googleMapsServices => _googleMapsServices;
   static String _distance;
   static String _duration;
   String get distance => _distance;
   String get duration => _duration;
-  
+
   Future<Null> _selectDate(BuildContext context) async {
     final DateTime picked = await showDatePicker(
         context: context,
@@ -65,6 +67,7 @@ class _BookingState extends State<Booking> {
     'Afternoon: 12PM to 6PM',
     'Night: 6PM to 6AM',
   ];
+  bool loading = false;
 
   @override
   void initState() {
@@ -73,7 +76,8 @@ class _BookingState extends State<Booking> {
     _controller2 = new TextEditingController();
     super.initState();
   }
-  double km;
+
+  double distance_;
   @override
   void dispose() {
     _controller?.dispose();
@@ -81,6 +85,7 @@ class _BookingState extends State<Booking> {
     _controller2?.dispose();
     super.dispose();
   }
+
   void travel(String fromLocation, String toLocation) async {
     fromLocation = fromLocation + ', Kerala';
     toLocation = toLocation + ', Kerala';
@@ -99,162 +104,178 @@ class _BookingState extends State<Booking> {
     _distance = await _googleMapsServices.getTravelDistance(start, destination);
     // _duration = await _googleMapsServices.getTravelDuration(start, destination);
     String dist = _distance;
-    dist=dist.substring(0,dist.length-3);
+    dist = dist.substring(0, dist.length - 3);
     print(_distance);
     print(dist);
-    km = double.parse(dist);
+    distance_ = double.parse(dist);
+    distancing(distance_);
   }
+
   bool clickStatBooking = false;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Booking',
-      home: Scaffold(
-        backgroundColor: Colors.orange[100],
-        appBar: AppBar(
-          elevation: 0,
-          title: Text('Booking'),
-          backgroundColor: Colors.red[500],
-        ),
-        drawer: DrawerBuild(),
-        body: Center(
-          child: ListView(
-              shrinkWrap: true,
-              padding: const EdgeInsets.all(20.0),
-              children: <Widget>[
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Center(
-                      child: Container(
-                        padding: const EdgeInsets.all(40.0),
-                        child: new Form(
-                          key: _formkey,
-                          autovalidate: true,
-                          child: new Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: <Widget>[
-                              new TextFormField(
-                                controller: _controller,
-                                style: new TextStyle(color: Colors.black),
-                                onTap:(){     
-                                FocusScope.of(context).requestFocus(FocusNode());                            
-                                showSearch(context: context, delegate:BusSearch("BFrom",_controller));
-                              },
-                                decoration: textInputDecoration("From"),
-                                keyboardType: TextInputType.emailAddress,
-                                cursorWidth: 0,
-                                autofocus: false,
-                                validator: (val) => val.isEmpty && clickStatBooking
-                                            ? 'This is required'
-                                            : null,
-                              ),
-                              new Padding(
-                                padding: const EdgeInsets.only(top: 10.0),
-                              ),
-                              new TextFormField(
-                                controller: _controller1,
-                                style: new TextStyle(color: Colors.black),
-                                onTap:(){              
-                                FocusScope.of(context).requestFocus(FocusNode());                   
-                                showSearch(context: context, delegate:BusSearch("BTo",_controller1));
-                              },
-                                decoration: textInputDecoration("To"),
-                                obscureText: false,
-                                keyboardType: TextInputType.text,
-                                cursorWidth: 0,
-                                validator: (val) { 
-                                  if (val.isEmpty && clickStatBooking){
-                                    return 'This is requied';
-                                  }
-                                  else if (_controller.text == _controller1.text && _controller.text.isNotEmpty){
-                                    return 'Both location should not be same';
-                                  }
-                                  else{
-                                    return null;
-                                  }
-                                }
-                              ),
-                              
-                              // new Padding(
-                              //   padding: const EdgeInsets.only(top: 30.0),
-                              // ),
-                              // new TextFormField(
-                              //   decoration: textInputDecoration("Date Of Departure"),
-                              //   keyboardType: TextInputType.emailAddress,
-                              // ),
-                              new Padding(
-                              padding: const EdgeInsets.only(top: 30.0),
-                            ),
-                                new Padding(
-                                  padding: const EdgeInsets.only(top: 30.0),
-                                ),
-                                new DropdownButtonFormField(
-                                  hint: Text(
-                                    'Bus Type',
-                                    style: TextStyle(color: Colors.grey),
-                                  ),
-                                  value: _currentBusType.isNotEmpty
-                                      ? _currentBusType
-                                      : null,
-                                  items: bustype
-                                      .map((value) => new DropdownMenuItem(
-                                            value: value,
-                                            child: Text('$value'),
-                                          ))
-                                      .toList(),
-                                  isExpanded: true,
-                                  onChanged: (val) => setState(() {
-                                    _currentBusType = val;
-                                    FocusScope.of(context).requestFocus(FocusNode()); 
-                                  }),
-                                  decoration: textInputDecorationNoHint(),
-                                ),
-                                new Padding(
-                                  padding: const EdgeInsets.only(top: 30.0),
-                                ),
-                                SizedBox(
-                                  height: 50,
-                                  width: 200,
-                                  child: RaisedButton(
-                                    onPressed: () {
-                                      travel(selectedBookingFrom,selectedBookingTo);
-                                      // customClass(km);
-                                      fare = getFare(_currentBusType,km);
-                                      clickStatBooking = true;
-                                      if (_formkey.currentState.validate()) {                                        
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    BookingConfirm()));
-                                      }
-                                    },
-                                    child: const Text('Proceed',
-                                        style: TextStyle(fontSize: 20)),
-                                    color: Colors.red,
-                                    textColor: Colors.white,
-                                    splashColor: Colors.grey,
-                                    padding:
-                                        EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(20.0),
-                                      side:
-                                          BorderSide(color: Colors.transparent),
+      home: loading?Loading():Scaffold(
+              backgroundColor: Colors.orange[100],
+              appBar: AppBar(
+                elevation: 0,
+                title: Text('Booking'),
+                backgroundColor: Colors.red[500],
+              ),
+              drawer: DrawerBuild(),
+              body: Center(
+                child: ListView(
+                    shrinkWrap: true,
+                    padding: const EdgeInsets.all(20.0),
+                    children: <Widget>[
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Center(
+                            child: Container(
+                              padding: const EdgeInsets.all(40.0),
+                              child: new Form(
+                                key: _formkey,
+                                autovalidate: true,
+                                child: new Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: <Widget>[
+                                    new TextFormField(
+                                      controller: _controller,
+                                      style: new TextStyle(color: Colors.black),
+                                      onTap: () {
+                                        FocusScope.of(context)
+                                            .requestFocus(FocusNode());
+                                        showSearch(
+                                            context: context,
+                                            delegate: BusSearch(
+                                                "BFrom", _controller));
+                                      },
+                                      decoration: textInputDecoration("From"),
+                                      keyboardType: TextInputType.emailAddress,
+                                      cursorWidth: 0,
+                                      autofocus: false,
+                                      validator: (val) =>
+                                          val.isEmpty && clickStatBooking
+                                              ? 'This is required'
+                                              : null,
                                     ),
-                                  ),
+                                    new Padding(
+                                      padding: const EdgeInsets.only(top: 10.0),
+                                    ),
+                                    new TextFormField(
+                                        controller: _controller1,
+                                        style:
+                                            new TextStyle(color: Colors.black),
+                                        onTap: () {
+                                          FocusScope.of(context)
+                                              .requestFocus(FocusNode());
+                                          showSearch(
+                                              context: context,
+                                              delegate: BusSearch(
+                                                  "BTo", _controller1));
+                                        },
+                                        decoration: textInputDecoration("To"),
+                                        obscureText: false,
+                                        keyboardType: TextInputType.text,
+                                        cursorWidth: 0,
+                                        validator: (val) {
+                                          if (val.isEmpty && clickStatBooking) {
+                                            return 'This is requied';
+                                          } else if (_controller.text ==
+                                                  _controller1.text &&
+                                              _controller.text.isNotEmpty) {
+                                            return 'Both location should not be same';
+                                          } else {
+                                            return null;
+                                          }
+                                        }),
+
+                                    // new Padding(
+                                    //   padding: const EdgeInsets.only(top: 30.0),
+                                    // ),
+                                    // new TextFormField(
+                                    //   decoration: textInputDecoration("Date Of Departure"),
+                                    //   keyboardType: TextInputType.emailAddress,
+                                    // ),
+                                    new Padding(
+                                      padding: const EdgeInsets.only(top: 30.0),
+                                    ),
+                                    new Padding(
+                                      padding: const EdgeInsets.only(top: 30.0),
+                                    ),
+                                    new DropdownButtonFormField(
+                                      hint: Text(
+                                        'Bus Type',
+                                        style: TextStyle(color: Colors.grey),
+                                      ),
+                                      value: _currentBusType.isNotEmpty
+                                          ? _currentBusType
+                                          : null,
+                                      items: bustype
+                                          .map((value) => new DropdownMenuItem(
+                                                value: value,
+                                                child: Text('$value'),
+                                              ))
+                                          .toList(),
+                                      isExpanded: true,
+                                      onChanged: (val) => setState(() {
+                                        _currentBusType = val;
+                                        travel(selectedBookingFrom,
+                                              selectedBookingTo);
+                                        FocusScope.of(context)
+                                            .requestFocus(FocusNode());
+                                      }),
+                                      decoration: textInputDecorationNoHint(),
+                                    ),
+                                    new Padding(
+                                      padding: const EdgeInsets.only(top: 30.0),
+                                    ),
+                                    SizedBox(
+                                      height: 50,
+                                      width: 200,
+                                      child: RaisedButton(
+                                        onPressed: () {
+                                          // customClass(km);
+                                          fare = getFare(
+                                              _currentBusType, distance_);
+                                          clickStatBooking = true;
+                                          if (_formkey.currentState
+                                              .validate()) {
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        BookingConfirm()));
+                                          }
+                                        },
+                                        child: const Text('Proceed',
+                                            style: TextStyle(fontSize: 20)),
+                                        color: Colors.red,
+                                        textColor: Colors.white,
+                                        splashColor: Colors.grey,
+                                        padding:
+                                            EdgeInsets.fromLTRB(10, 10, 10, 10),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(20.0),
+                                          side: BorderSide(
+                                              color: Colors.transparent),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              ],
+                              ),
                             ),
                           ),
-                        ),
+                        ],
                       ),
-                    ],
-                  ),
-                ]),
-          ),
-        ),
+                    ]),
+              ),
+            ),
     );
   }
 }
