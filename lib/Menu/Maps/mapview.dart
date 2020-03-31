@@ -242,6 +242,45 @@ class _MapView extends State<MapView> {
                                 ],
                               ),
                             ),
+                            SizedBox(height: 8),
+                            Container(
+                              // padding: const EdgeInsets.all(20),
+                              decoration: BoxDecoration(
+                                color: salmonColor,
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(20.0),
+                                ),
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: <Widget>[
+                                  Container(
+                                    padding: const EdgeInsets.all(20),
+                                    width: 100,
+                                    decoration: BoxDecoration(
+                                      color: red,
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(20.0),
+                                      ),
+                                    ),
+                                    child: Text(
+                                      'Duration: ',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                  SizedBox(width: 8),
+                                  Expanded(
+                                    child: Container(
+                                      child: Text(
+                                        appState.duration,
+                                        overflow: TextOverflow.clip,
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
                           ],
                         ),
                       ),
