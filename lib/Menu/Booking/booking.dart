@@ -86,7 +86,7 @@ class _BookingState extends State<Booking> {
     super.dispose();
   }
 
-  void travel(String fromLocation, String toLocation) async {
+   Future travel(String fromLocation, String toLocation) async {
     fromLocation = fromLocation + ', Kerala';
     toLocation = toLocation + ', Kerala';
     List<Placemark> placemark1 =
@@ -191,15 +191,8 @@ class _BookingState extends State<Booking> {
                                           } else {
                                             return null;
                                           }
-                                        }),
-
-                                    // new Padding(
-                                    //   padding: const EdgeInsets.only(top: 30.0),
-                                    // ), 
-                                    // new TextFormField(
-                                    //   decoration: textInputDecoration("Date Of Departure"),
-                                    //   keyboardType: TextInputType.emailAddress,
-                                    // ),
+                                        },
+                                        ),
                                     new Padding(
                                       padding: const EdgeInsets.only(top: 30.0),
                                     ),
@@ -223,12 +216,18 @@ class _BookingState extends State<Booking> {
                                       isExpanded: true,
                                       onChanged: (val) => setState(() {
                                         _currentBusType = val;
-                                        travel(selectedBookingFrom,
-                                              selectedBookingTo);
                                         FocusScope.of(context)
                                             .requestFocus(FocusNode());
                                       }),
                                       decoration: textInputDecorationNoHint(),
+                                      validator: (value) {
+                                        if (value == null && clickStatBooking) {
+                                          return "Select The Bus Type";
+                                        }
+                                        else{
+                                          return null;
+                                        }
+                                      },
                                     ),
                                     new Padding(
                                       padding: const EdgeInsets.only(top: 30.0),
@@ -237,8 +236,11 @@ class _BookingState extends State<Booking> {
                                       height: 50,
                                       width: 200,
                                       child: RaisedButton(
-                                        onPressed: () {
-                                          // customClass(km);
+                                        onPressed: () async  {
+                                          loading=true;
+                                          await travel(selectedBookingFrom,
+                                              selectedBookingTo);
+                                          loading = false;
                                           fare = getFare(
                                               _currentBusType, distance_);
                                           clickStatBooking = true;
