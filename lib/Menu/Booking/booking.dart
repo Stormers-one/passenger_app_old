@@ -216,6 +216,7 @@ class _BookingState extends State<Booking> {
                                       isExpanded: true,
                                       onChanged: (val) => setState(() {
                                         _currentBusType = val;
+                                        selectedBookingBusType = val;
                                         FocusScope.of(context)
                                             .requestFocus(FocusNode());
                                       }),

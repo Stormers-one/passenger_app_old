@@ -8,10 +8,15 @@ import 'package:o_k/shared/colors.dart';
 import '../Menu/Maps/googlemapservice.dart';
 
 getBookingId() {
-  final Random bookid = Random.secure();
-  final List<int> values = List<int>.generate(10, (i) => bookid.nextInt(256));
-  var bid = base64.encode(values).substring(0, 5);
-  return bid;
+  // final Random bookid = Random.secure();
+  // final List<int> values = List<int>.generate(10, (i) => bookid.nextInt(256));
+  // var bid = base64.encode(values).substring(0, 5);
+  var rnd = new Random();
+  var bid = rnd.nextDouble() * 1000000;
+  while(bid < 100000){
+    bid*=10;
+  }
+  return bid.floor().toString();
 }
 
 String time1;
@@ -42,6 +47,7 @@ String selectedMapsFrom = "";
 String selectedMapsTo = "";
 String alphaNumberc =
     "ABCDEFGHJCLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz";
+String selectedBookingBusType="";
 
 //Click Status
 bool clickStatLogin = false;
@@ -51,6 +57,7 @@ bool clickStatBooking = false;
 String username;
 String useremail;
 String userphno;
+String userID;
 
 var fare;
 var km = 0.0;

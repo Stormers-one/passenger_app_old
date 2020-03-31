@@ -7,7 +7,9 @@ import 'package:o_k/shared/loading.dart';
 import 'package:provider/provider.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
-class Ticket extends StatelessWidget {
+class TicketDisplay extends StatelessWidget {
+  
+  bool booking = true;
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<User>(context);
@@ -38,7 +40,21 @@ class Ticket extends StatelessWidget {
                         username = userData.fname;
                         useremail = userData.email;
                         userphno = userData.phno;
+                        userID = userData.uid;
                         bidn = getBookingId();
+                        print(bidn);
+                        if(booking){
+                          booking=false;
+                          DatabaseService(uid: userData.uid).addBooking(
+                            userData.uid,
+                            fare,
+                            bidn,
+                            userData.phno,
+                            selectedBookingFrom,
+                            selectedBookingTo,
+                            selectedBookingBusType
+                          );
+                        }
                         return Form(
                           child: Container(
                             padding: EdgeInsets.all(20.0),
@@ -127,7 +143,6 @@ class Ticket extends StatelessWidget {
                                   ),
                                   SizedBox(height: 30),
                                   QrImage(
-                                    //data: "From: \"$selectedBookingFrom\" \nTo: \"$selectedBookingTo\" \nBooking ID: \"" + bid + "\" \nName: \"" + userData.fname + "\" \nEmail: \"" + userData.email + "\"Fare: ",
                                     data: qrdata.toString(),
                                     version: QrVersions.auto,
                                     size: 200.0,

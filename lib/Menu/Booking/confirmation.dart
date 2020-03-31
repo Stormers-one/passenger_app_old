@@ -48,7 +48,7 @@ class _BookingConfirm extends State<BookingConfirm>{
       context,
       MaterialPageRoute(
           builder: (context) =>
-              Ticket()));
+              TicketDisplay()));
   }
   void _handlePaymentError(PaymentFailureResponse response){
     Fluttertoast.showToast(msg: "PAYMENT ERROR" + " " +  response.code.toString() + " " + response.message );

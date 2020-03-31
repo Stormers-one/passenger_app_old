@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:o_k/Menu/Booking/Ticket.dart';
 import 'package:o_k/shared/constants.dart';
-Ticket qrd = new Ticket();
+TicketDisplay qrd = new TicketDisplay();
 class BusSearch extends SearchDelegate<String> {
   String fromto;
   TextEditingController controller = new TextEditingController();
