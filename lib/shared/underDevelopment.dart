@@ -28,9 +28,9 @@ class Box extends StatelessWidget {
             return Container(
               decoration: boxDecoration,
               width: width,
-              height: height,
+              height: 150,
               child: isEnoughRoomForTypewriter(width)
-                  ? TypewriterText("This Module Is \nUnder Development")
+                  ? TypewriterText("DEVELOPMENT\nUNDER\nPROCESS")
                   : Container(),
             );
           },
@@ -44,7 +44,7 @@ class Box extends StatelessWidget {
 
 class TypewriterText extends StatelessWidget {
   static const TEXT_STYLE =
-      TextStyle(letterSpacing: 5, fontSize: 20, fontWeight: FontWeight.w300);
+      TextStyle(letterSpacing: 5, fontSize: 25, fontWeight: FontWeight.w300,);
 
   final String text;
   TypewriterText(this.text);
@@ -76,7 +76,7 @@ class TypewriterText extends StatelessWidget {
   }
 }
 
-class TypewriterBoxDemo extends StatelessWidget {
+class UnderDev extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ExamplePage(
