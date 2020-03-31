@@ -50,6 +50,7 @@ class _ExamplePageState extends State<ExamplePage> {
     return AppBar(
       title: Text(widget.title),
       actions: <Widget>[_reloadExampleButton(),],
+      backgroundColor: Colors.red[500],
     );
   }
 
