@@ -6,6 +6,9 @@ import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/drawer.dart';
 import 'package:intl/intl.dart';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
+import '../Maps/googlemapservice.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class Booking extends StatefulWidget {
   @override
@@ -19,7 +22,14 @@ class _BookingState extends State<Booking> {
   TextEditingController _controller2;
   final _formkey = GlobalKey<FormState>();
   bool clickStatbooking = false;
-
+  
+  GoogleMapsServices _googleMapsServices = GoogleMapsServices();
+  GoogleMapsServices get googleMapsServices => _googleMapsServices;
+  static String _distance;
+  static String _duration;
+  String get distance => _distance;
+  String get duration => _duration;
+  
   Future<Null> _selectDate(BuildContext context) async {
     final DateTime picked = await showDatePicker(
         context: context,
@@ -63,7 +73,7 @@ class _BookingState extends State<Booking> {
     _controller2 = new TextEditingController();
     super.initState();
   }
-
+  double km;
   @override
   void dispose() {
     _controller?.dispose();
@@ -71,7 +81,29 @@ class _BookingState extends State<Booking> {
     _controller2?.dispose();
     super.dispose();
   }
-
+  void travel(String fromLocation, String toLocation) async {
+    fromLocation = fromLocation + ', Kerala';
+    toLocation = toLocation + ', Kerala';
+    List<Placemark> placemark1 =
+        await Geolocator().placemarkFromAddress(fromLocation);
+    print(placemark1);
+    List<Placemark> placemark2 =
+        await Geolocator().placemarkFromAddress(toLocation);
+    print(placemark2);
+    double latitude1 = placemark1[0].position.latitude;
+    double longitude1 = placemark1[0].position.longitude;
+    double latitude2 = placemark2[0].position.latitude;
+    double longitude2 = placemark2[0].position.longitude;
+    LatLng start = LatLng(latitude1, longitude1);
+    LatLng destination = LatLng(latitude2, longitude2);
+    _distance = await _googleMapsServices.getTravelDistance(start, destination);
+    // _duration = await _googleMapsServices.getTravelDuration(start, destination);
+    String dist = _distance;
+    dist=dist.substring(0,dist.length-3);
+    print(_distance);
+    print(dist);
+    km = double.parse(dist);
+  }
   bool clickStatBooking = false;
 
   @override
@@ -187,9 +219,11 @@ class _BookingState extends State<Booking> {
                                   width: 200,
                                   child: RaisedButton(
                                     onPressed: () {
-                                      fare = getFare(_currentBusType);
+                                      travel(selectedBookingFrom,selectedBookingTo);
+                                      // customClass(km);
+                                      fare = getFare(_currentBusType,km);
                                       clickStatBooking = true;
-                                      if (_formkey.currentState.validate()) {
+                                      if (_formkey.currentState.validate()) {                                        
                                         Navigator.push(
                                             context,
                                             MaterialPageRoute(

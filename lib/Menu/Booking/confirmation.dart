@@ -116,7 +116,7 @@ class _BookingConfirm extends State<BookingConfirm>{
                                         labelText: selectedBookingFrom,
                                         labelStyle: TextStyle(
                                             fontSize: 15, color: Colors.black),
-                                        icon: Icon(Icons.play_circle_outline),
+                                        icon: Icon(Icons.person_pin), //directions_bus
                                         fillColor: Colors.grey[300],
                                         filled: true,
                                         border: OutlineInputBorder(
@@ -136,7 +136,7 @@ class _BookingConfirm extends State<BookingConfirm>{
                                         labelText: selectedBookingTo,
                                         labelStyle: TextStyle(
                                             fontSize: 15, color: Colors.black),
-                                        icon: Icon(Icons.stop),
+                                        icon: Icon(Icons.pin_drop),
                                         fillColor: Colors.grey[300],
                                         filled: true,
                                         border: OutlineInputBorder(
