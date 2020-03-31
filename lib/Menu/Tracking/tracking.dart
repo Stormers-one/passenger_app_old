@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/drawer.dart';
+import 'mapview.dart';
 
 class Tracking extends StatelessWidget {
   @override
@@ -51,7 +52,13 @@ class Tracking extends StatelessWidget {
                                 height: 50,
                                 width: 200,
                                 child: RaisedButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => MapView()),
+                                    );
+                                  },
                                   child: const Text('Search',
                                       style: TextStyle(fontSize: 20)),
                                   color: Colors.red,
