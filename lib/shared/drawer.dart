@@ -6,6 +6,7 @@ import 'package:o_k/Menu/reports.dart';
 import 'package:o_k/User/profile.dart';
 import 'package:o_k/User/user_count.dart';
 import 'package:o_k/homepage.dart';
+import 'package:o_k/shared/underDevelopment.dart';
 
 class DrawerBuild extends StatelessWidget {
   @override
@@ -66,16 +67,16 @@ class DrawerBuild extends StatelessWidget {
                     );
                   },
                 ),
-                /*ListTile(
+                ListTile(
                   leading: Icon(Icons.settings),
-                  title: Text('Settings'),
+                  title: Text('Under Dev'),
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Settings()),
+                      MaterialPageRoute(builder: (context) => UnderDev()),
                     );
                   },
-                ),*/
+                ),
                 ListTile(
                   leading: Icon(MdiIcons.ticket),
                   title: Text('My Bookings'),
