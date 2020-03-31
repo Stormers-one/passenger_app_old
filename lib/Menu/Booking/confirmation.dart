@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:o_k/Menu/Booking/Ticket.dart';
 import 'package:o_k/model/user.dart';
@@ -7,8 +8,49 @@ import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/drawer.dart';
 import 'package:o_k/shared/loading.dart';
 import 'package:provider/provider.dart';
+import 'package:razorpay_flutter/razorpay_flutter.dart';
 
-class BookingConfirm extends StatelessWidget {
+class BookingConfirm extends StatefulWidget {
+  _BookingConfirm createState() => _BookingConfirm();
+}
+class _BookingConfirm extends State<BookingConfirm>{
+  Razorpay _razorpay;
+  void initState(){
+    super.initState();
+    _razorpay = Razorpay();
+    _razorpay.on(Razorpay.EVENT_PAYMENT_SUCCESS, _handlePaymentSucess);
+    _razorpay.on(Razorpay.EVENT_PAYMENT_ERROR, _handlePaymentError);
+  }
+  void dispose(){
+    super.dispose();
+    _razorpay.clear();
+  }
+  void openCheckout() async{
+    var options = {
+      'key' : 'rzp_test_XJNlckGyObxbKr',
+      'amount' : fare*100,
+      'name' : 'Odu Komban',
+      'description' : 'Unreserved Ticket Booking',
+      'prefill' : {'contact': '','email':''},
+    };
+    try{
+      _razorpay.open(options);
+    }
+    catch(e){
+      print(e);
+    }
+  }
+  void _handlePaymentSucess(PaymentSuccessResponse response){
+    Fluttertoast.showToast(msg: "SUCCESS" + response.paymentId);
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+          builder: (context) =>
+              Ticket()));
+  }
+  void _handlePaymentError(PaymentFailureResponse response){
+    Fluttertoast.showToast(msg: "PAYMENT ERROR" + " " +  response.code.toString() + " " + response.message );
+  }
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<User>(context);
@@ -133,11 +175,7 @@ class BookingConfirm extends StatelessWidget {
                                       width: 200,
                                       child: RaisedButton(
                                         onPressed: () {
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      Ticket()));
+                                          openCheckout();
                                         },
                                         child: const Text('Proceed To Payment',
                                             style: TextStyle(fontSize: 18)),
