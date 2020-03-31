@@ -113,7 +113,7 @@ List<TicketData> _bookingList(QuerySnapshot snapshot){
   }
 
   Stream<List<TicketData>> get ticketdata{
-    return ticketsCollection.where('UID',isEqualTo : uid).snapshots().map(_bookingList);
+    return ticketsCollection.where('UID',isEqualTo : userID).snapshots().map(_bookingList);
   }
 
 }
