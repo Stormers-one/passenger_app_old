@@ -7,12 +7,16 @@ import '../Maps/googlemapservice.dart';
 
 class AppState with ChangeNotifier {
   static LatLng _initialPosition;
+  static String _distance;
   LatLng _lastPosition = _initialPosition;
   bool locationServiceActive = true;
   final Set<Marker> _markers = {};
   final Set<Polyline> _polyLines = {};
   GoogleMapController _mapController;
   GoogleMapsServices _googleMapsServices = GoogleMapsServices();
+// Distance START
+  String get distance => _distance;
+// Distance END
   TextEditingController locationController = TextEditingController();
   TextEditingController destinationController = TextEditingController();
   LatLng get initialPosition => _initialPosition;
@@ -42,7 +46,6 @@ class AppState with ChangeNotifier {
     double latitude2 = placemark2[0].position.latitude;
     double longitude2 = placemark2[0].position.longitude;
     LatLng start = LatLng(latitude1, longitude1);
-     _initialPosition = start;
     LatLng destination = LatLng(latitude2, longitude2);
     _markers.clear();
     _addMarker(start, fromLocation);
@@ -50,6 +53,9 @@ class AppState with ChangeNotifier {
     String route =
         await _googleMapsServices.getRouteCoordinates(start, destination);
     createRoute(route);
+    _distance =
+        await _googleMapsServices.getRouteTravel(start, destination);
+    _initialPosition = start;
     notifyListeners();
   }
 

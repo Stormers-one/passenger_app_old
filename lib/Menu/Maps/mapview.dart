@@ -234,7 +234,7 @@ class _MapView extends State<MapView> {
                                   Expanded(
                                     child: Container(
                                       child: Text(
-                                        distanceBetween.toString(),
+                                        appState.distance,
                                         overflow: TextOverflow.clip,
                                       ),
                                     ),
