@@ -15,6 +15,7 @@ class BookingConfirm extends StatefulWidget {
 }
 class _BookingConfirm extends State<BookingConfirm>{
   Razorpay _razorpay;
+  bool loading = false;
   void initState(){
     super.initState();
     _razorpay = Razorpay();
@@ -35,6 +36,7 @@ class _BookingConfirm extends State<BookingConfirm>{
     };
     try{
       _razorpay.open(options);
+      loading= false;
     }
     catch(e){
       print(e);
@@ -54,7 +56,7 @@ class _BookingConfirm extends State<BookingConfirm>{
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<User>(context);
-    return MaterialApp(
+    return loading ? Loading():  MaterialApp(
       title: 'Confirm Details',
       home: Scaffold(
         backgroundColor: Colors.orange[100],
@@ -175,6 +177,7 @@ class _BookingConfirm extends State<BookingConfirm>{
                                       width: 200,
                                       child: RaisedButton(
                                         onPressed: () {
+                                          loading = true;
                                           openCheckout();
                                         },
                                         child: const Text('Proceed To Payment',
