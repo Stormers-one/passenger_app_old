@@ -35,7 +35,7 @@ class _ExamplePageState extends State<ExamplePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _appbar(),
-      backgroundColor: Colors.orange[100],
+      backgroundColor: bgOrange,
       body: Container(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

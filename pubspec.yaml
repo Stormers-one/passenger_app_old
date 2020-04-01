@@ -88,6 +88,28 @@ flutter:
     - assets/images/profile-icon.png
     - assets/images/bus_fleet.png
 
+  fonts:
+    - family: Quicksand-SemiBold
+      fonts:
+        - asset: assets/fonts/Quicksand-SemiBold.ttf
+        - weight: 600
+    - family: Quicksand-Bold
+      fonts:
+        - asset: assets/fonts/Quicksand-Bold.ttf
+        - weight: 700
+    - family: Quicksand-Light
+      fonts:
+        - asset: assets/fonts/Quicksand-Light.ttf
+        - weight: 300
+    - family: Quicksand-Medium
+      fonts: 
+        - asset: assets/fonts/Quicksand-Medium.ttf
+        - weight: 500
+    - family: Quicksand-Regular
+      fonts: 
+        - asset: assets/fonts/Quicksand-Regular.ttf
+        - weight: 400
+
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

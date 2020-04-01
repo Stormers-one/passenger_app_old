@@ -41,7 +41,7 @@ class Button extends StatelessWidget {
               new Padding(
                 padding: const EdgeInsets.only(top: 2.0),
               ),
-              Text(text),
+              Text(text,style: TextStyle(fontFamily: 'Quicksand-Bold',)),
             ],
           ),
           onPressed: () {

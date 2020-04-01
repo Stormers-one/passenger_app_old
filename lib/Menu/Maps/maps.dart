@@ -38,6 +38,7 @@ class _Maps extends State<Maps> {
 
     return MaterialApp(
       title: 'Maps',
+      theme: ThemeData(fontFamily: 'Quicksand-Medium'),
       home: Scaffold(
         backgroundColor: Colors.orange[100],
         resizeToAvoidBottomPadding: false,

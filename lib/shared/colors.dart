@@ -12,3 +12,4 @@ Color darkSeaGreen = const Color(0xFF83BCA9);
 Color red = Colors.red[400];
 Color bgOrange = Colors.orange[100];
 Color orange = Colors.orange[400];
+Color lavender = const Color(0xFF7C6C77);

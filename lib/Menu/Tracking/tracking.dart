@@ -9,6 +9,7 @@ class Tracking extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Tracking',
+      theme: ThemeData(fontFamily: 'Quicksand-Medium'),
       home: Scaffold(
         backgroundColor: Colors.orange[100],
         appBar: AppBar(

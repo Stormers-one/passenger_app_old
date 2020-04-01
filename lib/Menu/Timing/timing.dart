@@ -101,7 +101,9 @@ class _Timing extends State<Timing> {
       value: DatabaseService().busStopData,
       child: MaterialApp(
         title: 'Bus Timing',
+        theme: ThemeData(fontFamily: 'Quicksand-Medium'),
         home: Scaffold(
+          
           backgroundColor: Colors.orange[100],
           appBar: AppBar(
             elevation: 0,

@@ -29,12 +29,13 @@ class _DrawerBuild extends State<DrawerBuild>{
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 24,
+                      fontFamily: 'Quicksand-Bold',
                     ),
                   ),
                 ),
                 ListTile(
                   leading: Icon(Icons.home),
-                  title: Text('Home'),
+                  title: Text('Home', style: TextStyle(fontFamily: 'Quicksand-Bold',)),
                   onTap: () {
                     Navigator.push(
                       context,
@@ -64,12 +65,11 @@ class _DrawerBuild extends State<DrawerBuild>{
                 // ),
                 ListTile(
                   leading: Icon(Icons.account_circle),
-                  title: Text('Profile'),
+                  title: Text('Profile',style: TextStyle(fontFamily: 'Quicksand-Bold',)),
                   onTap: () async {
                     await getim();
                     setState(() {
-                      Navigator.push(
-                      context,
+                      Navigator.push(context,
                       MaterialPageRoute(builder: (context) => Profile()),
                     );
                     });
@@ -77,7 +77,7 @@ class _DrawerBuild extends State<DrawerBuild>{
                 ),
                 ListTile(
                   leading: Icon(Icons.settings),
-                  title: Text('Under Dev'),
+                  title: Text('Under Dev',style: TextStyle(fontFamily: 'Quicksand-Bold',)),
                   onTap: () {
                     Navigator.push(
                       context,
@@ -87,7 +87,7 @@ class _DrawerBuild extends State<DrawerBuild>{
                 ),
                 ListTile(
                   leading: Icon(MdiIcons.ticket),
-                  title: Text('My Bookings'),
+                  title: Text('My Bookings',style: TextStyle(fontFamily: 'Quicksand-Bold',)),
                   onTap: () {
                     Navigator.push(
                       context,
@@ -97,7 +97,7 @@ class _DrawerBuild extends State<DrawerBuild>{
                 ),
                 ListTile(
                   leading: Icon(Icons.report),
-                  title: Text('Report'),
+                  title: Text('Report',style: TextStyle(fontFamily: 'Quicksand-Bold',)),
                   onTap: () {
                     Navigator.push(
                       context,
@@ -107,7 +107,7 @@ class _DrawerBuild extends State<DrawerBuild>{
                 ),
                 ListTile(
                   leading: Icon(Icons.help),
-                  title: Text('Help'),
+                  title: Text('Help',style: TextStyle(fontFamily: 'Quicksand-Bold',)),
                   onTap: () {
                     Navigator.push(
                       context,

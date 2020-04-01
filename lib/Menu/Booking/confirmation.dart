@@ -58,6 +58,7 @@ class _BookingConfirm extends State<BookingConfirm>{
   Widget build(BuildContext context) {
     final user = Provider.of<User>(context);
     return loading ? Loading():  MaterialApp(
+      theme: ThemeData(fontFamily: 'Quicksand-Medium'),
       title: 'Confirm Details',
       home: Scaffold(
         backgroundColor: Colors.orange[100],

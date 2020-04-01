@@ -116,6 +116,7 @@ class _BookingState extends State<Booking> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(fontFamily: 'Quicksand-Medium'),
       title: 'Booking',
       home: loading?Loading():Scaffold(
               backgroundColor: Colors.orange[100],

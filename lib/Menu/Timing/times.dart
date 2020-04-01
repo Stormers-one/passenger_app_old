@@ -13,6 +13,7 @@ class Times extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(fontFamily: 'Quicksand-Medium'),
       debugShowCheckedModeBanner: false,
       title: 'Timings',
       home: Scaffold(

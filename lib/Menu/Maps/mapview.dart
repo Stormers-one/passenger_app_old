@@ -77,6 +77,7 @@ class _MapView extends State<MapView> {
     final appState = Provider.of<AppState>(context);
 
     return MaterialApp(
+      theme: ThemeData(fontFamily: 'Quicksand-Medium'),
       home: appState.initialPosition == null
           ? Loading()
           : Scaffold(

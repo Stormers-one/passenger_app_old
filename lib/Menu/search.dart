@@ -8,6 +8,7 @@ class Search extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Search',
+      theme: ThemeData(fontFamily: 'Quicksand-Medium'),
       home: Scaffold(
         drawer: DrawerBuild(),
         backgroundColor: Colors.orange[100],

@@ -16,6 +16,7 @@ class TicketDisplay extends StatelessWidget {
     final user = Provider.of<User>(context);
     return MaterialApp(
       title: 'Your Ticket',
+      theme: ThemeData(fontFamily: 'Quicksand-Medium'),
       home: Scaffold(
         backgroundColor: Colors.orange[100],
         appBar: AppBar(
