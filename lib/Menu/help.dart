@@ -10,6 +10,10 @@ List<String> devs = [
   'Smitha John',
   'Kennith Philips'
 ];
+Color factColor = coralColor;
+Color factBoxColor = salmonColor;
+Color helpBoxColor = salmonColor;
+Color helpColor = coralColor;
 
 class Help extends StatelessWidget {
   @override
@@ -18,7 +22,7 @@ class Help extends StatelessWidget {
       theme: ThemeData(fontFamily: 'Quicksand-Medium'),
       title: 'Help',
       home: Scaffold(
-        backgroundColor: Colors.orange[100],
+        backgroundColor: salmonColor,
         // appBar: AppBar(
         //   elevation: 0,
         //   backgroundColor: red,
@@ -43,7 +47,7 @@ class Help extends StatelessWidget {
                       padding: const EdgeInsets.all(15),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(15)),
-                        color: coralColor,
+                        color: helpBoxColor,
                       ),
                       child: Column(
                         children: <Widget>[
@@ -55,33 +59,32 @@ class Help extends StatelessWidget {
                           SizedBox(
                             height: 10,
                           ),
-                          Card(
-                            color: salmonColor,
-                            child: Container(
-                              padding: const EdgeInsets.all(15),
-                              decoration: BoxDecoration(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(15)),
-                              ),
-                              width: MediaQuery.of(context).size.width * 0.90,
-                              child: Text('Helpline No.',
-                                  style:
-                                      TextStyle(fontWeight: FontWeight.normal)),
+                          Container(
+                            padding: const EdgeInsets.all(15),
+                            decoration: BoxDecoration(
+                              color: helpColor,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(15)),
                             ),
+                            width: MediaQuery.of(context).size.width * 0.90,
+                            child: Text('Helpline No.',
+                                style:
+                                    TextStyle(fontWeight: FontWeight.normal,fontFamily: 'Quicksand-SemiBold')),
                           ), 
-                          Card(
-                            color: salmonColor,
-                            child: Container(
-                              padding: const EdgeInsets.all(15),
-                              decoration: BoxDecoration(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(15)),
-                              ),
-                              width: MediaQuery.of(context).size.width * 0.90,
-                              child: Text('KeralaRTC Hub',
-                                  style:
-                                      TextStyle(fontWeight: FontWeight.normal)),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Container(
+                            padding: const EdgeInsets.all(15),
+                            decoration: BoxDecoration(
+                              color: helpColor,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(15)),
                             ),
+                            width: MediaQuery.of(context).size.width * 0.90,
+                            child: Text('KeralaRTC Hub',
+                                style:
+                                    TextStyle(fontWeight: FontWeight.normal,fontFamily: 'Quicksand-SemiBold')),
                           ),
                         ],
                       ),
@@ -92,7 +95,7 @@ class Help extends StatelessWidget {
                       padding: const EdgeInsets.all(15),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(15)),
-                          color: coralColor),
+                          color: factBoxColor),
                       child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -106,17 +109,17 @@ class Help extends StatelessWidget {
                             SizedBox(height: 17),
                             Container(
                               decoration: BoxDecoration(
-                                color: salmonColor,
+                                color: factColor,
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(15)),
                               ),
-                              padding: const EdgeInsets.all(8),
+                              padding: const EdgeInsets.all(15),
                               width: MediaQuery.of(context).size.width * 0.80,
                               child: Column(
                                 children: <Widget>[
                                   Container(
                                     child: Text('Maps',
-                                        style: TextStyle(
+                                        style: TextStyle(fontSize: 20,
                                             fontWeight: FontWeight.bold)),
                                   ),
                                   SizedBox(height: 10),
@@ -133,17 +136,17 @@ class Help extends StatelessWidget {
                             SizedBox(height: 17),
                             Container(
                               decoration: BoxDecoration(
-                                color: salmonColor,
+                                color: factColor,
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(15)),
                               ),
-                              padding: const EdgeInsets.all(8),
+                              padding: const EdgeInsets.all(15),
                               width: MediaQuery.of(context).size.width * 0.80,
                               child: Column(
                                 children: <Widget>[
                                   Container(
                                     child: Text('Booking',
-                                        style: TextStyle(
+                                        style: TextStyle(fontSize: 20,
                                             fontWeight: FontWeight.bold)),
                                   ),
                                   SizedBox(height: 10),
@@ -160,17 +163,17 @@ class Help extends StatelessWidget {
                             SizedBox(height: 17),
                             Container(
                               decoration: BoxDecoration(
-                                color: salmonColor,
+                                color: factColor,
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(15)),
                               ),
-                              padding: const EdgeInsets.all(8),
+                              padding: const EdgeInsets.all(15),
                               width: MediaQuery.of(context).size.width * 0.80,
                               child: Column(
                                 children: <Widget>[
                                   Container(
                                     child: Text('Tracking',
-                                        style: TextStyle(
+                                        style: TextStyle(fontSize: 20,
                                             fontWeight: FontWeight.bold)),
                                   ),
                                   SizedBox(height: 10),
@@ -187,18 +190,18 @@ class Help extends StatelessWidget {
                             SizedBox(height: 17),
                             Container(
                               decoration: BoxDecoration(
-                                color: salmonColor,
+                                color: factColor,
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(15)),
                               ),
-                              padding: const EdgeInsets.all(8),
+                              padding: const EdgeInsets.all(15),
                               width: MediaQuery.of(context).size.width * 0.80,
                               child: Column(
                                 children: <Widget>[
                                   Container(
                                     child: Text('Timing',
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold)),
+                                        style: TextStyle(fontSize: 20,
+                                            fontWeight: FontWeight.bold),),
                                   ),
                                   SizedBox(height: 10),
                                   Container(
