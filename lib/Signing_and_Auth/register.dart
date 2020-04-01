@@ -4,6 +4,8 @@ import 'package:o_k/services/auth.dart';
 import 'package:o_k/Signing_and_Auth/loginPage.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/loading.dart';
+import 'package:o_k/shared/colors.dart';
+
 
 class RegisterPage extends StatefulWidget {
   final Function toggleView;

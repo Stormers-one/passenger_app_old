@@ -122,7 +122,7 @@ class _BookingState extends State<Booking> {
               appBar: AppBar(
                 elevation: 0,
                 title: Text('Booking'),
-                backgroundColor: Colors.red[500],
+                backgroundColor: red,
               ),
               drawer: DrawerBuild(),
               body: SafeArea(

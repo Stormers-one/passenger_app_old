@@ -20,7 +20,7 @@ class Help extends StatelessWidget {
         backgroundColor: Colors.orange[100],
         // appBar: AppBar(
         //   elevation: 0,
-        //   backgroundColor: Colors.red[500],
+        //   backgroundColor: red,
         //   title: Text('Help'),
         // ),
         drawer: DrawerBuild(),

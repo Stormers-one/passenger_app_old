@@ -8,6 +8,8 @@ import 'package:o_k/services/database.dart';
 import 'package:o_k/shared/drawer.dart';
 import 'package:provider/provider.dart';
 import 'package:o_k/Menu/Timing/times.dart';
+import 'package:o_k/shared/colors.dart';
+
 
 class Timing extends StatefulWidget {
   @override
@@ -104,7 +106,7 @@ class _Timing extends State<Timing> {
           appBar: AppBar(
             elevation: 0,
             title: Text('Bus Timing'),
-            backgroundColor: Colors.red[500],
+            backgroundColor: red,
           ),
           drawer: DrawerBuild(),
           body: new GestureDetector(

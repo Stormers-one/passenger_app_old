@@ -6,6 +6,7 @@ import 'package:o_k/model/user.dart';
 import 'package:o_k/services/database.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/drawer.dart';
+import 'package:o_k/shared/colors.dart';
 import 'package:o_k/shared/loading.dart';
 import 'package:provider/provider.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
@@ -63,7 +64,7 @@ class _BookingConfirm extends State<BookingConfirm>{
         appBar: AppBar(
             elevation: 0,
             title: Text('Confirm Details'),
-            backgroundColor: Colors.red[500],
+            backgroundColor: red,
             actions: <Widget>[]),
         drawer: DrawerBuild(),
         body: new GestureDetector(

@@ -7,6 +7,8 @@ import 'package:o_k/User/profile.dart';
 import 'package:o_k/User/user_count.dart';
 import 'package:o_k/homepage.dart';
 import 'package:o_k/shared/underDevelopment.dart';
+import 'package:o_k/shared/colors.dart';
+
 
 class DrawerBuild extends StatelessWidget {
   @override
@@ -17,7 +19,7 @@ class DrawerBuild extends StatelessWidget {
               children: <Widget>[
                 DrawerHeader(
                   decoration: BoxDecoration(
-                    color: Colors.red[500],
+                    color: red,
                   ),
                   child: Text(
                     'Odu Komban',

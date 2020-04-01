@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:o_k/shared/drawer.dart';
+import 'package:o_k/shared/colors.dart';
+
 
 class Reports extends StatelessWidget {
   @override
@@ -11,7 +13,7 @@ class Reports extends StatelessWidget {
         appBar: AppBar(
           elevation: 0,
           title: Text('Reports'),
-          backgroundColor: Colors.red[500],
+          backgroundColor: red,
         ),
         drawer: DrawerBuild(),
         body: GestureDetector(

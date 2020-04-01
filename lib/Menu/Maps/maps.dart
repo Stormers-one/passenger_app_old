@@ -4,6 +4,7 @@ import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/drawer.dart';
 import 'mapview.dart';
 import 'package:provider/provider.dart';
+import 'package:o_k/shared/colors.dart';
 import 'app_state.dart';
 
 class Maps extends StatefulWidget {
@@ -42,7 +43,7 @@ class _Maps extends State<Maps> {
         resizeToAvoidBottomPadding: false,
         appBar: AppBar(
           title: Text('Maps'),
-          backgroundColor: Colors.red[500],
+          backgroundColor: red,
         ),
         drawer: DrawerBuild(),
         body: new GestureDetector(
