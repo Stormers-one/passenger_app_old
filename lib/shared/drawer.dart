@@ -4,6 +4,7 @@ import 'package:o_k/Menu/Booking/bookings_list.dart';
 import 'package:o_k/Menu/help.dart';
 import 'package:o_k/Menu/reports.dart';
 import 'package:o_k/User/profile.dart';
+import 'package:o_k/shared/loading.dart';
 import 'constants.dart';
 import 'package:o_k/homepage.dart';
 import 'package:o_k/shared/underDevelopment.dart';
@@ -67,12 +68,15 @@ class _DrawerBuild extends State<DrawerBuild>{
                   leading: Icon(Icons.account_circle),
                   title: Text('Profile',style: TextStyle(fontFamily: 'Quicksand-Bold',)),
                   onTap: () async {
-                    await getim();
-                    print(' on tap :  $downURL');
-                    setState(() {
-                      Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Profile()),
-                    );
+                      setState(() {
+                         Loading();
+                      });
+                      await getim();
+                      setState(() {  
+                        Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Profile()),
+                        );
+                        
                     });
                   },
                 ),

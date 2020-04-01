@@ -29,7 +29,7 @@ class _ProfileState extends State<Profile>{
           });
     }
     final user = Provider.of<User>(context);
-    return MaterialApp(
+    return /*profrefresher? Loading():*/ MaterialApp(
       title: 'Profile',
       home: Scaffold(
         backgroundColor: Colors.orange[100],
@@ -46,6 +46,7 @@ class _ProfileState extends State<Profile>{
         drawer: DrawerBuild(),
         body: Builder(
           builder: (context) {
+            
            return Container(
             child: ListView(
               shrinkWrap: true,
