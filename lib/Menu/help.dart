@@ -67,10 +67,7 @@ class Help extends StatelessWidget {
                                   style:
                                       TextStyle(fontWeight: FontWeight.normal)),
                             ),
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
+                          ), 
                           Card(
                             color: salmonColor,
                             child: Container(
@@ -84,9 +81,6 @@ class Help extends StatelessWidget {
                                   style:
                                       TextStyle(fontWeight: FontWeight.normal)),
                             ),
-                          ),
-                          SizedBox(
-                            height: 8,
                           ),
                         ],
                       ),
