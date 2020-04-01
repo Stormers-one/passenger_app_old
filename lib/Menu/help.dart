@@ -35,7 +35,7 @@ class Help extends StatelessWidget {
                   // constraints: BoxConstraints.expand(),
                   padding: const EdgeInsets.all(10.0),
                   alignment: Alignment.center,
-                  height: MediaQuery.of(context).size.height,
+                  // height: MediaQuery.of(context).size.height,
                   child: Column(children: [
                     Container(
                       width: MediaQuery.of(context).size.width * 0.85,
@@ -49,63 +49,139 @@ class Help extends StatelessWidget {
                         children: <Widget>[
                           Container(
                             child: Text('Helpline No.',
-                                style: TextStyle(fontWeight: FontWeight.normal)),
+                                style:
+                                    TextStyle(fontWeight: FontWeight.normal)),
                           ),
-                          SizedBox(height: 8,),
+                          SizedBox(
+                            height: 8,
+                          ),
                           Container(
                             child: Text('KeralaRTC Hub',
-                                style: TextStyle(fontWeight: FontWeight.normal)),
+                                style:
+                                    TextStyle(fontWeight: FontWeight.normal)),
                           ),
                         ],
                       ),
                     ),
-                    SizedBox(height:10),
+                    SizedBox(height: 10),
                     Container(
-                      width: MediaQuery.of(context).size.width * 0.85,
+                      width: MediaQuery.of(context).size.width * 0.90,
                       padding: const EdgeInsets.all(15),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(15)),
-                        color: salmonColor
-                      ),
+                          borderRadius: BorderRadius.all(Radius.circular(15)),
+                          color: coralColor),
                       child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
+                            // SizedBox(height: 10),
                             Container(
-                              child: Text('Facts',
-                                  style:
-                                      TextStyle(fontWeight: FontWeight.normal)),
+                              decoration: BoxDecoration(color: salmonColor, borderRadius: BorderRadius.all(Radius.circular(15)),),
+                              padding: const EdgeInsets.all(8),
+                              width: MediaQuery.of(context).size.width * 0.80,
+                              child: Column(
+                                children: <Widget>[
+                                  Container(
+                                    child: Text('Facts',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold)),
+                                  ),
+                                  SizedBox(height: 10),
+                                  Container(
+                                    child: Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed scelerisque lorem, vitae volutpat augue. Nulla leo quam, dignissim nec tincidunt non, viverra vel lacus. Praesent velit risus, vehicula dignissim vulputate at, euismod non arcu. Ut tempor purus et pharetra sodales. Mauris luctus ante malesuada nibh aliquet, in ornare lorem egestas. Mauris semper tincidunt est. Proin sed venenatis lorem. Maecenas nibh tellus, sollicitudin vitae sem ut, euismod viverra orci. Maecenas bibendum justo nunc, in lacinia metus imperdiet ut. Aenean tristique ligula vel mi lobortis, et volutpat metus facilisis. Sed aliquam ultricies est, id ornare eros condimentum a. Nunc volutpat venenatis gravida.',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.normal)),
+                                  ),
+                                  SizedBox(height: 10),
+                                ],
+                              ),
                             ),
-                            SizedBox(height:10),
-
-                            SizedBox(height:10),
+                            SizedBox(height: 10),
                             Container(
-                              child: Text('Maps',
-                                  style:
-                                      TextStyle(fontWeight: FontWeight.normal)),
+                              decoration: BoxDecoration(color: salmonColor, borderRadius: BorderRadius.all(Radius.circular(15)),),
+                              padding: const EdgeInsets.all(8),
+                              width: MediaQuery.of(context).size.width * 0.80,
+                              child: Column(
+                                children: <Widget>[
+                                  Container(
+                                    child: Text('Maps',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold)),
+                                  ),
+                                  SizedBox(height: 10),
+                                  Container(
+                                    child: Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed scelerisque lorem, vitae volutpat augue. Nulla leo quam, dignissim nec tincidunt non, viverra vel lacus. Praesent velit risus, vehicula dignissim vulputate at, euismod non arcu. Ut tempor purus et pharetra sodales. Mauris luctus ante malesuada nibh aliquet, in ornare lorem egestas. Mauris semper tincidunt est. Proin sed venenatis lorem. Maecenas nibh tellus, sollicitudin vitae sem ut, euismod viverra orci. Maecenas bibendum justo nunc, in lacinia metus imperdiet ut. Aenean tristique ligula vel mi lobortis, et volutpat metus facilisis. Sed aliquam ultricies est, id ornare eros condimentum a. Nunc volutpat venenatis gravida.',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.normal)),
+                                  ),
+                                  SizedBox(height: 10),
+                                ],
+                              ),
                             ),
-                            SizedBox(height:10),
-                            
-                            SizedBox(height:10),
+                            SizedBox(height: 10),
                             Container(
-                              child: Text('Booking',
-                                  style:
-                                      TextStyle(fontWeight: FontWeight.normal)),
+                              decoration: BoxDecoration(color: salmonColor, borderRadius: BorderRadius.all(Radius.circular(15)),),
+                              padding: const EdgeInsets.all(8),
+                              width: MediaQuery.of(context).size.width * 0.80,
+                              child: Column(
+                                children: <Widget>[
+                                  Container(
+                                    child: Text('Booking',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold)),
+                                  ),
+                                  SizedBox(height: 10),
+                                  Container(
+                                    child: Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed scelerisque lorem, vitae volutpat augue. Nulla leo quam, dignissim nec tincidunt non, viverra vel lacus. Praesent velit risus, vehicula dignissim vulputate at, euismod non arcu. Ut tempor purus et pharetra sodales. Mauris luctus ante malesuada nibh aliquet, in ornare lorem egestas. Mauris semper tincidunt est. Proin sed venenatis lorem. Maecenas nibh tellus, sollicitudin vitae sem ut, euismod viverra orci. Maecenas bibendum justo nunc, in lacinia metus imperdiet ut. Aenean tristique ligula vel mi lobortis, et volutpat metus facilisis. Sed aliquam ultricies est, id ornare eros condimentum a. Nunc volutpat venenatis gravida.',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.normal)),
+                                  ),
+                                  SizedBox(height: 10),
+                                ],
+                              ),
                             ),
-                            SizedBox(height:10),
-                            
-                            SizedBox(height:10),
+                            SizedBox(height: 10),
                             Container(
-                              child: Text('Tracking',
-                                  style:
-                                      TextStyle(fontWeight: FontWeight.normal)),
+                              decoration: BoxDecoration(color: salmonColor, borderRadius: BorderRadius.all(Radius.circular(15)),),
+                              padding: const EdgeInsets.all(8),
+                              width: MediaQuery.of(context).size.width * 0.80,
+                              child: Column(
+                                children: <Widget>[
+                                  Container(
+                                    child: Text('Tracking',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold)),
+                                  ),
+                                  SizedBox(height: 10),
+                                  Container(
+                                    child: Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed scelerisque lorem, vitae volutpat augue. Nulla leo quam, dignissim nec tincidunt non, viverra vel lacus. Praesent velit risus, vehicula dignissim vulputate at, euismod non arcu. Ut tempor purus et pharetra sodales. Mauris luctus ante malesuada nibh aliquet, in ornare lorem egestas. Mauris semper tincidunt est. Proin sed venenatis lorem. Maecenas nibh tellus, sollicitudin vitae sem ut, euismod viverra orci. Maecenas bibendum justo nunc, in lacinia metus imperdiet ut. Aenean tristique ligula vel mi lobortis, et volutpat metus facilisis. Sed aliquam ultricies est, id ornare eros condimentum a. Nunc volutpat venenatis gravida.',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.normal)),
+                                  ),
+                                  SizedBox(height: 10),
+                                ],
+                              ),
                             ),
-                            SizedBox(height:10),
-                            
-                            SizedBox(height:10),
+                            SizedBox(height: 10),
                             Container(
-                              child: Text('Timing',
-                                  style:
-                                      TextStyle(fontWeight: FontWeight.normal)),
+                              decoration: BoxDecoration(color: salmonColor, borderRadius: BorderRadius.all(Radius.circular(15)),),
+                              padding: const EdgeInsets.all(8),
+                              width: MediaQuery.of(context).size.width * 0.80,
+                              child: Column(
+                                children: <Widget>[
+                                  Container(
+                                    child: Text('Timing',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold)),
+                                  ),
+                                  SizedBox(height: 10),
+                                  Container(
+                                    child: Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed scelerisque lorem, vitae volutpat augue. Nulla leo quam, dignissim nec tincidunt non, viverra vel lacus. Praesent velit risus, vehicula dignissim vulputate at, euismod non arcu. Ut tempor purus et pharetra sodales. Mauris luctus ante malesuada nibh aliquet, in ornare lorem egestas. Mauris semper tincidunt est. Proin sed venenatis lorem. Maecenas nibh tellus, sollicitudin vitae sem ut, euismod viverra orci. Maecenas bibendum justo nunc, in lacinia metus imperdiet ut. Aenean tristique ligula vel mi lobortis, et volutpat metus facilisis. Sed aliquam ultricies est, id ornare eros condimentum a. Nunc volutpat venenatis gravida.',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.normal)),
+                                  ),
+                                  SizedBox(height: 10),
+                                ],
+                              ),
                             ),
                           ]),
                     ),
