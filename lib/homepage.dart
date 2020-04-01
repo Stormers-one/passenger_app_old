@@ -37,6 +37,7 @@ class _HomepageState extends State<Homepage> {
     //           ));
     // }
     return MaterialApp(
+      theme: ThemeData(fontFamily: 'Quicksand-Regular'),
       debugShowCheckedModeBanner: false,
       title: 'Homepage',
       home: Scaffold(

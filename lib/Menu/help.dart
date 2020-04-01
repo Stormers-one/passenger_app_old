@@ -15,6 +15,7 @@ class Help extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(fontFamily: 'Quicksand-Regular'),
       title: 'Help',
       home: Scaffold(
         backgroundColor: Colors.orange[100],
