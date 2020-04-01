@@ -7,6 +7,7 @@ class Reports extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(fontFamily: 'Quicksand-Medium'),
       title: 'Reports',
       home: Scaffold(
         backgroundColor: Colors.orange[100],

@@ -5,6 +5,7 @@ class Track extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(fontFamily: 'Quicksand-Medium'),
       title: 'Track',
       home: Scaffold(
         drawer: DrawerBuild(),

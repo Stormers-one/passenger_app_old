@@ -75,6 +75,7 @@ class _MapView extends State<MapView> {
 
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(fontFamily: 'Quicksand-Medium'),
       home: loading
           ? Loading()
           : Scaffold(

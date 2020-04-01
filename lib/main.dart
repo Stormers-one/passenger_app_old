@@ -20,7 +20,7 @@ class Odukomban extends StatelessWidget {
       value: Authservice().user,
       child: new MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(fontFamily: 'Quicksand-Regular'),
+        theme: ThemeData(fontFamily: 'Quicksand-Medium'),
         home: Wrapper(),
       ),
     );

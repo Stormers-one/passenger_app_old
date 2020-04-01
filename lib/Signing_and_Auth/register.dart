@@ -6,7 +6,6 @@ import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/loading.dart';
 import 'package:o_k/shared/colors.dart';
 
-
 class RegisterPage extends StatefulWidget {
   final Function toggleView;
   RegisterPage({this.toggleView});
@@ -49,6 +48,7 @@ class _RegisterState extends State<RegisterPage> {
                       children: <Widget>[
                         new Theme(
                           data: new ThemeData(
+                              fontFamily: 'Quicksand-Medium',
                               brightness: Brightness.dark,
                               inputDecorationTheme: new InputDecorationTheme(
                                 labelStyle: new TextStyle(

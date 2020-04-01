@@ -5,6 +5,7 @@ class Seating extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(fontFamily: 'Quicksand-Medium'),
       title: 'Seating',
       home: Scaffold(
         backgroundColor: Colors.orange[100],

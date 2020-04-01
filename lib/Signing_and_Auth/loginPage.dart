@@ -5,7 +5,6 @@ import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/loading.dart';
 import 'package:o_k/shared/colors.dart';
 
-
 class LoginPage extends StatefulWidget {
   final Function toggleView;
   LoginPage({this.toggleView});
@@ -62,6 +61,7 @@ class _LoginState extends State<LoginPage> {
                         children: <Widget>[
                           new Theme(
                             data: new ThemeData(
+                                fontFamily: 'Quicksand-Medium',
                                 brightness: Brightness.dark,
                                 inputDecorationTheme: new InputDecorationTheme(
                                   // hintStyle: new TextStyle(color: Colors.blue, fontSize: 20.0),
@@ -109,8 +109,7 @@ class _LoginState extends State<LoginPage> {
                                         Text(
                                           error,
                                           style: TextStyle(
-                                              color: red,
-                                              fontSize: 14.0),
+                                              color: red, fontSize: 14.0),
                                         ),
                                         new Padding(
                                           padding:
