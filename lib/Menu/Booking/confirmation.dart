@@ -70,7 +70,7 @@ class _BookingConfirm extends State<BookingConfirm>{
           onTap: () {
             FocusScope.of(context).requestFocus(new FocusNode());
           },
-          child: Container(
+          child: SafeArea(
             child: ListView(
               shrinkWrap: true,
               padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),

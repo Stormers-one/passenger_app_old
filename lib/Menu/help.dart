@@ -1,5 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:o_k/shared/colors.dart';
 import 'package:o_k/shared/drawer.dart';
+
+List<String> devs = [
+  'Anandu R',
+  'Afthab Nihar',
+  'Aishwarya Michael',
+  'Rachel Kunjumon',
+  'Smitha John',
+  'Kennith Philips'
+];
 
 class Help extends StatelessWidget {
   @override
@@ -18,123 +28,91 @@ class Help extends StatelessWidget {
           onTap: () {
             FocusScope.of(context).requestFocus(new FocusNode());
           },
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Container(
-                padding: const EdgeInsets.all(10.0),
-                color: Colors.blue[600],
-                alignment: Alignment.center,
-                height: MediaQuery.of(context).size.height / 3,
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Container(
-                        child: const Text.rich(
-                          TextSpan(
-                              text: 'Helpline No.',
-                              style: TextStyle(fontWeight: FontWeight.bold)),
-                        ),
+          child: SafeArea(
+            child: ListView(
+              children: <Widget>[
+                Container(
+                  // constraints: BoxConstraints.expand(),
+                  padding: const EdgeInsets.all(10.0),
+                  alignment: Alignment.center,
+                  height: MediaQuery.of(context).size.height,
+                  child: Column(children: [
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.85,
+                      padding: const EdgeInsets.all(15),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(15)),
+                        color: coralColor,
                       ),
-                      Container(
-                        child: const Text.rich(
-                          TextSpan(
-                            text: 'KeralaRTC Hub',
-                            children: <TextSpan>[
-                              TextSpan(
-                                  text: '\n',
-                                  style:
-                                      TextStyle(fontWeight: FontWeight.bold)),
-                            ],
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Container(
+                            child: Text('Helpline No.',
+                                style: TextStyle(fontWeight: FontWeight.normal)),
                           ),
-                        ),
-                      ),
-                      Container(
-                        child: const Text.rich(
-                          TextSpan(
-                            text: 'Developers',
-                            children: <TextSpan>[
-                              TextSpan(
-                                  text:
-                                      '\nAnandu R\nAfthab Nihar\nAishwarya Michael\nRachel Kunjumon\nSmitha John\nKennith Philips',
-                                  style:
-                                      TextStyle(fontWeight: FontWeight.bold)),
-                            ],
+                          SizedBox(height: 8,),
+                          Container(
+                            child: Text('KeralaRTC Hub',
+                                style: TextStyle(fontWeight: FontWeight.normal)),
                           ),
-                        ),
+                        ],
                       ),
-                    ]),
-              ),
-              Container(
-                padding: const EdgeInsets.all(10.0),
-                color: Colors.blue[600],
-                alignment: Alignment.center,
-                height: MediaQuery.of(context).size.height / 3,
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Container(
-                        child: const Text.rich(
-                          TextSpan(
-                              text: 'Facts',
-                              style: TextStyle(fontWeight: FontWeight.bold)),
-                        ),
+                    ),
+                    SizedBox(height:10),
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.85,
+                      padding: const EdgeInsets.all(15),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(15)),
+                        color: salmonColor
                       ),
-                      Container(
-                        child: const Text.rich(
-                          TextSpan(
-                            text: 'Maps',
-                            children: <TextSpan>[
-                              TextSpan(
-                                  text: '\n',
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Container(
+                              child: Text('Facts',
                                   style:
-                                      TextStyle(fontWeight: FontWeight.bold)),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: const Text.rich(
-                          TextSpan(
-                            text: 'Booking',
-                            children: <TextSpan>[
-                              TextSpan(
-                                  text: '\n',
+                                      TextStyle(fontWeight: FontWeight.normal)),
+                            ),
+                            SizedBox(height:10),
+
+                            SizedBox(height:10),
+                            Container(
+                              child: Text('Maps',
                                   style:
-                                      TextStyle(fontWeight: FontWeight.bold)),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: const Text.rich(
-                          TextSpan(
-                            text: 'Tracking',
-                            children: <TextSpan>[
-                              TextSpan(
-                                  text: '\n',
+                                      TextStyle(fontWeight: FontWeight.normal)),
+                            ),
+                            SizedBox(height:10),
+                            
+                            SizedBox(height:10),
+                            Container(
+                              child: Text('Booking',
                                   style:
-                                      TextStyle(fontWeight: FontWeight.bold)),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: const Text.rich(
-                          TextSpan(
-                            text: 'Timing',
-                            children: <TextSpan>[
-                              TextSpan(
-                                  text: '\n',
+                                      TextStyle(fontWeight: FontWeight.normal)),
+                            ),
+                            SizedBox(height:10),
+                            
+                            SizedBox(height:10),
+                            Container(
+                              child: Text('Tracking',
                                   style:
-                                      TextStyle(fontWeight: FontWeight.bold)),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ]),
-              ),
-            ],
+                                      TextStyle(fontWeight: FontWeight.normal)),
+                            ),
+                            SizedBox(height:10),
+                            
+                            SizedBox(height:10),
+                            Container(
+                              child: Text('Timing',
+                                  style:
+                                      TextStyle(fontWeight: FontWeight.normal)),
+                            ),
+                          ]),
+                    ),
+                  ]),
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -18,19 +18,21 @@ class Reports extends StatelessWidget {
           onTap: () {
             FocusScope.of(context).requestFocus(new FocusNode());
           },
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Container(
-                constraints: BoxConstraints.expand(
-                  height: Theme.of(context).textTheme.display1.fontSize * 1.1 +
-                      200.0,
-                ),
-                padding: const EdgeInsets.all(8.0),
-                color: Colors.blue[600],
-                alignment: Alignment.center,
-              )
-            ],
+          child: SafeArea(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Container(
+                  constraints: BoxConstraints.expand(
+                    height: Theme.of(context).textTheme.display1.fontSize * 1.1 +
+                        200.0,
+                  ),
+                  padding: const EdgeInsets.all(8.0),
+                  color: Colors.blue[600],
+                  alignment: Alignment.center,
+                )
+              ],
+            ),
           ),
         ),
       ),

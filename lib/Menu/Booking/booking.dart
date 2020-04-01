@@ -125,158 +125,160 @@ class _BookingState extends State<Booking> {
                 backgroundColor: Colors.red[500],
               ),
               drawer: DrawerBuild(),
-              body: Center(
-                child: ListView(
-                    shrinkWrap: true,
-                    padding: const EdgeInsets.all(20.0),
-                    children: <Widget>[
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Center(
-                            child: Container(
-                              padding: const EdgeInsets.all(40.0),
-                              child: new Form(
-                                key: _formkey,
-                                autovalidate: true,
-                                child: new Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: <Widget>[
-                                    new TextFormField(
-                                      controller: _controller,
-                                      style: new TextStyle(color: Colors.black),
-                                      onTap: () {
-                                        FocusScope.of(context)
-                                            .requestFocus(FocusNode());
-                                        showSearch(
-                                            context: context,
-                                            delegate: BusSearch(
-                                                "BFrom", _controller));
-                                      },
-                                      decoration: textInputDecoration("From"),
-                                      keyboardType: TextInputType.emailAddress,
-                                      cursorWidth: 0,
-                                      autofocus: false,
-                                      validator: (val) =>
-                                          val.isEmpty && clickStatBooking
-                                              ? 'This is required'
-                                              : null,
-                                    ),
-                                    new Padding(
-                                      padding: const EdgeInsets.only(top: 10.0),
-                                    ),
-                                    new TextFormField(
-                                        controller: _controller1,
-                                        style:
-                                            new TextStyle(color: Colors.black),
+              body: SafeArea(
+                child: Center(
+                  child: ListView(
+                      shrinkWrap: true,
+                      padding: const EdgeInsets.all(20.0),
+                      children: <Widget>[
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Center(
+                              child: Container(
+                                padding: const EdgeInsets.all(40.0),
+                                child: new Form(
+                                  key: _formkey,
+                                  autovalidate: true,
+                                  child: new Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: <Widget>[
+                                      new TextFormField(
+                                        controller: _controller,
+                                        style: new TextStyle(color: Colors.black),
                                         onTap: () {
                                           FocusScope.of(context)
                                               .requestFocus(FocusNode());
                                           showSearch(
                                               context: context,
                                               delegate: BusSearch(
-                                                  "BTo", _controller1));
+                                                  "BFrom", _controller));
                                         },
-                                        decoration: textInputDecoration("To"),
-                                        obscureText: false,
-                                        keyboardType: TextInputType.text,
+                                        decoration: textInputDecoration("From"),
+                                        keyboardType: TextInputType.emailAddress,
                                         cursorWidth: 0,
-                                        validator: (val) {
-                                          if (val.isEmpty && clickStatBooking) {
-                                            return 'This is requied';
-                                          } else if (_controller.text ==
-                                                  _controller1.text &&
-                                              _controller.text.isNotEmpty) {
-                                            return 'Both location should not be same';
-                                          } else {
+                                        autofocus: false,
+                                        validator: (val) =>
+                                            val.isEmpty && clickStatBooking
+                                                ? 'This is required'
+                                                : null,
+                                      ),
+                                      new Padding(
+                                        padding: const EdgeInsets.only(top: 10.0),
+                                      ),
+                                      new TextFormField(
+                                          controller: _controller1,
+                                          style:
+                                              new TextStyle(color: Colors.black),
+                                          onTap: () {
+                                            FocusScope.of(context)
+                                                .requestFocus(FocusNode());
+                                            showSearch(
+                                                context: context,
+                                                delegate: BusSearch(
+                                                    "BTo", _controller1));
+                                          },
+                                          decoration: textInputDecoration("To"),
+                                          obscureText: false,
+                                          keyboardType: TextInputType.text,
+                                          cursorWidth: 0,
+                                          validator: (val) {
+                                            if (val.isEmpty && clickStatBooking) {
+                                              return 'This is requied';
+                                            } else if (_controller.text ==
+                                                    _controller1.text &&
+                                                _controller.text.isNotEmpty) {
+                                              return 'Both location should not be same';
+                                            } else {
+                                              return null;
+                                            }
+                                          },
+                                          ),
+                                      new Padding(
+                                        padding: const EdgeInsets.only(top: 30.0),
+                                      ),
+                                      new Padding(
+                                        padding: const EdgeInsets.only(top: 30.0),
+                                      ),
+                                      new DropdownButtonFormField(
+                                        hint: Text(
+                                          'Bus Type',
+                                          style: TextStyle(color: Colors.grey),
+                                        ),
+                                        value: _currentBusType.isNotEmpty
+                                            ? _currentBusType
+                                            : null,
+                                        items: bustype
+                                            .map((value) => new DropdownMenuItem(
+                                                  value: value,
+                                                  child: Text('$value'),
+                                                ))
+                                            .toList(),
+                                        isExpanded: true,
+                                        onChanged: (val) => setState(() {
+                                          _currentBusType = val;
+                                          selectedBookingBusType = val;
+                                          FocusScope.of(context)
+                                              .requestFocus(FocusNode());
+                                        }),
+                                        decoration: textInputDecorationNoHint(),
+                                        validator: (value) {
+                                          if (value == null && clickStatBooking) {
+                                            return "Select The Bus Type";
+                                          }
+                                          else{
                                             return null;
                                           }
                                         },
-                                        ),
-                                    new Padding(
-                                      padding: const EdgeInsets.only(top: 30.0),
-                                    ),
-                                    new Padding(
-                                      padding: const EdgeInsets.only(top: 30.0),
-                                    ),
-                                    new DropdownButtonFormField(
-                                      hint: Text(
-                                        'Bus Type',
-                                        style: TextStyle(color: Colors.grey),
                                       ),
-                                      value: _currentBusType.isNotEmpty
-                                          ? _currentBusType
-                                          : null,
-                                      items: bustype
-                                          .map((value) => new DropdownMenuItem(
-                                                value: value,
-                                                child: Text('$value'),
-                                              ))
-                                          .toList(),
-                                      isExpanded: true,
-                                      onChanged: (val) => setState(() {
-                                        _currentBusType = val;
-                                        selectedBookingBusType = val;
-                                        FocusScope.of(context)
-                                            .requestFocus(FocusNode());
-                                      }),
-                                      decoration: textInputDecorationNoHint(),
-                                      validator: (value) {
-                                        if (value == null && clickStatBooking) {
-                                          return "Select The Bus Type";
-                                        }
-                                        else{
-                                          return null;
-                                        }
-                                      },
-                                    ),
-                                    new Padding(
-                                      padding: const EdgeInsets.only(top: 30.0),
-                                    ),
-                                    SizedBox(
-                                      height: 50,
-                                      width: 200,
-                                      child: RaisedButton(
-                                        onPressed: () async  {
-                                          loading=true;
-                                          await travel(selectedBookingFrom,
-                                              selectedBookingTo);
-                                          loading = false;
-                                          fare = getFare(
-                                              _currentBusType, distance_);
-                                          clickStatBooking = true;
-                                          if (_formkey.currentState
-                                              .validate()) {
-                                            Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        BookingConfirm()));
-                                          }
-                                        },
-                                        child: const Text('Proceed',
-                                            style: TextStyle(fontSize: 20)),
-                                        color: Colors.red,
-                                        textColor: Colors.white,
-                                        splashColor: Colors.grey,
-                                        padding:
-                                            EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(20.0),
-                                          side: BorderSide(
-                                              color: Colors.transparent),
+                                      new Padding(
+                                        padding: const EdgeInsets.only(top: 30.0),
+                                      ),
+                                      SizedBox(
+                                        height: 50,
+                                        width: 200,
+                                        child: RaisedButton(
+                                          onPressed: () async  {
+                                            loading=true;
+                                            await travel(selectedBookingFrom,
+                                                selectedBookingTo);
+                                            loading = false;
+                                            fare = getFare(
+                                                _currentBusType, distance_);
+                                            clickStatBooking = true;
+                                            if (_formkey.currentState
+                                                .validate()) {
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          BookingConfirm()));
+                                            }
+                                          },
+                                          child: const Text('Proceed',
+                                              style: TextStyle(fontSize: 20)),
+                                          color: Colors.red,
+                                          textColor: Colors.white,
+                                          splashColor: Colors.grey,
+                                          padding:
+                                              EdgeInsets.fromLTRB(10, 10, 10, 10),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(20.0),
+                                            side: BorderSide(
+                                                color: Colors.transparent),
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                    ]),
+                          ],
+                        ),
+                      ]),
+                ),
               ),
             ),
     );
