@@ -3,6 +3,7 @@ import 'package:o_k/services/database.dart';
 import 'package:o_k/shared/loading.dart';
 import 'package:provider/provider.dart';
 import 'package:o_k/model/user.dart';
+import 'package:o_k/shared/colors.dart';
 
 class SettingsForm extends StatefulWidget {
   @override
@@ -62,7 +63,7 @@ class _SettingsFormState extends State<SettingsForm> {
                         decoration: new InputDecoration(
                           //labelText: "Password:",
                           //labelStyle: new TextStyle(
-                          //    fontSize: 15, color: Colors.red),
+                          //    fontSize: 15, color: red),
                           hintText: 'Phone Number',
                           hintStyle: new TextStyle(color: Colors.grey),
                           fillColor: Colors.grey[300],
@@ -85,9 +86,9 @@ class _SettingsFormState extends State<SettingsForm> {
                       child: RaisedButton(
                           child: const Text('Update',
                               style: TextStyle(fontSize: 20)),
-                          color: Colors.red,
+                          color: red,
                           textColor: Colors.white,
-                          splashColor: Colors.red,
+                          splashColor: red,
                           padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20.0),

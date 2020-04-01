@@ -4,6 +4,7 @@ import 'package:o_k/services/database.dart';
 import 'package:o_k/User/user_list.dart';
 import 'package:o_k/User/users_fetch.dart';
 import 'package:o_k/shared/drawer.dart';
+import 'package:o_k/shared/colors.dart';
 import 'package:provider/provider.dart';
 
 class UsersCount extends StatelessWidget {
@@ -30,7 +31,7 @@ class UsersCount extends StatelessWidget {
           appBar: AppBar(
               elevation: 0,
               title: Text('Users List'),
-              backgroundColor: Colors.red[500],
+              backgroundColor: red,
               actions: <Widget>[
                 FlatButton.icon(
                     onPressed: () => _showSettengsPanel(),

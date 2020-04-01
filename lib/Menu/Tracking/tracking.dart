@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/drawer.dart';
+import 'package:o_k/shared/colors.dart';
 import 'mapview.dart';
 
 class Tracking extends StatelessWidget {
@@ -13,7 +14,7 @@ class Tracking extends StatelessWidget {
         appBar: AppBar(
           elevation: 0,
           title: Text('Tracking'),
-          backgroundColor: Colors.red[500],
+          backgroundColor: red,
         ),
         drawer: DrawerBuild(),
         body: new GestureDetector(
@@ -61,7 +62,7 @@ class Tracking extends StatelessWidget {
                                   },
                                   child: const Text('Search',
                                       style: TextStyle(fontSize: 20)),
-                                  color: Colors.red,
+                                  color: red,
                                   textColor: Colors.white,
                                   splashColor: Colors.grey,
                                   padding: EdgeInsets.fromLTRB(10, 10, 10, 10),

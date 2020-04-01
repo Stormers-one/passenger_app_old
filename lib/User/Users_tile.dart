@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:o_k/User/users_fetch.dart';
+import 'package:o_k/shared/colors.dart';
 
 class UsersTile extends StatelessWidget {
   final Users user;
@@ -21,7 +22,7 @@ class UsersTile extends StatelessWidget {
                     ), 
             //  CircleAvatar(
             //    radius: 50.0,
-            //    backgroundColor: Colors.red[300],
+            //    backgroundColor: red,
             //  ),
             title: Text(user.fname),
           ),
