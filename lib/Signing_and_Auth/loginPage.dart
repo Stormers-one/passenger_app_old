@@ -109,7 +109,7 @@ class _LoginState extends State<LoginPage> {
                                         Text(
                                           error,
                                           style: TextStyle(
-                                              color: Colors.red,
+                                              color: red,
                                               fontSize: 14.0),
                                         ),
                                         new Padding(
@@ -179,7 +179,7 @@ class _LoginState extends State<LoginPage> {
                                             },
                                             child: const Text('Login',
                                                 style: TextStyle(fontSize: 20)),
-                                            color: Colors.red,
+                                            color: red,
                                             textColor: Colors.white,
                                             splashColor: Colors.grey,
                                             padding: EdgeInsets.fromLTRB(
@@ -209,7 +209,7 @@ class _LoginState extends State<LoginPage> {
                                             },
                                             child: const Text('Register',
                                                 style: TextStyle(fontSize: 20)),
-                                            color: Colors.red,
+                                            color: red,
                                             textColor: Colors.white,
                                             splashColor: Colors.grey,
                                             padding: EdgeInsets.fromLTRB(
@@ -249,7 +249,7 @@ class _LoginState extends State<LoginPage> {
                                 //     },
                                 //     child: const Text('Annonymous',
                                 //         style: TextStyle(fontSize: 20)),
-                                //     color: Colors.red,
+                                //     color: red,
                                 //     textColor: Colors.white,
                                 //     splashColor: Colors.grey,
                                 //     padding: EdgeInsets.fromLTRB(10, 10, 10, 10),

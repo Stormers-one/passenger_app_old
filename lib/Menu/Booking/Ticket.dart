@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:o_k/model/user.dart';
 import 'package:o_k/services/database.dart';
+import 'package:o_k/shared/colors.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/drawer.dart';
 import 'package:o_k/shared/loading.dart';
@@ -20,7 +21,7 @@ class TicketDisplay extends StatelessWidget {
         appBar: AppBar(
             elevation: 0,
             title: Text('Your Ticket'),
-            backgroundColor: Colors.red[500],
+            backgroundColor: red,
             actions: <Widget>[]
           ),
         drawer: DrawerBuild(),

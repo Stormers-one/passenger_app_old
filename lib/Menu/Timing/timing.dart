@@ -251,7 +251,7 @@ class _Timing extends State<Timing> {
                                         },
                                         child: const Text('Search',
                                             style: TextStyle(fontSize: 20)),
-                                        color: Colors.red,
+                                        color: red,
                                         textColor: Colors.white,
                                         splashColor: Colors.grey,
                                         padding:

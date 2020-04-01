@@ -183,7 +183,7 @@ class _BookingConfirm extends State<BookingConfirm>{
                                         },
                                         child: const Text('Proceed To Payment',
                                             style: TextStyle(fontSize: 18)),
-                                        color: Colors.red,
+                                        color: red,
                                         textColor: Colors.white,
                                         splashColor: Colors.grey,
                                         padding:

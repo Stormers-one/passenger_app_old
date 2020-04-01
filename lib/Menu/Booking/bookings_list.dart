@@ -4,6 +4,8 @@ import 'package:o_k/model/ticketmodel.dart';
 import 'package:o_k/services/database.dart';
 import 'package:o_k/shared/drawer.dart';
 import 'package:provider/provider.dart';
+import 'package:o_k/shared/colors.dart';
+
 
 class BookingList extends StatelessWidget {
   @override
@@ -17,7 +19,7 @@ class BookingList extends StatelessWidget {
           appBar: AppBar(
             elevation: 0,
             title: Text('My Bookings'),
-            backgroundColor: Colors.red[500],
+            backgroundColor: red,
           ),
           drawer: DrawerBuild(),
           body: BookLister(),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:o_k/shared/colors.dart';
 //import 'package:url_launcher/url_launcher.dart';
 
 class ExamplePage extends StatefulWidget {
@@ -50,7 +51,7 @@ class _ExamplePageState extends State<ExamplePage> {
     return AppBar(
       title: Text(widget.title),
       actions: <Widget>[_reloadExampleButton(),],
-      backgroundColor: Colors.red[500],
+      backgroundColor: red,
     );
   }
 

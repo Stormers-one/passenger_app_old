@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:o_k/shared/drawer.dart';
+import 'package:o_k/shared/colors.dart';
+
 
 // class Buses {
 //   final String time;
@@ -17,7 +19,7 @@ class Times extends StatelessWidget {
         appBar: AppBar(
           elevation: 0,
           title: Text('Timings'),
-          backgroundColor: Colors.red[500],
+          backgroundColor: red,
         ),
         drawer: DrawerBuild(),
         body: BodyLayout(),
@@ -95,7 +97,7 @@ Widget _myListView(BuildContext context) {
 //           backgroundColor: Colors.orange[100],
 //           appBar: AppBar(
 //               title: Text('Users List'),
-//               backgroundColor: Colors.red[500],
+//               backgroundColor: red,
 //   ),
 //           drawer: DrawerBuild(),
 //           body: BusList(),

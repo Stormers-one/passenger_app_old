@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:o_k/shared/colors.dart';
+
 
 class Loading extends StatelessWidget {
   @override
@@ -8,7 +10,7 @@ class Loading extends StatelessWidget {
       color: Colors.orange[300],
       child: Center(
         child: SpinKitFadingFour(
-          color: Colors.red,
+          color: red,
           size: 90.0,
         ),
       ),

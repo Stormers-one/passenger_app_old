@@ -95,7 +95,7 @@ class _RegisterState extends State<RegisterPage> {
                                       Text(
                                         error,
                                         style: TextStyle(
-                                            color: Colors.red, fontSize: 14.0),
+                                            color: red, fontSize: 14.0),
                                       ),
                                       //FULL NAME INPUT
                                       new Padding(
@@ -236,7 +236,7 @@ class _RegisterState extends State<RegisterPage> {
                                           },
                                           child: const Text('Register',
                                               style: TextStyle(fontSize: 20)),
-                                          color: Colors.red,
+                                          color: red,
                                           textColor: Colors.white,
                                           splashColor: Colors.grey,
                                           padding: EdgeInsets.fromLTRB(
@@ -266,7 +266,7 @@ class _RegisterState extends State<RegisterPage> {
                                           child: const Text(
                                               ' Already have an Account?',
                                               style: TextStyle(fontSize: 15)),
-                                          color: Colors.red,
+                                          color: red,
                                           textColor: Colors.white,
                                           splashColor: Colors.grey,
                                           padding: EdgeInsets.fromLTRB(

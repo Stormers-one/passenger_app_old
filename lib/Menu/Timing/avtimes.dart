@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:o_k/shared/colors.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:o_k/shared/constants.dart';
 
@@ -23,7 +24,7 @@ class _AanavandiState extends State<Aanavandi> {
             appBar: AppBar(
               elevation: 0,
               title: Text('Bus Timing'),
-              backgroundColor: Colors.red[500],
+              backgroundColor: red,
             ),
             drawer: Drawer(),
             body :WebView(

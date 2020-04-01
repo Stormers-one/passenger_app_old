@@ -44,7 +44,7 @@ class _HomepageState extends State<Homepage> {
         appBar: AppBar(
             elevation: 0,
             //title: Text('MENU'),
-            backgroundColor: Colors.red[400],
+            backgroundColor: red,
             actions: <Widget>[
               FlatButton.icon(
                 icon: Icon(Icons.person),
