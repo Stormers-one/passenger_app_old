@@ -4,13 +4,16 @@ import 'package:o_k/Menu/Booking/bookings_list.dart';
 import 'package:o_k/Menu/help.dart';
 import 'package:o_k/Menu/reports.dart';
 import 'package:o_k/User/profile.dart';
-import 'package:o_k/User/user_count.dart';
+import 'constants.dart';
 import 'package:o_k/homepage.dart';
 import 'package:o_k/shared/underDevelopment.dart';
 import 'package:o_k/shared/colors.dart';
 
 
-class DrawerBuild extends StatelessWidget {
+class DrawerBuild extends StatefulWidget {
+  _DrawerBuild createState() => _DrawerBuild();
+}
+class _DrawerBuild extends State<DrawerBuild>{
   @override
   Widget build(BuildContext context) {
     return new  Drawer(
@@ -62,11 +65,14 @@ class DrawerBuild extends StatelessWidget {
                 ListTile(
                   leading: Icon(Icons.account_circle),
                   title: Text('Profile'),
-                  onTap: () {
-                    Navigator.push(
+                  onTap: () async {
+                    await getim();
+                    setState(() {
+                      Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => Profile()),
                     );
+                    });
                   },
                 ),
                 ListTile(

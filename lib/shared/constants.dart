@@ -1,5 +1,7 @@
 import 'dart:convert';
+import 'dart:io';
 import 'dart:math';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:geolocator/geolocator.dart';
@@ -140,6 +142,26 @@ textInputDecorationNoHint() {
     ),
   );
 }
+
+// Profile PIC FIRE STORAGE
+File _image;
+Future uploadPicture(BuildContext context) async{
+  StorageReference firebaseStorageref = FirebaseStorage.instance.ref().child('profile_image/$userID');
+  StorageUploadTask uploadTask = firebaseStorageref.putFile(_image);
+  StorageTaskSnapshot taskSnapshot =  await uploadTask.onComplete;
+  Scaffold.of(context).showSnackBar(SnackBar(content: Text('Profile Picture Uploaded',textAlign: TextAlign.center,)));
+}
+var downURL;
+Future getim() async{
+  await _getImageFromFireStorage();
+}
+Future _getImageFromFireStorage() async {
+  var downURL = await FirebaseStorage.instance.ref().child('profile_image/$userID').getDownloadURL();
+  print(downURL);
+}
+
+
+
 
 final recentSearch = [];
 const List<String> stops = [
