@@ -18,11 +18,11 @@ class Help extends StatelessWidget {
       title: 'Help',
       home: Scaffold(
         backgroundColor: Colors.orange[100],
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: Colors.red[500],
-          title: Text('Help'),
-        ),
+        // appBar: AppBar(
+        //   elevation: 0,
+        //   backgroundColor: Colors.red[500],
+        //   title: Text('Help'),
+        // ),
         drawer: DrawerBuild(),
         body: GestureDetector(
           onTap: () {
@@ -45,20 +45,48 @@ class Help extends StatelessWidget {
                         color: coralColor,
                       ),
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Container(
-                            child: Text('Helpline No.',
-                                style:
-                                    TextStyle(fontWeight: FontWeight.normal)),
+                            child: Text('Help',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 30)),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Card(
+                            color: salmonColor,
+                            child: Container(
+                              padding: const EdgeInsets.all(15),
+                              decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(15)),
+                              ),
+                              width: MediaQuery.of(context).size.width * 0.90,
+                              child: Text('Helpline No.',
+                                  style:
+                                      TextStyle(fontWeight: FontWeight.normal)),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Card(
+                            color: salmonColor,
+                            child: Container(
+                              padding: const EdgeInsets.all(15),
+                              decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(15)),
+                              ),
+                              width: MediaQuery.of(context).size.width * 0.90,
+                              child: Text('KeralaRTC Hub',
+                                  style:
+                                      TextStyle(fontWeight: FontWeight.normal)),
+                            ),
                           ),
                           SizedBox(
                             height: 8,
-                          ),
-                          Container(
-                            child: Text('KeralaRTC Hub',
-                                style:
-                                    TextStyle(fontWeight: FontWeight.normal)),
                           ),
                         ],
                       ),
@@ -75,30 +103,10 @@ class Help extends StatelessWidget {
                           children: [
                             SizedBox(height: 10),
                             Container(
-                              decoration: BoxDecoration(
-                                color: salmonColor,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(15)),
-                              ),
-                              padding: const EdgeInsets.all(8),
-                              width: MediaQuery.of(context).size.width * 0.80,
-                              child: Column(
-                                children: <Widget>[
-                                  Container(
-                                    child: Text('Facts',
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold)),
-                                  ),
-                                  SizedBox(height: 10),
-                                  Container(
-                                    child: Text(
-                                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed scelerisque lorem, vitae volutpat augue. Nulla leo quam, dignissim nec tincidunt non, viverra vel lacus. Praesent velit risus, vehicula dignissim vulputate at, euismod non arcu. Ut tempor purus et pharetra sodales. Mauris luctus ante malesuada nibh aliquet, in ornare lorem egestas. Mauris semper tincidunt est. Proin sed venenatis lorem. Maecenas nibh tellus, sollicitudin vitae sem ut, euismod viverra orci. Maecenas bibendum justo nunc, in lacinia metus imperdiet ut. Aenean tristique ligula vel mi lobortis, et volutpat metus facilisis. Sed aliquam ultricies est, id ornare eros condimentum a. Nunc volutpat venenatis gravida.',
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.normal)),
-                                  ),
-                                  SizedBox(height: 10),
-                                ],
-                              ),
+                              child: Text('Facts',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 30)),
                             ),
                             SizedBox(height: 17),
                             Container(
