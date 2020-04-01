@@ -16,7 +16,7 @@ class BookingList extends StatelessWidget {
         title: 'My Bookings',
         theme: ThemeData(fontFamily: 'Quicksand-Medium'),
         home: Scaffold(
-          backgroundColor: Colors.orange[100],
+          backgroundColor: bgOrange,
           appBar: AppBar(
             elevation: 0,
             title: Text('My Bookings'),

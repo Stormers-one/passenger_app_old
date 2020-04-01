@@ -10,10 +10,10 @@ List<String> devs = [
   'Smitha John',
   'Kennith Philips'
 ];
-Color factColor = coralColor;
-Color factBoxColor = salmonColor;
-Color helpBoxColor = salmonColor;
-Color helpColor = coralColor;
+Color factColor = Colors.orange[200];
+Color factBoxColor = bgOrange;
+Color helpBoxColor = bgOrange;
+Color helpColor = Colors.orange[200];
 
 class Help extends StatelessWidget {
   @override
@@ -22,7 +22,7 @@ class Help extends StatelessWidget {
       theme: ThemeData(fontFamily: 'Quicksand-Medium'),
       title: 'Help',
       home: Scaffold(
-        backgroundColor: salmonColor,
+        backgroundColor: bgOrange,
         // appBar: AppBar(
         //   elevation: 0,
         //   backgroundColor: red,
