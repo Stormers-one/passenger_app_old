@@ -38,7 +38,7 @@ class Help extends StatelessWidget {
                   // height: MediaQuery.of(context).size.height,
                   child: Column(children: [
                     Container(
-                      width: MediaQuery.of(context).size.width * 0.85,
+                      width: MediaQuery.of(context).size.width * 0.90,
                       padding: const EdgeInsets.all(15),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(15)),
@@ -73,9 +73,13 @@ class Help extends StatelessWidget {
                       child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            // SizedBox(height: 10),
+                            SizedBox(height: 10),
                             Container(
-                              decoration: BoxDecoration(color: salmonColor, borderRadius: BorderRadius.all(Radius.circular(15)),),
+                              decoration: BoxDecoration(
+                                color: salmonColor,
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(15)),
+                              ),
                               padding: const EdgeInsets.all(8),
                               width: MediaQuery.of(context).size.width * 0.80,
                               child: Column(
@@ -87,7 +91,8 @@ class Help extends StatelessWidget {
                                   ),
                                   SizedBox(height: 10),
                                   Container(
-                                    child: Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed scelerisque lorem, vitae volutpat augue. Nulla leo quam, dignissim nec tincidunt non, viverra vel lacus. Praesent velit risus, vehicula dignissim vulputate at, euismod non arcu. Ut tempor purus et pharetra sodales. Mauris luctus ante malesuada nibh aliquet, in ornare lorem egestas. Mauris semper tincidunt est. Proin sed venenatis lorem. Maecenas nibh tellus, sollicitudin vitae sem ut, euismod viverra orci. Maecenas bibendum justo nunc, in lacinia metus imperdiet ut. Aenean tristique ligula vel mi lobortis, et volutpat metus facilisis. Sed aliquam ultricies est, id ornare eros condimentum a. Nunc volutpat venenatis gravida.',
+                                    child: Text(
+                                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed scelerisque lorem, vitae volutpat augue. Nulla leo quam, dignissim nec tincidunt non, viverra vel lacus. Praesent velit risus, vehicula dignissim vulputate at, euismod non arcu. Ut tempor purus et pharetra sodales. Mauris luctus ante malesuada nibh aliquet, in ornare lorem egestas. Mauris semper tincidunt est. Proin sed venenatis lorem. Maecenas nibh tellus, sollicitudin vitae sem ut, euismod viverra orci. Maecenas bibendum justo nunc, in lacinia metus imperdiet ut. Aenean tristique ligula vel mi lobortis, et volutpat metus facilisis. Sed aliquam ultricies est, id ornare eros condimentum a. Nunc volutpat venenatis gravida.',
                                         style: TextStyle(
                                             fontWeight: FontWeight.normal)),
                                   ),
@@ -95,9 +100,13 @@ class Help extends StatelessWidget {
                                 ],
                               ),
                             ),
-                            SizedBox(height: 10),
+                            SizedBox(height: 17),
                             Container(
-                              decoration: BoxDecoration(color: salmonColor, borderRadius: BorderRadius.all(Radius.circular(15)),),
+                              decoration: BoxDecoration(
+                                color: salmonColor,
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(15)),
+                              ),
                               padding: const EdgeInsets.all(8),
                               width: MediaQuery.of(context).size.width * 0.80,
                               child: Column(
@@ -109,7 +118,8 @@ class Help extends StatelessWidget {
                                   ),
                                   SizedBox(height: 10),
                                   Container(
-                                    child: Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed scelerisque lorem, vitae volutpat augue. Nulla leo quam, dignissim nec tincidunt non, viverra vel lacus. Praesent velit risus, vehicula dignissim vulputate at, euismod non arcu. Ut tempor purus et pharetra sodales. Mauris luctus ante malesuada nibh aliquet, in ornare lorem egestas. Mauris semper tincidunt est. Proin sed venenatis lorem. Maecenas nibh tellus, sollicitudin vitae sem ut, euismod viverra orci. Maecenas bibendum justo nunc, in lacinia metus imperdiet ut. Aenean tristique ligula vel mi lobortis, et volutpat metus facilisis. Sed aliquam ultricies est, id ornare eros condimentum a. Nunc volutpat venenatis gravida.',
+                                    child: Text(
+                                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed scelerisque lorem, vitae volutpat augue. Nulla leo quam, dignissim nec tincidunt non, viverra vel lacus. Praesent velit risus, vehicula dignissim vulputate at, euismod non arcu. Ut tempor purus et pharetra sodales. Mauris luctus ante malesuada nibh aliquet, in ornare lorem egestas. Mauris semper tincidunt est. Proin sed venenatis lorem. Maecenas nibh tellus, sollicitudin vitae sem ut, euismod viverra orci. Maecenas bibendum justo nunc, in lacinia metus imperdiet ut. Aenean tristique ligula vel mi lobortis, et volutpat metus facilisis. Sed aliquam ultricies est, id ornare eros condimentum a. Nunc volutpat venenatis gravida.',
                                         style: TextStyle(
                                             fontWeight: FontWeight.normal)),
                                   ),
@@ -117,9 +127,13 @@ class Help extends StatelessWidget {
                                 ],
                               ),
                             ),
-                            SizedBox(height: 10),
+                            SizedBox(height: 17),
                             Container(
-                              decoration: BoxDecoration(color: salmonColor, borderRadius: BorderRadius.all(Radius.circular(15)),),
+                              decoration: BoxDecoration(
+                                color: salmonColor,
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(15)),
+                              ),
                               padding: const EdgeInsets.all(8),
                               width: MediaQuery.of(context).size.width * 0.80,
                               child: Column(
@@ -131,7 +145,8 @@ class Help extends StatelessWidget {
                                   ),
                                   SizedBox(height: 10),
                                   Container(
-                                    child: Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed scelerisque lorem, vitae volutpat augue. Nulla leo quam, dignissim nec tincidunt non, viverra vel lacus. Praesent velit risus, vehicula dignissim vulputate at, euismod non arcu. Ut tempor purus et pharetra sodales. Mauris luctus ante malesuada nibh aliquet, in ornare lorem egestas. Mauris semper tincidunt est. Proin sed venenatis lorem. Maecenas nibh tellus, sollicitudin vitae sem ut, euismod viverra orci. Maecenas bibendum justo nunc, in lacinia metus imperdiet ut. Aenean tristique ligula vel mi lobortis, et volutpat metus facilisis. Sed aliquam ultricies est, id ornare eros condimentum a. Nunc volutpat venenatis gravida.',
+                                    child: Text(
+                                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed scelerisque lorem, vitae volutpat augue. Nulla leo quam, dignissim nec tincidunt non, viverra vel lacus. Praesent velit risus, vehicula dignissim vulputate at, euismod non arcu. Ut tempor purus et pharetra sodales. Mauris luctus ante malesuada nibh aliquet, in ornare lorem egestas. Mauris semper tincidunt est. Proin sed venenatis lorem. Maecenas nibh tellus, sollicitudin vitae sem ut, euismod viverra orci. Maecenas bibendum justo nunc, in lacinia metus imperdiet ut. Aenean tristique ligula vel mi lobortis, et volutpat metus facilisis. Sed aliquam ultricies est, id ornare eros condimentum a. Nunc volutpat venenatis gravida.',
                                         style: TextStyle(
                                             fontWeight: FontWeight.normal)),
                                   ),
@@ -139,9 +154,13 @@ class Help extends StatelessWidget {
                                 ],
                               ),
                             ),
-                            SizedBox(height: 10),
+                            SizedBox(height: 17),
                             Container(
-                              decoration: BoxDecoration(color: salmonColor, borderRadius: BorderRadius.all(Radius.circular(15)),),
+                              decoration: BoxDecoration(
+                                color: salmonColor,
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(15)),
+                              ),
                               padding: const EdgeInsets.all(8),
                               width: MediaQuery.of(context).size.width * 0.80,
                               child: Column(
@@ -153,7 +172,8 @@ class Help extends StatelessWidget {
                                   ),
                                   SizedBox(height: 10),
                                   Container(
-                                    child: Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed scelerisque lorem, vitae volutpat augue. Nulla leo quam, dignissim nec tincidunt non, viverra vel lacus. Praesent velit risus, vehicula dignissim vulputate at, euismod non arcu. Ut tempor purus et pharetra sodales. Mauris luctus ante malesuada nibh aliquet, in ornare lorem egestas. Mauris semper tincidunt est. Proin sed venenatis lorem. Maecenas nibh tellus, sollicitudin vitae sem ut, euismod viverra orci. Maecenas bibendum justo nunc, in lacinia metus imperdiet ut. Aenean tristique ligula vel mi lobortis, et volutpat metus facilisis. Sed aliquam ultricies est, id ornare eros condimentum a. Nunc volutpat venenatis gravida.',
+                                    child: Text(
+                                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed scelerisque lorem, vitae volutpat augue. Nulla leo quam, dignissim nec tincidunt non, viverra vel lacus. Praesent velit risus, vehicula dignissim vulputate at, euismod non arcu. Ut tempor purus et pharetra sodales. Mauris luctus ante malesuada nibh aliquet, in ornare lorem egestas. Mauris semper tincidunt est. Proin sed venenatis lorem. Maecenas nibh tellus, sollicitudin vitae sem ut, euismod viverra orci. Maecenas bibendum justo nunc, in lacinia metus imperdiet ut. Aenean tristique ligula vel mi lobortis, et volutpat metus facilisis. Sed aliquam ultricies est, id ornare eros condimentum a. Nunc volutpat venenatis gravida.',
                                         style: TextStyle(
                                             fontWeight: FontWeight.normal)),
                                   ),
@@ -161,9 +181,13 @@ class Help extends StatelessWidget {
                                 ],
                               ),
                             ),
-                            SizedBox(height: 10),
+                            SizedBox(height: 17),
                             Container(
-                              decoration: BoxDecoration(color: salmonColor, borderRadius: BorderRadius.all(Radius.circular(15)),),
+                              decoration: BoxDecoration(
+                                color: salmonColor,
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(15)),
+                              ),
                               padding: const EdgeInsets.all(8),
                               width: MediaQuery.of(context).size.width * 0.80,
                               child: Column(
@@ -175,14 +199,16 @@ class Help extends StatelessWidget {
                                   ),
                                   SizedBox(height: 10),
                                   Container(
-                                    child: Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed scelerisque lorem, vitae volutpat augue. Nulla leo quam, dignissim nec tincidunt non, viverra vel lacus. Praesent velit risus, vehicula dignissim vulputate at, euismod non arcu. Ut tempor purus et pharetra sodales. Mauris luctus ante malesuada nibh aliquet, in ornare lorem egestas. Mauris semper tincidunt est. Proin sed venenatis lorem. Maecenas nibh tellus, sollicitudin vitae sem ut, euismod viverra orci. Maecenas bibendum justo nunc, in lacinia metus imperdiet ut. Aenean tristique ligula vel mi lobortis, et volutpat metus facilisis. Sed aliquam ultricies est, id ornare eros condimentum a. Nunc volutpat venenatis gravida.',
+                                    child: Text(
+                                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed scelerisque lorem, vitae volutpat augue. Nulla leo quam, dignissim nec tincidunt non, viverra vel lacus. Praesent velit risus, vehicula dignissim vulputate at, euismod non arcu. Ut tempor purus et pharetra sodales. Mauris luctus ante malesuada nibh aliquet, in ornare lorem egestas. Mauris semper tincidunt est. Proin sed venenatis lorem. Maecenas nibh tellus, sollicitudin vitae sem ut, euismod viverra orci. Maecenas bibendum justo nunc, in lacinia metus imperdiet ut. Aenean tristique ligula vel mi lobortis, et volutpat metus facilisis. Sed aliquam ultricies est, id ornare eros condimentum a. Nunc volutpat venenatis gravida.',
                                         style: TextStyle(
                                             fontWeight: FontWeight.normal)),
                                   ),
-                                  SizedBox(height: 10),
+                                  SizedBox(height: 17),
                                 ],
                               ),
                             ),
+                            SizedBox(height: 10),
                           ]),
                     ),
                   ]),
