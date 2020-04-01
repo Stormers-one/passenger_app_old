@@ -1,9 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:o_k/model/user.dart';
 import 'package:o_k/services/database.dart';
 
 class Authservice {
   final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  Image m = Image.asset('assets/images/profile_icon.jpg');
 
   //create user obj based on FirebaseUser
 

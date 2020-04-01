@@ -1,13 +1,10 @@
-import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
-import 'package:geolocator/geolocator.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:o_k/shared/colors.dart';
-import '../Menu/Maps/googlemapservice.dart';
+import 'package:path_provider/path_provider.dart';
 
 getBookingId() {
   // final Random bookid = Random.secure();
@@ -20,7 +17,13 @@ getBookingId() {
   }
   return bid.floor().toString();
 }
+Future<File> getImageFileFromAssets(String path) async {
+  final byteData = await rootBundle.load('assets/$path');
 
+  final file = File('${(await getTemporaryDirectory()).path}/$path');
+  await file.writeAsBytes(byteData.buffer.asUint8List(byteData.offsetInBytes, byteData.lengthInBytes));
+  return file;
+}
 String time1;
 setTime(String time) {
   if (time.contains('Morning')) {
@@ -36,7 +39,7 @@ setTime(String time) {
 
 String bidn;
 String selectedString = "";
-
+bool profrefresher = false;
 DateTime selectedDate = DateTime.now();
 final formatter = DateFormat('yyyy-MM-dd');
 
@@ -144,19 +147,12 @@ textInputDecorationNoHint() {
 }
 
 // Profile PIC FIRE STORAGE
-File _image;
-Future uploadPicture(BuildContext context) async{
-  StorageReference firebaseStorageref = FirebaseStorage.instance.ref().child('profile_image/$userID');
-  StorageUploadTask uploadTask = firebaseStorageref.putFile(_image);
-  StorageTaskSnapshot taskSnapshot =  await uploadTask.onComplete;
-  Scaffold.of(context).showSnackBar(SnackBar(content: Text('Profile Picture Uploaded',textAlign: TextAlign.center,)));
-}
 var downURL;
 Future getim() async{
   await _getImageFromFireStorage();
 }
 Future _getImageFromFireStorage() async {
-  var downURL = await FirebaseStorage.instance.ref().child('profile_image/$userID').getDownloadURL();
+   downURL = await FirebaseStorage.instance.ref().child('profile_image/$userID').getDownloadURL();
   print(downURL);
 }
 

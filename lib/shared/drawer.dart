@@ -68,6 +68,7 @@ class _DrawerBuild extends State<DrawerBuild>{
                   title: Text('Profile',style: TextStyle(fontFamily: 'Quicksand-Bold',)),
                   onTap: () async {
                     await getim();
+                    print(' on tap :  $downURL');
                     setState(() {
                       Navigator.push(context,
                       MaterialPageRoute(builder: (context) => Profile()),

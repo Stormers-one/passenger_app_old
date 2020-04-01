@@ -11,39 +11,13 @@ import 'package:o_k/shared/drawer.dart';
 import 'package:o_k/shared/loading.dart';
 import 'package:provider/provider.dart';
 import 'package:o_k/shared/colors.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 class Profile extends StatefulWidget {
   _ProfileState createState() => _ProfileState ();
 }
 class _ProfileState extends State<Profile>{ 
-
-  File _image;
   @override
   Widget build(BuildContext context)  {
-    Future getImage() async{
-      var image  = await ImagePicker.pickImage(source: ImageSource.gallery);
-      setState(() {
-        _image=image;
-        print("Image Path $_image");
-      });
-    }
-
-    // Future uploadPicture(BuildContext context) async{
-    //   StorageReference firebaseStorageref = FirebaseStorage.instance.ref().child('profile_image/$userID');
-    //   StorageUploadTask uploadTask = firebaseStorageref.putFile(_image);
-    //   StorageTaskSnapshot taskSnapshot =  await uploadTask.onComplete;
-    //   setState(() {
-    //     Scaffold.of(context).showSnackBar(SnackBar(content: Text('Profile Picture Uploaded')));
-    //   });
-    // }
-
-    // Future _getImageFromFireStorage() async {
-    //        var downURL = await FirebaseStorage.instance.ref().child('profile_image/$userID').getDownloadURL();
-    //        print(downURL.toString());
-    //        return downURL;
-    //   }
-
     void _showSettengsPanel() {
       showModalBottomSheet(
           context: context,
@@ -54,7 +28,6 @@ class _ProfileState extends State<Profile>{
             );
           });
     }
-    
     final user = Provider.of<User>(context);
     return MaterialApp(
       title: 'Profile',
@@ -73,7 +46,6 @@ class _ProfileState extends State<Profile>{
         drawer: DrawerBuild(),
         body: Builder(
           builder: (context) {
-            print('in here $downURL');
            return Container(
             child: ListView(
               shrinkWrap: true,
@@ -95,26 +67,15 @@ class _ProfileState extends State<Profile>{
                                 child: SizedBox(
                                   width:170,
                                   height:170,
-                                  child:/*(downURL == null) ?*/ Image.asset(
+                                  child:(downURL == null) ? Image.asset(
                                     'assets/images/profile-icon.png',
                                     fit: BoxFit.fill, 
                                   )
-                                  //: Image.network('$downURL'), 
+                                  : Image.network('$downURL'), 
                                 ),
                               ),
                             ),
                           ),
-                          Padding(
-                            padding: EdgeInsets.only(top:60.0),
-                              child: IconButton(
-                                icon: Icon(Icons.camera), 
-                                onPressed: () async{
-                                  await getImage();
-                                  await uploadPicture(context);
-                              }),
-                          
-                          ),
-
                         ],
                       ),
                     StreamBuilder<UserData>(
