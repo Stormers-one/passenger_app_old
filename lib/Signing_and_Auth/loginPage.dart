@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:o_k/Signing_and_Auth/resetpassword.dart';
 import 'package:o_k/services/auth.dart';
@@ -36,7 +38,7 @@ class _LoginState extends State<LoginPage> {
                       onPressed: () => Navigator.pop(context, false),
                       child: Text("NO")),
                   FlatButton(
-                      onPressed: () => Navigator.pop(context, true),
+                      onPressed: () => Navigator.pop(context, exit(0)),
                       child: Text("YES")),
                 ],
               ));
