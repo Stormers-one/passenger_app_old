@@ -37,6 +37,29 @@ setTime(String time) {
   }
 }
 
+var busKey = {
+    'Bus Type' : 0,
+    'Ordinary': 1,
+    'Limited Stop Ordinary' : 2,
+    'Town to Town Ordinary' : 3,
+    'Fast Passenger' : 4,
+    'LS Fast Passenger' : 5,
+    'Point to Point Fast Passenger' : 6,
+    'Super Fast' : 7,
+    'Super Express' : 8,
+    'Super Dulex' : 9,
+    'Garuda King Class Volvo' : 11,
+    'Low Floor Non-AC' : 14,
+    'Ananthapuri Fast' : 15,
+    'Garuda Maharaja Scania' : 16,
+};
+
+int bkey = 0;
+setBusKey(String bst){
+  bkey= busKey[bst];
+}
+
+
 String bidn;
 String selectedString = "";
 bool profrefresher = false;
@@ -162,7 +185,7 @@ Future _getImageFromFireStorage() async {
   }
 }
 
-
+String inUrl;
 
 
 final recentSearch = [];

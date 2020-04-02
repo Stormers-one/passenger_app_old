@@ -97,6 +97,9 @@ class _Timing extends State<Timing> {
 
   @override
   Widget build(BuildContext context) {
+    // setState(() {
+    //   bkey = 0;
+    // });
     return StreamProvider<List<BusStopData>>.value(
       value: DatabaseService().busStopData,
       child: MaterialApp(
@@ -202,7 +205,11 @@ class _Timing extends State<Timing> {
                                           .toList(),
                                       isExpanded: true,
                                       onChanged: (val) {
-                                        setState(() => _currentBusType = val);
+                                        setState(() { 
+                                          _currentBusType = val;
+                                          // bkey = setBusKey(_currentBusType.toString());
+                                          // print(bkey);
+                                        });
                                         FocusScope.of(context)
                                             .requestFocus(new FocusNode());
                                       },
@@ -243,6 +250,12 @@ class _Timing extends State<Timing> {
                                         onPressed: () async {
                                           clickStatTiming = true;
                                           if (_formkey.currentState.validate()) {
+                                            if(_currentBusType.isEmpty || bkey == 0){
+                                              inUrl = 'https://www.aanavandi.com//search/results/source/'+ _controller.text +'/destination/'+ _controller1.text +'/timing/$time1';
+                                            }
+                                            // else{
+                                            //   inUrl = 'https://www.aanavandi.com//search/results/source/'+ _controller.text +'/destination/'+ _controller1.text +'/type/$bkey/timing/$time1';
+                                            // }
                                             Navigator.push(
                                               context,
                                               MaterialPageRoute(

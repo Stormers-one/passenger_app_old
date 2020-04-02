@@ -30,7 +30,7 @@ class _AanavandiState extends State<Aanavandi> {
             drawer: Drawer(),
             body: WebView(
               initialUrl:
-                  'https://www.aanavandi.com//search/results/source/$from/destination/$to/timing/$time1',
+                  inUrl,
               javascriptMode: JavascriptMode.unrestricted,
               onWebViewCreated: (WebViewController webViewController) {
                 _controller.complete(webViewController);
