@@ -11,7 +11,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 3), () => Navigator.push(context, MaterialPageRoute(builder: (context) => Wrapper())));
+    Timer(Duration(seconds: 3), () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Wrapper())));
   }
 
   @override
@@ -39,12 +39,12 @@ class _SplashScreenState extends State<SplashScreen> {
                         ),
                         CircleAvatar(
                           backgroundColor: Colors.white,
-                          radius: 90.0,
+                          radius: 100.0,
                           child:Padding(
                             padding: EdgeInsets.only(top:20),
                             child: SizedBox(
-                            height: 250,
-                            width: 250,
+                            height: 180,
+                            width: 180,
                             child:Image.asset('assets/images/logo.png')
                             ),
                           )
