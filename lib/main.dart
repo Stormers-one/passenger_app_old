@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:o_k/Menu/Maps/app_state.dart';
 import 'package:o_k/model/user.dart';
 import 'package:o_k/services/auth.dart';
+import 'package:o_k/shared/spashScreen.dart';
 import 'Wrapper.dart';
 import 'package:provider/provider.dart';
 import 'package:o_k/shared/colors.dart';
@@ -21,7 +22,7 @@ class Odukomban extends StatelessWidget {
       child: new MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(fontFamily: 'Quicksand-Medium'),
-        home: Wrapper(),
+        home: SplashScreen(),
       ),
     );
   }
