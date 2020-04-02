@@ -252,32 +252,6 @@ class _RegisterState extends State<RegisterPage> {
                                           padding:
                                               const EdgeInsets.only(top: 20.0),
                                         ),
-                                        // SizedBox(
-                                        //   height: 50,
-                                        //   width: 200,
-                                        //   child: RaisedButton(
-                                        //     onPressed: () {
-                                        //       Navigator.push(
-                                        //         context,
-                                        //         MaterialPageRoute(
-                                        //             builder: (context) =>
-                                        //                 LoginPage()),
-                                        //       );
-                                        //       //widget.toggleView();
-                                        //     },
-                                        //     child: const Text(
-                                        //         ' Already have an Account?',
-                                        //         style: TextStyle(fontSize: 15)),
-                                        //     color: red,
-                                        //     textColor: Colors.white,
-                                        //     splashColor: Colors.grey,
-                                        //     padding: EdgeInsets.fromLTRB(
-                                        //         10, 10, 10, 10),
-                                        //     shape: RoundedRectangleBorder(
-                                        //         borderRadius:
-                                        //             BorderRadius.circular(20.0)),
-                                        //   ),
-                                        // ),
                                       ],
                                     ),
                                   ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:o_k/Signing_and_Auth/resetpassword.dart';
 import 'package:o_k/services/auth.dart';
 import 'package:o_k/Signing_and_Auth/register.dart';
 import 'package:o_k/shared/background_login.dart';
@@ -205,69 +206,56 @@ class _LoginState extends State<LoginPage> {
                                             padding:
                                                 const EdgeInsets.only(top: 20.0),
                                           ),
-                                          SizedBox(
-                                            height: 50,
-                                            width: 200,
-                                            child: RaisedButton(
-                                              onPressed: () {
-                                                Navigator.push(
-                                                  context,
-                                                  MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          RegisterPage()),
-                                                );
-                                                //widget.toggleView();
-                                              },
-                                              child: const Text('Register',
-                                                  style: TextStyle(fontSize: 20)),
-                                              color: red,
-                                              textColor: Colors.white,
-                                              splashColor: Colors.grey,
-                                              padding: EdgeInsets.fromLTRB(
-                                                  10, 10, 10, 10),
-                                              shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          20.0)),
-                                            ),
+                                        SizedBox(
+                                          width: 10,
+                                        ),
+                                        InkWell(
+                                          onTap: () {
+                                            Navigator.push(context,
+                                                MaterialPageRoute(builder: (context) => ResetPage()));
+                                          },
+                                          child: Text(
+                                            'Forgot Password?',
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 13,
+                                                fontWeight: FontWeight.w600),
                                           ),
+                                        )
                                         ],
                                       ),
                                     ),
+                                    
                                   ),
-                                  // new Padding(                                             //UNCOMMENT FOR Annonymous SIGN IN
-                                  //   padding: const EdgeInsets.only(top: 20.0),
-                                  // ),
-                                  // SizedBox(
-                                  //   height: 50,
-                                  //   width: 200,
-                                  //   child: RaisedButton(
-                                  //     onPressed: () async {
-                                  //       // Navigator.push(
-                                  //       //   context,
-                                  //       //   MaterialPageRoute(builder: (context) => Homepage()),
-                                  //       // );
-                                  //       //
-                                  //       dynamic result = await _auth.signInAnon();
-                                  //       if (result == null) {
-                                  //         setState(() => loading = true);
-                                  //         print('Error Signing in');
-                                  //       } else {
-                                  //         setState(() => loading = false);
-                                  //         print('Signend  in success');
-                                  //         print(result.uid);
-                                  //       }
-                                  //     },
-                                  //     child: const Text('Annonymous',
-                                  //         style: TextStyle(fontSize: 20)),
-                                  //     color: red,
-                                  //     textColor: Colors.white,
-                                  //     splashColor: Colors.grey,
-                                  //     padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                  //     shape: RoundedRectangleBorder(
-                                  //         borderRadius: BorderRadius.circular(20.0)),
-                                  //   ),
-                                  // ),
+                                  Container(
+                                    margin: EdgeInsets.symmetric(vertical: 20),
+                                    alignment: Alignment.bottomCenter,
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: <Widget>[
+                                        Text(
+                                          'Don\'t have an account ?',
+                                          style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
+                                        ),
+                                        SizedBox(
+                                          width: 10,
+                                        ),
+                                        InkWell(
+                                          onTap: () {
+                                            Navigator.push(context,
+                                                MaterialPageRoute(builder: (context) => RegisterPage()));
+                                          },
+                                          child: Text(
+                                            'Register',
+                                            style: TextStyle(
+                                                color: Color(0xfff79c4f),
+                                                fontSize: 13,
+                                                fontWeight: FontWeight.w600),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
                                 ],
                               ),
                             ),
