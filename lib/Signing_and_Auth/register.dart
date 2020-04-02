@@ -60,7 +60,7 @@ class _RegisterState extends State<RegisterPage> {
                             children: <Widget>[
                               new Container(
                                 child: Image.asset(
-                                  'assets/logo.png',
+                                  'assets/images/logo.png',
                                 ),
                                 height: 150,
                                 width: 150,
@@ -82,6 +82,13 @@ class _RegisterState extends State<RegisterPage> {
                                       end: const FractionalOffset(0.0, 0.5),
                                       stops: [0.0, 1.0],
                                       tileMode: TileMode.clamp),
+                                      boxShadow: [
+                                        BoxShadow(
+                                            color: Colors.black.withAlpha(60),
+                                            blurRadius: 5,
+                                            offset: Offset(0, 8),
+                                            spreadRadius: 2)
+                                      ]
                                   // color: Colors.orange[300],
                                 ),
                                 padding: const EdgeInsets.all(40.0),

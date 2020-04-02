@@ -96,6 +96,13 @@ class _LoginState extends State<LoginPage> {
                                         end: const FractionalOffset(0.0, 0.5),
                                         stops: [0.0, 1.0],
                                         tileMode: TileMode.clamp),
+                                        boxShadow: [
+                                          BoxShadow(
+                                              color: Colors.black.withAlpha(60),
+                                              blurRadius: 5,
+                                              offset: Offset(0, 8),
+                                              spreadRadius: 2)
+                                        ]
                                   ),
                                   padding: const EdgeInsets.all(20.0),
                                   child: new Form(
