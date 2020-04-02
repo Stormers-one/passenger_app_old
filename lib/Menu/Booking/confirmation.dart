@@ -45,7 +45,7 @@ class _BookingConfirm extends State<BookingConfirm>{
   }
   void _handlePaymentSucess(PaymentSuccessResponse response){
     Fluttertoast.showToast(msg: "SUCCESS" + response.paymentId);
-    Navigator.push(
+    Navigator.pushReplacement(
       context,
       MaterialPageRoute(
           builder: (context) =>
