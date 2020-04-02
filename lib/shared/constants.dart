@@ -152,8 +152,14 @@ Future getim() async{
   await _getImageFromFireStorage();
 }
 Future _getImageFromFireStorage() async {
+  try{
    downURL = await FirebaseStorage.instance.ref().child('profile_image/$userID').getDownloadURL();
   print(downURL);
+  }
+  catch(e){
+    downURL = 'https://thumbs.dreamstime.com/b/no-user-profile-picture-hand-drawn-illustration-53840792.jpg';
+    print(e);
+  }
 }
 
 
