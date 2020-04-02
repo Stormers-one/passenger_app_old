@@ -20,22 +20,6 @@ class _HomepageState extends State<Homepage> {
   final buttonHome = Buttons.fetchAll() ?? [];
   @override
   Widget build(BuildContext context) {
-    // Future<bool> _onBackPressed() {
-    //   return showDialog(
-    //       context: context,
-    //       builder: (context) => AlertDialog(
-    //             title: Text("Exit: Are you sure?"),
-    //             actions: <Widget>[
-    //               FlatButton(
-    //                   onPressed: () => Navigator.pop(context, false),
-    //                   child: Text("NO")),
-    //               FlatButton(
-    //                 onPressed: () => Navigator.pop(context, exit(0)),
-    //                 child: Text("YES"),
-    //               ),
-    //             ],
-    //           ));
-    // }
     return MaterialApp(
       theme: ThemeData(fontFamily: 'Quicksand-Medium'),
       debugShowCheckedModeBanner: false,
@@ -74,7 +58,7 @@ class _HomepageState extends State<Homepage> {
             )),
             child: ListView(
               shrinkWrap: true,
-              padding: const EdgeInsets.all(10),
+              padding: const EdgeInsets.only(left: 9.0 , right: 9.0 ),
               children: <Widget>[
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -85,8 +69,8 @@ class _HomepageState extends State<Homepage> {
                         child: Image.asset(
                           'assets/images/logo.png',
                         ),
-                        height: 200,
-                        width: 200,
+                        height: 190,
+                        width: 190,
                       ),
                     ),
                     Container(
@@ -98,7 +82,7 @@ class _HomepageState extends State<Homepage> {
                             ),
                       ),
                       alignment: Alignment.bottomCenter,
-                      padding: EdgeInsets.all(20.0),
+                      padding: EdgeInsets.only( left: 20.0 , right: 20.0 ),
                       width: MediaQuery.of(context).size.width,
                       //height:
                       child: Column(
