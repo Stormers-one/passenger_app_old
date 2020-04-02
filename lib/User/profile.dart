@@ -63,7 +63,7 @@ class _ProfileState extends State<Profile>{
                             alignment: Alignment.center,
                             child: CircleAvatar(
                               radius: 90,
-                              backgroundColor: Colors.red[500],
+                              backgroundColor: Colors.black,
                               child: ClipOval(
                                 child: SizedBox(
                                   width:170,
