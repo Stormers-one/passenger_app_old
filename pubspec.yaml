@@ -89,6 +89,7 @@ flutter:
     - assets/images/homepage.png
     - assets/images/profile-icon.png
     - assets/images/bus_fleet.png
+    - assets/images/loading.gif
 
   fonts:
     - family: Quicksand-SemiBold

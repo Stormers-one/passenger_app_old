@@ -68,7 +68,7 @@ class _ProfileState extends State<Profile>{
                                 child: SizedBox(
                                   width:170,
                                   height:170,
-                                  child:FadeInImage.assetNetwork(fadeInCurve:Curves.bounceIn ,placeholder: 'assets/images/profile-icon.png', image: downURL, fit: BoxFit.fill,),
+                                  child:FadeInImage.assetNetwork(fadeInCurve:Curves.bounceIn ,placeholder: 'assets/images/loading.gif', image: downURL, fit: BoxFit.fill,),
                                 ),
                               ),
                             ),
