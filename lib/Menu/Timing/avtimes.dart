@@ -30,7 +30,7 @@ class _AanavandiState extends State<Aanavandi> {
             drawer: Drawer(),
             body: WebView(
               initialUrl:
-                  inUrl,
+                  inUrl ,
               javascriptMode: JavascriptMode.unrestricted,
               onWebViewCreated: (WebViewController webViewController) {
                 _controller.complete(webViewController);
