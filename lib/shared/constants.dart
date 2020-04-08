@@ -1,10 +1,7 @@
-import 'dart:io';
 import 'dart:math';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
-import 'package:path_provider/path_provider.dart';
 
 getBookingId() {
   // final Random bookid = Random.secure();
@@ -16,13 +13,6 @@ getBookingId() {
     bid*=10;
   }
   return bid.floor().toString();
-}
-Future<File> getImageFileFromAssets(String path) async {
-  final byteData = await rootBundle.load('assets/$path');
-
-  final file = File('${(await getTemporaryDirectory()).path}/$path');
-  await file.writeAsBytes(byteData.buffer.asUint8List(byteData.offsetInBytes, byteData.lengthInBytes));
-  return file;
 }
 String time1;
 setTime(String time) {
@@ -59,7 +49,7 @@ setBusKey(String bst){
   bkey= busKey[bst];
 }
 
-
+bool booking = true;
 String bidn;
 String selectedString = "";
 bool profrefresher = false;
