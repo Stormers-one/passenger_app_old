@@ -10,7 +10,7 @@ import 'package:qr_flutter/qr_flutter.dart';
 
 class TicketDisplay extends StatelessWidget {
   
-  bool booking = true;
+  
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<User>(context);
