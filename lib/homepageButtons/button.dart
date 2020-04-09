@@ -35,8 +35,8 @@ class Button extends StatelessWidget {
                 child: Image.asset(
                   image,
                 ),
-                height: 100,
-                width: 100,
+                height: 80,
+                width: 80,
               ),
               new Padding(
                 padding: const EdgeInsets.only(top: 2.0),
