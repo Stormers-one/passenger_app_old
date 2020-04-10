@@ -21,26 +21,31 @@ class _SettingsFormState extends State<SettingsForm> {
 
   String currentName;
   String currentphno;
-  
+
   File _image;
-Future uploadPicture(BuildContext context) async{
-  //File m = await getImageFileFromAssets('images/profile-icon.png');
-  StorageReference firebaseStorageref = FirebaseStorage.instance.ref().child('profile_image/$userID');
-  StorageUploadTask uploadTask = firebaseStorageref.putFile(_image);
-  StorageTaskSnapshot taskSnapshot =  await uploadTask.onComplete;
-  Fluttertoast.showToast(msg: 'Profile Picture Uploaded');
-}
+  Future uploadPicture(BuildContext context) async {
+    //File m = await getImageFileFromAssets('images/profile-icon.png');
+    StorageReference firebaseStorageref =
+        FirebaseStorage.instance.ref().child('profile_image/$userID');
+    try {
+      StorageUploadTask uploadTask = firebaseStorageref.putFile(_image);
+      StorageTaskSnapshot taskSnapshot = await uploadTask.onComplete;
+      Fluttertoast.showToast(msg: 'Profile Picture Uploaded');
+    } catch (e) {
+      Fluttertoast.showToast(msg: 'Cancelled');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-
-    Future getImage() async{
-      var image  = await ImagePicker.pickImage(source: ImageSource.gallery);
+    Future getImage() async {
+      var image = await ImagePicker.pickImage(source: ImageSource.gallery);
       setState(() {
-        _image=image;
+        _image = image;
         print("Image Path $_image");
       });
     }
+
     final user = Provider.of<User>(context);
     return StreamBuilder<UserData>(
         stream: DatabaseService(uid: user.uid).userData,
@@ -100,27 +105,32 @@ Future uploadPicture(BuildContext context) async{
                         onChanged: (val) {
                           setState(() => currentphno = val);
                         }),
-                        new Padding(
+                    new Padding(
                       padding: const EdgeInsets.only(top: 20.0),
                     ),
                     SizedBox(
                       height: 50,
                       width: 100,
                       child: RaisedButton(
-                          child: const Text('Upload Profile Photo',
-                              style: TextStyle(fontSize: 12,fontFamily: 'Quicksand-Bold',),
-                              textAlign: TextAlign.center,
-                              
-                              ),
+                          child: const Text(
+                            'Upload Profile Photo',
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontFamily: 'Quicksand-Bold',
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
                           color: red,
                           textColor: Colors.white,
                           splashColor: red,
                           padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
                           shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20.0),
-                              side: BorderSide(color: Colors.transparent),),
+                            borderRadius: BorderRadius.circular(20.0),
+                            side: BorderSide(color: Colors.transparent),
+                          ),
                           onPressed: () async {
-                            Fluttertoast.showToast(msg: 'Wait For Upload Status');
+                            Fluttertoast.showToast(
+                                msg: 'Wait For Upload Status');
                             await getImage();
                             await uploadPicture(context);
                           }),
@@ -133,14 +143,18 @@ Future uploadPicture(BuildContext context) async{
                       width: 200,
                       child: RaisedButton(
                           child: const Text('Update',
-                              style: TextStyle(fontSize: 20,fontFamily: 'Quicksand-Bold',)),
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontFamily: 'Quicksand-Bold',
+                              )),
                           color: red,
                           textColor: Colors.white,
                           splashColor: red,
                           padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
                           shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20.0),
-                              side: BorderSide(color: Colors.transparent),),
+                            borderRadius: BorderRadius.circular(20.0),
+                            side: BorderSide(color: Colors.transparent),
+                          ),
                           onPressed: () async {
                             if (_formkey.currentState.validate()) {
                               await DatabaseService(uid: user.uid)
