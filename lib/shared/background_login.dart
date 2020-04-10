@@ -15,8 +15,7 @@ class Background extends StatelessWidget {
             ],
           ),
           Expanded(
-            child: Container(
-            ),
+            child: Container(),
           ),
         ],
       ),
@@ -61,7 +60,7 @@ class WavyFooter extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-              colors: aquaGradients,
+              colors: orangeGradients,
               begin: Alignment.center,
               end: Alignment.bottomRight),
         ),
