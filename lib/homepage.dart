@@ -2,7 +2,7 @@ import 'package:double_back_to_close_app/double_back_to_close_app.dart';
 import 'package:flutter/material.dart';
 import 'package:o_k/Wrapper.dart';
 import 'package:o_k/services/auth.dart';
-import 'package:o_k/shared/bottomBar.dart';
+// import 'package:o_k/shared/bottomBar.dart';
 import 'package:o_k/shared/colors.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/drawer.dart';
@@ -47,7 +47,6 @@ class _HomepageState extends State<Homepage> {
               )
             ]),
         drawer: DrawerBuild(),
-        bottomNavigationBar: BottomBar(),
         body: GestureDetector(
           onTap: () {
             FocusScope.of(context).requestFocus(new FocusNode());
@@ -71,8 +70,8 @@ class _HomepageState extends State<Homepage> {
                         child: Image.asset(
                           'assets/images/logo.png',
                         ),
-                        height: 179,
-                        width: 179,
+                        height: 190,
+                        width: 190,
                       ),
                     ),
                     Container(
