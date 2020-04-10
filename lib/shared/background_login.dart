@@ -61,7 +61,7 @@ class WavyFooter extends StatelessWidget {
         decoration: BoxDecoration(
           gradient: LinearGradient(
               colors: orangeGradients,
-              begin: Alignment.center,
+              begin: Alignment.topCenter,
               end: Alignment.bottomRight),
         ),
         height: MediaQuery.of(context).size.height / 3,
