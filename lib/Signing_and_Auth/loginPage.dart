@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:o_k/Signing_and_Auth/resetpassword.dart';
 import 'package:o_k/services/auth.dart';
@@ -32,18 +31,17 @@ class _LoginState extends State<LoginPage> {
       return showDialog(
           context: context,
           builder: (context) => AlertDialog(
-                title: Text("Do You Really want to Exit?"),
-                actions: <Widget>[
-                  FlatButton(
-                      onPressed: () => Navigator.pop(context, false),
-                      child: Text("NO")),
-                  FlatButton(
-                      onPressed: () => Navigator.pop(context, exit(0)),
-                      child: Text("YES")),
-                ],
-              ));
+          title: Text("Do You Really want to Exit?"),
+          actions: <Widget>[
+            FlatButton(
+                onPressed: () => Navigator.pop(context, false),
+                child: Text("NO")),
+            FlatButton(
+                onPressed: () => Navigator.pop(context, exit(0)),
+                child: Text("YES")),
+          ],
+        ));
     }
-
     return loading
         ? Loading()
         : WillPopScope(
@@ -64,7 +62,7 @@ class _LoginState extends State<LoginPage> {
                       // ),
                       child: ListView(
                           shrinkWrap: true,
-                          padding: const EdgeInsets.all(20.0),
+                          padding: const EdgeInsets.only(top:20,left:20,right:20),
                           children: <Widget>[
                             new Theme(
                               data: new ThemeData(
@@ -79,7 +77,10 @@ class _LoginState extends State<LoginPage> {
                               child: new Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
-                                  
+                                   new Padding(
+                                    padding:
+                                        const EdgeInsets.only(top: 50.0),
+                                   ),
                                   Hero(
                                     tag: 'imageHero',
                                     child: new Container(

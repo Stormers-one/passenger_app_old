@@ -30,18 +30,18 @@ class _BookingState extends State<Booking> {
   String get distance => _distance;
   String get duration => _duration;
 
-  Future<Null> _selectDate(BuildContext context) async {
-    final DateTime picked = await showDatePicker(
-        context: context,
-        initialDate: selectedDate,
-        firstDate: DateTime(2020, 2),
-        lastDate: DateTime(2020, 6));
-    if (picked != null && picked != selectedDate)
-      setState(() {
-        selectedDate = picked;
-        _controller2.text = formatter.format(selectedDate);
-      });
-  }
+  // Future<Null> _selectDate(BuildContext context) async {
+  //   final DateTime picked = await showDatePicker(
+  //       context: context,
+  //       initialDate: selectedDate,
+  //       firstDate: DateTime(2020, 2),
+  //       lastDate: DateTime(2020, 6));
+  //   if (picked != null && picked != selectedDate)
+  //     setState(() {
+  //       selectedDate = picked;
+  //       _controller2.text = formatter.format(selectedDate);
+  //     });
+  // }
 
   final List<String> bustype = <String>[
     'Ordinary',
