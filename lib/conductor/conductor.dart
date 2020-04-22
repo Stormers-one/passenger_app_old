@@ -48,8 +48,8 @@ class _ConductorState extends State<Conductor> {
                               child: Image.asset(
                                 'assets/images/logo.png',
                               ),
-                              height: 125,
-                              width: 125,
+                              height: 190,
+                              width: 190,
                             ),
                           ),
                           Container(
@@ -64,42 +64,42 @@ class _ConductorState extends State<Conductor> {
                                 new Padding(
                                   padding: const EdgeInsets.only(top: 10.0),
                                 ),
-                                Button(
-                                  image: buttonHome[0].image,
-                                  text: buttonHome[0].text,
-                                  route: buttonHome[0].route,
-                                  context: context,
-                                ),
-                                new Padding(
-                                  padding: const EdgeInsets.only(top: 10.0),
-                                ),
-                                Button(
-                                  image: buttonHome[1].image,
-                                  text: buttonHome[1].text,
-                                  route: buttonHome[1].route,
-                                  context: context,
-                                ),
-                                new Padding(
-                                  padding: const EdgeInsets.only(top: 10.0),
-                                ),
-                                Button(
-                                  image: buttonHome[2].image,
-                                  text: buttonHome[2].text,
-                                  route: buttonHome[2].route,
-                                  context: context,
-                                ),
-                                new Padding(
-                                  padding: const EdgeInsets.only(top: 10.0),
-                                ),
-                                Button(
-                                  image: buttonHome[3].image,
-                                  text: buttonHome[3].text,
-                                  route: buttonHome[3].route,
-                                  context: context,
-                                ),
-                                new Padding(
-                                  padding: const EdgeInsets.only(top: 10.0),
-                                ),
+                                Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Button(
+                                        image: buttonHome[0].image,
+                                        text: buttonHome[0].text,
+                                        route: buttonHome[0].route,
+                                        context: context,
+                                      ),
+                                      Button(
+                                        image: buttonHome[1].image,
+                                        text: buttonHome[1].text,
+                                        route: buttonHome[1].route,
+                                        context: context,
+                                      )
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Button(
+                                        image: buttonHome[2].image,
+                                        text: buttonHome[2].text,
+                                        route: buttonHome[2].route,
+                                        context: context,
+                                      ),
+                                      Button(
+                                        image: buttonHome[3].image,
+                                        text: buttonHome[3].text,
+                                        route: buttonHome[3].route,
+                                        context: context,
+                                      ),
+                                    ],
+                                  ),
                               ],
                             ),
                           ),
