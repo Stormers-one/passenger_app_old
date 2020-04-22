@@ -9,11 +9,11 @@ import 'package:provider/provider.dart';
 import 'package:o_k/shared/colors.dart';
 
 class Profile extends StatefulWidget {
-  _ProfileState createState() => _ProfileState ();
+  _ProfileState createState() => _ProfileState();
 }
-class _ProfileState extends State<Profile>{ 
+class _ProfileState extends State<Profile> {
   @override
-  Widget build(BuildContext context)  {
+  Widget build(BuildContext context) {
     void _showSettengsPanel() {
       showModalBottomSheet(
           context: context,
@@ -40,10 +40,8 @@ class _ProfileState extends State<Profile>{
                   label: Text('Edit Profile'))
             ]),
         drawer: DrawerBuild(),
-        body: Builder(
-          builder: (context) {
-            
-           return Container(
+        body: Builder(builder: (context) {
+          return Container(
             child: ListView(
               shrinkWrap: true,
               padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
@@ -51,26 +49,31 @@ class _ProfileState extends State<Profile>{
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                     SizedBox(height: 50),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Align(
-                            alignment: Alignment.center,
-                            child: CircleAvatar(
-                              radius: 90,
-                              backgroundColor: Colors.black,
-                              child: ClipOval(
-                                child: SizedBox(
-                                  width:170,
-                                  height:170,
-                                  child:FadeInImage.assetNetwork(fadeInCurve:Curves.bounceIn ,placeholder: 'assets/images/loading.gif', image: downURL, fit: BoxFit.fill,),
+                    SizedBox(height: 50),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Align(
+                          alignment: Alignment.center,
+                          child: CircleAvatar(
+                            radius: 90,
+                            backgroundColor: Colors.black,
+                            child: ClipOval(
+                              child: SizedBox(
+                                width: 170,
+                                height: 170,
+                                child: FadeInImage.assetNetwork(
+                                  fadeInCurve: Curves.bounceIn,
+                                  placeholder: 'assets/images/loading.gif',
+                                  image: downURL,
+                                  fit: BoxFit.fill,
                                 ),
                               ),
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
+                    ),
                     StreamBuilder<UserData>(
                         stream: DatabaseService(uid: user.uid).userData,
                         builder: (context, snapshot) {
@@ -155,8 +158,7 @@ class _ProfileState extends State<Profile>{
               ],
             ),
           );
-          }
-        ),
+        }),
       ),
     );
   }
