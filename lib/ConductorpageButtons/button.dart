@@ -79,7 +79,7 @@ class Button extends StatelessWidget {
         context,
         MaterialPageRoute(builder: (context) => Emergency()),
       );
-    } else if (route == 'Passenger') {
+    } else if (route == 'Passengers') {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => Passenger()),

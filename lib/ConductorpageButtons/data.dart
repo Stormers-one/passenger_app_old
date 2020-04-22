@@ -18,9 +18,9 @@ class Buttons extends ButtonClass {
       image: 'assets/images/emergency.png',
     ),
     ButtonClass(
-      text: 'Passenger',
-      route: 'Passenger',
-      image: 'assets/images/passenger.png',
+      text: 'Passengers',
+      route: 'Passengers',
+      image: 'assets/images/passengers.png',
     ),
   ];
   static ButtonClass fetchAny() {

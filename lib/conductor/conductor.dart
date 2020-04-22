@@ -48,8 +48,8 @@ class _ConductorState extends State<Conductor> {
                               child: Image.asset(
                                 'assets/images/logo.png',
                               ),
-                              height: 190,
-                              width: 190,
+                              height: 125,
+                              width: 125,
                             ),
                           ),
                           Container(
