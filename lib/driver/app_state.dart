@@ -42,32 +42,32 @@ class AppState with ChangeNotifier {
   }
 
   // ! TO CREATE ROUTE
-  void sendRequest(String fromLocation, String toLocation) async {
-    fromLocation = fromLocation + ', Kerala';
-    toLocation = toLocation + ', Kerala';
-    List<Placemark> placemark1 =
-        await Geolocator().placemarkFromAddress(fromLocation);
-        print(placemark1);
-    List<Placemark> placemark2 =
-        await Geolocator().placemarkFromAddress(toLocation);
-        print(placemark2);
-    double latitude1 = placemark1[0].position.latitude;
-    double longitude1 = placemark1[0].position.longitude;
-    double latitude2 = placemark2[0].position.latitude;
-    double longitude2 = placemark2[0].position.longitude;
-    LatLng start = LatLng(latitude1, longitude1);
-    LatLng destination = LatLng(latitude2, longitude2);
-    _markers.clear();
-    _addMarker(start, fromLocation);
-    _addMarker(destination, toLocation);
+  void sendRequest(LatLng fromLocation, LatLng toLocation) async {
+    // fromLocation = fromLocation + ', Kerala';
+    // toLocation = toLocation + ', Kerala';
+    // List<Placemark> placemark1 =
+    //     await Geolocator().placemarkFromAddress(fromLocation);
+    //     print(placemark1);
+    // List<Placemark> placemark2 =
+    //     await Geolocator().placemarkFromAddress(toLocation);
+    //     print(placemark2);
+    // double latitude1 = placemark1[0].position.latitude;
+    // double longitude1 = placemark1[0].position.longitude;
+    // double latitude2 = placemark2[0].position.latitude;
+    // double longitude2 = placemark2[0].position.longitude;
+    // LatLng start = LatLng(latitude1, longitude1);
+    // LatLng destination = LatLng(latitude2, longitude2);
+    // _markers.clear();
+    // _addMarker(start, fromLocation);
+    // _addMarker(destination, toLocation);
     String route =
-        await _googleMapsServices.getRouteCoordinates(start, destination);
+        await _googleMapsServices.getRouteCoordinates(fromLocation, toLocation);
     createRoute(route);
     _distance =
-        await _googleMapsServices.getTravelDistance(start, destination);
+        await _googleMapsServices.getTravelDistance(fromLocation, toLocation);
     _duration =
-        await _googleMapsServices.getTravelDuration(start, destination);
-    _initialPosition = start;
+        await _googleMapsServices.getTravelDuration(fromLocation, toLocation);
+    _initialPosition = fromLocation;
     notifyListeners();
   }
 

@@ -56,21 +56,21 @@ class _MapView extends State<MapView> {
     print('center $_center');
   }
 
-  void _onMapCreated(GoogleMapController mapController) {
-    this.mapController = mapController;
-  }
+  // void _onMapCreated(GoogleMapController mapController) {
+  //   this.mapController = mapController;
+  // }
 
-  final Map<String, Marker> _marker = {};
-  void _getLocation() async {
-    var currentLocation = await Geolocator()
-        .getCurrentPosition(desiredAccuracy: LocationAccuracy.best);
-  }
+  // final Map<String, Marker> _marker = {};
+  // void _getLocation() async {
+  //   var currentLocation = await Geolocator()
+  //       .getCurrentPosition(desiredAccuracy: LocationAccuracy.best);
+  // }
 
-  void _updateCameraPosition(CameraPosition position) {
-    setState(() {
-      _position = position;
-    });
-  }
+  // void _updateCameraPosition(CameraPosition position) {
+  //   setState(() {
+  //     _position = position;
+  //   });
+  // }
   //PolyLines
 
   Widget build(BuildContext context) {
