@@ -12,7 +12,7 @@ import 'package:provider/provider.dart';
 // import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 // import '../Maps/distance.java';
 // import 'googlemapservice.dart';
-import 'app_state.dart';
+import 'drive_state.dart';
 
 class DriverMap extends StatefulWidget {
   @override
@@ -36,9 +36,6 @@ class _DriverMap extends State<DriverMap> {
 
   @override
   void initState() {
-    BuildContext context;
-    final appState = Provider.of<AppState>(context);
-    appState.sendRequest(bus1, bus2);
     _controllerFrom = new TextEditingController();
     _controllerTo = new TextEditingController();
     stateController = new TextEditingController();
@@ -63,32 +60,16 @@ class _DriverMap extends State<DriverMap> {
     });
     print('center $_center');
   }
-
-  // void _onMapCreated(GoogleMapController mapController) {
-  //   this.mapController = mapController;
-  // }
-
-  // final Map<String, Marker> _marker = {};
-  // void _getLocation() async {
-  //   var currentLocation = await Geolocator()
-  //       .getCurrentPosition(desiredAccuracy: LocationAccuracy.best);
-  // }
-
-  // void _updateCameraPosition(CameraPosition position) {
-  //   setState(() {
-  //     _position = position;
-  //   });
-  // }
   void calcDistanceBetweenMarkers(){
 
   }
   //PolyLines
 
   Widget build(BuildContext context) {
-    final appState = Provider.of<AppState>(context);
+    final driveState = Provider.of<DriveState>(context);
     return MaterialApp(
       theme: ThemeData(fontFamily: 'Quicksand-Medium'),
-      home: appState.initialPosition == null
+      home: driveState.initialPosition == null
           ? Loading()
           : Scaffold(
               appBar: AppBar(
@@ -105,8 +86,8 @@ class _DriverMap extends State<DriverMap> {
                     children: <Widget>[
                       GoogleMap(
                         initialCameraPosition: CameraPosition(
-                            target: appState.initialPosition, zoom: 10.0),
-                        onMapCreated: appState.onCreated,
+                            target: driveState.initialPosition, zoom: 10.0),
+                        onMapCreated: driveState.onCreated,
                         // myLocationEnabled: true,
                         mapType: MapType.normal,
                         compassEnabled: true,
@@ -124,7 +105,7 @@ class _DriverMap extends State<DriverMap> {
                                   print(value.latitude);
                                   print(value.longitude);
                                   bus1 = LatLng(value.latitude, value.longitude);
-                                  appState.sendRequest(bus1, bus2);
+                                  driveState.sendRequest(bus1, bus2);
                                 })),
                             Marker(
                                 onTap: () {
@@ -138,12 +119,12 @@ class _DriverMap extends State<DriverMap> {
                                   print(value.latitude);
                                   print(value.longitude);
                                   bus2 = LatLng(value.latitude, value.longitude);
-                                  appState.sendRequest(bus1, bus2);
+                                  driveState.sendRequest(bus1, bus2);
                                 }))
                           ],
                         ),
-                        onCameraMove: appState.onCameraMove,
-                        polylines: appState.polyLines,
+                        onCameraMove: driveState.onCameraMove,
+                        polylines: driveState.polyLines,
                       ),
                       Container(
                         alignment: Alignment(0, -0.5),
@@ -266,7 +247,7 @@ class _DriverMap extends State<DriverMap> {
                                         Expanded(
                                           child: Container(
                                             child: Text(
-                                              appState.distance,
+                                              driveState.distance,
                                               overflow: TextOverflow.clip,
                                             ),
                                           ),
@@ -307,7 +288,7 @@ class _DriverMap extends State<DriverMap> {
                                         Expanded(
                                           child: Container(
                                             child: Text(
-                                              appState.duration,
+                                              driveState.duration,
                                               overflow: TextOverflow.clip,
                                             ),
                                           ),

@@ -5,7 +5,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:o_k/shared/colors.dart';
 import 'googlemapservice.dart';
 
-class AppState with ChangeNotifier {
+class DriveState with ChangeNotifier {
   static LatLng _initialPosition;
   LatLng _lastPosition = _initialPosition;
   bool locationServiceActive = true;
