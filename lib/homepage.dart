@@ -1,6 +1,7 @@
 import 'package:double_back_to_close_app/double_back_to_close_app.dart';
 import 'package:flutter/material.dart';
 import 'package:o_k/Wrapper.dart';
+import 'package:o_k/conductor/conductor.dart';
 import 'package:o_k/services/auth.dart';
 import 'package:o_k/shared/background_login.dart';
 // import 'package:o_k/shared/bottomBar.dart';
@@ -62,7 +63,7 @@ class _HomepageState extends State<Homepage> {
               child: Center(
                 child: Stack(
                   children: <Widget>[
-                    Container(alignment: Alignment(0, 1), child: WavyFooter()),
+                    // Container(alignment: Alignment(0, 1), child: WavyFooter()),
                     ListView(
                       shrinkWrap: true,
                       padding: const EdgeInsets.only(left: 9.0, right: 9.0),
@@ -70,6 +71,16 @@ class _HomepageState extends State<Homepage> {
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
+                            SizedBox(height: 10,),
+                            FloatingActionButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Conductor()),
+                                );
+                              },
+                            ),
                             Hero(
                               tag: 'imageHero',
                               child: new Container(

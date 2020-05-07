@@ -6,22 +6,25 @@ import 'package:flutter/material.dart';
 import 'package:o_k/shared/colors.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
-import '../../shared/constants.dart';
-import '../../shared/loading.dart';
+import '../shared/constants.dart';
+import '../shared/loading.dart';
 import 'package:provider/provider.dart';
 // import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 // import '../Maps/distance.java';
 // import 'googlemapservice.dart';
-import 'app_state.dart';
+import 'drive_state.dart';
 
-class MapView extends StatefulWidget {
+class DriverMap extends StatefulWidget {
   @override
-  _MapView createState() => _MapView();
+  _DriverMap createState() => _DriverMap();
 }
 
-class _MapView extends State<MapView> {
+class _DriverMap extends State<DriverMap> {
+  
   GoogleMapController mapController;
   LatLng _center;
+  var bus1 = LatLng(10.004855, 76.312934);
+  var bus2 = LatLng(9.997830, 76.314024);
   Position currentLocation;
   CameraPosition _position;
 
@@ -29,12 +32,15 @@ class _MapView extends State<MapView> {
 
   TextEditingController _controllerFrom;
   TextEditingController _controllerTo;
+  TextEditingController stateController;
 
   @override
   void initState() {
     _controllerFrom = new TextEditingController();
     _controllerTo = new TextEditingController();
+    stateController = new TextEditingController();
     super.initState();
+    loading = true;
     getUserLocation();
   }
 
@@ -55,36 +61,23 @@ class _MapView extends State<MapView> {
     });
     print('center $_center');
   }
+  void calcDistanceBetweenMarkers(){
 
-  // void _onMapCreated(GoogleMapController mapController) {
-  //   this.mapController = mapController;
-  // }
-
-  // final Map<String, Marker> _marker = {};
-  // void _getLocation() async {
-  //   var currentLocation = await Geolocator()
-  //       .getCurrentPosition(desiredAccuracy: LocationAccuracy.best);
-  // }
-
-  // void _updateCameraPosition(CameraPosition position) {
-  //   setState(() {
-  //     _position = position;
-  //   });
-  // }
-  //PolyLines
+  }
 
   Widget build(BuildContext context) {
-    final appState = Provider.of<AppState>(context);
-
+    final driveState = Provider.of<DriveState>(context);
     return MaterialApp(
       theme: ThemeData(fontFamily: 'Quicksand-Medium'),
-      home: appState.initialPosition == null
+      home: 
+      driveState.initialPosition == null
           ? Loading()
-          : Scaffold(
+          : 
+          Scaffold(
               appBar: AppBar(
                 elevation: 0,
                 backgroundColor: red,
-                title: Text('Bus Routes'),
+                title: Text('Buses'),
               ),
               body: GestureDetector(
                 onTap: () {
@@ -95,14 +88,45 @@ class _MapView extends State<MapView> {
                     children: <Widget>[
                       GoogleMap(
                         initialCameraPosition: CameraPosition(
-                            target: appState.initialPosition, zoom: 10.0),
-                        onMapCreated: appState.onCreated,
-                        myLocationEnabled: true,
+                            target: bus1, zoom: 10.0),
+                        onMapCreated: driveState.onCreated,
+                        // myLocationEnabled: true,
                         mapType: MapType.normal,
                         compassEnabled: true,
-                        markers: appState.markers,
-                        onCameraMove: appState.onCameraMove,
-                        polylines: appState.polyLines,
+                        markers: Set<Marker>.of(
+                          <Marker>[
+                            Marker(
+                                onTap: () {
+                                  print('Bus 1');
+                                },
+                                draggable: true,
+                                markerId: MarkerId('Bus 1'),
+                                position:
+                                    LatLng(bus1.latitude, bus1.longitude),
+                                onDragEnd: ((value) {
+                                  print(value.latitude);
+                                  print(value.longitude);
+                                  bus1 = LatLng(value.latitude, value.longitude);
+                                  driveState.sendRequest(bus1, bus2);
+                                })),
+                            Marker(
+                                onTap: () {
+                                  print('Bus 2');
+                                },
+                                draggable: true,
+                                markerId: MarkerId('Bus 2'),
+                                position:
+                                    LatLng(bus2.latitude, bus2.longitude),
+                                onDragEnd: ((value) {
+                                  print(value.latitude);
+                                  print(value.longitude);
+                                  bus2 = LatLng(value.latitude, value.longitude);
+                                  driveState.sendRequest(bus1, bus2);
+                                }))
+                          ],
+                        ),
+                        onCameraMove: driveState.onCameraMove,
+                        polylines: driveState.polyLines,
                       ),
                       Container(
                         alignment: Alignment(0, -0.5),
@@ -125,7 +149,8 @@ class _MapView extends State<MapView> {
                                       ),
                                     ),
                                     child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
                                       children: <Widget>[
                                         Container(
                                           padding: const EdgeInsets.all(20),
@@ -136,21 +161,13 @@ class _MapView extends State<MapView> {
                                               Radius.circular(20.0),
                                             ),
                                           ),
-                                          child: Text(
-                                            'From: ',
+                                          child: TextField(
+                                            controller: stateController,
                                             style: TextStyle(
                                                 fontWeight: FontWeight.bold),
                                           ),
                                         ),
                                         SizedBox(width: 8),
-                                        Expanded(
-                                          child: Container(
-                                            child: Text(
-                                              selectedMapsFrom,
-                                              overflow: TextOverflow.clip,
-                                            ),
-                                          ),
-                                        ),
                                       ],
                                     ),
                                   ),
@@ -165,7 +182,8 @@ class _MapView extends State<MapView> {
                                       ),
                                     ),
                                     child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
                                       children: <Widget>[
                                         Container(
                                           width: 100,
@@ -209,7 +227,8 @@ class _MapView extends State<MapView> {
                                       ),
                                     ),
                                     child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
                                       children: <Widget>[
                                         Container(
                                           padding: const EdgeInsets.all(20),
@@ -230,7 +249,7 @@ class _MapView extends State<MapView> {
                                         Expanded(
                                           child: Container(
                                             child: Text(
-                                              appState.distance,
+                                              driveState.distance,
                                               overflow: TextOverflow.clip,
                                             ),
                                           ),
@@ -249,7 +268,8 @@ class _MapView extends State<MapView> {
                                       ),
                                     ),
                                     child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
                                       children: <Widget>[
                                         Container(
                                           padding: const EdgeInsets.all(20),
@@ -270,7 +290,7 @@ class _MapView extends State<MapView> {
                                         Expanded(
                                           child: Container(
                                             child: Text(
-                                              appState.duration,
+                                              driveState.duration,
                                               overflow: TextOverflow.clip,
                                             ),
                                           ),

@@ -89,6 +89,10 @@ flutter:
     - assets/images/homepage.png
     - assets/images/profile-icon.png
     - assets/images/bus_fleet.png
+    - assets/images/passengers.png
+    - assets/images/emergency.png
+    - assets/images/qr-code.png
+    - assets/images/bluetooth.png
     - assets/images/loading.gif
 
   fonts:

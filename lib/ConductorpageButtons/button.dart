@@ -3,7 +3,10 @@ import 'package:o_k/Menu/Booking/booking.dart';
 import 'package:o_k/Menu/Maps/maps.dart';
 import 'package:o_k/Menu/Timing/timing.dart';
 import 'package:o_k/Menu/Tracking/tracking.dart';
-import 'package:o_k/driver/map.dart';
+import 'package:o_k/conductor/Bluetooth.dart';
+import 'package:o_k/conductor/Emergency.dart';
+import 'package:o_k/conductor/Passenger.dart';
+import 'package:o_k/conductor/QR_Scan.dart';
 // import '../homepageButtons/buttonClass.dart';
 import '../shared/colors.dart';
 // import '../homepageButtons/data.dart';
@@ -61,25 +64,25 @@ class Button extends StatelessWidget {
 
   void _navigate(String route) {
     // Navigator.of(context).pushNamed('/$route');
-    if (route == 'Maps') {
+    if (route == 'QR_Scan') {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => Maps()),
+        MaterialPageRoute(builder: (context) => QR_Scan()),
       );
-    } else if (route == 'Timing') {
+    } else if (route == 'Bluetooth') {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => Timing()),
+        MaterialPageRoute(builder: (context) => Bluetooth()),
       );
-    } else if (route == 'Tracking') {
+    } else if (route == 'Emergency') {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => DriverMap()),
+        MaterialPageRoute(builder: (context) => Emergency()),
       );
-    } else if (route == 'Booking') {
+    } else if (route == 'Passengers') {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => Booking()),
+        MaterialPageRoute(builder: (context) => Passenger()),
       );
     }
   }
