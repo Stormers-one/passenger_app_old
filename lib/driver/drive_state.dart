@@ -10,7 +10,7 @@ class DriveState with ChangeNotifier {
   LatLng _lastPosition = _initialPosition;
   bool locationServiceActive = true;
   final Set<Marker> _markers = {};
-  final Set<Polyline> _polyLines = {};
+  Set<Polyline> _polyLines = {};
   GoogleMapController _mapController;
   GoogleMapsServices _googleMapsServices = GoogleMapsServices();
 
@@ -67,6 +67,7 @@ class DriveState with ChangeNotifier {
     // _addMarker(destination, toLocation);
     String route =
         await _googleMapsServices.getRouteCoordinates(fromLocation, toLocation);
+    _polyLines = {};
     createRoute(route);
     _distance =
         await _googleMapsServices.getTravelDistance(fromLocation, toLocation);
