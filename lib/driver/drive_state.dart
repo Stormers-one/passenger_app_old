@@ -75,9 +75,9 @@ class DriveState with ChangeNotifier {
     _distance =
         await _googleMapsServices.getTravelDistance(fromLocation, toLocation);
     _dist = double.parse(_distance.substring(0,_distance.length-2));
-    if(_dist<1.7){
+    if(_dist<1.2){
       _indicatorColor = Color(0xFFFF0000);
-    }else if(_dist>=1.7&&_dist<3.4){
+    }else if(_dist>=1.2&&_dist<2.8){
       _indicatorColor = Color(0xFF00ff00);
     }else{
       _indicatorColor = Color(0xFFFFFF00);
