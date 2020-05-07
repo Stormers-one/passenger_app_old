@@ -136,83 +136,37 @@ class _DriverMap extends State<DriverMap> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
-                              Column(
-                                children: <Widget>[
-                                  // SizedBox(height: 8),
-                                  Container(
-                                    // padding: const EdgeInsets.all(20),
-                                    height: 54,
-                                    decoration: BoxDecoration(
-                                      color: salmonColor,
-                                      borderRadius: BorderRadius.all(
-                                        Radius.circular(20.0),
+                              Container(
+                                // padding: const EdgeInsets.all(20),
+                                height: 54,
+                                decoration: BoxDecoration(
+                                  color: driveState.indicatorColor,
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(20.0),
+                                  ),
+                                ),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.start,
+                                  children: <Widget>[
+                                    Container(
+                                      padding: const EdgeInsets.all(20),
+                                      width: 100,
+                                      decoration: BoxDecoration(
+                                        color: driveState.indicatorColor,
+                                        borderRadius: BorderRadius.all(
+                                          Radius.circular(20.0),
+                                        ),
+                                      ),
+                                      child: Text(
+                                        "Status",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
                                       ),
                                     ),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: <Widget>[
-                                        Container(
-                                          padding: const EdgeInsets.all(20),
-                                          width: 100,
-                                          decoration: BoxDecoration(
-                                            color: red,
-                                            borderRadius: BorderRadius.all(
-                                              Radius.circular(20.0),
-                                            ),
-                                          ),
-                                          child: TextField(
-                                            controller: stateController,
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                        ),
-                                        SizedBox(width: 8),
-                                      ],
-                                    ),
-                                  ),
-                                  SizedBox(height: 8),
-                                  Container(
-                                    height: 54,
-                                    // padding: const EdgeInsets.all(20),
-                                    decoration: BoxDecoration(
-                                      color: salmonColor,
-                                      borderRadius: BorderRadius.all(
-                                        Radius.circular(20.0),
-                                      ),
-                                    ),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: <Widget>[
-                                        Container(
-                                          width: 100,
-                                          padding: const EdgeInsets.all(20),
-                                          decoration: BoxDecoration(
-                                            color: red,
-                                            borderRadius: BorderRadius.all(
-                                              Radius.circular(20.0),
-                                            ),
-                                          ),
-                                          child: Text(
-                                            'To: ',
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                        ),
-                                        SizedBox(width: 8),
-                                        Expanded(
-                                          child: Container(
-                                            child: Text(
-                                              selectedMapsTo,
-                                              overflow: TextOverflow.clip,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
+                                    SizedBox(width: 8),
+                                  ],
+                                ),
                               ),
                               Column(
                                 children: <Widget>[
