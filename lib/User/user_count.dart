@@ -30,7 +30,7 @@ class UsersCount extends StatelessWidget {
           backgroundColor: Colors.orange[100],
           appBar: AppBar(
               elevation: 0,
-              title: Text('Users List'),
+              title: Text('Passengers'),
               backgroundColor: red,
               actions: <Widget>[
                 FlatButton.icon(
