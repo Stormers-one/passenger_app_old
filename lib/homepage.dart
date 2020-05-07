@@ -81,13 +81,6 @@ class _HomepageState extends State<Homepage> {
                               ),
                             ),
                             Container(
-                              // decoration: BoxDecoration(
-                              //   color: bgOrange,
-                              //   shape: BoxShape.rectangle,
-                              //   borderRadius: new BorderRadius.all(
-                              //      const Radius.circular(25.0),
-                              //       ),
-                              // ),
                               alignment: Alignment.bottomCenter,
                               padding: EdgeInsets.only(left: 20.0, right: 20.0),
                               width: MediaQuery.of(context).size.width,
