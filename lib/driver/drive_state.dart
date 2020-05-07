@@ -35,10 +35,15 @@ class DriveState with ChangeNotifier {
   GoogleMapController get mapController => _mapController;
   Set<Marker> get markers => _markers;
   Set<Polyline> get polyLines => _polyLines;
-
-  AppState() {
+  var bus1 = LatLng(10.004855, 76.312934);
+  var bus2 = LatLng(9.997830, 76.314024);
+  DriveState() {
     // _getUserLocation();
     _loadingInitialPosition();
+    sendRequest(bus1, bus2);
+  }
+  void initState() {
+    sendRequest(bus1, bus2);
   }
 
   // ! TO CREATE ROUTE
@@ -67,18 +72,18 @@ class DriveState with ChangeNotifier {
         await _googleMapsServices.getTravelDistance(fromLocation, toLocation);
     _duration =
         await _googleMapsServices.getTravelDuration(fromLocation, toLocation);
-    _initialPosition = fromLocation;
+    _initialPosition = bus1;
     notifyListeners();
   }
 
-  void _addMarker(LatLng location, String address) {
-    _markers.add(Marker(
-        markerId: MarkerId(address.toString()),
-        position: location,
-        infoWindow: InfoWindow(title: address, snippet: "go here"),
-        icon: BitmapDescriptor.defaultMarker));
-    notifyListeners();
-  }
+  // void _addMarker(LatLng location, String address) {
+  //   _markers.add(Marker(
+  //       markerId: MarkerId(address.toString()),
+  //       position: location,
+  //       infoWindow: InfoWindow(title: address, snippet: "go here"),
+  //       icon: BitmapDescriptor.defaultMarker));
+  //   notifyListeners();
+  // }
 
   void createRoute(String encondedPoly) {
     _polyLines.add(Polyline(

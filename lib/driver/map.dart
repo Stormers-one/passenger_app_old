@@ -40,6 +40,7 @@ class _DriverMap extends State<DriverMap> {
     _controllerTo = new TextEditingController();
     stateController = new TextEditingController();
     super.initState();
+    loading = true;
     getUserLocation();
   }
 
@@ -63,15 +64,16 @@ class _DriverMap extends State<DriverMap> {
   void calcDistanceBetweenMarkers(){
 
   }
-  //PolyLines
 
   Widget build(BuildContext context) {
     final driveState = Provider.of<DriveState>(context);
     return MaterialApp(
       theme: ThemeData(fontFamily: 'Quicksand-Medium'),
-      home: driveState.initialPosition == null
+      home: 
+      driveState.initialPosition == null
           ? Loading()
-          : Scaffold(
+          : 
+          Scaffold(
               appBar: AppBar(
                 elevation: 0,
                 backgroundColor: red,
@@ -86,7 +88,7 @@ class _DriverMap extends State<DriverMap> {
                     children: <Widget>[
                       GoogleMap(
                         initialCameraPosition: CameraPosition(
-                            target: driveState.initialPosition, zoom: 10.0),
+                            target: bus1, zoom: 10.0),
                         onMapCreated: driveState.onCreated,
                         // myLocationEnabled: true,
                         mapType: MapType.normal,
