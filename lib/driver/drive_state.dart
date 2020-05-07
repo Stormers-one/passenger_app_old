@@ -45,9 +45,9 @@ class DriveState with ChangeNotifier {
     _loadingInitialPosition();
     sendRequest(bus1, bus2);
   }
-  void initState() {
-    sendRequest(bus1, bus2);
-  }
+  // void initState() {
+  //   sendRequest(bus1, bus2);
+  // }
 
   // ! TO CREATE ROUTE
   void sendRequest(LatLng fromLocation, LatLng toLocation) async {
@@ -75,9 +75,9 @@ class DriveState with ChangeNotifier {
     _distance =
         await _googleMapsServices.getTravelDistance(fromLocation, toLocation);
     _dist = double.parse(_distance.substring(0,_distance.length-2));
-    if(_dist<1){
+    if(_dist<1.7){
       _indicatorColor = Color(0xFFFF0000);
-    }else if(_dist>=1&&_dist<3){
+    }else if(_dist>=1.7&&_dist<3.4){
       _indicatorColor = Color(0xFF00ff00);
     }else{
       _indicatorColor = Color(0xFFFFFF00);

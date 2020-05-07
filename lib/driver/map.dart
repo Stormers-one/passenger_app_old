@@ -88,7 +88,7 @@ class _DriverMap extends State<DriverMap> {
                     children: <Widget>[
                       GoogleMap(
                         initialCameraPosition: CameraPosition(
-                            target: bus1, zoom: 10.0),
+                            target: bus1, zoom: 16.0),
                         onMapCreated: driveState.onCreated,
                         // myLocationEnabled: true,
                         mapType: MapType.normal,
