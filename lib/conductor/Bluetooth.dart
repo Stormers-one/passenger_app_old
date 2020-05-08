@@ -142,6 +142,32 @@ class _BluetoothState extends State<Bluetooth> {
           elevation: 0,
           title: Text('Bluetooth'),
           backgroundColor: red,
+          actions: <Widget>[
+            FlatButton.icon(
+              icon: Icon(
+                Icons.refresh,
+                color: Colors.white,
+              ),
+              label: Text(
+                "Refresh",
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30),
+              ),
+              splashColor: Colors.deepPurple,
+              onPressed: () async {
+                // So, that when new devices are paired
+                // while the app is running, user can refresh
+                // the paired devices list.
+                await getPairedDevices().then((_) {
+                  show('Device list refreshed');
+                });
+              },
+            ),
+          ],
         ),
         drawer: DrawerBuild(),
         body: GestureDetector(
@@ -150,199 +176,195 @@ class _BluetoothState extends State<Bluetooth> {
           },
           child: SafeArea(
             child: Center(
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: <Widget>[
-                        Visibility(
-                          visible: _isButtonUnavailable &&
-                              _bluetoothState == BluetoothState.STATE_ON,
-                          child: LinearProgressIndicator(
-                            backgroundColor: Colors.yellow,
-                            valueColor:
-                                AlwaysStoppedAnimation<Color>(Colors.red),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(10),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: <Widget>[
-                              Expanded(
-                                child: Text(
-                                  'Enable Bluetooth',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                  ),
-                                ),
+              child: Container(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: <Widget>[
+                    Visibility(
+                      visible: _isButtonUnavailable &&
+                          _bluetoothState == BluetoothState.STATE_ON,
+                      child: LinearProgressIndicator(
+                        backgroundColor: Colors.yellow,
+                        valueColor:
+                            AlwaysStoppedAnimation<Color>(Colors.red),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Expanded(
+                            child: Text(
+                              'Enable Bluetooth',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 16,
                               ),
-                              Switch(
-                                value: _bluetoothState.isEnabled,
-                                onChanged: (bool value) {
-                                  future() async {
-                                    if (value) {
-                                      await FlutterBluetoothSerial.instance
-                                          .requestEnable();
-                                    } else {
-                                      await FlutterBluetoothSerial.instance
-                                          .requestDisable();
-                                    }
-
-                                    await getPairedDevices();
-                                    _isButtonUnavailable = false;
-
-                                    if (_connected) {
-                                      _disconnect();
-                                    }
-                                  }
-
-                                  future().then((_) {
-                                    setState(() {});
-                                  });
-                                },
-                              )
-                            ],
+                            ),
                           ),
-                        ),
-                        Stack(
+                          Switch(
+                            value: _bluetoothState.isEnabled,
+                            onChanged: (bool value) {
+                              future() async {
+                                if (value) {
+                                  await FlutterBluetoothSerial.instance
+                                      .requestEnable();
+                                } else {
+                                  await FlutterBluetoothSerial.instance
+                                      .requestDisable();
+                                }
+
+                                await getPairedDevices();
+                                _isButtonUnavailable = false;
+
+                                if (_connected) {
+                                  _disconnect();
+                                }
+                              }
+
+                              future().then((_) {
+                                setState(() {});
+                              });
+                            },
+                          )
+                        ],
+                      ),
+                    ),
+                    Stack(
+                      children: <Widget>[
+                        Column(
                           children: <Widget>[
-                            Column(
-                              children: <Widget>[
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 10),
-                                  child: Text(
-                                    "PAIRED DEVICES",
-                                    style: TextStyle(
-                                        fontSize: 24, color: Colors.blue),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: <Widget>[
-                                      Text(
-                                        'Device:',
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                      DropdownButton(
-                                        items: _getDeviceItems(),
-                                        onChanged: (value) =>
-                                            setState(() => _device = value),
-                                        value: _devicesList.isNotEmpty
-                                            ? _device
-                                            : null,
-                                      ),
-                                      RaisedButton(
-                                        onPressed: _isButtonUnavailable
-                                            ? null
-                                            : _connected
-                                                ? _disconnect
-                                                : _connect,
-                                        child: Text(_connected
-                                            ? 'Disconnect'
-                                            : 'Connect'),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(16.0),
-                                  child: Card(
-                                    shape: RoundedRectangleBorder(
-                                      side: new BorderSide(
-                                        color: _deviceState == 0
-                                            ? colors['neutralBorderColor']
-                                            : _deviceState == 1
-                                                ? colors['onBorderColor']
-                                                : colors['offBorderColor'],
-                                        width: 3,
-                                      ),
-                                      borderRadius: BorderRadius.circular(4.0),
-                                    ),
-                                    elevation: _deviceState == 0 ? 4 : 0,
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Row(
-                                        children: <Widget>[
-                                          Expanded(
-                                            child: Text(
-                                              "DEVICE 1",
-                                              style: TextStyle(
-                                                fontSize: 20,
-                                                color: _deviceState == 0
-                                                    ? colors['neutralTextColor']
-                                                    : _deviceState == 1
-                                                        ? colors['onTextColor']
-                                                        : colors[
-                                                            'offTextColor'],
-                                              ),
-                                            ),
-                                          ),
-                                          FlatButton(
-                                            onPressed: _connected
-                                                ? _sendOnMessageToBluetooth
-                                                : null,
-                                            child: Text("ON"),
-                                          ),
-                                          FlatButton(
-                                            onPressed: _connected
-                                                ? _sendOffMessageToBluetooth
-                                                : null,
-                                            child: Text("OFF"),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
+                            Padding(
+                              padding: const EdgeInsets.only(top: 10),
+                              child: Text(
+                                "PAIRED DEVICES",
+                                style: TextStyle(
+                                    fontSize: 24, color: Colors.blue),
+                                textAlign: TextAlign.center,
+                              ),
                             ),
-                            Container(
-                              color: Colors.blue,
-                            ),
-                          ],
-                        ),
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.all(20),
-                            child: Center(
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
                                   Text(
-                                    "NOTE: If you cannot find the device in the list, please pair the device by going to the bluetooth settings",
+                                    'Device:',
                                     style: TextStyle(
-                                      fontSize: 15,
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.red,
                                     ),
                                   ),
-                                  SizedBox(height: 15),
+                                  DropdownButton(
+                                    items: _getDeviceItems(),
+                                    onChanged: (value) =>
+                                        setState(() => _device = value),
+                                    value: _devicesList.isNotEmpty
+                                        ? _device
+                                        : null,
+                                  ),
                                   RaisedButton(
-                                    elevation: 2,
-                                    child: Text("Bluetooth Settings"),
-                                    onPressed: () {
-                                      FlutterBluetoothSerial.instance
-                                          .openSettings();
-                                    },
+                                    onPressed: _isButtonUnavailable
+                                        ? null
+                                        : _connected
+                                            ? _disconnect
+                                            : _connect,
+                                    child: Text(_connected
+                                        ? 'Disconnect'
+                                        : 'Connect'),
                                   ),
                                 ],
                               ),
                             ),
-                          ),
-                        )
+                            Padding(
+                              padding: const EdgeInsets.all(16.0),
+                              child: Card(
+                                shape: RoundedRectangleBorder(
+                                  side: new BorderSide(
+                                    color: _deviceState == 0
+                                        ? colors['neutralBorderColor']
+                                        : _deviceState == 1
+                                            ? colors['onBorderColor']
+                                            : colors['offBorderColor'],
+                                    width: 3,
+                                  ),
+                                  borderRadius: BorderRadius.circular(4.0),
+                                ),
+                                elevation: _deviceState == 0 ? 4 : 0,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Row(
+                                    children: <Widget>[
+                                      Expanded(
+                                        child: Text(
+                                          "DEVICE 1",
+                                          style: TextStyle(
+                                            fontSize: 20,
+                                            color: _deviceState == 0
+                                                ? colors['neutralTextColor']
+                                                : _deviceState == 1
+                                                    ? colors['onTextColor']
+                                                    : colors[
+                                                        'offTextColor'],
+                                          ),
+                                        ),
+                                      ),
+                                      FlatButton(
+                                        onPressed: _connected
+                                            ? _sendOnMessageToBluetooth
+                                            : null,
+                                        child: Text("ON"),
+                                      ),
+                                      FlatButton(
+                                        onPressed: _connected
+                                            ? _sendOffMessageToBluetooth
+                                            : null,
+                                        child: Text("OFF"),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Container(
+                          color: Colors.blue,
+                        ),
                       ],
                     ),
-                  ),
-                ],
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.all(20),
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Text(
+                                "NOTE: If you cannot find the device in the list, please pair the device by going to the bluetooth settings",
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.red,
+                                ),
+                              ),
+                              SizedBox(height: 15),
+                              RaisedButton(
+                                elevation: 2,
+                                child: Text("Bluetooth Settings"),
+                                onPressed: () {
+                                  FlutterBluetoothSerial.instance
+                                      .openSettings();
+                                },
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           ),
@@ -350,7 +372,7 @@ class _BluetoothState extends State<Bluetooth> {
       ),
     );
   }
-
+  // Create the List of devices to be shown in Dropdown Menu
   List<DropdownMenuItem<BluetoothDevice>> _getDeviceItems() {
     List<DropdownMenuItem<BluetoothDevice>> items = [];
     if (_devicesList.isEmpty) {
