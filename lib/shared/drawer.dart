@@ -4,6 +4,8 @@ import 'package:o_k/Menu/Booking/bookings_list.dart';
 import 'package:o_k/Menu/help.dart';
 import 'package:o_k/Menu/reports.dart';
 import 'package:o_k/User/profile.dart';
+import 'package:o_k/conductor/conductor.dart';
+import 'package:o_k/driver/map.dart';
 import 'package:o_k/shared/loading.dart';
 import 'constants.dart';
 import 'package:o_k/homepage.dart';
@@ -117,6 +119,26 @@ class _DrawerBuild extends State<DrawerBuild>{
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => Help()),
+                    );
+                  },
+                ),
+                ListTile(
+                  leading: Icon(Icons.help),
+                  title: Text('Conductor App',style: TextStyle(fontFamily: 'Quicksand-Bold',)),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Conductor()),
+                    );
+                  },
+                ),
+                ListTile(
+                  leading: Icon(Icons.help),
+                  title: Text('Driver App - Map',style: TextStyle(fontFamily: 'Quicksand-Bold',)),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => DriverMap()),
                     );
                   },
                 ),

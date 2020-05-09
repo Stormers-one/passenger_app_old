@@ -72,15 +72,15 @@ class _HomepageState extends State<Homepage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             SizedBox(height: 10,),
-                            FloatingActionButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Conductor()),
-                                );
-                              },
-                            ),
+                            // FloatingActionButton(
+                            //   onPressed: () {
+                            //     Navigator.push(
+                            //       context,
+                            //       MaterialPageRoute(
+                            //           builder: (context) => Conductor()),
+                            //     );
+                            //   },
+                            // ),
                             Hero(
                               tag: 'imageHero',
                               child: new Container(
