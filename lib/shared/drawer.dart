@@ -11,6 +11,8 @@ import 'constants.dart';
 import 'package:o_k/homepage.dart';
 import 'package:o_k/shared/underDevelopment.dart';
 import 'package:o_k/shared/colors.dart';
+import 'package:o_k/conductor/conductor.dart';
+import 'package:o_k/User/user_count.dart';
 
 
 class DrawerBuild extends StatefulWidget {
@@ -46,26 +48,26 @@ class _DrawerBuild extends State<DrawerBuild>{
                     );
                   },
                 ),
-                /*ListTile(
+                ListTile(
                   leading: Icon(Icons.message),
-                  title: Text('Messages'),
+                  title: Text('Conductor Pages',style: TextStyle(fontFamily: 'Quicksand-Bold',)),
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Messages()),
+                      MaterialPageRoute(builder: (context) => Conductor()),
                     );
                   },
-                ),*/
-                // ListTile(
-                //   leading: Icon(Icons.account_circle),
-                //   title: Text('Users List'),
-                //   onTap: () {
-                //     Navigator.push(
-                //       context,
-                //       MaterialPageRoute(builder: (context) => UsersCount()),
-                //     );
-                //   },
-                // ),
+                ),
+                ListTile(
+                  leading: Icon(Icons.account_circle),
+                  title: Text('Users List',style: TextStyle(fontFamily: 'Quicksand-Bold',)),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => UsersCount()),
+                    );
+                  },
+                ),
                 ListTile(
                   leading: Icon(Icons.account_circle),
                   title: Text('Profile',style: TextStyle(fontFamily: 'Quicksand-Bold',)),
