@@ -28,7 +28,18 @@ packages:
       name: async
       url: "https://pub.dartlang.org"
     source: hosted
+<<<<<<< HEAD
+    version: "2.4.0"
+  barcode_scan:
+    dependency: "direct main"
+    description:
+      name: barcode_scan
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.8"
+=======
     version: "2.4.1"
+>>>>>>> b4d3e2328725706ce2f406fafcfe3670ef67c6e4
   boolean_selector:
     dependency: transitive
     description:
