@@ -8,20 +8,18 @@ import 'package:o_k/shared/colors.dart';
 import 'package:provider/provider.dart';
 
 class UsersCount extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
-    void _showSettengsPanel() {
-      showModalBottomSheet(
-          context: context,
-          builder: (context) {
-            return Container(
-              padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 60.0),
-              child: SettingsForm(),
-            );
-          });
-    }
-
+    // void _showSettengsPanel() {
+    //   showModalBottomSheet(
+    //       context: context,
+    //       builder: (context) {
+    //         return Container(
+    //           padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 60.0),
+    //           child: SettingsForm(),
+    //         );
+    //       });
+    // }
     return StreamProvider<List<Users>>.value(
       value: DatabaseService().users,
       child: MaterialApp(
@@ -30,14 +28,15 @@ class UsersCount extends StatelessWidget {
           backgroundColor: Colors.orange[100],
           appBar: AppBar(
               elevation: 0,
-              title: Text('Users List'),
+              title: Text('Passengers'),
               backgroundColor: red,
-              actions: <Widget>[
-                FlatButton.icon(
-                    onPressed: () => _showSettengsPanel(),
-                    icon: Icon(Icons.settings),
-                    label: Text('Edit Profile'))
-              ]),
+              // actions: <Widget>[
+              //   FlatButton.icon(
+              //       onPressed: () => _showSettengsPanel(),
+              //       icon: Icon(Icons.settings),
+              //       label: Text('Edit Profile'))
+              // ],
+            ),
           drawer: DrawerBuild(),
           body: UserList(),
         ),

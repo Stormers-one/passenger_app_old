@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:o_k/shared/drawer.dart';
 import 'package:o_k/shared/colors.dart';
 
-
 class Emergency extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -21,6 +20,13 @@ class Emergency extends StatelessWidget {
           onTap: () {
             FocusScope.of(context).requestFocus(new FocusNode());
           },
+          child: SafeArea(
+            child: Center(
+              child: Column(
+                children: <Widget>[],
+              ),
+            ),
+          ),
         ),
       ),
     );

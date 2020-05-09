@@ -23,8 +23,11 @@ class DriveState with ChangeNotifier {
 // Distance START
   static String _distance;
   static String _duration;
+  double _dist;
+  static Color _indicatorColor; 
   String get distance => _distance;
   String get duration => _duration;
+  Color get indicatorColor => _indicatorColor;
 // Distance END
 
   TextEditingController locationController = TextEditingController();
@@ -42,9 +45,9 @@ class DriveState with ChangeNotifier {
     _loadingInitialPosition();
     sendRequest(bus1, bus2);
   }
-  void initState() {
-    sendRequest(bus1, bus2);
-  }
+  // void initState() {
+  //   sendRequest(bus1, bus2);
+  // }
 
   // ! TO CREATE ROUTE
   void sendRequest(LatLng fromLocation, LatLng toLocation) async {
@@ -71,6 +74,14 @@ class DriveState with ChangeNotifier {
     createRoute(route);
     _distance =
         await _googleMapsServices.getTravelDistance(fromLocation, toLocation);
+    _dist = double.parse(_distance.substring(0,_distance.length-2));
+    if(_dist<1.2){
+      _indicatorColor = Color(0xFFFF0000);
+    }else if(_dist>=1.2&&_dist<2.8){
+      _indicatorColor = Color(0xFF00ff00);
+    }else{
+      _indicatorColor = Color(0xFFFFFF00);
+    }
     _duration =
         await _googleMapsServices.getTravelDuration(fromLocation, toLocation);
     _initialPosition = bus1;
