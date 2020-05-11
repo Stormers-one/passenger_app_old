@@ -3,6 +3,7 @@ import 'package:o_k/Menu/Booking/booking.dart';
 import 'package:o_k/Menu/Maps/maps.dart';
 import 'package:o_k/Menu/Timing/timing.dart';
 import 'package:o_k/Menu/Tracking/tracking.dart';
+import 'package:o_k/Menu/help.dart';
 import 'package:o_k/User/user_count.dart';
 import 'package:o_k/User/user_list.dart';
 import 'package:o_k/conductor/Bluetooth.dart';
@@ -79,7 +80,7 @@ class Button extends StatelessWidget {
     } else if (route == 'Emergency') {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => Emergency()),
+        MaterialPageRoute(builder: (context) => Help()),
       );
     } else if (route == 'Passengers') {
       Navigator.push(
