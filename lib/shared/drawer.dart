@@ -104,16 +104,16 @@ class _DrawerBuild extends State<DrawerBuild>{
                     );
                   },
                 ),
-                ListTile(
-                  leading: Icon(Icons.report),
-                  title: Text('Report',style: TextStyle(fontFamily: 'Quicksand-Bold',)),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Reports()),
-                    );
-                  },
-                ),
+                // ListTile(
+                //   leading: Icon(Icons.report),
+                //   title: Text('Report',style: TextStyle(fontFamily: 'Quicksand-Bold',)),
+                //   onTap: () {
+                //     Navigator.push(
+                //       context,
+                //       MaterialPageRoute(builder: (context) => Reports()),
+                //     );
+                //   },
+                // ),
                 ListTile(
                   leading: Icon(Icons.help),
                   title: Text('Help',style: TextStyle(fontFamily: 'Quicksand-Bold',)),

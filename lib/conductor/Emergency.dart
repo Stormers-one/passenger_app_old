@@ -52,6 +52,9 @@ class Emergency extends StatelessWidget {
                     ),
                     child: Column(
                       children: <Widget>[
+                        new Padding(
+                          padding: const EdgeInsets.only(top: 30.0),
+                        ),
                         Container(
                           child: Column(
                             children: <Widget>[
