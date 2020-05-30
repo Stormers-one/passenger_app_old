@@ -10,6 +10,7 @@ import 'package:o_k/conductor/Bluetooth.dart';
 import 'package:o_k/conductor/Emergency.dart';
 import 'package:o_k/conductor/Passenger.dart';
 import 'package:o_k/conductor/QR_Scan.dart';
+import 'package:o_k/shared/underDevelopment.dart';
 // import '../homepageButtons/buttonClass.dart';
 import '../shared/colors.dart';
 // import '../homepageButtons/data.dart';
@@ -70,7 +71,7 @@ class Button extends StatelessWidget {
     if (route == 'QR_Scan') {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => QR_Scan()),
+        MaterialPageRoute(builder: (context) => Box()),
       );
     } else if (route == 'Bluetooth') {
       Navigator.push(
