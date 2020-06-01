@@ -38,8 +38,8 @@ class DriveState with ChangeNotifier {
   GoogleMapController get mapController => _mapController;
   Set<Marker> get markers => _markers;
   Set<Polyline> get polyLines => _polyLines;
-  var bus1 = LatLng(10.004855, 76.312934);
-  var bus2 = LatLng(9.997830, 76.314024);
+  var bus1 = LatLng(10.014483, 76.334346);
+  var bus2 = LatLng(10.005190, 76.313787);
   DriveState() {
     // _getUserLocation();
     _loadingInitialPosition();

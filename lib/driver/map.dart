@@ -23,8 +23,8 @@ class _DriverMap extends State<DriverMap> {
   
   GoogleMapController mapController;
   LatLng _center;
-  var bus1 = LatLng(10.004855, 76.312934);
-  var bus2 = LatLng(9.997830, 76.314024);
+  var bus1 = LatLng(10.014483, 76.334346);
+  var bus2 = LatLng(10.005190, 76.313787);
   Position currentLocation;
   CameraPosition _position;
 
@@ -88,7 +88,7 @@ class _DriverMap extends State<DriverMap> {
                     children: <Widget>[
                       GoogleMap(
                         initialCameraPosition: CameraPosition(
-                            target: bus1, zoom: 16.0),
+                            target: bus1, zoom: 14.0),
                         onMapCreated: driveState.onCreated,
                         // myLocationEnabled: true,
                         mapType: MapType.normal,
