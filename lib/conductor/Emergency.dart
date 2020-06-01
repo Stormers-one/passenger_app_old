@@ -193,7 +193,7 @@ class Emergency extends StatelessWidget {
                                 SizedBox(height: 10),
                                 Container(
                                   child: Text(
-                                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed scelerisque lorem, vitae volutpat augue. Nulla leo quam, dignissim nec tincidunt non, viverra vel lacus. Praesent velit risus, vehicula dignissim vulputate at, euismod non arcu. Ut tempor purus et pharetra sodales. Mauris luctus ante malesuada nibh aliquet, in ornare lorem egestas. Mauris semper tincidunt est. Proin sed venenatis lorem. Maecenas nibh tellus, sollicitudin vitae sem ut, euismod viverra orci. Maecenas bibendum justo nunc, in lacinia metus imperdiet ut. Aenean tristique ligula vel mi lobortis, et volutpat metus facilisis. Sed aliquam ultricies est, id ornare eros condimentum a. Nunc volutpat venenatis gravida.',
+                                      'This module allows the conductor to scan the online booked tickets, currently it is under development',
                                       style: TextStyle(
                                           fontWeight: FontWeight.normal)),
                                 ),
@@ -221,7 +221,7 @@ class Emergency extends StatelessWidget {
                                 SizedBox(height: 10),
                                 Container(
                                   child: Text(
-                                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed scelerisque lorem, vitae volutpat augue. Nulla leo quam, dignissim nec tincidunt non, viverra vel lacus. Praesent velit risus, vehicula dignissim vulputate at, euismod non arcu. Ut tempor purus et pharetra sodales. Mauris luctus ante malesuada nibh aliquet, in ornare lorem egestas. Mauris semper tincidunt est. Proin sed venenatis lorem. Maecenas nibh tellus, sollicitudin vitae sem ut, euismod viverra orci. Maecenas bibendum justo nunc, in lacinia metus imperdiet ut. Aenean tristique ligula vel mi lobortis, et volutpat metus facilisis. Sed aliquam ultricies est, id ornare eros condimentum a. Nunc volutpat venenatis gravida.',
+                                      'To pair the app with the ticketing machine, a bluetooth transmitter chip is embedded to the main board to send all ticketing information to the app as transactions are processed.',
                                       style: TextStyle(
                                           fontWeight: FontWeight.normal)),
                                 ),
@@ -249,7 +249,7 @@ class Emergency extends StatelessWidget {
                                 SizedBox(height: 10),
                                 Container(
                                   child: Text(
-                                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed scelerisque lorem, vitae volutpat augue. Nulla leo quam, dignissim nec tincidunt non, viverra vel lacus. Praesent velit risus, vehicula dignissim vulputate at, euismod non arcu. Ut tempor purus et pharetra sodales. Mauris luctus ante malesuada nibh aliquet, in ornare lorem egestas. Mauris semper tincidunt est. Proin sed venenatis lorem. Maecenas nibh tellus, sollicitudin vitae sem ut, euismod viverra orci. Maecenas bibendum justo nunc, in lacinia metus imperdiet ut. Aenean tristique ligula vel mi lobortis, et volutpat metus facilisis. Sed aliquam ultricies est, id ornare eros condimentum a. Nunc volutpat venenatis gravida.',
+                                      'This module is similar to the passenger’s help module, difference being the facts mention information regarding the conductor app.',
                                       style: TextStyle(
                                           fontWeight: FontWeight.normal)),
                                 ),
@@ -279,7 +279,7 @@ class Emergency extends StatelessWidget {
                                 SizedBox(height: 10),
                                 Container(
                                   child: Text(
-                                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed scelerisque lorem, vitae volutpat augue. Nulla leo quam, dignissim nec tincidunt non, viverra vel lacus. Praesent velit risus, vehicula dignissim vulputate at, euismod non arcu. Ut tempor purus et pharetra sodales. Mauris luctus ante malesuada nibh aliquet, in ornare lorem egestas. Mauris semper tincidunt est. Proin sed venenatis lorem. Maecenas nibh tellus, sollicitudin vitae sem ut, euismod viverra orci. Maecenas bibendum justo nunc, in lacinia metus imperdiet ut. Aenean tristique ligula vel mi lobortis, et volutpat metus facilisis. Sed aliquam ultricies est, id ornare eros condimentum a. Nunc volutpat venenatis gravida.',
+                                      'To view the list of passengers currently travelling in the bus.',
                                       style: TextStyle(
                                           fontWeight: FontWeight.normal)),
                                 ),

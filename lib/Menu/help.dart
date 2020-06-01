@@ -200,7 +200,7 @@ class Help extends StatelessWidget {
                                   SizedBox(height: 10),
                                   Container(
                                     child: Text(
-                                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed scelerisque lorem, vitae volutpat augue. Nulla leo quam, dignissim nec tincidunt non, viverra vel lacus. Praesent velit risus, vehicula dignissim vulputate at, euismod non arcu. Ut tempor purus et pharetra sodales. Mauris luctus ante malesuada nibh aliquet, in ornare lorem egestas. Mauris semper tincidunt est. Proin sed venenatis lorem. Maecenas nibh tellus, sollicitudin vitae sem ut, euismod viverra orci. Maecenas bibendum justo nunc, in lacinia metus imperdiet ut. Aenean tristique ligula vel mi lobortis, et volutpat metus facilisis. Sed aliquam ultricies est, id ornare eros condimentum a. Nunc volutpat venenatis gravida.',
+                                        'The user can input To and From locations to find the distance and duration of travel between the two locations along with the fastest route. More information such as bus timing and nearest bus stop will be added with further development',
                                         style: TextStyle(
                                             fontWeight: FontWeight.normal)),
                                   ),
@@ -227,7 +227,7 @@ class Help extends StatelessWidget {
                                   SizedBox(height: 10),
                                   Container(
                                     child: Text(
-                                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed scelerisque lorem, vitae volutpat augue. Nulla leo quam, dignissim nec tincidunt non, viverra vel lacus. Praesent velit risus, vehicula dignissim vulputate at, euismod non arcu. Ut tempor purus et pharetra sodales. Mauris luctus ante malesuada nibh aliquet, in ornare lorem egestas. Mauris semper tincidunt est. Proin sed venenatis lorem. Maecenas nibh tellus, sollicitudin vitae sem ut, euismod viverra orci. Maecenas bibendum justo nunc, in lacinia metus imperdiet ut. Aenean tristique ligula vel mi lobortis, et volutpat metus facilisis. Sed aliquam ultricies est, id ornare eros condimentum a. Nunc volutpat venenatis gravida.',
+                                        ' The users can book tickets for a preferred bus type, during which the users are also made aware of the cost of their travel.',
                                         style: TextStyle(
                                             fontWeight: FontWeight.normal)),
                                   ),
@@ -254,7 +254,7 @@ class Help extends StatelessWidget {
                                   SizedBox(height: 10),
                                   Container(
                                     child: Text(
-                                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed scelerisque lorem, vitae volutpat augue. Nulla leo quam, dignissim nec tincidunt non, viverra vel lacus. Praesent velit risus, vehicula dignissim vulputate at, euismod non arcu. Ut tempor purus et pharetra sodales. Mauris luctus ante malesuada nibh aliquet, in ornare lorem egestas. Mauris semper tincidunt est. Proin sed venenatis lorem. Maecenas nibh tellus, sollicitudin vitae sem ut, euismod viverra orci. Maecenas bibendum justo nunc, in lacinia metus imperdiet ut. Aenean tristique ligula vel mi lobortis, et volutpat metus facilisis. Sed aliquam ultricies est, id ornare eros condimentum a. Nunc volutpat venenatis gravida.',
+                                        'With bus fleet number one can track the location of a bus. Since we do not have real-time coordinates of buses which can be tracked using google’s transport tracking api, there was no practical way to demonstrate this.',
                                         style: TextStyle(
                                             fontWeight: FontWeight.normal)),
                                   ),
@@ -281,15 +281,42 @@ class Help extends StatelessWidget {
                                   SizedBox(height: 10),
                                   Container(
                                     child: Text(
-                                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed scelerisque lorem, vitae volutpat augue. Nulla leo quam, dignissim nec tincidunt non, viverra vel lacus. Praesent velit risus, vehicula dignissim vulputate at, euismod non arcu. Ut tempor purus et pharetra sodales. Mauris luctus ante malesuada nibh aliquet, in ornare lorem egestas. Mauris semper tincidunt est. Proin sed venenatis lorem. Maecenas nibh tellus, sollicitudin vitae sem ut, euismod viverra orci. Maecenas bibendum justo nunc, in lacinia metus imperdiet ut. Aenean tristique ligula vel mi lobortis, et volutpat metus facilisis. Sed aliquam ultricies est, id ornare eros condimentum a. Nunc volutpat venenatis gravida.',
+                                        'The user inputs To, From locations, along with type of bus and time of travel to obtain a comprehensive list of bus timings. Presently we do not have access to the state transport bus schedule therefore the app fetches this information by querying “Aanavandi” website.',
                                         style: TextStyle(
                                             fontWeight: FontWeight.normal)),
                                   ),
-                                  SizedBox(height: 17),
+                                  SizedBox(height: 10),
                                 ],
                               ),
                             ),
-                            SizedBox(height: 10),
+                            SizedBox(height: 17),
+                            Container(
+                              decoration: BoxDecoration(
+                                color: factColor,
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(15)),
+                              ),
+                              padding: const EdgeInsets.all(15),
+                              width: MediaQuery.of(context).size.width * 0.80,
+                              child: Column(
+                                children: <Widget>[
+                                  Container(
+                                    child: Text('My Booking',
+                                        style: TextStyle(fontSize: 20,
+                                            fontWeight: FontWeight.bold),),
+                                  ),
+                                  SizedBox(height: 10),
+                                  Container(
+                                    child: Text(
+                                        '“My Bookings” section in the drawer allows the users to view all their current bookings.',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.normal)),
+                                  ),
+                                  SizedBox(height: 10),
+                                ],
+                              ),
+                            ),
+                            SizedBox(height: 17),
                           ]),
                     ),
                   ]),
