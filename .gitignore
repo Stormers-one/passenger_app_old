@@ -63,3 +63,4 @@ build/
 android/local.properties
 .packages
 android/local.properties
+lib/privateConfig.dart

@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:o_k/shared/colors.dart';
-import '../Maps/googlemapservice.dart';
+import '../../services/googlemapservice.dart';
 
 class AppState with ChangeNotifier {
   static LatLng _initialPosition;
@@ -14,11 +14,11 @@ class AppState with ChangeNotifier {
   GoogleMapController _mapController;
   GoogleMapsServices _googleMapsServices = GoogleMapsServices();
 
-// Map access Split START 
+// Map access Split START
   // bool get tracking => _tracking;
   // set tracking(bool track) => _tracking;
   // static bool _tracking;
-// Map access Split END 
+// Map access Split END
 
 // Distance START
   static String _distance;
@@ -47,10 +47,10 @@ class AppState with ChangeNotifier {
     toLocation = toLocation + ', Kerala';
     List<Placemark> placemark1 =
         await Geolocator().placemarkFromAddress(fromLocation);
-        print(placemark1);
+    print(placemark1);
     List<Placemark> placemark2 =
         await Geolocator().placemarkFromAddress(toLocation);
-        print(placemark2);
+    print(placemark2);
     double latitude1 = placemark1[0].position.latitude;
     double longitude1 = placemark1[0].position.longitude;
     double latitude2 = placemark2[0].position.latitude;
@@ -63,10 +63,8 @@ class AppState with ChangeNotifier {
     String route =
         await _googleMapsServices.getRouteCoordinates(start, destination);
     createRoute(route);
-    _distance =
-        await _googleMapsServices.getTravelDistance(start, destination);
-    _duration =
-        await _googleMapsServices.getTravelDuration(start, destination);
+    _distance = await _googleMapsServices.getTravelDistance(start, destination);
+    _duration = await _googleMapsServices.getTravelDuration(start, destination);
     _initialPosition = start;
     notifyListeners();
   }
@@ -148,9 +146,9 @@ class AppState with ChangeNotifier {
   }
 
 //  LOADING INITIAL POSITION
-  void _loadingInitialPosition()async{
+  void _loadingInitialPosition() async {
     await Future.delayed(Duration(seconds: 5)).then((v) {
-      if(_initialPosition == null){
+      if (_initialPosition == null) {
         locationServiceActive = false;
         notifyListeners();
       }

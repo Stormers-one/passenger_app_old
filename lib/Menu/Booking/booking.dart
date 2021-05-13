@@ -4,11 +4,10 @@ import 'package:o_k/shared/busSearch.dart';
 import '../../shared/colors.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/drawer.dart';
-import '../Maps/googlemapservice.dart';
+import '../../services/googlemapservice.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../../shared/loading.dart';
-
 
 class Booking extends StatefulWidget {
   @override
@@ -84,7 +83,7 @@ class _BookingState extends State<Booking> {
     super.dispose();
   }
 
-   Future travel(String fromLocation, String toLocation) async {
+  Future travel(String fromLocation, String toLocation) async {
     fromLocation = fromLocation + ', Kerala';
     toLocation = toLocation + ', Kerala';
     List<Placemark> placemark1 =
@@ -100,7 +99,6 @@ class _BookingState extends State<Booking> {
     LatLng start = LatLng(latitude1, longitude1);
     LatLng destination = LatLng(latitude2, longitude2);
     _distance = await _googleMapsServices.getTravelDistance(start, destination);
-    // _duration = await _googleMapsServices.getTravelDuration(start, destination);
     String dist = _distance;
     dist = dist.substring(0, dist.length - 3);
     print(_distance);
@@ -116,7 +114,9 @@ class _BookingState extends State<Booking> {
     return MaterialApp(
       theme: ThemeData(fontFamily: 'Quicksand-Medium'),
       title: 'Booking',
-      home: loading?Loading():Scaffold(
+      home: loading
+          ? Loading()
+          : Scaffold(
               backgroundColor: Colors.orange[100],
               appBar: AppBar(
                 elevation: 0,
@@ -144,7 +144,8 @@ class _BookingState extends State<Booking> {
                                     children: <Widget>[
                                       new TextFormField(
                                         controller: _controller,
-                                        style: new TextStyle(color: Colors.black),
+                                        style:
+                                            new TextStyle(color: Colors.black),
                                         onTap: () {
                                           FocusScope.of(context)
                                               .requestFocus(FocusNode());
@@ -154,7 +155,8 @@ class _BookingState extends State<Booking> {
                                                   "BFrom", _controller));
                                         },
                                         decoration: textInputDecoration("From"),
-                                        keyboardType: TextInputType.emailAddress,
+                                        keyboardType:
+                                            TextInputType.emailAddress,
                                         cursorWidth: 0,
                                         autofocus: false,
                                         validator: (val) =>
@@ -163,41 +165,44 @@ class _BookingState extends State<Booking> {
                                                 : null,
                                       ),
                                       new Padding(
-                                        padding: const EdgeInsets.only(top: 10.0),
+                                        padding:
+                                            const EdgeInsets.only(top: 10.0),
                                       ),
                                       new TextFormField(
-                                          controller: _controller1,
-                                          style:
-                                              new TextStyle(color: Colors.black),
-                                          onTap: () {
-                                            FocusScope.of(context)
-                                                .requestFocus(FocusNode());
-                                            showSearch(
-                                                context: context,
-                                                delegate: BusSearch(
-                                                    "BTo", _controller1));
-                                          },
-                                          decoration: textInputDecoration("To"),
-                                          obscureText: false,
-                                          keyboardType: TextInputType.text,
-                                          cursorWidth: 0,
-                                          validator: (val) {
-                                            if (val.isEmpty && clickStatBooking) {
-                                              return 'This is requied';
-                                            } else if (_controller.text ==
-                                                    _controller1.text &&
-                                                _controller.text.isNotEmpty) {
-                                              return 'Both location should not be same';
-                                            } else {
-                                              return null;
-                                            }
-                                          },
-                                          ),
-                                      new Padding(
-                                        padding: const EdgeInsets.only(top: 30.0),
+                                        controller: _controller1,
+                                        style:
+                                            new TextStyle(color: Colors.black),
+                                        onTap: () {
+                                          FocusScope.of(context)
+                                              .requestFocus(FocusNode());
+                                          showSearch(
+                                              context: context,
+                                              delegate: BusSearch(
+                                                  "BTo", _controller1));
+                                        },
+                                        decoration: textInputDecoration("To"),
+                                        obscureText: false,
+                                        keyboardType: TextInputType.text,
+                                        cursorWidth: 0,
+                                        validator: (val) {
+                                          if (val.isEmpty && clickStatBooking) {
+                                            return 'This is requied';
+                                          } else if (_controller.text ==
+                                                  _controller1.text &&
+                                              _controller.text.isNotEmpty) {
+                                            return 'Both location should not be same';
+                                          } else {
+                                            return null;
+                                          }
+                                        },
                                       ),
                                       new Padding(
-                                        padding: const EdgeInsets.only(top: 30.0),
+                                        padding:
+                                            const EdgeInsets.only(top: 30.0),
+                                      ),
+                                      new Padding(
+                                        padding:
+                                            const EdgeInsets.only(top: 30.0),
                                       ),
                                       new DropdownButtonFormField(
                                         hint: Text(
@@ -208,10 +213,11 @@ class _BookingState extends State<Booking> {
                                             ? _currentBusType
                                             : null,
                                         items: bustype
-                                            .map((value) => new DropdownMenuItem(
-                                                  value: value,
-                                                  child: Text('$value'),
-                                                ))
+                                            .map(
+                                                (value) => new DropdownMenuItem(
+                                                      value: value,
+                                                      child: Text('$value'),
+                                                    ))
                                             .toList(),
                                         isExpanded: true,
                                         onChanged: (val) => setState(() {
@@ -222,23 +228,24 @@ class _BookingState extends State<Booking> {
                                         }),
                                         decoration: textInputDecorationNoHint(),
                                         validator: (value) {
-                                          if (value == null && clickStatBooking) {
+                                          if (value == null &&
+                                              clickStatBooking) {
                                             return "Select The Bus Type";
-                                          }
-                                          else{
+                                          } else {
                                             return null;
                                           }
                                         },
                                       ),
                                       new Padding(
-                                        padding: const EdgeInsets.only(top: 30.0),
+                                        padding:
+                                            const EdgeInsets.only(top: 30.0),
                                       ),
                                       SizedBox(
                                         height: 50,
                                         width: 200,
                                         child: RaisedButton(
-                                          onPressed: () async  {
-                                            loading=true;
+                                          onPressed: () async {
+                                            loading = true;
                                             await travel(selectedBookingFrom,
                                                 selectedBookingTo);
                                             loading = false;
@@ -259,8 +266,8 @@ class _BookingState extends State<Booking> {
                                           color: red,
                                           textColor: Colors.white,
                                           splashColor: Colors.grey,
-                                          padding:
-                                              EdgeInsets.fromLTRB(10, 10, 10, 10),
+                                          padding: EdgeInsets.fromLTRB(
+                                              10, 10, 10, 10),
                                           shape: RoundedRectangleBorder(
                                             borderRadius:
                                                 BorderRadius.circular(20.0),
