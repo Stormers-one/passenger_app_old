@@ -77,7 +77,6 @@ class _LoginState extends State<LoginPage> {
                                           color: Colors.redAccent,
                                           fontSize: 25.0),
                                     )),
-                                isMaterialAppTheme: true,
                                 child: new Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[

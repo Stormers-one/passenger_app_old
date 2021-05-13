@@ -33,10 +33,9 @@ class _RegisterState extends State<RegisterPage> {
         ? Loading()
         : Scaffold(
             backgroundColor: Colors.white,
-            body: Stack(
-                children : <Widget>[ 
-                Background(),
-                GestureDetector(
+            body: Stack(children: <Widget>[
+              Background(),
+              GestureDetector(
                 onTap: () {
                   FocusScope.of(context).requestFocus(new FocusNode());
                 },
@@ -54,43 +53,45 @@ class _RegisterState extends State<RegisterPage> {
                                   labelStyle: new TextStyle(
                                       color: Colors.redAccent, fontSize: 25.0),
                                 )),
-                            isMaterialAppTheme: true,
                             child: new Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
-                                
                                 new Container(
                                   decoration: new BoxDecoration(
-                                    borderRadius: new BorderRadius.only(
-                                        topLeft: const Radius.circular(
-                                            90.0), //REMOVED CONTAINER BORDER RADIUS
-                                        topRight: const Radius.circular(90.0),
-                                        bottomLeft: const Radius.circular(90.0),
-                                        bottomRight: const Radius.circular(90.0)),
-                                    gradient: new LinearGradient(
-                                        colors: [
-                                          Colors.orange[600],
-                                          Colors.red[300]
-                                        ],
-                                        begin: const FractionalOffset(0.5, 0.0),
-                                        end: const FractionalOffset(0.0, 0.5),
-                                        stops: [0.0, 1.0],
-                                        tileMode: TileMode.clamp),
-                                        boxShadow: [
-                                          BoxShadow(
-                                              color: Colors.black.withAlpha(60),
-                                              blurRadius: 5,
-                                              offset: Offset(0, 8),
-                                              spreadRadius: 2)
-                                        ]
-                                    // color: Colors.orange[300],
-                                  ),
+                                      borderRadius: new BorderRadius.only(
+                                          topLeft: const Radius.circular(
+                                              90.0), //REMOVED CONTAINER BORDER RADIUS
+                                          topRight: const Radius.circular(90.0),
+                                          bottomLeft:
+                                              const Radius.circular(90.0),
+                                          bottomRight:
+                                              const Radius.circular(90.0)),
+                                      gradient: new LinearGradient(
+                                          colors: [
+                                            Colors.orange[600],
+                                            Colors.red[300]
+                                          ],
+                                          begin:
+                                              const FractionalOffset(0.5, 0.0),
+                                          end: const FractionalOffset(0.0, 0.5),
+                                          stops: [0.0, 1.0],
+                                          tileMode: TileMode.clamp),
+                                      boxShadow: [
+                                        BoxShadow(
+                                            color: Colors.black.withAlpha(60),
+                                            blurRadius: 5,
+                                            offset: Offset(0, 8),
+                                            spreadRadius: 2)
+                                      ]
+                                      // color: Colors.orange[300],
+                                      ),
                                   padding: const EdgeInsets.all(40.0),
                                   child: new Form(
                                     key: _formkey,
                                     autovalidate: true,
                                     child: new Column(
-                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
                                       children: <Widget>[
                                         SizedBox(height: 10),
                                         Text(
@@ -105,8 +106,8 @@ class _RegisterState extends State<RegisterPage> {
                                         ),
                                         new TextFormField(
                                           initialValue: fname,
-                                          style:
-                                              new TextStyle(color: Colors.orange),
+                                          style: new TextStyle(
+                                              color: Colors.orange),
                                           decoration:
                                               textInputDecoration("Full Name"),
                                           keyboardType:
@@ -126,8 +127,8 @@ class _RegisterState extends State<RegisterPage> {
                                         ),
                                         new TextFormField(
                                           initialValue: email,
-                                          style:
-                                              new TextStyle(color: Colors.orange),
+                                          style: new TextStyle(
+                                              color: Colors.orange),
                                           decoration:
                                               textInputDecoration("Email"),
                                           keyboardType:
@@ -146,8 +147,8 @@ class _RegisterState extends State<RegisterPage> {
                                               const EdgeInsets.only(top: 10.0),
                                         ),
                                         new TextFormField(
-                                          style:
-                                              new TextStyle(color: Colors.orange),
+                                          style: new TextStyle(
+                                              color: Colors.orange),
                                           decoration: textInputDecoration(
                                               "Password > 8 Characters"),
                                           obscureText: true,
@@ -166,8 +167,8 @@ class _RegisterState extends State<RegisterPage> {
                                               const EdgeInsets.only(top: 10.0),
                                         ),
                                         new TextFormField(
-                                          style:
-                                              new TextStyle(color: Colors.orange),
+                                          style: new TextStyle(
+                                              color: Colors.orange),
                                           decoration: textInputDecoration(
                                               "Confirm Password"),
                                           obscureText: true,
@@ -187,15 +188,16 @@ class _RegisterState extends State<RegisterPage> {
                                         ),
                                         new TextFormField(
                                           initialValue: phno,
-                                          style:
-                                              new TextStyle(color: Colors.orange),
-                                          decoration:
-                                              textInputDecoration("Phone Number"),
+                                          style: new TextStyle(
+                                              color: Colors.orange),
+                                          decoration: textInputDecoration(
+                                              "Phone Number"),
                                           keyboardType: TextInputType.number,
                                           onChanged: (val) {
                                             setState(() => phno = val);
                                           },
-                                          validator: (val) => val.length != 10 &&
+                                          validator: (val) => val.length !=
+                                                      10 &&
                                                   clickStatRegister
                                               ? 'Enter a valid 10 Digit phone number'
                                               : null,
@@ -244,7 +246,8 @@ class _RegisterState extends State<RegisterPage> {
                                                 10, 10, 10, 10),
                                             shape: RoundedRectangleBorder(
                                                 borderRadius:
-                                                    BorderRadius.circular(20.0)),
+                                                    BorderRadius.circular(
+                                                        20.0)),
                                           ),
                                         ),
                                         new Padding(
@@ -262,8 +265,7 @@ class _RegisterState extends State<RegisterPage> {
                   ),
                 ),
               ),
-              ]
-            ),
+            ]),
           );
   }
 }

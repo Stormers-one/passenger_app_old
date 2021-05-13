@@ -28,150 +28,148 @@ class _ResetState extends State<ResetPage> {
     return loading
         ? Loading()
         : Scaffold(
-          backgroundColor: Colors.orange[300],
-          body: Stack(
-              children: <Widget>[ 
-                Background(),
-                GestureDetector(
-              onTap: () {
-                FocusScope.of(context).requestFocus(new FocusNode());
-              },
-              child: Center(
-                child: Container(
-                  child: ListView(
-                      shrinkWrap: true,
-                      padding: const EdgeInsets.all(20.0),
-                      children: <Widget>[
-                        new Theme(
-                          data: new ThemeData(
-                              fontFamily: 'Quicksand-Medium',
-                              brightness: Brightness.dark,
-                              inputDecorationTheme: new InputDecorationTheme(
-                                // hintStyle: new TextStyle(color: Colors.blue, fontSize: 20.0),
-                                labelStyle: new TextStyle(
-                                    color: Colors.redAccent, fontSize: 25.0),
-                              )),
-                          isMaterialAppTheme: true,
-                          child: new Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              
-                              Hero(
-                                tag: 'imageHero',
-                                child: new Container(
-                                  child: Image.asset(
-                                    'assets/images/logo.png',
+            backgroundColor: Colors.orange[300],
+            body: Stack(children: <Widget>[
+              Background(),
+              GestureDetector(
+                onTap: () {
+                  FocusScope.of(context).requestFocus(new FocusNode());
+                },
+                child: Center(
+                  child: Container(
+                    child: ListView(
+                        shrinkWrap: true,
+                        padding: const EdgeInsets.all(20.0),
+                        children: <Widget>[
+                          new Theme(
+                            data: new ThemeData(
+                                fontFamily: 'Quicksand-Medium',
+                                brightness: Brightness.dark,
+                                inputDecorationTheme: new InputDecorationTheme(
+                                  // hintStyle: new TextStyle(color: Colors.blue, fontSize: 20.0),
+                                  labelStyle: new TextStyle(
+                                      color: Colors.redAccent, fontSize: 25.0),
+                                )),
+                            child: new Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Hero(
+                                  tag: 'imageHero',
+                                  child: new Container(
+                                    child: Image.asset(
+                                      'assets/images/logo.png',
+                                    ),
+                                    height: 200,
+                                    width: 200,
                                   ),
-                                  height: 200,
-                                  width: 200,
                                 ),
-                              ),
-                              new Container(
-                                decoration: new BoxDecoration(
-                                  borderRadius: new BorderRadius.all(
-                                    Radius.circular(50.0),
-                                  ),
-                                  gradient: new LinearGradient(
-                                      colors: [
-                                        Colors.orange[600],
-                                        Colors.red[300]
-                                      ],
-                                      begin: const FractionalOffset(0.5, 0.0),
-                                      end: const FractionalOffset(0.0, 0.5),
-                                      stops: [0.0, 1.0],
-                                      tileMode: TileMode.clamp),
+                                new Container(
+                                  decoration: new BoxDecoration(
+                                      borderRadius: new BorderRadius.all(
+                                        Radius.circular(50.0),
+                                      ),
+                                      gradient: new LinearGradient(
+                                          colors: [
+                                            Colors.orange[600],
+                                            Colors.red[300]
+                                          ],
+                                          begin:
+                                              const FractionalOffset(0.5, 0.0),
+                                          end: const FractionalOffset(0.0, 0.5),
+                                          stops: [0.0, 1.0],
+                                          tileMode: TileMode.clamp),
                                       boxShadow: [
                                         BoxShadow(
                                             color: Colors.black.withAlpha(60),
                                             blurRadius: 5,
                                             offset: Offset(0, 8),
                                             spreadRadius: 2)
-                                      ]
-                                ),
-                                padding: const EdgeInsets.all(20.0),
-                                child: new Form(
-                                  key: _formkey,
-                                  autovalidate: true,
-                                  child: new Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.start,
-                                    children: <Widget>[
-                                      //SizedBox(height: 10),
-                                      Text(
-                                        error,
-                                        style: TextStyle(
-                                            color: red, fontSize: 14.0),
-                                      ),
-                                      new Padding(
-                                        padding:
-                                            const EdgeInsets.only(top: 10.0),
-                                      ),
-                                      new TextFormField(
-                                        initialValue: email,
-                                        style: new TextStyle(
-                                            color: Colors.orange),
-                                        decoration:
-                                            textInputDecoration("Email"),
-                                        keyboardType:
-                                            TextInputType.emailAddress,
-                                        onChanged: (val) {
-                                          setState(() => email = val);
-                                        },
-                                        validator: (val) =>
-                                            val.isEmpty && clickStatLogin
-                                                ? 'Enter an Email'
-                                                : null,
-                                      ),
-                                      new Padding(
-                                        padding:
-                                            const EdgeInsets.only(top: 20.0),
-                                      ),
-                                      SizedBox(
-                                        height: 50,
-                                        width: 200,
-                                        child: RaisedButton(
-                                          onPressed: () async {
-                                            if (_formkey.currentState
-                                                .validate()) {
-                                              setState(() => loading = true);
-                                              dynamic result = await _auth
-                                                  .sendPasswordResetEmail(email);
-                                              if (result == null) {
-                                                setState(() {
-                                                  Fluttertoast.showToast(msg: 'Password Reset Link Sent Successfully');
-                                                  loading = false;
-                                                  
-                                                });
-                                              }
-                                              Navigator.pop(context);
-                                            }
-                                          },
-                                          child: const Text('Reset',
-                                              style: TextStyle(fontSize: 20)),
-                                          color: red,
-                                          textColor: Colors.white,
-                                          splashColor: Colors.grey,
-                                          padding: EdgeInsets.fromLTRB(
-                                              10, 10, 10, 10),
-                                          shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(
-                                                      20.0)),
+                                      ]),
+                                  padding: const EdgeInsets.all(20.0),
+                                  child: new Form(
+                                    key: _formkey,
+                                    autovalidate: true,
+                                    child: new Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        //SizedBox(height: 10),
+                                        Text(
+                                          error,
+                                          style: TextStyle(
+                                              color: red, fontSize: 14.0),
                                         ),
-                                      ),
-                                    ],
+                                        new Padding(
+                                          padding:
+                                              const EdgeInsets.only(top: 10.0),
+                                        ),
+                                        new TextFormField(
+                                          initialValue: email,
+                                          style: new TextStyle(
+                                              color: Colors.orange),
+                                          decoration:
+                                              textInputDecoration("Email"),
+                                          keyboardType:
+                                              TextInputType.emailAddress,
+                                          onChanged: (val) {
+                                            setState(() => email = val);
+                                          },
+                                          validator: (val) =>
+                                              val.isEmpty && clickStatLogin
+                                                  ? 'Enter an Email'
+                                                  : null,
+                                        ),
+                                        new Padding(
+                                          padding:
+                                              const EdgeInsets.only(top: 20.0),
+                                        ),
+                                        SizedBox(
+                                          height: 50,
+                                          width: 200,
+                                          child: RaisedButton(
+                                            onPressed: () async {
+                                              if (_formkey.currentState
+                                                  .validate()) {
+                                                setState(() => loading = true);
+                                                dynamic result = await _auth
+                                                    .sendPasswordResetEmail(
+                                                        email);
+                                                if (result == null) {
+                                                  setState(() {
+                                                    Fluttertoast.showToast(
+                                                        msg:
+                                                            'Password Reset Link Sent Successfully');
+                                                    loading = false;
+                                                  });
+                                                }
+                                                Navigator.pop(context);
+                                              }
+                                            },
+                                            child: const Text('Reset',
+                                                style: TextStyle(fontSize: 20)),
+                                            color: red,
+                                            textColor: Colors.white,
+                                            splashColor: Colors.grey,
+                                            padding: EdgeInsets.fromLTRB(
+                                                10, 10, 10, 10),
+                                            shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(
+                                                        20.0)),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
-                        ),
-                      ]),
+                        ]),
+                  ),
                 ),
               ),
-            ),
-              ]
-          ),
-        );
+            ]),
+          );
   }
 }

@@ -41,7 +41,7 @@ class _Maps extends State<Maps> {
       theme: ThemeData(fontFamily: 'Quicksand-Medium'),
       home: Scaffold(
         backgroundColor: Colors.orange[100],
-        resizeToAvoidBottomPadding: false,
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
           title: Text('Maps'),
           backgroundColor: red,
@@ -82,9 +82,10 @@ class _Maps extends State<Maps> {
                                   decoration: textInputDecoration("From"),
                                   keyboardType: TextInputType.emailAddress,
                                   cursorWidth: 0,
-                                  validator: (val) => val.isEmpty && clickStatMaps
-                                      ? 'This is required'
-                                      : null,
+                                  validator: (val) =>
+                                      val.isEmpty && clickStatMaps
+                                          ? 'This is required'
+                                          : null,
                                 ),
                                 new Padding(
                                   padding: const EdgeInsets.only(top: 10.0),
@@ -141,10 +142,12 @@ class _Maps extends State<Maps> {
                                     color: red,
                                     textColor: Colors.white,
                                     splashColor: Colors.grey,
-                                    padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                                    padding:
+                                        EdgeInsets.fromLTRB(10, 10, 10, 10),
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(20.0),
-                                      side: BorderSide(color: Colors.transparent),
+                                      side:
+                                          BorderSide(color: Colors.transparent),
                                     ),
                                   ),
                                 ),
