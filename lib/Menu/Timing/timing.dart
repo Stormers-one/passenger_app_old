@@ -3,12 +3,11 @@ import 'package:o_k/Menu/Timing/avtimes.dart';
 import 'package:o_k/shared/busSearch.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:o_k/model/busStop.dart';
+import 'package:o_k/shared/model/busStop.dart';
 import 'package:o_k/services/database.dart';
 import 'package:o_k/shared/drawer.dart';
 import 'package:provider/provider.dart';
 import 'package:o_k/shared/colors.dart';
-
 
 class Timing extends StatefulWidget {
   @override
@@ -105,7 +104,6 @@ class _Timing extends State<Timing> {
         title: 'Bus Timing',
         theme: ThemeData(fontFamily: 'Quicksand-Medium'),
         home: Scaffold(
-          
           backgroundColor: Colors.orange[100],
           appBar: AppBar(
             elevation: 0,
@@ -160,14 +158,15 @@ class _Timing extends State<Timing> {
                                     ),
                                     new TextFormField(
                                         controller: _controller1,
-                                        style: new TextStyle(color: Colors.black),
+                                        style:
+                                            new TextStyle(color: Colors.black),
                                         onTap: () {
                                           FocusScope.of(context)
                                               .requestFocus(FocusNode());
                                           showSearch(
                                               context: context,
-                                              delegate:
-                                                  BusSearch("To", _controller1));
+                                              delegate: BusSearch(
+                                                  "To", _controller1));
                                         },
                                         textCapitalization:
                                             TextCapitalization.characters,
@@ -204,7 +203,7 @@ class _Timing extends State<Timing> {
                                           .toList(),
                                       isExpanded: true,
                                       onChanged: (val) {
-                                        setState(() { 
+                                        setState(() {
                                           _currentBusType = val;
                                           // bkey = setBusKey(_currentBusType.toString());
                                           // print(bkey);
@@ -235,7 +234,8 @@ class _Timing extends State<Timing> {
                                       onChanged: (val) => setState(() {
                                         _currenttime = val;
                                         setTime(_currenttime);
-                                        FocusScope.of(context).requestFocus(new FocusNode());
+                                        FocusScope.of(context)
+                                            .requestFocus(new FocusNode());
                                       }),
                                       decoration: textInputDecorationNoHint(),
                                     ),
@@ -248,9 +248,16 @@ class _Timing extends State<Timing> {
                                       child: RaisedButton(
                                         onPressed: () async {
                                           clickStatTiming = true;
-                                          if (_formkey.currentState.validate()) {
-                                            if(_currentBusType.isEmpty || bkey == 0){
-                                              inUrl = 'https://www.aanavandi.com//search/results/source/'+ _controller.text +'/destination/'+ _controller1.text +'/timing/$time1';
+                                          if (_formkey.currentState
+                                              .validate()) {
+                                            if (_currentBusType.isEmpty ||
+                                                bkey == 0) {
+                                              inUrl =
+                                                  'https://www.aanavandi.com//search/results/source/' +
+                                                      _controller.text +
+                                                      '/destination/' +
+                                                      _controller1.text +
+                                                      '/timing/$time1';
                                             }
                                             // else{
                                             //   inUrl = 'https://www.aanavandi.com//search/results/source/'+ _controller.text +'/destination/'+ _controller1.text +'/type/$bkey/timing/$time1';

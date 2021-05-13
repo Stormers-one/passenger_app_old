@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:o_k/model/user.dart';
+import 'package:o_k/shared/model/user.dart';
 import 'package:o_k/services/database.dart';
 import 'package:o_k/shared/colors.dart';
 import 'package:o_k/shared/constants.dart';
@@ -9,8 +9,6 @@ import 'package:provider/provider.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 class TicketDisplay extends StatelessWidget {
-  
-  
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<User>(context);
@@ -23,8 +21,7 @@ class TicketDisplay extends StatelessWidget {
             elevation: 0,
             title: Text('Your Ticket'),
             backgroundColor: red,
-            actions: <Widget>[]
-          ),
+            actions: <Widget>[]),
         drawer: DrawerBuild(),
         body: SafeArea(
           child: Center(
@@ -36,51 +33,50 @@ class TicketDisplay extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     StreamBuilder<UserData>(
-                      stream: DatabaseService(uid: user.uid).userData,
-                      builder: (context, snapshot) {
-                        if (snapshot.hasData) {
-                          UserData userData = snapshot.data;
-                          username = userData.fname;
-                          useremail = userData.email;
-                          userphno = userData.phno;
-                          userID = userData.uid;
-                          bidn = getBookingId();
-                          print(bidn);
-                          if(booking){
-                            booking=false;
-                            DatabaseService(uid: userData.uid).addBooking(
-                              userData.uid,
-                              fare,
-                              bidn,
-                              userData.phno,
-                              selectedBookingFrom,
-                              selectedBookingTo,
-                              selectedBookingBusType
-                            );
-                          }
-                          return Form(
-                            child: Container(
-                              padding: EdgeInsets.all(20.0),
-                              child: new Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: <Widget>[
-                                  new Padding(
-                                    padding: const EdgeInsets.only(top: 10.0),
-                                  ),
-                                  new TextField(
-                                    enabled: false,
-                                    decoration: new InputDecoration(
-                                      labelText: bidn,
-                                      labelStyle: TextStyle(
-                                          fontSize: 15, color: Colors.black),
-                                      icon: Icon(Icons.vpn_key),
-                                      fillColor: Colors.grey[300],
-                                      filled: true,
-                                      border: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: Colors.transparent),
-                                        borderRadius:
-                                            new BorderRadius.circular(10),
+                        stream: DatabaseService(uid: user.uid).userData,
+                        builder: (context, snapshot) {
+                          if (snapshot.hasData) {
+                            UserData userData = snapshot.data;
+                            username = userData.fname;
+                            useremail = userData.email;
+                            userphno = userData.phno;
+                            userID = userData.uid;
+                            bidn = getBookingId();
+                            print(bidn);
+                            if (booking) {
+                              booking = false;
+                              DatabaseService(uid: userData.uid).addBooking(
+                                  userData.uid,
+                                  fare,
+                                  bidn,
+                                  userData.phno,
+                                  selectedBookingFrom,
+                                  selectedBookingTo,
+                                  selectedBookingBusType);
+                            }
+                            return Form(
+                              child: Container(
+                                padding: EdgeInsets.all(20.0),
+                                child: new Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: <Widget>[
+                                    new Padding(
+                                      padding: const EdgeInsets.only(top: 10.0),
+                                    ),
+                                    new TextField(
+                                      enabled: false,
+                                      decoration: new InputDecoration(
+                                        labelText: bidn,
+                                        labelStyle: TextStyle(
+                                            fontSize: 15, color: Colors.black),
+                                        icon: Icon(Icons.vpn_key),
+                                        fillColor: Colors.grey[300],
+                                        filled: true,
+                                        border: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              color: Colors.transparent),
+                                          borderRadius:
+                                              new BorderRadius.circular(10),
                                         ),
                                       ),
                                     ),
@@ -154,12 +150,10 @@ class TicketDisplay extends StatelessWidget {
                                 ),
                               ),
                             );
-                          } 
-                          else {
+                          } else {
                             return Loading();
-                        }
-                      }
-                    ),
+                          }
+                        }),
                   ],
                 ),
               ],

@@ -7,7 +7,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:o_k/services/database.dart';
 import 'package:o_k/shared/loading.dart';
 import 'package:provider/provider.dart';
-import 'package:o_k/model/user.dart';
+import 'package:o_k/shared/model/user.dart';
 import 'package:o_k/shared/colors.dart';
 import 'package:o_k/shared/constants.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:o_k/model/ticketmodel.dart';
+import 'package:o_k/shared/model/ticketmodel.dart';
 
 class BookingTile extends StatelessWidget {
   final TicketData book;
@@ -11,16 +11,16 @@ class BookingTile extends StatelessWidget {
         child: Card(
           color: Colors.orange[200],
           shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15.0),
+            borderRadius: BorderRadius.circular(15.0),
           ),
           margin: EdgeInsets.fromLTRB(20.0, 6.0, 20.0, 0.0),
-          child: ListTile( 
+          child: ListTile(
             //  CircleAvatar(
             //    radius: 50.0,
             //    backgroundColor: red,
             //  ),
-            title: Text("Booking ID: " +  book.bookid),
-            subtitle: Text( "From: " + book.bookfrom + "\nTo: " +  book.bookto),
+            title: Text("Booking ID: " + book.bookid),
+            subtitle: Text("From: " + book.bookfrom + "\nTo: " + book.bookto),
           ),
         ));
   }

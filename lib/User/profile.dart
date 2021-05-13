@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:o_k/User/profile_settings.dart';
-import 'package:o_k/model/user.dart';
+import 'package:o_k/shared/model/user.dart';
 import 'package:o_k/services/database.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/drawer.dart';
@@ -11,6 +11,7 @@ import 'package:o_k/shared/colors.dart';
 class Profile extends StatefulWidget {
   _ProfileState createState() => _ProfileState();
 }
+
 class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
@@ -24,6 +25,7 @@ class _ProfileState extends State<Profile> {
             );
           });
     }
+
     final user = Provider.of<User>(context);
     return /*profrefresher? Loading():*/ MaterialApp(
       title: 'Profile',

@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:o_k/model/user.dart';
+import 'package:o_k/shared/model/user.dart';
 import 'package:o_k/services/database.dart';
 
 class Authservice {
@@ -77,11 +77,10 @@ class Authservice {
       return null;
     }
   }
-  
+
   //RESET PASSWORD
 
-  Future sendPasswordResetEmail(String email){
+  Future sendPasswordResetEmail(String email) {
     return _auth.sendPasswordResetEmail(email: email);
   }
-
 }

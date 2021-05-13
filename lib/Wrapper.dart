@@ -3,7 +3,7 @@ import 'package:o_k/Signing_and_Auth/loginPage.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:provider/provider.dart';
 import 'package:o_k/homepage.dart';
-import 'package:o_k/model/user.dart';
+import 'package:o_k/shared/model/user.dart';
 
 class Wrapper extends StatelessWidget {
   @override
@@ -12,7 +12,7 @@ class Wrapper extends StatelessWidget {
     if (user == null) {
       return LoginPage();
     } else {
-      userID  = user.uid;
+      userID = user.uid;
       return Homepage();
     }
     //return Homepage();

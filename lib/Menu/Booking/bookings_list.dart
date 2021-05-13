@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:o_k/Menu/Booking/booking_lister.dart';
-import 'package:o_k/model/ticketmodel.dart';
+import 'package:o_k/shared/model/ticketmodel.dart';
 import 'package:o_k/services/database.dart';
 import 'package:o_k/shared/drawer.dart';
 import 'package:provider/provider.dart';
 import 'package:o_k/shared/colors.dart';
-
 
 class BookingList extends StatelessWidget {
   @override
@@ -24,7 +23,7 @@ class BookingList extends StatelessWidget {
           ),
           drawer: DrawerBuild(),
           body: BookLister(),
-          ),
+        ),
       ),
     );
   }
