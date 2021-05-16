@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:o_k/Wrapper.dart';
 import 'package:o_k/Shared/services/firebaseServices/auth.dart';
+import 'package:o_k/shared/Styling/buttonStyles.dart';
 import 'package:o_k/shared/services/firebaseServices/Signing_and_Auth/background_login.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/loading.dart';
@@ -88,7 +89,7 @@ class _RegisterState extends State<RegisterPage> {
                                   padding: const EdgeInsets.all(40.0),
                                   child: new Form(
                                     key: _formkey,
-                                    autovalidate: true,
+                                    autovalidateMode: AutovalidateMode.always,
                                     child: new Column(
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
@@ -209,7 +210,7 @@ class _RegisterState extends State<RegisterPage> {
                                         SizedBox(
                                           height: 50,
                                           width: 200,
-                                          child: RaisedButton(
+                                          child: ElevatedButton(
                                             onPressed: () async {
                                               clickStatRegister = true;
                                               if (_formkey.currentState
@@ -239,15 +240,7 @@ class _RegisterState extends State<RegisterPage> {
                                             },
                                             child: const Text('Register',
                                                 style: TextStyle(fontSize: 20)),
-                                            color: red,
-                                            textColor: Colors.white,
-                                            splashColor: Colors.grey,
-                                            padding: EdgeInsets.fromLTRB(
-                                                10, 10, 10, 10),
-                                            shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(
-                                                        20.0)),
+                                            style: raisedButtonStyle,
                                           ),
                                         ),
                                         new Padding(

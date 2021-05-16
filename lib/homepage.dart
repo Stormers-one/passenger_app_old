@@ -1,9 +1,6 @@
-// import 'package:double_back_to_close_app/double_back_to_close_app.dart';
 import 'package:flutter/material.dart';
 import 'package:o_k/Wrapper.dart';
 import 'package:o_k/Shared/services/firebaseServices/auth.dart';
-import 'package:o_k/shared/services/firebaseServices/Signing_and_Auth/background_login.dart';
-// import 'package:o_k/shared/bottomBar.dart';
 import 'package:o_k/shared/Styling/colors.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/drawer.dart';

@@ -1,5 +1,4 @@
 // import '../Maps/distance.java';
-import 'dart:io';
 
 import 'package:http/http.dart' as http;
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -32,10 +31,12 @@ class GoogleMapsServices {
     http.Response response = await http.get(url);
     Map values = jsonDecode(response.body);
     // print("Values Variable : $values");
+    String _options;
     if (option == 1) {
-      return values["rows"][0]["elements"][0]["distance"]["text"] ?? "";
+      _options = "distace";
     } else if (option == 2) {
-      return values["rows"][0]["elements"][0]["duration"]["text"] ?? "";
+      _options = "duration";
     }
+    return values["rows"][0]["elements"][0][_options]["text"] ?? "";
   }
 }

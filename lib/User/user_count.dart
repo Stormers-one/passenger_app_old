@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:o_k/User/profile_settings.dart';
 import 'package:o_k/Shared/services/firebaseServices/database.dart';
 import 'package:o_k/User/user_list.dart';
 import 'package:o_k/User/users_fetch.dart';

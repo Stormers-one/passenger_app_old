@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 // import 'package:flutter_signin_button/flutter_signin_button.dart';
 // import 'package:google_sign_in/google_sign_in.dart';
 import 'package:o_k/Shared/services/firebaseServices/auth.dart';
+import 'package:o_k/shared/Styling/buttonStyles.dart';
 import 'package:o_k/shared/services/firebaseServices/Signing_and_Auth/register.dart';
 import 'package:o_k/shared/services/firebaseServices/Signing_and_Auth/background_login.dart';
 import 'package:o_k/shared/constants.dart';
@@ -188,7 +189,7 @@ class _LoginState extends State<LoginPage> {
                                             SizedBox(
                                               height: 50,
                                               width: 200,
-                                              child: RaisedButton(
+                                              child: ElevatedButton(
                                                 onPressed: () async {
                                                   if (_formkey.currentState
                                                       .validate()) {
@@ -210,15 +211,7 @@ class _LoginState extends State<LoginPage> {
                                                 child: const Text('Login',
                                                     style: TextStyle(
                                                         fontSize: 20)),
-                                                color: red,
-                                                textColor: Colors.white,
-                                                splashColor: Colors.grey,
-                                                padding: EdgeInsets.fromLTRB(
-                                                    10, 10, 10, 10),
-                                                shape: RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            20.0)),
+                                                style: raisedButtonStyle,
                                               ),
                                             ),
                                             new Padding(

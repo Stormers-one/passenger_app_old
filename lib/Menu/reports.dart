@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:o_k/shared/Styling/buttonStyles.dart';
 import 'package:o_k/shared/drawer.dart';
 import 'package:o_k/shared/Styling/colors.dart';
 import 'package:o_k/shared/constants.dart';
@@ -83,7 +84,7 @@ class Reports extends StatelessWidget {
                   SizedBox(
                     height: 50,
                     width: 200,
-                    child: RaisedButton(
+                    child: ElevatedButton(
                       onPressed: () async {
                         loading = true;
                         Fluttertoast.showToast(msg: "Report Sent!");
@@ -91,14 +92,7 @@ class Reports extends StatelessWidget {
                       },
                       child:
                           const Text('Proceed', style: TextStyle(fontSize: 20)),
-                      color: red,
-                      textColor: Colors.white,
-                      splashColor: Colors.grey,
-                      padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20.0),
-                        side: BorderSide(color: Colors.transparent),
-                      ),
+                      style: raisedButtonStyle,
                     ),
                   ),
                   new Padding(
@@ -107,7 +101,7 @@ class Reports extends StatelessWidget {
                   SizedBox(
                     height: 50,
                     width: 200,
-                    child: RaisedButton(
+                    child: ElevatedButton(
                       onPressed: () {
                         Navigator.push(
                           context,
@@ -116,14 +110,7 @@ class Reports extends StatelessWidget {
                       },
                       child: const Text('Go To Help Page',
                           style: TextStyle(fontSize: 20)),
-                      color: red,
-                      textColor: Colors.white,
-                      splashColor: Colors.grey,
-                      padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20.0),
-                        side: BorderSide(color: Colors.transparent),
-                      ),
+                      style: raisedButtonStyle,
                     ),
                   ),
                 ],

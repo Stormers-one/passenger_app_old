@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:o_k/Menu/Booking/Ticket.dart';
+import 'package:o_k/shared/Styling/buttonStyles.dart';
 import 'package:o_k/shared/model/user.dart';
 import 'package:o_k/Shared/services/firebaseServices/database.dart';
 import 'package:o_k/shared/constants.dart';
@@ -201,27 +202,16 @@ class _BookingConfirm extends State<BookingConfirm> {
                                           SizedBox(
                                             height: 50,
                                             width: 200,
-                                            child: RaisedButton(
-                                              onPressed: () {
-                                                loading = true;
-                                                openCheckout();
-                                              },
-                                              child: const Text(
-                                                  'Proceed To Payment',
-                                                  style:
-                                                      TextStyle(fontSize: 18)),
-                                              color: red,
-                                              textColor: Colors.white,
-                                              splashColor: Colors.grey,
-                                              padding: EdgeInsets.fromLTRB(
-                                                  10, 10, 10, 10),
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(20.0),
-                                                side: BorderSide(
-                                                    color: Colors.transparent),
-                                              ),
-                                            ),
+                                            child: ElevatedButton(
+                                                onPressed: () {
+                                                  loading = true;
+                                                  openCheckout();
+                                                },
+                                                child: const Text(
+                                                    'Proceed To Payment',
+                                                    style: TextStyle(
+                                                        fontSize: 18)),
+                                                style: raisedButtonStyle),
                                           ),
                                         ],
                                       ),

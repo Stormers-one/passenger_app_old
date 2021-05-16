@@ -36,7 +36,7 @@ class _ProfileState extends State<Profile> {
             title: Text('Profile'),
             backgroundColor: red,
             actions: <Widget>[
-              FlatButton.icon(
+              TextButton.icon(
                   onPressed: () => _showSettengsPanel(),
                   icon: Icon(Icons.settings),
                   label: Text('Edit Profile'))

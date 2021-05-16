@@ -23,7 +23,7 @@ class _MapView extends State<MapView> {
   GoogleMapController mapController;
   LatLng _center;
   Position currentLocation;
-  CameraPosition _position;
+  // CameraPosition _position;
 
   bool loading = true;
 

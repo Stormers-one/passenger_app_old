@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:o_k/Shared/services/firebaseServices/database.dart';
+import 'package:o_k/shared/Styling/buttonStyles.dart';
 import 'package:o_k/shared/loading.dart';
 import 'package:provider/provider.dart';
 import 'package:o_k/shared/model/user.dart';
@@ -116,7 +117,7 @@ class _SettingsFormState extends State<SettingsForm> {
                     SizedBox(
                       height: 50,
                       width: 100,
-                      child: RaisedButton(
+                      child: ElevatedButton(
                           child: const Text(
                             'Upload Profile Photo',
                             style: TextStyle(
@@ -125,14 +126,7 @@ class _SettingsFormState extends State<SettingsForm> {
                             ),
                             textAlign: TextAlign.center,
                           ),
-                          color: red,
-                          textColor: Colors.white,
-                          splashColor: red,
-                          padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20.0),
-                            side: BorderSide(color: Colors.transparent),
-                          ),
+                          style: raisedButtonStyle,
                           onPressed: () async {
                             Fluttertoast.showToast(
                                 msg: 'Wait For Upload Status');

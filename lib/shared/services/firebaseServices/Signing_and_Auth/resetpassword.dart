@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:o_k/Shared/services/firebaseServices/auth.dart';
+import 'package:o_k/shared/Styling/buttonStyles.dart';
 import 'package:o_k/shared/services/firebaseServices/Signing_and_Auth/background_login.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/loading.dart';
@@ -88,7 +89,7 @@ class _ResetState extends State<ResetPage> {
                                   padding: const EdgeInsets.all(20.0),
                                   child: new Form(
                                     key: _formkey,
-                                    autovalidate: true,
+                                    autovalidateMode: AutovalidateMode.always,
                                     child: new Column(
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
@@ -126,7 +127,7 @@ class _ResetState extends State<ResetPage> {
                                         SizedBox(
                                           height: 50,
                                           width: 200,
-                                          child: RaisedButton(
+                                          child: ElevatedButton(
                                             onPressed: () async {
                                               if (_formkey.currentState
                                                   .validate()) {
@@ -147,15 +148,7 @@ class _ResetState extends State<ResetPage> {
                                             },
                                             child: const Text('Reset',
                                                 style: TextStyle(fontSize: 20)),
-                                            color: red,
-                                            textColor: Colors.white,
-                                            splashColor: Colors.grey,
-                                            padding: EdgeInsets.fromLTRB(
-                                                10, 10, 10, 10),
-                                            shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(
-                                                        20.0)),
+                                            style: raisedButtonStyle,
                                           ),
                                         ),
                                       ],

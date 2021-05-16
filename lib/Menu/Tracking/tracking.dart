@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:o_k/shared/Styling/buttonStyles.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/drawer.dart';
 import 'package:o_k/shared/Styling/colors.dart';
@@ -39,7 +40,7 @@ class Tracking extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.all(40.0),
                         child: new Form(
-                          autovalidate: true,
+                          autovalidateMode: AutovalidateMode.always,
                           child: new Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: <Widget>[
@@ -53,7 +54,7 @@ class Tracking extends StatelessWidget {
                               SizedBox(
                                 height: 50,
                                 width: 200,
-                                child: RaisedButton(
+                                child: ElevatedButton(
                                   onPressed: () {
                                     Navigator.push(
                                       context,
@@ -63,14 +64,7 @@ class Tracking extends StatelessWidget {
                                   },
                                   child: const Text('Search',
                                       style: TextStyle(fontSize: 20)),
-                                  color: red,
-                                  textColor: Colors.white,
-                                  splashColor: Colors.grey,
-                                  padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(20.0),
-                                    side: BorderSide(color: Colors.transparent),
-                                  ),
+                                  style: raisedButtonStyle,
                                 ),
                               ),
                             ],

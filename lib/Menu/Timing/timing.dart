@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:o_k/Menu/Timing/avtimes.dart';
+import 'package:o_k/shared/Styling/buttonStyles.dart';
 import 'package:o_k/shared/busSearch.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:flutter/material.dart';
@@ -130,7 +131,7 @@ class _Timing extends State<Timing> {
                               padding: const EdgeInsets.all(40.0),
                               child: new Form(
                                 key: _formkey,
-                                autovalidate: true,
+                                autovalidateMode: AutovalidateMode.always,
                                 child: new Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: <Widget>[
@@ -246,7 +247,7 @@ class _Timing extends State<Timing> {
                                     SizedBox(
                                       height: 50,
                                       width: 200,
-                                      child: RaisedButton(
+                                      child: ElevatedButton(
                                         onPressed: () async {
                                           clickStatTiming = true;
                                           if (_formkey.currentState
@@ -273,17 +274,7 @@ class _Timing extends State<Timing> {
                                         },
                                         child: const Text('Search',
                                             style: TextStyle(fontSize: 20)),
-                                        color: red,
-                                        textColor: Colors.white,
-                                        splashColor: Colors.grey,
-                                        padding:
-                                            EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(20.0),
-                                          side: BorderSide(
-                                              color: Colors.transparent),
-                                        ),
+                                        style: raisedButtonStyle,
                                       ),
                                     ),
                                   ],

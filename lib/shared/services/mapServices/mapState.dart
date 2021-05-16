@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:o_k/shared/Styling/colors.dart';
 import 'googlemapservice.dart';
@@ -101,7 +100,7 @@ class MapState with ChangeNotifier {
   // !DECODE POLY
   List _decodePoly(String poly) {
     var list = poly.codeUnits;
-    var lList = new List();
+    var lList = [];
     int index = 0;
     int len = poly.length;
     int c = 0;

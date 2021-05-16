@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:o_k/Menu/Booking/confirmation.dart';
+import 'package:o_k/shared/Styling/buttonStyles.dart';
 import 'package:o_k/shared/busSearch.dart';
 import '../../shared/Styling/colors.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/drawer.dart';
 import '../../Shared/services/mapServices/googlemapservice.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../../shared/loading.dart';
 import 'package:geocoding/geocoding.dart';
@@ -75,7 +75,7 @@ class _BookingState extends State<Booking> {
     super.initState();
   }
 
-  double distance_;
+  double distDouble;
   @override
   void dispose() {
     _controller?.dispose();
@@ -102,8 +102,8 @@ class _BookingState extends State<Booking> {
     dist = dist.substring(0, dist.length - 3);
     print(_distance);
     print(dist);
-    distance_ = double.parse(dist);
-    distancing(distance_);
+    distDouble = double.parse(dist);
+    distancing(distDouble);
   }
 
   bool clickStatBooking = false;
@@ -137,7 +137,7 @@ class _BookingState extends State<Booking> {
                                 padding: const EdgeInsets.all(40.0),
                                 child: new Form(
                                   key: _formkey,
-                                  autovalidate: true,
+                                  autovalidateMode: AutovalidateMode.always,
                                   child: new Column(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: <Widget>[
@@ -242,14 +242,14 @@ class _BookingState extends State<Booking> {
                                       SizedBox(
                                         height: 50,
                                         width: 200,
-                                        child: RaisedButton(
+                                        child: ElevatedButton(
                                           onPressed: () async {
                                             loading = true;
                                             await travel(selectedBookingFrom,
                                                 selectedBookingTo);
                                             loading = false;
                                             fare = getFare(
-                                                _currentBusType, distance_);
+                                                _currentBusType, distDouble);
                                             clickStatBooking = true;
                                             if (_formkey.currentState
                                                 .validate()) {
@@ -261,18 +261,10 @@ class _BookingState extends State<Booking> {
                                             }
                                           },
                                           child: const Text('Proceed',
-                                              style: TextStyle(fontSize: 20)),
-                                          color: red,
-                                          textColor: Colors.white,
-                                          splashColor: Colors.grey,
-                                          padding: EdgeInsets.fromLTRB(
-                                              10, 10, 10, 10),
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(20.0),
-                                            side: BorderSide(
-                                                color: Colors.transparent),
-                                          ),
+                                              style: TextStyle(
+                                                  fontSize: 20,
+                                                  color: Colors.white)),
+                                          style: raisedButtonStyle,
                                         ),
                                       ),
                                     ],
