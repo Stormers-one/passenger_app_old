@@ -22,6 +22,7 @@ class Odukomban extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamProvider<User>.value(
+        initialData: User(),
         value: Authservice().user,
         child: new MaterialApp(
             debugShowCheckedModeBanner: false,
