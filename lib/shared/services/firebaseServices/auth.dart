@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:flutter/cupertino.dart';
 import 'package:o_k/shared/model/user.dart';
-import 'package:o_k/services/database.dart';
+import 'package:o_k/Shared/services/firebaseServices/database.dart';
 
 class Authservice {
   final firebase_auth.FirebaseAuth _auth = firebase_auth.FirebaseAuth.instance;
@@ -11,7 +11,7 @@ class Authservice {
   //create user obj based on FirebaseUser
 
   User _userFromFirebaseUser(firebase_auth.User user) {
-    return user != null ? User(uid: user.uid) : null;
+    return User(uid: user.uid) ?? null;
   }
 
   // auth change user stream

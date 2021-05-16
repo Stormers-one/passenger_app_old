@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:o_k/shared/colors.dart';
+import 'package:o_k/shared/Styling/colors.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:o_k/shared/constants.dart';
 
@@ -29,8 +29,7 @@ class _AanavandiState extends State<Aanavandi> {
             ),
             drawer: Drawer(),
             body: WebView(
-              initialUrl:
-                  inUrl ,
+              initialUrl: inUrl,
               javascriptMode: JavascriptMode.unrestricted,
               onWebViewCreated: (WebViewController webViewController) {
                 _controller.complete(webViewController);

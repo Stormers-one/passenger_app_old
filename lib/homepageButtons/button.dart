@@ -4,7 +4,7 @@ import 'package:o_k/Menu/Maps/maps.dart';
 import 'package:o_k/Menu/Timing/timing.dart';
 import 'package:o_k/Menu/Tracking/tracking.dart';
 // import '../homepageButtons/buttonClass.dart';
-import '../shared/colors.dart';
+import '../shared/Styling/colors.dart';
 // import '../homepageButtons/data.dart';
 
 class Button extends StatelessWidget {

@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:o_k/shared/colors.dart';
-import '../../services/googlemapservice.dart';
+import 'package:o_k/shared/Styling/colors.dart';
+import 'googlemapservice.dart';
 import 'package:geocoding/geocoding.dart';
 
-class AppState with ChangeNotifier {
+class MapState with ChangeNotifier {
   static LatLng _initialPosition;
   LatLng _lastPosition = _initialPosition;
   bool locationServiceActive = true;
@@ -37,7 +37,7 @@ class AppState with ChangeNotifier {
   Set<Marker> get markers => _markers;
   Set<Polyline> get polyLines => _polyLines;
 
-  AppState() {
+  MapState() {
     // _getUserLocation();
     _loadingInitialPosition();
   }
@@ -62,8 +62,8 @@ class AppState with ChangeNotifier {
     String route =
         await _googleMapsServices.getRouteCoordinates(start, destination);
     createRoute(route);
-    _distance = await _googleMapsServices.getTravelDistance(start, destination);
-    _duration = await _googleMapsServices.getTravelDuration(start, destination);
+    _distance = await _googleMapsServices.getTravelInfo(start, destination, 1);
+    _duration = await _googleMapsServices.getTravelInfo(start, destination, 2);
     _initialPosition = start;
     notifyListeners();
   }
@@ -78,6 +78,7 @@ class AppState with ChangeNotifier {
   }
 
   void createRoute(String encondedPoly) {
+    _polyLines.clear();
     _polyLines.add(Polyline(
         polylineId: PolylineId(_initialPosition.toString()),
         width: 7,

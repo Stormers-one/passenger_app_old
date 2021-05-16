@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:o_k/User/profile_settings.dart';
-import 'package:o_k/services/database.dart';
+import 'package:o_k/Shared/services/firebaseServices/database.dart';
 import 'package:o_k/User/user_list.dart';
 import 'package:o_k/User/users_fetch.dart';
 import 'package:o_k/shared/drawer.dart';
-import 'package:o_k/shared/colors.dart';
+import 'package:o_k/shared/Styling/colors.dart';
 import 'package:provider/provider.dart';
 
 class UsersCount extends StatelessWidget {

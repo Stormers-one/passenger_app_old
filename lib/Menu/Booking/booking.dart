@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:o_k/Menu/Booking/confirmation.dart';
 import 'package:o_k/shared/busSearch.dart';
-import '../../shared/colors.dart';
+import '../../shared/Styling/colors.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/drawer.dart';
-import '../../services/googlemapservice.dart';
+import '../../Shared/services/mapServices/googlemapservice.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../../shared/loading.dart';
@@ -97,7 +97,7 @@ class _BookingState extends State<Booking> {
     double longitude2 = placemark2[0].longitude;
     LatLng start = LatLng(latitude1, longitude1);
     LatLng destination = LatLng(latitude2, longitude2);
-    _distance = await _googleMapsServices.getTravelDistance(start, destination);
+    _distance = await _googleMapsServices.getTravelInfo(start, destination, 1);
     String dist = _distance;
     dist = dist.substring(0, dist.length - 3);
     print(_distance);

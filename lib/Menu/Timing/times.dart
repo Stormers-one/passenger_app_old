@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:o_k/shared/drawer.dart';
-import 'package:o_k/shared/colors.dart';
-
+import 'package:o_k/shared/Styling/colors.dart';
 
 // class Buses {
 //   final String time;

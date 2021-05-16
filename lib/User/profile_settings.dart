@@ -4,11 +4,11 @@ import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:o_k/services/database.dart';
+import 'package:o_k/Shared/services/firebaseServices/database.dart';
 import 'package:o_k/shared/loading.dart';
 import 'package:provider/provider.dart';
 import 'package:o_k/shared/model/user.dart';
-import 'package:o_k/shared/colors.dart';
+import 'package:o_k/shared/Styling/colors.dart';
 import 'package:o_k/shared/constants.dart';
 
 class SettingsForm extends StatefulWidget {

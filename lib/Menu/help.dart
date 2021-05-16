@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:o_k/shared/colors.dart';
+import 'package:o_k/shared/Styling/colors.dart';
 import 'package:o_k/shared/drawer.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:o_k/shared/constants.dart';
@@ -55,68 +55,71 @@ class Help extends StatelessWidget {
                   // height: MediaQuery.of(context).size.height,
                   child: Column(children: [
                     Container(
-              width: MediaQuery.of(context).size.width * 0.90,
-              padding: const EdgeInsets.all(15),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(15)),
-                color: helpBoxColor,
-              ),
-              child: Column(
-                children: <Widget>[
-                  new Padding(
-                    padding: const EdgeInsets.only(top: 30.0),
-                  ),
-                  Container(
-                    child: Column(
-                      children: <Widget>[
-                        new DropdownButtonFormField(
-                          hint: Text(
-                            'Select a report',
-                            style: TextStyle(color: Colors.grey),
+                      width: MediaQuery.of(context).size.width * 0.90,
+                      padding: const EdgeInsets.all(15),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(15)),
+                        color: helpBoxColor,
+                      ),
+                      child: Column(
+                        children: <Widget>[
+                          new Padding(
+                            padding: const EdgeInsets.only(top: 30.0),
                           ),
-                          value: _reportType.isNotEmpty ? _reportType : null,
-                          items: reportType
-                              .map((value) => new DropdownMenuItem(
-                                    value: value,
-                                    child: Text('$value'),
-                                  ))
-                              .toList(),
-                          isExpanded: true,
-                          onChanged: (val) => (() {
-                            _reportType = val;
-                            selectedReport = val;
-                            FocusScope.of(context).requestFocus(FocusNode());
-                          }),
-                          decoration: textInputDecorationNoHint(),
-                        ),
-                      ],
-                    ),
-                  ),
-                  new Padding(
-                    padding: const EdgeInsets.only(top: 30.0),
-                  ),
-                  SizedBox(
-                    height: 50,
-                    width: 200,
-                    child: RaisedButton(
-                      onPressed: () async {
-                        Fluttertoast.showToast(msg: "Report Sent!");
-                      },
-                      child:
-                          const Text('Proceed', style: TextStyle(fontSize: 20)),
-                      color: red,
-                      textColor: Colors.white,
-                      splashColor: Colors.grey,
-                      padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20.0),
-                        side: BorderSide(color: Colors.transparent),
+                          Container(
+                            child: Column(
+                              children: <Widget>[
+                                new DropdownButtonFormField(
+                                  hint: Text(
+                                    'Select a report',
+                                    style: TextStyle(color: Colors.grey),
+                                  ),
+                                  value: _reportType.isNotEmpty
+                                      ? _reportType
+                                      : null,
+                                  items: reportType
+                                      .map((value) => new DropdownMenuItem(
+                                            value: value,
+                                            child: Text('$value'),
+                                          ))
+                                      .toList(),
+                                  isExpanded: true,
+                                  onChanged: (val) => (() {
+                                    _reportType = val;
+                                    selectedReport = val;
+                                    FocusScope.of(context)
+                                        .requestFocus(FocusNode());
+                                  }),
+                                  decoration: textInputDecorationNoHint(),
+                                ),
+                              ],
+                            ),
+                          ),
+                          new Padding(
+                            padding: const EdgeInsets.only(top: 30.0),
+                          ),
+                          SizedBox(
+                            height: 50,
+                            width: 200,
+                            child: RaisedButton(
+                              onPressed: () async {
+                                Fluttertoast.showToast(msg: "Report Sent!");
+                              },
+                              child: const Text('Proceed',
+                                  style: TextStyle(fontSize: 20)),
+                              color: red,
+                              textColor: Colors.white,
+                              splashColor: Colors.grey,
+                              padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20.0),
+                                side: BorderSide(color: Colors.transparent),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                  ),
-                ],
-              ),
-            ),
                     Container(
                       width: MediaQuery.of(context).size.width * 0.90,
                       padding: const EdgeInsets.all(15),
@@ -143,9 +146,10 @@ class Help extends StatelessWidget {
                             ),
                             width: MediaQuery.of(context).size.width * 0.90,
                             child: Text('Helpline No.',
-                                style:
-                                    TextStyle(fontWeight: FontWeight.normal,fontFamily: 'Quicksand-SemiBold')),
-                          ), 
+                                style: TextStyle(
+                                    fontWeight: FontWeight.normal,
+                                    fontFamily: 'Quicksand-SemiBold')),
+                          ),
                           SizedBox(
                             height: 10,
                           ),
@@ -158,8 +162,9 @@ class Help extends StatelessWidget {
                             ),
                             width: MediaQuery.of(context).size.width * 0.90,
                             child: Text('KeralaRTC Hub',
-                                style:
-                                    TextStyle(fontWeight: FontWeight.normal,fontFamily: 'Quicksand-SemiBold')),
+                                style: TextStyle(
+                                    fontWeight: FontWeight.normal,
+                                    fontFamily: 'Quicksand-SemiBold')),
                           ),
                         ],
                       ),
@@ -194,7 +199,8 @@ class Help extends StatelessWidget {
                                 children: <Widget>[
                                   Container(
                                     child: Text('Maps',
-                                        style: TextStyle(fontSize: 20,
+                                        style: TextStyle(
+                                            fontSize: 20,
                                             fontWeight: FontWeight.bold)),
                                   ),
                                   SizedBox(height: 10),
@@ -221,7 +227,8 @@ class Help extends StatelessWidget {
                                 children: <Widget>[
                                   Container(
                                     child: Text('Booking',
-                                        style: TextStyle(fontSize: 20,
+                                        style: TextStyle(
+                                            fontSize: 20,
                                             fontWeight: FontWeight.bold)),
                                   ),
                                   SizedBox(height: 10),
@@ -248,7 +255,8 @@ class Help extends StatelessWidget {
                                 children: <Widget>[
                                   Container(
                                     child: Text('Tracking',
-                                        style: TextStyle(fontSize: 20,
+                                        style: TextStyle(
+                                            fontSize: 20,
                                             fontWeight: FontWeight.bold)),
                                   ),
                                   SizedBox(height: 10),
@@ -274,9 +282,12 @@ class Help extends StatelessWidget {
                               child: Column(
                                 children: <Widget>[
                                   Container(
-                                    child: Text('Timing',
-                                        style: TextStyle(fontSize: 20,
-                                            fontWeight: FontWeight.bold),),
+                                    child: Text(
+                                      'Timing',
+                                      style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold),
+                                    ),
                                   ),
                                   SizedBox(height: 10),
                                   Container(
@@ -301,9 +312,12 @@ class Help extends StatelessWidget {
                               child: Column(
                                 children: <Widget>[
                                   Container(
-                                    child: Text('My Booking',
-                                        style: TextStyle(fontSize: 20,
-                                            fontWeight: FontWeight.bold),),
+                                    child: Text(
+                                      'My Booking',
+                                      style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold),
+                                    ),
                                   ),
                                   SizedBox(height: 10),
                                   Container(

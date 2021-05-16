@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:o_k/Signing_and_Auth/loginPage.dart';
+import 'package:o_k/Shared/services/firebaseServices/Signing_and_Auth/loginPage.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:provider/provider.dart';
 import 'package:o_k/homepage.dart';

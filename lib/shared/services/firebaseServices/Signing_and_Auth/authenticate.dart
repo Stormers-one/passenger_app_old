@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:o_k/Signing_and_Auth/loginPage.dart';
-import 'package:o_k/Signing_and_Auth/register.dart';
+import 'package:o_k/Shared/services/firebaseServices/Signing_and_Auth/loginPage.dart';
+import 'package:o_k/Shared/services/firebaseServices/Signing_and_Auth/register.dart';
 
 class Authenticate extends StatefulWidget {
   @override

@@ -4,8 +4,8 @@ import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/drawer.dart';
 import 'mapview.dart';
 import 'package:provider/provider.dart';
-import 'package:o_k/shared/colors.dart';
-import 'app_state.dart';
+import 'package:o_k/shared/Styling/colors.dart';
+import '../../Shared/services/mapServices/mapState.dart';
 
 class Maps extends StatefulWidget {
   @override
@@ -34,7 +34,7 @@ class _Maps extends State<Maps> {
 
   @override
   Widget build(BuildContext context) {
-    final appState = Provider.of<AppState>(context);
+    final appState = Provider.of<MapState>(context);
 
     return MaterialApp(
       title: 'Maps',

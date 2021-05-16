@@ -1,15 +1,15 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:o_k/Signing_and_Auth/resetpassword.dart';
+import 'package:o_k/Shared/services/firebaseServices/Signing_and_Auth/resetpassword.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 // import 'package:flutter_signin_button/flutter_signin_button.dart';
 // import 'package:google_sign_in/google_sign_in.dart';
-import 'package:o_k/services/auth.dart';
-import 'package:o_k/Signing_and_Auth/register.dart';
-import 'package:o_k/shared/background_login.dart';
+import 'package:o_k/Shared/services/firebaseServices/auth.dart';
+import 'package:o_k/shared/services/firebaseServices/Signing_and_Auth/register.dart';
+import 'package:o_k/shared/services/firebaseServices/Signing_and_Auth/background_login.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/loading.dart';
-import 'package:o_k/shared/colors.dart';
+import 'package:o_k/shared/Styling/colors.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 
@@ -35,7 +35,6 @@ class _LoginState extends State<LoginPage> {
     super.initState();
   }
 
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     Future<bool> _onBackPressed() {
@@ -131,7 +130,8 @@ class _LoginState extends State<LoginPage> {
                                       padding: const EdgeInsets.all(20.0),
                                       child: new Form(
                                         key: _formkey,
-                                        autovalidate: true,
+                                        autovalidateMode:
+                                            AutovalidateMode.always,
                                         child: new Column(
                                           mainAxisAlignment:
                                               MainAxisAlignment.start,
@@ -190,7 +190,7 @@ class _LoginState extends State<LoginPage> {
                                               width: 200,
                                               child: RaisedButton(
                                                 onPressed: () async {
-                                                  if (_formKey.currentState
+                                                  if (_formkey.currentState
                                                       .validate()) {
                                                     setState(
                                                         () => loading = true);

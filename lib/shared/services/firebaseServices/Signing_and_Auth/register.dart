@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:o_k/Wrapper.dart';
-import 'package:o_k/services/auth.dart';
-import 'package:o_k/shared/background_login.dart';
+import 'package:o_k/Shared/services/firebaseServices/auth.dart';
+import 'package:o_k/shared/services/firebaseServices/Signing_and_Auth/background_login.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/loading.dart';
-import 'package:o_k/shared/colors.dart';
+import 'package:o_k/shared/Styling/colors.dart';
 
 class RegisterPage extends StatefulWidget {
   final Function toggleView;

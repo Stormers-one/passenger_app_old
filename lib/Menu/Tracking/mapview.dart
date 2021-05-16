@@ -3,7 +3,7 @@
 // northeast: LatLng(11.879561, 77.688881),
 
 import 'package:flutter/material.dart';
-import 'package:o_k/shared/colors.dart';
+import 'package:o_k/shared/Styling/colors.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 import '../../shared/loading.dart';

@@ -170,8 +170,11 @@ Future getim() async {
 Future<void> _getImageFromFireStorage() async {
   try {
     downURL = await FirebaseStorage.instance
-        .ref('profile_image/$userID')
-        .getDownloadURL();
+        .ref('profile_image/${userID}')
+        .getDownloadURL()
+        .catchError((onError) {
+      print(onError);
+    });
   } catch (e) {
     downURL =
         'https://thumbs.dreamstime.com/b/no-user-profile-picture-hand-drawn-illustration-53840792.jpg';

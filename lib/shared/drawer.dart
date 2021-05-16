@@ -7,8 +7,7 @@ import 'package:o_k/User/profile.dart';
 import 'package:o_k/shared/loading.dart';
 import 'constants.dart';
 import 'package:o_k/homepage.dart';
-import 'package:o_k/shared/underDevelopment.dart';
-import 'package:o_k/shared/colors.dart';
+import 'package:o_k/shared/Styling/colors.dart';
 import 'package:o_k/User/user_count.dart';
 
 class DrawerBuild extends StatefulWidget {

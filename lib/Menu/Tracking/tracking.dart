@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/drawer.dart';
-import 'package:o_k/shared/colors.dart';
+import 'package:o_k/shared/Styling/colors.dart';
 import 'mapview.dart';
 
 class Tracking extends StatelessWidget {

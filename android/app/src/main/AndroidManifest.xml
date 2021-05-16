@@ -10,13 +10,12 @@
     <uses-sdk tools:overrideLibrary="io.github.edufolly.flutterbluetoothserial"/>
     
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <application
         android:name="io.flutter.app.FlutterApplication"
         android:label="o_k"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        usesCleartextTraffic=true>
 
         <meta-data android:name="com.google.android.geo.API_KEY"
                android:value="AIzaSyDPPxxRJaJEYiYRZjSS5TMwfMtx_q490l8"/>

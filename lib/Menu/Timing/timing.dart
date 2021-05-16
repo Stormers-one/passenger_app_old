@@ -4,10 +4,10 @@ import 'package:o_k/shared/busSearch.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:o_k/shared/model/busStop.dart';
-import 'package:o_k/services/database.dart';
+import 'package:o_k/Shared/services/firebaseServices/database.dart';
 import 'package:o_k/shared/drawer.dart';
 import 'package:provider/provider.dart';
-import 'package:o_k/shared/colors.dart';
+import 'package:o_k/shared/Styling/colors.dart';
 
 class Timing extends StatefulWidget {
   @override
