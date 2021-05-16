@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:firebase_storage/firebase_storage.dart';
+import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
@@ -22,14 +22,18 @@ class _SettingsFormState extends State<SettingsForm> {
   String currentName;
   String currentphno;
 
-  File _image;
+  PickedFile _image;
   Future uploadPicture(BuildContext context) async {
     //File m = await getImageFileFromAssets('images/profile-icon.png');
-    StorageReference firebaseStorageref =
-        FirebaseStorage.instance.ref().child('profile_image/$userID');
+    firebase_storage.Reference firebaseStorageref = firebase_storage
+        .FirebaseStorage.instance
+        .ref()
+        .child('profile_image/$userID');
     try {
-      StorageUploadTask uploadTask = firebaseStorageref.putFile(_image);
-      StorageTaskSnapshot taskSnapshot = await uploadTask.onComplete;
+      firebase_storage.UploadTask uploadTask =
+          firebaseStorageref.putFile(File(_image.path));
+      firebase_storage.TaskSnapshot taskSnapshot =
+          await uploadTask.whenComplete(() => null);
       Fluttertoast.showToast(msg: 'Profile Picture Uploaded');
     } catch (e) {
       Fluttertoast.showToast(msg: 'Cancelled');
@@ -38,8 +42,9 @@ class _SettingsFormState extends State<SettingsForm> {
 
   @override
   Widget build(BuildContext context) {
+    final imagePicker = new ImagePicker();
     Future getImage() async {
-      var image = await ImagePicker.pickImage(source: ImageSource.gallery);
+      var image = await imagePicker.getImage(source: ImageSource.gallery);
       setState(() {
         _image = image;
         print("Image Path $_image");
@@ -141,19 +146,23 @@ class _SettingsFormState extends State<SettingsForm> {
                     SizedBox(
                       height: 50,
                       width: 200,
-                      child: RaisedButton(
+                      child: ElevatedButton(
                           child: const Text('Update',
                               style: TextStyle(
                                 fontSize: 20,
                                 fontFamily: 'Quicksand-Bold',
                               )),
-                          color: red,
-                          textColor: Colors.white,
-                          splashColor: red,
-                          padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20.0),
-                            side: BorderSide(color: Colors.transparent),
+                          style: ElevatedButton.styleFrom(
+                            primary: red,
+                            textStyle: TextStyle(
+                              color: Colors.white,
+                            ),
+                            onPrimary: red,
+                            padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20.0),
+                              side: BorderSide(color: Colors.transparent),
+                            ),
                           ),
                           onPressed: () async {
                             if (_formkey.currentState.validate()) {

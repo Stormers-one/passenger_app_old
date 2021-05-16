@@ -10,6 +10,7 @@ class BookingList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamProvider<List<TicketData>>.value(
+      initialData: [],
       value: DatabaseService().ticketdata,
       child: MaterialApp(
         title: 'My Bookings',

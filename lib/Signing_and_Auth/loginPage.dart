@@ -1,12 +1,17 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:o_k/Signing_and_Auth/resetpassword.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:flutter_signin_button/flutter_signin_button.dart';
+// import 'package:google_sign_in/google_sign_in.dart';
 import 'package:o_k/services/auth.dart';
 import 'package:o_k/Signing_and_Auth/register.dart';
 import 'package:o_k/shared/background_login.dart';
 import 'package:o_k/shared/constants.dart';
 import 'package:o_k/shared/loading.dart';
 import 'package:o_k/shared/colors.dart';
+
+final FirebaseAuth _auth = FirebaseAuth.instance;
 
 class LoginPage extends StatefulWidget {
   final Function toggleView;
@@ -25,6 +30,12 @@ class _LoginState extends State<LoginPage> {
   String password = "";
   String error = "";
 
+  User user;
+  void initState() {
+    super.initState();
+  }
+
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     Future<bool> _onBackPressed() {
@@ -33,10 +44,10 @@ class _LoginState extends State<LoginPage> {
           builder: (context) => AlertDialog(
                 title: Text("Do You Really want to Exit?"),
                 actions: <Widget>[
-                  FlatButton(
+                  TextButton(
                       onPressed: () => Navigator.pop(context, false),
                       child: Text("NO")),
-                  FlatButton(
+                  TextButton(
                       onPressed: () => Navigator.pop(context, exit(0)),
                       child: Text("YES")),
                 ],
@@ -179,8 +190,7 @@ class _LoginState extends State<LoginPage> {
                                               width: 200,
                                               child: RaisedButton(
                                                 onPressed: () async {
-                                                  clickStatLogin = true;
-                                                  if (_formkey.currentState
+                                                  if (_formKey.currentState
                                                       .validate()) {
                                                     setState(
                                                         () => loading = true);
@@ -286,5 +296,10 @@ class _LoginState extends State<LoginPage> {
               ]),
             ),
           );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 }

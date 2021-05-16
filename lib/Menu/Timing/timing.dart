@@ -59,8 +59,8 @@ class _Timing extends State<Timing> {
     }
     //if(queryResult.length == 0 && value.length == 1 ) {
     res.getBusStopList(value).then((QuerySnapshot docs) {
-      for (var i = 0; i < docs.documents.length; i++) {
-        queryResult.add(docs.documents[i].data);
+      for (var i = 0; i < docs.docs.length; i++) {
+        queryResult.add(docs.docs[i].data);
       }
     });
     //}
@@ -99,6 +99,7 @@ class _Timing extends State<Timing> {
     //   bkey = 0;
     // });
     return StreamProvider<List<BusStopData>>.value(
+      initialData: [],
       value: DatabaseService().busStopData,
       child: MaterialApp(
         title: 'Bus Timing',

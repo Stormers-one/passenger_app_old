@@ -79,12 +79,12 @@ class _DrawerBuild extends State<DrawerBuild> {
                 Loading();
               });
               await getim();
-              setState(() {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Profile()),
-                );
-              });
+              // setState(() {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Profile()),
+              );
+              // });
             },
           ),
           // ListTile(

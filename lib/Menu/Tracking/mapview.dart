@@ -41,16 +41,16 @@ class _MapView extends State<MapView> {
   }
 
   Future<Position> locateUser() async {
-    return Geolocator()
-        .getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+    return Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high);
   }
 
   // final Map<String, Marker> _markers = {};
   Set<Marker> _markers = {};
 
   getUserLocation() async {
-    currentLocation = await Geolocator()
-        .getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+    currentLocation = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high);
     setState(() {
       _center = LatLng(currentLocation.latitude, currentLocation.longitude);
       _markers.clear();

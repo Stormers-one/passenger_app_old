@@ -8,6 +8,7 @@ import '../../services/googlemapservice.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../../shared/loading.dart';
+import 'package:geocoding/geocoding.dart';
 
 class Booking extends StatefulWidget {
   @override
@@ -86,16 +87,14 @@ class _BookingState extends State<Booking> {
   Future travel(String fromLocation, String toLocation) async {
     fromLocation = fromLocation + ', Kerala';
     toLocation = toLocation + ', Kerala';
-    List<Placemark> placemark1 =
-        await Geolocator().placemarkFromAddress(fromLocation);
+    List<Location> placemark1 = await locationFromAddress(fromLocation);
     print(placemark1);
-    List<Placemark> placemark2 =
-        await Geolocator().placemarkFromAddress(toLocation);
+    List<Location> placemark2 = await locationFromAddress(toLocation);
     print(placemark2);
-    double latitude1 = placemark1[0].position.latitude;
-    double longitude1 = placemark1[0].position.longitude;
-    double latitude2 = placemark2[0].position.latitude;
-    double longitude2 = placemark2[0].position.longitude;
+    double latitude1 = placemark1[0].latitude;
+    double longitude1 = placemark1[0].longitude;
+    double latitude2 = placemark2[0].latitude;
+    double longitude2 = placemark2[0].longitude;
     LatLng start = LatLng(latitude1, longitude1);
     LatLng destination = LatLng(latitude2, longitude2);
     _distance = await _googleMapsServices.getTravelDistance(start, destination);

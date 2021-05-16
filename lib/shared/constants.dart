@@ -9,11 +9,12 @@ getBookingId() {
   // var bid = base64.encode(values).substring(0, 5);
   var rnd = new Random();
   var bid = rnd.nextDouble() * 1000000;
-  while(bid < 100000){
-    bid*=10;
+  while (bid < 100000) {
+    bid *= 10;
   }
   return bid.floor().toString();
 }
+
 String time1;
 setTime(String time) {
   if (time.contains('Morning')) {
@@ -28,25 +29,25 @@ setTime(String time) {
 }
 
 var busKey = {
-    'Bus Type' : 0,
-    'Ordinary': 1,
-    'Limited Stop Ordinary' : 2,
-    'Town to Town Ordinary' : 3,
-    'Fast Passenger' : 4,
-    'LS Fast Passenger' : 5,
-    'Point to Point Fast Passenger' : 6,
-    'Super Fast' : 7,
-    'Super Express' : 8,
-    'Super Dulex' : 9,
-    'Garuda King Class Volvo' : 11,
-    'Low Floor Non-AC' : 14,
-    'Ananthapuri Fast' : 15,
-    'Garuda Maharaja Scania' : 16,
+  'Bus Type': 0,
+  'Ordinary': 1,
+  'Limited Stop Ordinary': 2,
+  'Town to Town Ordinary': 3,
+  'Fast Passenger': 4,
+  'LS Fast Passenger': 5,
+  'Point to Point Fast Passenger': 6,
+  'Super Fast': 7,
+  'Super Express': 8,
+  'Super Dulex': 9,
+  'Garuda King Class Volvo': 11,
+  'Low Floor Non-AC': 14,
+  'Ananthapuri Fast': 15,
+  'Garuda Maharaja Scania': 16,
 };
 
 int bkey = 0;
-setBusKey(String bst){
-  bkey= busKey[bst];
+setBusKey(String bst) {
+  bkey = busKey[bst];
 }
 
 bool booking = true;
@@ -65,7 +66,7 @@ String selectedMapsFrom = "";
 String selectedMapsTo = "";
 String alphaNumberc =
     "ABCDEFGHJCLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz";
-String selectedBookingBusType="";
+String selectedBookingBusType = "";
 
 //Click Status
 bool clickStatLogin = false;
@@ -79,9 +80,10 @@ String userID;
 
 var fare;
 var km = 0.0;
-distancing(double dist){
-    km = dist;
-  }
+distancing(double dist) {
+  km = dist;
+}
+
 var duration;
 
 var minFare = {
@@ -114,12 +116,12 @@ var perKmFare = {
   'Ananthapuri Fast': 0.78,
   'Garuda Maharaja Scania': 1.45,
 };
-getFare(String busT,double km) {
+getFare(String busT, double km) {
   if (km <= 5) {
-    fare=(minFare[busT]).ceil();
+    fare = (minFare[busT]).ceil();
     return fare;
   } else {
-    fare=(minFare[busT] + perKmFare[busT] * (km - 5)).ceil();
+    fare = (minFare[busT] + perKmFare[busT] * (km - 5)).ceil();
     return fare;
   }
 }
@@ -160,23 +162,23 @@ textInputDecorationNoHint() {
 }
 
 // Profile PIC FIRE STORAGE
-var downURL;
-Future getim() async{
+String downURL;
+Future getim() async {
   await _getImageFromFireStorage();
 }
-Future _getImageFromFireStorage() async {
-  try{
-   downURL = await FirebaseStorage.instance.ref().child('profile_image/$userID').getDownloadURL();
-  print(downURL);
-  }
-  catch(e){
-    downURL = 'https://thumbs.dreamstime.com/b/no-user-profile-picture-hand-drawn-illustration-53840792.jpg';
-    print(e);
+
+Future<void> _getImageFromFireStorage() async {
+  try {
+    downURL = await FirebaseStorage.instance
+        .ref('profile_image/$userID')
+        .getDownloadURL();
+  } catch (e) {
+    downURL =
+        'https://thumbs.dreamstime.com/b/no-user-profile-picture-hand-drawn-illustration-53840792.jpg';
   }
 }
 
 String inUrl;
-
 
 final recentSearch = [];
 const List<String> stops = [

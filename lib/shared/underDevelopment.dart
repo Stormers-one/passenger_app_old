@@ -43,8 +43,11 @@ class Box extends StatelessWidget {
 }
 
 class TypewriterText extends StatelessWidget {
-  static const TEXT_STYLE =
-      TextStyle(letterSpacing: 5, fontSize: 25, fontWeight: FontWeight.w300,);
+  static const TEXT_STYLE = TextStyle(
+    letterSpacing: 5,
+    fontSize: 25,
+    fontWeight: FontWeight.w300,
+  );
 
   final String text;
   TypewriterText(this.text);

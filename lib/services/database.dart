@@ -5,15 +5,17 @@ import 'package:o_k/shared/model/user.dart';
 import 'package:o_k/User/users_fetch.dart';
 import 'package:o_k/shared/constants.dart';
 
+FirebaseFirestore firestore = FirebaseFirestore.instance;
+
 class DatabaseService {
   final String uid;
   DatabaseService({this.uid});
 //collection reference
   final CollectionReference userCollecation =
-      Firestore.instance.collection('Users');
+      FirebaseFirestore.instance.collection('Users');
 
   Future updateUserData(String fname, String email, String phno) async {
-    return await userCollecation.document(uid).setData({
+    return await userCollecation.doc(uid).set({
       'Full Name': fname,
       'Email': email,
       'Phone Number': phno,
@@ -23,11 +25,11 @@ class DatabaseService {
   //user list from snapshot
 
   List<Users> _userListFromSnapshot(QuerySnapshot snapshot) {
-    return snapshot.documents.map((doc) {
+    return snapshot.docs.map((doc) {
       return Users(
-        fname: doc.data['Full Name'] ?? '',
-        email: doc.data['Email'] ?? '',
-        phno: doc.data['Phone Number'] ?? '',
+        fname: doc['Full Name'] ?? '',
+        email: doc['Email'] ?? '',
+        phno: doc['Phone Number'] ?? '',
       );
     }).toList();
   }
@@ -37,9 +39,9 @@ class DatabaseService {
   UserData _userDataFromSnapshot(DocumentSnapshot snapshot) {
     return UserData(
       uid: uid,
-      fname: snapshot.data['Full Name'],
-      email: snapshot.data['Email'],
-      phno: snapshot.data['Phone Number'],
+      fname: snapshot['Full Name'],
+      email: snapshot['Email'],
+      phno: snapshot['Phone Number'],
     );
   }
 
@@ -51,24 +53,24 @@ class DatabaseService {
 
   // get user doc stream
   Stream<UserData> get userData {
-    return userCollecation.document(uid).snapshots().map(_userDataFromSnapshot);
+    return userCollecation.doc(uid).snapshots().map(_userDataFromSnapshot);
   }
 
 //Bus Stops Add
   final CollectionReference busStopCollection =
-      Firestore.instance.collection('Bus Stops');
+      FirebaseFirestore.instance.collection('Bus Stops');
 
   Future updateBusStopData(String stopName, List<String> caseSearch) async {
-    return await busStopCollection.document().setData({
+    return await busStopCollection.doc().set({
       'Stop Name': stopName,
       'Case Search': caseSearch,
     });
   }
 
   List<BusStopData> _busStopListFromSnapshot(QuerySnapshot snapshot) {
-    return snapshot.documents.map((doc) {
+    return snapshot.docs.map((doc) {
       return BusStopData(
-        stopName: doc.data['Stop Name'] ?? '',
+        stopName: doc['Stop Name'] ?? '',
       );
     }).toList();
   }
@@ -78,18 +80,18 @@ class DatabaseService {
   }
 
   getBusStopList(String query) {
-    return Firestore.instance
+    return FirebaseFirestore.instance
         .collection("Bus Stops")
         .where("Case Search", arrayContains: query)
-        .getDocuments();
+        .get();
   }
 //BOOKING STUFF
 
   final CollectionReference ticketsCollection =
-      Firestore.instance.collection('Bookings');
+      FirebaseFirestore.instance.collection('Bookings');
   Future addBooking(String uid, var fare, String bID, String phno, String from,
       String to, String busType) async {
-    return await ticketsCollection.document(bID).setData({
+    return await ticketsCollection.doc(bID).set({
       'UID': uid,
       'Fare': fare,
       'Booking ID': bidn,
@@ -102,16 +104,16 @@ class DatabaseService {
   }
 
   List<TicketData> _bookingList(QuerySnapshot snapshot) {
-    return snapshot.documents.map((doc) {
+    return snapshot.docs.map((doc) {
       return TicketData(
-        bookid: doc.data['Booking ID'] ?? '',
-        booktime: doc.data['Booking Time'].toString() ?? '',
-        bookfare: doc.data['fare'].toString() ?? '',
-        bookfrom: doc.data['From'] ?? '',
-        bookto: doc.data['To'] ?? '',
-        bookphno: doc.data['Phone Number'] ?? '',
-        bookuid: doc.data['UID'] ?? '',
-        bookbustype: doc.data['Bus Type'] ?? '',
+        bookid: doc['Booking ID'] ?? '',
+        booktime: doc['Booking Time'].toString() ?? '',
+        bookfare: doc['fare'].toString() ?? '',
+        bookfrom: doc['From'] ?? '',
+        bookto: doc['To'] ?? '',
+        bookphno: doc['Phone Number'] ?? '',
+        bookuid: doc['UID'] ?? '',
+        bookbustype: doc['Bus Type'] ?? '',
       );
     }).toList();
   }

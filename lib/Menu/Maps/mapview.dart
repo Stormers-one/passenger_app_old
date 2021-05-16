@@ -46,8 +46,8 @@ class _MapView extends State<MapView> {
   }
 
   getUserLocation() async {
-    currentLocation = await Geolocator()
-        .getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+    currentLocation = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high);
     setState(() {
       _center = LatLng(currentLocation.latitude, currentLocation.longitude);
 
@@ -125,7 +125,8 @@ class _MapView extends State<MapView> {
                                       ),
                                     ),
                                     child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
                                       children: <Widget>[
                                         Container(
                                           padding: const EdgeInsets.all(20),
@@ -165,7 +166,8 @@ class _MapView extends State<MapView> {
                                       ),
                                     ),
                                     child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
                                       children: <Widget>[
                                         Container(
                                           width: 100,
@@ -209,7 +211,8 @@ class _MapView extends State<MapView> {
                                       ),
                                     ),
                                     child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
                                       children: <Widget>[
                                         Container(
                                           padding: const EdgeInsets.all(20),
@@ -249,7 +252,8 @@ class _MapView extends State<MapView> {
                                       ),
                                     ),
                                     child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
                                       children: <Widget>[
                                         Container(
                                           padding: const EdgeInsets.all(20),
