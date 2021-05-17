@@ -233,7 +233,7 @@ class _MapView extends State<MapView> {
                                         Expanded(
                                           child: Container(
                                             child: Text(
-                                              appState.distance,
+                                              appState.distance ?? "",
                                               overflow: TextOverflow.clip,
                                             ),
                                           ),
@@ -274,7 +274,7 @@ class _MapView extends State<MapView> {
                                         Expanded(
                                           child: Container(
                                             child: Text(
-                                              appState.duration,
+                                              appState.duration ?? "",
                                               overflow: TextOverflow.clip,
                                             ),
                                           ),

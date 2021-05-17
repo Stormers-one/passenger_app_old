@@ -16,11 +16,11 @@ class GoogleMapsServices {
     });
     http.Response response = await http.get(url);
     Map values = jsonDecode(response.body);
-    // print("Values Variable : $values");
+    print("Values Variable : $values");
     return values["routes"][0]["overview_polyline"]["points"] ?? '';
   }
 
-  Future<String> getTravelInfo(LatLng l1, LatLng l2, int option) async {
+  Future<List<String>> getTravelInfo(LatLng l1, LatLng l2) async {
     Uri url =
         Uri.https("maps.googleapis.com", "/maps/api/distancematrix/json", {
       "units": "metric",
@@ -31,12 +31,10 @@ class GoogleMapsServices {
     http.Response response = await http.get(url);
     Map values = jsonDecode(response.body);
     // print("Values Variable : $values");
-    String _options;
-    if (option == 1) {
-      _options = "distace";
-    } else if (option == 2) {
-      _options = "duration";
-    }
-    return values["rows"][0]["elements"][0][_options]["text"] ?? "";
+    List<String> _gmapData = [
+      values["rows"][0]["elements"][0]["distance"]["text"],
+      values["rows"][0]["elements"][0]["duration"]["text"]
+    ];
+    return _gmapData;
   }
 }

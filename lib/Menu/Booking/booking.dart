@@ -27,6 +27,7 @@ class _BookingState extends State<Booking> {
   GoogleMapsServices get googleMapsServices => _googleMapsServices;
   static String _distance;
   static String _duration;
+  List<String> mapData;
   String get distance => _distance;
   String get duration => _duration;
 
@@ -84,7 +85,7 @@ class _BookingState extends State<Booking> {
     super.dispose();
   }
 
-  Future travel(String fromLocation, String toLocation) async {
+  Future<List<String>> travel(String fromLocation, String toLocation) async {
     fromLocation = fromLocation + ', Kerala';
     toLocation = toLocation + ', Kerala';
     List<Location> placemark1 = await locationFromAddress(fromLocation);
@@ -97,7 +98,8 @@ class _BookingState extends State<Booking> {
     double longitude2 = placemark2[0].longitude;
     LatLng start = LatLng(latitude1, longitude1);
     LatLng destination = LatLng(latitude2, longitude2);
-    _distance = await _googleMapsServices.getTravelInfo(start, destination, 1);
+    mapData = await _googleMapsServices.getTravelInfo(start, destination);
+    _distance = mapData[0];
     String dist = _distance;
     dist = dist.substring(0, dist.length - 3);
     print(_distance);
@@ -257,7 +259,8 @@ class _BookingState extends State<Booking> {
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>
-                                                          BookingConfirm()));
+                                                          BookingConfirm(
+                                                              fare: fare)));
                                             }
                                           },
                                           child: const Text('Proceed',

@@ -23,6 +23,8 @@ class MapState with ChangeNotifier {
 // Distance START
   static String _distance;
   static String _duration;
+  static List<String> _gmapData;
+  List<String> get gmapData => _gmapData;
   String get distance => _distance;
   String get duration => _duration;
 // Distance END
@@ -61,8 +63,9 @@ class MapState with ChangeNotifier {
     String route =
         await _googleMapsServices.getRouteCoordinates(start, destination);
     createRoute(route);
-    _distance = await _googleMapsServices.getTravelInfo(start, destination, 1);
-    _duration = await _googleMapsServices.getTravelInfo(start, destination, 2);
+    _gmapData = await _googleMapsServices.getTravelInfo(start, destination);
+    _distance = _gmapData[0];
+    _duration = _gmapData[1];
     _initialPosition = start;
     notifyListeners();
   }

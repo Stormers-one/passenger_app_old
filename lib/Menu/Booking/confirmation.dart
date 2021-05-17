@@ -13,11 +13,15 @@ import 'package:provider/provider.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 
 class BookingConfirm extends StatefulWidget {
-  _BookingConfirm createState() => _BookingConfirm();
+  final fare;
+  BookingConfirm({Key key, this.fare}) : super(key: key);
+  _BookingConfirm createState() => _BookingConfirm(fare: fare);
 }
 
 class _BookingConfirm extends State<BookingConfirm> {
   Razorpay _razorpay;
+  var fare;
+  _BookingConfirm({this.fare});
   bool loading = false;
   void initState() {
     super.initState();

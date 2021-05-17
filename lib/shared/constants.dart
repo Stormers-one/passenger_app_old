@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:firebase_core/firebase_core.dart' as firebase_core;
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -171,10 +172,7 @@ Future<void> _getImageFromFireStorage() async {
   try {
     downURL = await FirebaseStorage.instance
         .ref('profile_image/$userID')
-        .getDownloadURL()
-        .catchError((onError) {
-      print(onError);
-    });
+        .getDownloadURL();
   } catch (e) {
     downURL =
         'https://thumbs.dreamstime.com/b/no-user-profile-picture-hand-drawn-illustration-53840792.jpg';

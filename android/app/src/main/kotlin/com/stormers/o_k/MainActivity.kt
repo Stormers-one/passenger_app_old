@@ -1,4 +1,4 @@
-package com.example.o_k
+package com.stormers.o_k
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity
