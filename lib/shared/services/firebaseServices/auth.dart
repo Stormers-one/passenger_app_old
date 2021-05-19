@@ -11,7 +11,10 @@ class Authservice {
   //create user obj based on FirebaseUser
 
   User _userFromFirebaseUser(firebase_auth.User user) {
-    return User(uid: user.uid) ?? null;
+    if (user == null) {
+      return null;
+    }
+    return User(uid: user.uid);
   }
 
   // auth change user stream
@@ -41,6 +44,12 @@ class Authservice {
           .signInWithEmailAndPassword(email: email, password: password);
       firebase_auth.User user = result.user;
       return _userFromFirebaseUser(user);
+    } on firebase_auth.FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        print('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        print('Wrong password provided for that user.');
+      }
     } catch (e) {
       print(e.toString());
       return null;
@@ -61,6 +70,12 @@ class Authservice {
       await DatabaseService(uid: user.uid).updateUserData(fname, email, phno);
 
       return _userFromFirebaseUser(user);
+    } on firebase_auth.FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        print('The password provided is too weak.');
+      } else if (e.code == 'email-already-in-use') {
+        print('The account already exists for that email.');
+      }
     } catch (e) {
       print(e.toString());
       return null;

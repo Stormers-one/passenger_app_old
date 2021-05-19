@@ -65,3 +65,4 @@ android/local.properties
 android/local.properties
 lib/privateConfig.dart
 privateConfig.xml
+.flutter-plugins-dependencies
