@@ -4,33 +4,55 @@ import 'package:o_k/shared/Styling/colors.dart';
 import 'package:o_k/shared/drawer.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:o_k/shared/constants.dart';
+import 'package:o_k/shared/model/user.dart';
+import 'package:o_k/shared/services/firebaseServices/database.dart';
+import 'package:provider/provider.dart';
 
-List<String> devs = [
-  'Anandu R',
-  'Afthab Nihar',
-  'Aishwarya Michael',
-  'Rachel Kunjumon',
-  'Smitha John',
-  'Kennith Philips'
-];
-Color factColor = Colors.orange[200];
-Color factBoxColor = bgOrange;
-Color helpBoxColor = bgOrange;
-Color helpColor = Colors.orange[200];
+Color factColor = Colors.orange[100];
+Color factBoxColor = Colors.transparent;
+Color helpBoxColor = Colors.transparent;
+Color helpColor = Colors.orange[100];
 
-var _reportType = "";
-var selectedReport = "";
+class Help extends StatefulWidget {
+  @override
+  _Help createState() => _Help();
+}
 
-final List<String> reportType = <String>[
-  'Breakdown',
-  'Protest on route',
-  'Road inaccessible',
-  'Road Accident'
-];
+class _Help extends State<Help> {
+  TextEditingController feedbackText;
 
-class Help extends StatelessWidget {
+  List<String> devs = [
+    'Anandu R',
+    'Afthab Nihar',
+    'Aishwarya Michael',
+    'Rachel Kunjumon',
+    'Smitha John',
+    'Kennith Philips'
+  ];
+  var _feedbackType = "";
+  var selectedType = "";
+
+  final List<String> feedbackType = <String>[
+    'Application',
+    'Route',
+  ];
+
+  @override
+  void initState() {
+    feedbackText = TextEditingController();
+    super.initState();
+  }
+
+  double distDouble;
+  @override
+  void dispose() {
+    feedbackText?.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
+    final userID = Provider.of<User>(context);
     return MaterialApp(
       theme: ThemeData(fontFamily: 'Quicksand-Medium'),
       title: 'Help',
@@ -60,34 +82,28 @@ class Help extends StatelessWidget {
                       padding: const EdgeInsets.all(15),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(15)),
-                        color: helpBoxColor,
                       ),
                       child: Column(
                         children: <Widget>[
-                          new Padding(
-                            padding: const EdgeInsets.only(top: 30.0),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Container(
+                            child: Text(
+                              "Send Feedback",
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 32,
+                                  fontWeight: FontWeight.w700),
+                            ),
                           ),
                           Container(
                             child: Column(
                               children: <Widget>[
-                                new DropdownButtonFormField(
-                                  hint: Text(
-                                    'Select a report',
-                                    style: TextStyle(color: Colors.grey),
-                                  ),
-                                  value: _reportType.isNotEmpty
-                                      ? _reportType
-                                      : null,
-                                  items: reportType
-                                      .map((value) => new DropdownMenuItem(
-                                            value: value,
-                                            child: Text('$value'),
-                                          ))
-                                      .toList(),
-                                  isExpanded: true,
+                                TextFormField(
+                                  maxLines: 6,
+                                  controller: feedbackText,
                                   onChanged: (val) => (() {
-                                    _reportType = val;
-                                    selectedReport = val;
                                     FocusScope.of(context)
                                         .requestFocus(FocusNode());
                                   }),
@@ -96,14 +112,71 @@ class Help extends StatelessWidget {
                               ],
                             ),
                           ),
-                          new Padding(
-                            padding: const EdgeInsets.only(top: 30.0),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                child: Text(
+                                  "Feedback Type:",
+                                  overflow: TextOverflow.clip,
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 18),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              SizedBox(
+                                width: 180,
+                                child: DropdownButtonFormField(
+                                  hint: Text(
+                                    'Select feedback type',
+                                    style: TextStyle(color: Colors.grey),
+                                  ),
+                                  value: _feedbackType.isNotEmpty
+                                      ? _feedbackType
+                                      : null,
+                                  items: feedbackType
+                                      .map((value) => new DropdownMenuItem(
+                                            value: value,
+                                            child: Text('$value'),
+                                          ))
+                                      .toList(),
+                                  isExpanded: true,
+                                  onChanged: (val) {
+                                    print(val);
+                                    _feedbackType = val;
+                                    selectedType = val;
+                                    FocusScope.of(context)
+                                        .requestFocus(FocusNode());
+                                  },
+                                  decoration: textInputDecorationNoHint(),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
                           ),
                           SizedBox(
                             height: 50,
                             width: 200,
                             child: ElevatedButton(
                               onPressed: () async {
+                                if (selectedType == "Application") {
+                                  DatabaseService(uid: userID.uid)
+                                      .appFeedbackSubmit(userID.uid,
+                                          feedbackText.text, "", "");
+                                } else if (selectedType == "Route") {
+                                  print("Database connection not established");
+                                  Fluttertoast.showToast(
+                                      msg:
+                                          ("Database connection not established!"));
+                                }
+                                feedbackText.clear();
                                 Fluttertoast.showToast(msg: "Report Sent!");
                               },
                               child: const Text('Proceed',
@@ -113,6 +186,9 @@ class Help extends StatelessWidget {
                           ),
                         ],
                       ),
+                    ),
+                    SizedBox(
+                      height: 10,
                     ),
                     Container(
                       width: MediaQuery.of(context).size.width * 0.90,
@@ -163,7 +239,7 @@ class Help extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(height: 10),
+                    SizedBox(height: 20),
                     Container(
                       width: MediaQuery.of(context).size.width * 0.90,
                       padding: const EdgeInsets.all(15),

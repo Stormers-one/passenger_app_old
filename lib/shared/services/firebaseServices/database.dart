@@ -148,6 +148,23 @@ class DatabaseService {
         .snapshots()
         .map(_bookingList);
   }
+
+  //////////////////////////////////////////////////////////////////////////////
+  //////////////////          Feedbacks Collection          ////////////////////
+  //////////////////////////////////////////////////////////////////////////////
+
+  final CollectionReference feedbacksCollecation =
+      FirebaseFirestore.instance.collection('Support Feedback');
+
+  Future appFeedbackSubmit(
+      String uid, String text, String time, String route) async {
+    print("Test submit feedback");
+    return await feedbacksCollecation.doc().set({
+      'UID': uid,
+      'Feedback': text,
+      'Time': DateTime.now(),
+    });
+  }
 }
 
 class MapDatabaseService {
