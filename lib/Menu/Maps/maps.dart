@@ -53,11 +53,11 @@ class _Maps extends State<Maps> {
         } else {
           List<BusStatic> busData = snapshot.data;
           return Scaffold(
-            backgroundColor: Colors.orange[100],
+            backgroundColor: bgColor,
             resizeToAvoidBottomInset: false,
             appBar: AppBar(
               title: Text('Maps'),
-              backgroundColor: red,
+              backgroundColor: appBarColor,
             ),
             drawer: DrawerBuild(),
             body: new GestureDetector(
@@ -65,108 +65,102 @@ class _Maps extends State<Maps> {
                 FocusScope.of(context).requestFocus(new FocusNode());
               },
               child: SafeArea(
-                child: Center(
+                child: Container(
+                  height: MediaQuery.of(context).size.height,
+                  width: MediaQuery.of(context).size.width,
+                  padding: const EdgeInsets.all(60.0),
+                  alignment: Alignment.center,
                   child: ListView(
-                      shrinkWrap: true,
-                      padding: const EdgeInsets.all(20.0),
-                      children: <Widget>[
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Container(
-                              padding: const EdgeInsets.all(40.0),
-                              child: new Form(
-                                key: _formkey,
-                                autovalidateMode: AutovalidateMode.always,
-                                child: new Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: <Widget>[
-                                    new TextFormField(
-                                      controller: _controller,
-                                      style: new TextStyle(color: Colors.black),
-                                      onTap: () {
-                                        FocusScope.of(context)
-                                            .requestFocus(FocusNode());
-                                        showSearch(
-                                            context: context,
-                                            delegate: BusSearch(
-                                                "MFrom", _controller));
-                                      },
-                                      decoration: textInputDecoration("From"),
-                                      keyboardType: TextInputType.emailAddress,
-                                      cursorWidth: 0,
-                                      validator: (val) =>
-                                          val.isEmpty && clickStatMaps
-                                              ? 'This is required'
-                                              : null,
-                                    ),
-                                    new Padding(
-                                      padding: const EdgeInsets.only(top: 10.0),
-                                    ),
-                                    new TextFormField(
-                                        controller: _controller1,
-                                        style:
-                                            new TextStyle(color: Colors.black),
-                                        onTap: () {
-                                          FocusScope.of(context)
-                                              .requestFocus(FocusNode());
-                                          showSearch(
-                                              context: context,
-                                              delegate: BusSearch(
-                                                  "MTo", _controller1));
-                                        },
-                                        decoration: textInputDecoration("To"),
-                                        obscureText: false,
-                                        keyboardType: TextInputType.text,
-                                        cursorWidth: 0,
-                                        validator: (val) {
-                                          if (val.isEmpty && clickStatMaps) {
-                                            return 'This is requied';
-                                          } else if (_controller.text ==
-                                                  _controller1.text &&
-                                              _controller.text.isNotEmpty) {
-                                            return 'Both location should not be same';
-                                          } else {
-                                            return null;
-                                          }
-                                        }),
-                                    new Padding(
-                                      padding: const EdgeInsets.only(top: 30.0),
-                                    ),
-                                    SizedBox(
-                                      height: 50,
-                                      width: 200,
-                                      child: ElevatedButton(
-                                        onPressed: () {
-                                          selectedMapsFrom = _controller.text;
-                                          selectedMapsTo = _controller1.text;
-                                          clickStatMaps = true;
-                                          if (_formkey.currentState
-                                              .validate()) {
-                                            appState.sendRequest(
-                                                selectedMapsFrom,
-                                                selectedMapsTo,
-                                                busData);
-                                            Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      MapView()),
-                                            );
-                                          }
-                                        },
-                                        child: const Text('Search',
-                                            style: TextStyle(fontSize: 20)),
-                                        style: raisedButtonStyle,
-                                      ),
-                                    ),
-                                  ],
+                    physics: NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    children: [
+                      Container(
+                        child: new Form(
+                          key: _formkey,
+                          autovalidateMode: AutovalidateMode.always,
+                          child: new Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: <Widget>[
+                              new TextFormField(
+                                controller: _controller,
+                                style: new TextStyle(color: Colors.black),
+                                onTap: () {
+                                  FocusScope.of(context)
+                                      .requestFocus(FocusNode());
+                                  showSearch(
+                                      context: context,
+                                      delegate:
+                                          BusSearch("MFrom", _controller));
+                                },
+                                decoration: textInputDecoration("From"),
+                                keyboardType: TextInputType.emailAddress,
+                                cursorWidth: 0,
+                                validator: (val) => val.isEmpty && clickStatMaps
+                                    ? 'This is required'
+                                    : null,
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              new TextFormField(
+                                  controller: _controller1,
+                                  style: new TextStyle(color: Colors.black),
+                                  onTap: () {
+                                    FocusScope.of(context)
+                                        .requestFocus(FocusNode());
+                                    showSearch(
+                                        context: context,
+                                        delegate:
+                                            BusSearch("MTo", _controller1));
+                                  },
+                                  decoration: textInputDecoration("To"),
+                                  obscureText: false,
+                                  keyboardType: TextInputType.text,
+                                  cursorWidth: 0,
+                                  validator: (val) {
+                                    if (val.isEmpty && clickStatMaps) {
+                                      return 'This is requied';
+                                    } else if (_controller.text ==
+                                            _controller1.text &&
+                                        _controller.text.isNotEmpty) {
+                                      return 'Both location should not be same';
+                                    } else {
+                                      return null;
+                                    }
+                                  }),
+                              SizedBox(
+                                height: 30,
+                              ),
+                              SizedBox(
+                                height: 50,
+                                width: 200,
+                                child: ElevatedButton(
+                                  onPressed: () {
+                                    selectedMapsFrom = _controller.text;
+                                    selectedMapsTo = _controller1.text;
+                                    clickStatMaps = true;
+                                    if (_formkey.currentState.validate()) {
+                                      appState.sendRequest(selectedMapsFrom,
+                                          selectedMapsTo, busData);
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => MapView()),
+                                      );
+                                    }
+                                  },
+                                  child: const Text('Search',
+                                      style: TextStyle(
+                                          fontSize: 20, color: Colors.white)),
+                                  style: raisedButtonStyle,
                                 ),
                               ),
-                            )
-                          ],
+                            ],
+                          ),
                         ),
-                      ]),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),

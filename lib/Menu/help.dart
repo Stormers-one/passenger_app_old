@@ -35,7 +35,7 @@ class Help extends StatelessWidget {
       theme: ThemeData(fontFamily: 'Quicksand-Medium'),
       title: 'Help',
       home: Scaffold(
-        backgroundColor: bgOrange,
+        backgroundColor: bgColor,
         // appBar: AppBar(
         //   elevation: 0,
         //   backgroundColor: red,

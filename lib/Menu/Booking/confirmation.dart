@@ -75,11 +75,11 @@ class _BookingConfirm extends State<BookingConfirm> {
             theme: ThemeData(fontFamily: 'Quicksand-Medium'),
             title: 'Confirm Details',
             home: Scaffold(
-              backgroundColor: Colors.orange[100],
+              backgroundColor: bgColor,
               appBar: AppBar(
                   elevation: 0,
                   title: Text('Confirm Details'),
-                  backgroundColor: red,
+                  backgroundColor: appBarColor,
                   actions: <Widget>[]),
               drawer: DrawerBuild(),
               body: new GestureDetector(

@@ -57,6 +57,15 @@ class DatabaseService {
     return userCollecation.doc(uid).snapshots().map(_userDataFromSnapshot);
   }
 
+  // Get user bookings
+  Stream<List<TicketData>> get getUserBookings {
+    return userCollecation
+        .doc(uid)
+        .collection('Bookings')
+        .snapshots()
+        .map(_bookingList);
+  }
+
   //////////////////////////////////////////////////////////////////////////////
   //////////////////          Bus Stops Collection          ////////////////////
   //////////////////////////////////////////////////////////////////////////////
@@ -96,10 +105,20 @@ class DatabaseService {
       FirebaseFirestore.instance.collection('Bookings');
   Future addBooking(String uid, var fare, String bID, String phno, String from,
       String to, String busType) async {
-    return await ticketsCollection.doc(bID).set({
+    await ticketsCollection.doc(bID).set({
       'UID': uid,
       'Fare': fare,
-      'Booking ID': bidn,
+      'Booking ID': bID,
+      'From': from,
+      'To': to,
+      'Booking Time': DateTime.now(),
+      'Phone Number': phno,
+      'Bus Type': busType,
+    });
+    await userCollecation.doc(uid).collection("Bookings").add({
+      'UID': uid,
+      'Fare': fare,
+      'Booking ID': bID,
       'From': from,
       'To': to,
       'Booking Time': DateTime.now(),
@@ -125,7 +144,7 @@ class DatabaseService {
 
   Stream<List<TicketData>> get ticketdata {
     return ticketsCollection
-        .where('UID', isEqualTo: userID)
+        .where('UID', isEqualTo: uid)
         .snapshots()
         .map(_bookingList);
   }

@@ -12,24 +12,27 @@ class Tracking extends StatelessWidget {
       title: 'Tracking',
       theme: ThemeData(fontFamily: 'Quicksand-Medium'),
       home: Scaffold(
-        backgroundColor: Colors.orange[100],
+        backgroundColor: bgColor,
         appBar: AppBar(
           elevation: 0,
           title: Text('Tracking'),
-          backgroundColor: red,
+          backgroundColor: appBarColor,
         ),
         drawer: DrawerBuild(),
         body: new GestureDetector(
           onTap: () {
             FocusScope.of(context).requestFocus(new FocusNode());
           },
-          child: Center(
+          child: Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            padding: const EdgeInsets.all(20.0),
+            alignment: Alignment.center,
             child: ListView(
+                physics: NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                padding: const EdgeInsets.all(20.0),
                 children: <Widget>[
                   Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Container(
                         child: Image.asset(
@@ -63,7 +66,8 @@ class Tracking extends StatelessWidget {
                                     );
                                   },
                                   child: const Text('Search',
-                                      style: TextStyle(fontSize: 20)),
+                                      style: TextStyle(
+                                          fontSize: 20, color: Colors.white)),
                                   style: raisedButtonStyle,
                                 ),
                               ),

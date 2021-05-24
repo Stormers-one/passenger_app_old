@@ -31,16 +31,23 @@ class _ProfileState extends State<Profile> {
     return /*profrefresher? Loading():*/ MaterialApp(
       title: 'Profile',
       home: Scaffold(
-        backgroundColor: Colors.orange[100],
+        backgroundColor: bgColor,
         appBar: AppBar(
             elevation: 0,
             title: Text('Profile'),
-            backgroundColor: red,
+            backgroundColor: appBarColor,
             actions: <Widget>[
               TextButton.icon(
-                  onPressed: () => _showSettengsPanel(),
-                  icon: Icon(Icons.settings),
-                  label: Text('Edit Profile'))
+                onPressed: () => _showSettengsPanel(),
+                icon: Icon(
+                  Icons.settings,
+                  color: Colors.white,
+                ),
+                label: Text(
+                  'Edit Profile',
+                  style: TextStyle(color: Colors.white),
+                ),
+              )
             ]),
         drawer: DrawerBuild(),
         body: Builder(

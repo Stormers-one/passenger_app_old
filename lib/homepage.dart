@@ -24,15 +24,23 @@ class _HomepageState extends State<Homepage> {
       debugShowCheckedModeBanner: false,
       title: 'Homepage',
       home: Scaffold(
-        backgroundColor: bgOrange,
+        backgroundColor: bgColor,
         appBar: AppBar(
           elevation: 0,
           //title: Text('MENU'),
-          backgroundColor: red,
+          backgroundColor: appBarColor,
           actions: <Widget>[
             TextButton.icon(
-              icon: Icon(Icons.person),
-              label: Text('Logout'),
+              icon: Icon(
+                Icons.person,
+                color: Colors.white,
+              ),
+              label: Text(
+                'Logout',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
               onPressed: () async {
                 clickStatLogin = false;
                 clickStatRegister = false;
@@ -59,91 +67,77 @@ class _HomepageState extends State<Homepage> {
             FocusScope.of(context).requestFocus(new FocusNode());
           },
           child: SafeArea(
-            child: Center(
-              child: Stack(
+            child: Container(
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+              child: ListView(
+                shrinkWrap: true,
+                padding: const EdgeInsets.only(left: 9.0, right: 9.0),
                 children: <Widget>[
-                  // Container(alignment: Alignment(0, 1), child: WavyFooter()),
-                  ListView(
-                    shrinkWrap: true,
-                    padding: const EdgeInsets.only(left: 9.0, right: 9.0),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          SizedBox(
-                            height: 10,
+                      // SizedBox(
+                      //   height: 5,
+                      // ),
+                      Hero(
+                        tag: 'imageHero',
+                        child: new Container(
+                          child: Image.asset(
+                            'assets/images/logo.png',
                           ),
-                          // FloatingActionButton(
-                          //   onPressed: () {
-                          //     Navigator.push(
-                          //       context,
-                          //       MaterialPageRoute(
-                          //           builder: (context) => Conductor()),
-                          //     );
-                          //   },
-                          // ),
-                          Hero(
-                            tag: 'imageHero',
-                            child: new Container(
-                              child: Image.asset(
-                                'assets/images/logo.png',
-                              ),
-                              height: 190,
-                              width: 190,
+                          height: 190,
+                          width: 190,
+                        ),
+                      ),
+                      Container(
+                        alignment: Alignment.bottomCenter,
+                        padding: EdgeInsets.only(left: 20.0, right: 20.0),
+                        width: MediaQuery.of(context).size.width,
+                        //height:
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            new Padding(
+                              padding: const EdgeInsets.only(top: 10.0),
                             ),
-                          ),
-                          Container(
-                            alignment: Alignment.bottomCenter,
-                            padding: EdgeInsets.only(left: 20.0, right: 20.0),
-                            width: MediaQuery.of(context).size.width,
-                            //height:
-                            child: Column(
+                            Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
                               children: [
-                                new Padding(
-                                  padding: const EdgeInsets.only(top: 10.0),
+                                Button(
+                                  image: buttonHome[0].image,
+                                  text: buttonHome[0].text,
+                                  route: buttonHome[0].route,
+                                  context: context,
                                 ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Button(
-                                      image: buttonHome[0].image,
-                                      text: buttonHome[0].text,
-                                      route: buttonHome[0].route,
-                                      context: context,
-                                    ),
-                                    Button(
-                                      image: buttonHome[1].image,
-                                      text: buttonHome[1].text,
-                                      route: buttonHome[1].route,
-                                      context: context,
-                                    )
-                                  ],
+                                Button(
+                                  image: buttonHome[1].image,
+                                  text: buttonHome[1].text,
+                                  route: buttonHome[1].route,
+                                  context: context,
+                                )
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Button(
+                                  image: buttonHome[2].image,
+                                  text: buttonHome[2].text,
+                                  route: buttonHome[2].route,
+                                  context: context,
                                 ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Button(
-                                      image: buttonHome[2].image,
-                                      text: buttonHome[2].text,
-                                      route: buttonHome[2].route,
-                                      context: context,
-                                    ),
-                                    Button(
-                                      image: buttonHome[3].image,
-                                      text: buttonHome[3].text,
-                                      route: buttonHome[3].route,
-                                      context: context,
-                                    ),
-                                  ],
+                                Button(
+                                  image: buttonHome[3].image,
+                                  text: buttonHome[3].text,
+                                  route: buttonHome[3].route,
+                                  context: context,
                                 ),
                               ],
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ],
                   ),

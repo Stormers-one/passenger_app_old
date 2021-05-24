@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-Color bgColor = const Color(0xFFECECD7);
-Color coralColor = const Color(0xFFFF7E6B);
+Color bgColor = const Color(0xFFFFFFFF);
+Color buttonColor = const Color(0xFFF2BF40);
+Color appBarColor = const Color(0xFFFF7E6B);
 Color raspberryColor = const Color(0xFF96616B);
 Color mintColor = const Color(0xFFA9F0D1);
 Color salmonColor = const Color(0xFFFFA69E);

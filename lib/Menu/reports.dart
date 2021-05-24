@@ -30,11 +30,11 @@ class Reports extends StatelessWidget {
       theme: ThemeData(fontFamily: 'Quicksand-Medium'),
       title: 'Reports',
       home: Scaffold(
-        backgroundColor: Colors.orange[100],
+        backgroundColor: bgColor,
         appBar: AppBar(
           elevation: 0,
           title: Text('Reports'),
-          backgroundColor: red,
+          backgroundColor: appBarColor,
         ),
         drawer: DrawerBuild(),
         body: GestureDetector(

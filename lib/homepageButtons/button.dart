@@ -24,7 +24,7 @@ class Button extends StatelessWidget {
           shape: new RoundedRectangleBorder(
               borderRadius: new BorderRadius.circular(18.0),
               side: BorderSide(color: Colors.transparent)),
-          fillColor: orange,
+          fillColor: buttonColor,
           splashColor: Colors.grey,
           textStyle: TextStyle(
               color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20.0),
