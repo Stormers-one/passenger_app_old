@@ -4,6 +4,8 @@
 
 -keepattributes JavascriptInterface
 -keepattributes *Annotation*
+-keepattributes InnerClasses
+-dontoptimize
 
 -dontwarn com.razorpay.**
 -keep class com.razorpay.** {*;}
