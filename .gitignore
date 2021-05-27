@@ -62,7 +62,13 @@ build/
 .packages
 .flutter-plugins-dependencies
 
+# IDEA config files
+.idea/
+android/.idea/
+
 # Keys
 lib/privateConfig.dart
 android/private.properties
 android/app/google-services.json
+android/key.properties
+android/keystore.jks
